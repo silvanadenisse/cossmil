@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido: MyString
+  matricula_titular: MyString
+  fuerza: MyString
+  matricula_paciente: MyString
+  carnet: 
+  grupo_sanguine: MyString
+
+two:
+  nombre: MyString
+  apellido: MyString
+  matricula_titular: MyString
+  fuerza: MyString
+  matricula_paciente: MyString
+  carnet: 
+  grupo_sanguine: MyString

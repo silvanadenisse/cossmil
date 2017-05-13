@@ -1,0 +1,56 @@
+<%= form_for(paciente) do |f| %>
+  <% if paciente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+      <ul>
+      <% paciente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :matricula_titular %>
+    <%= f.text_field :matricula_titular %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fuerza %>
+    <%= f.text_field :fuerza %>
+  </div>
+
+  <div class="field">
+    <%= f.label :matricula_paciente %>
+    <%= f.text_field :matricula_paciente %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carnet %>
+    <%= f.text_field :carnet %>
+  </div>
+
+  <div class="field">
+    <%= f.label :grupo_sanguineo %>
+    <%= f.text_field :grupo_sanguineo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nacionalidad %>
+    <%= f.text_field :nacionalidad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
