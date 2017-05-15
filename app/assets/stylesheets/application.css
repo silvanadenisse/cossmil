@@ -43,10 +43,10 @@ header nav ul li {
 }
 
 header nav ul li a {
-	padding;10px 20px;
-	display:block;
-	color:#fff;
-	text-decoration:nome;
+	padding: 10px 20px;
+	display: block;
+	color: #fff;
+	text-decoration:none;
 }
 
 header nav ul li a:hover {
@@ -55,7 +55,7 @@ header nav ul li a:hover {
 
 .main .articules {
 	width:68.5%;
-	margin-rigth:1.5%
+	margin-rigth:1.5%;
 	float:left;
 	
 }
