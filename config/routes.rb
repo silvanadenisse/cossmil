@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #get 'welcome/index'
 
-  root 'welcome#index'
+  root 'static_pages#home'
   resources :medicos
   resources :areas
   resources :pacientes

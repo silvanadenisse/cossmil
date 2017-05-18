@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Cossmil</title>
-    <%= csrf_meta_tags %>
+	<head>
+		<title>Cossmil</title>
+		<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<%= csrf_meta_tags %>
+		<%= render 'layouts/shim' %>
+	</head>
 
-  <body>
-    <%= yield %>
-  </body>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="container dropshadow">
+			<% flash.each do |key, value| %>
+				<div class="flash <%= key %>"><%= value %></div>
+			<% end %>
+			<%= yield %>
+			<br>
+		</div>
+		<%= render 'layouts/footer' %>
+	</body>
 </html>
-
