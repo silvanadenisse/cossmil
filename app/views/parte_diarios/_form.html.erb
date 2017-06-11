@@ -1,0 +1,62 @@
+<%= form_for(parte_diario) do |f| %>
+  <% if parte_diario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parte_diario.errors.count, "error") %> prohibited this parte_diario from being saved:</h2>
+
+      <ul>
+      <% parte_diario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %>
+    <%= f.date_select :fecha %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carnet_asegurado %>
+    <%= f.text_field :carnet_asegurado %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carnet_beneficiario %>
+    <%= f.text_field :carnet_beneficiario %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnostico %>
+    <%= f.text_area :diagnostico %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edad %>
+    <%= f.number_field :edad %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sexo %>
+    <%= f.check_box :sexo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_consulta %>
+    <%= f.check_box :tipo_consulta %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_asegurado %>
+    <%= f.check_box :tipo_asegurado %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fuerza %>
+    <%= f.check_box :fuerza %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

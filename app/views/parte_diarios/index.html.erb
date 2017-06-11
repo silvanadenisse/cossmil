@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parte Diarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Carnet asegurado</th>
+      <th>Carnet beneficiario</th>
+      <th>Diagnostico</th>
+      <th>Edad</th>
+      <th>Sexo</th>
+      <th>Tipo consulta</th>
+      <th>Tipo asegurado</th>
+      <th>Fuerza</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_diarios.each do |parte_diario| %>
+      <tr>
+        <td><%= parte_diario.fecha %></td>
+        <td><%= parte_diario.carnet_asegurado %></td>
+        <td><%= parte_diario.carnet_beneficiario %></td>
+        <td><%= parte_diario.diagnostico %></td>
+        <td><%= parte_diario.edad %></td>
+        <td><%= parte_diario.sexo %></td>
+        <td><%= parte_diario.tipo_consulta %></td>
+        <td><%= parte_diario.tipo_asegurado %></td>
+        <td><%= parte_diario.fuerza %></td>
+        <td><%= link_to 'Show', parte_diario %></td>
+        <td><%= link_to 'Edit', edit_parte_diario_path(parte_diario) %></td>
+        <td><%= link_to 'Destroy', parte_diario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parte Diario', new_parte_diario_path %>

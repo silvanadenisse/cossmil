@@ -26,6 +26,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+gem 'devise'
+gem 'bcrypt', platforms: :ruby
 gem 'jquery-turbolinks'
 
 gem 'bootstrap_form'

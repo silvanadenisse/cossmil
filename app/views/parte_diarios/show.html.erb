@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @parte_diario.fecha %>
+</p>
+
+<p>
+  <strong>Carnet asegurado:</strong>
+  <%= @parte_diario.carnet_asegurado %>
+</p>
+
+<p>
+  <strong>Carnet beneficiario:</strong>
+  <%= @parte_diario.carnet_beneficiario %>
+</p>
+
+<p>
+  <strong>Diagnostico:</strong>
+  <%= @parte_diario.diagnostico %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @parte_diario.edad %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @parte_diario.sexo %>
+</p>
+
+<p>
+  <strong>Tipo consulta:</strong>
+  <%= @parte_diario.tipo_consulta %>
+</p>
+
+<p>
+  <strong>Tipo asegurado:</strong>
+  <%= @parte_diario.tipo_asegurado %>
+</p>
+
+<p>
+  <strong>Fuerza:</strong>
+  <%= @parte_diario.fuerza %>
+</p>
+
+<%= link_to 'Edit', edit_parte_diario_path(@parte_diario) %> |
+<%= link_to 'Back', parte_diarios_path %>

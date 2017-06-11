@@ -8,6 +8,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/" style="padding-top: 10px;" ><img style="max-width:40px; margin-top: -7px;" src="cossmil.jpg"></a>
+      <% if user_signed_in? %>
+        <button>medico</button>
+        
+      <%end%>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">

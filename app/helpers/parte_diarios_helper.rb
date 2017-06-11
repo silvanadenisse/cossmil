@@ -1,0 +1,2 @@
+module ParteDiariosHelper
+end

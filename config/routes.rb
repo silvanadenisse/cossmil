@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :parte_diarios
   #get 'welcome/index'
 
   root 'static_pages#home'
