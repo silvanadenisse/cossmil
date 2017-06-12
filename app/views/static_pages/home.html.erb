@@ -1,11 +1,13 @@
 <% provide(:title, 'Inicio') %>
 <br>
 <div class="row">
-<h2>BIENVENIDOS</h2>
-	<% if user_signed_in? %>
-		<p>hola <%= current_user_email %></p>
-		<p><%= link_to "Cerrar sesion", destroy_user_session %></p>
-	<%else%>
-		<p><%= link_to "Crear cuenta", new_user_registration_path%></p>
-		<p>creada: <%= link_to "login", new_user_session_path %></p>
+  <h2>BIENVENIDOS</h2>
+  <% if user_signed_in? %>
+      <p>hola <%= current_user.name %></p>
+      <p><%= link_to "Cerrar sesion", destroy_user_session_path, :method => 'delete' %></p>
+  <% else %>
+      <p><%= link_to "Crear cuenta", new_user_registration_path %></p>
+      <p>creada: <%= link_to "login", new_user_session_path %></p>
+  <% end %>
 </div>
+
