@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pacientes: one
+  parte_diarios: one
+
+two:
+  pacientes: two
+  parte_diarios: two

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paciente_reportes
   resources :parte_diarios
   devise_for :users
 

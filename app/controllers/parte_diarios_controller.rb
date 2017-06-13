@@ -69,6 +69,6 @@ class ParteDiariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parte_diario_params
-      params.require(:parte_diario).permit(:mes, :servicio_de, :nombre_medico, :clave, :inicio_consulta, :fin_consulta, :enfermera)
+      params.require(:parte_diario).permit(:mes, :servicio_de, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
     end
 end
