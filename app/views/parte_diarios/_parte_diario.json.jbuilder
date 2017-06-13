@@ -1,2 +1,2 @@
-json.extract! parte_diario, :id, :fecha, :carnet_asegurado, :carnet_beneficiario, :diagnostico, :edad, :sexo, :tipo_consulta, :tipo_asegurado, :fuerza, :created_at, :updated_at
+json.extract! parte_diario, :id, :mes, :servicio_de, :nombre_medico, :clave, :inicio_consulta, :fin_consulta, :enfermera, :created_at, :updated_at
 json.url parte_diario_url(parte_diario, format: :json)

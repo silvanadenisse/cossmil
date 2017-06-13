@@ -8,4 +8,6 @@ class Paciente
   field :carnet, type: Integer
   field :grupo_sanguineo, type: String
   field :nacionalidad, type: String
+
+  has_and_belongs_to_many :parte_diarios
 end

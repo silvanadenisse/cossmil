@@ -1,48 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Fecha:</strong>
-  <%= @parte_diario.fecha %>
+  <strong>Mes:</strong>
+  <%= @parte_diario.mes %>
 </p>
 
 <p>
-  <strong>Carnet asegurado:</strong>
-  <%= @parte_diario.carnet_asegurado %>
+  <strong>Servicio de:</strong>
+  <%= @parte_diario.servicio_de %>
 </p>
 
 <p>
-  <strong>Carnet beneficiario:</strong>
-  <%= @parte_diario.carnet_beneficiario %>
+  <strong>Nombre medico:</strong>
+  <%= @parte_diario.nombre_medico %>
 </p>
 
 <p>
-  <strong>Diagnostico:</strong>
-  <%= @parte_diario.diagnostico %>
+  <strong>Clave:</strong>
+  <%= @parte_diario.clave %>
 </p>
 
 <p>
-  <strong>Edad:</strong>
-  <%= @parte_diario.edad %>
+  <strong>Inicio consulta:</strong>
+  <%= @parte_diario.inicio_consulta %>
 </p>
 
 <p>
-  <strong>Sexo:</strong>
-  <%= @parte_diario.sexo %>
+  <strong>Fin consulta:</strong>
+  <%= @parte_diario.fin_consulta %>
 </p>
 
 <p>
-  <strong>Tipo consulta:</strong>
-  <%= @parte_diario.tipo_consulta %>
-</p>
-
-<p>
-  <strong>Tipo asegurado:</strong>
-  <%= @parte_diario.tipo_asegurado %>
-</p>
-
-<p>
-  <strong>Fuerza:</strong>
-  <%= @parte_diario.fuerza %>
+  <strong>Enfermera:</strong>
+  <%= @parte_diario.enfermera %>
 </p>
 
 <%= link_to 'Edit', edit_parte_diario_path(@parte_diario) %> |

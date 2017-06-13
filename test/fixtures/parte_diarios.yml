@@ -1,23 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fecha: 2017-06-05
-  carnet_asegurado: MyString
-  carnet_beneficiario: MyString
-  diagnostico: MyText
-  edad: 1
-  sexo: false
-  tipo_consulta: false
-  tipo_asegurado: false
-  fuerza: false
+  mes: MyString
+  servicio_de: MyString
+  nombre_medico: MyString
+  clave: 1
+  inicio_consulta: 2017-06-13 01:21:51
+  fin_consulta: 2017-06-13 01:21:51
+  enfermera: MyString
 
 two:
-  fecha: 2017-06-05
-  carnet_asegurado: MyString
-  carnet_beneficiario: MyString
-  diagnostico: MyText
-  edad: 1
-  sexo: false
-  tipo_consulta: false
-  tipo_asegurado: false
-  fuerza: false
+  mes: MyString
+  servicio_de: MyString
+  nombre_medico: MyString
+  clave: 1
+  inicio_consulta: 2017-06-13 01:21:51
+  fin_consulta: 2017-06-13 01:21:51
+  enfermera: MyString

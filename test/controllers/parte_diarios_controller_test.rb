@@ -17,7 +17,7 @@ class ParteDiariosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create parte_diario" do
     assert_difference('ParteDiario.count') do
-      post parte_diarios_url, params: { parte_diario: { carnet_asegurado: @parte_diario.carnet_asegurado, carnet_beneficiario: @parte_diario.carnet_beneficiario, diagnostico: @parte_diario.diagnostico, edad: @parte_diario.edad, fecha: @parte_diario.fecha, fuerza: @parte_diario.fuerza, sexo: @parte_diario.sexo, tipo_asegurado: @parte_diario.tipo_asegurado, tipo_consulta: @parte_diario.tipo_consulta } }
+      post parte_diarios_url, params: { parte_diario: { clave: @parte_diario.clave, enfermera: @parte_diario.enfermera, fin_consulta: @parte_diario.fin_consulta, inicio_consulta: @parte_diario.inicio_consulta, mes: @parte_diario.mes, nombre_medico: @parte_diario.nombre_medico, servicio_de: @parte_diario.servicio_de } }
     end
 
     assert_redirected_to parte_diario_url(ParteDiario.last)
@@ -34,7 +34,7 @@ class ParteDiariosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update parte_diario" do
-    patch parte_diario_url(@parte_diario), params: { parte_diario: { carnet_asegurado: @parte_diario.carnet_asegurado, carnet_beneficiario: @parte_diario.carnet_beneficiario, diagnostico: @parte_diario.diagnostico, edad: @parte_diario.edad, fecha: @parte_diario.fecha, fuerza: @parte_diario.fuerza, sexo: @parte_diario.sexo, tipo_asegurado: @parte_diario.tipo_asegurado, tipo_consulta: @parte_diario.tipo_consulta } }
+    patch parte_diario_url(@parte_diario), params: { parte_diario: { clave: @parte_diario.clave, enfermera: @parte_diario.enfermera, fin_consulta: @parte_diario.fin_consulta, inicio_consulta: @parte_diario.inicio_consulta, mes: @parte_diario.mes, nombre_medico: @parte_diario.nombre_medico, servicio_de: @parte_diario.servicio_de } }
     assert_redirected_to parte_diario_url(@parte_diario)
   end
 
