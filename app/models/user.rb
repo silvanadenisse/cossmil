@@ -41,5 +41,5 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  has_and_belongs_to_many :Parte_diarios
+  has_and_belongs_to_many :parte_diarios
 end

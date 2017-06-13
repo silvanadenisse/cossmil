@@ -7578,3 +7578,9 @@ table.tablesorter thead tr th:hover {
         right: auto;
     }
 }
+
+.dropshadow{
+    -webkit-box-shadow: 0px 0px 24px 12px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 0px 24px 12px rgba(0,0,0,0.39);
+    box-shadow: 0px 0px 24px 12px rgba(0,0,0,0.39);
+}
