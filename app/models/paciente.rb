@@ -9,5 +9,5 @@ class Paciente
   field :grupo_sanguineo, type: String
   field :nacionalidad, type: String
 
-  has_and_belongs_to_many :parte_diarios
+  belongs_to :user
 end

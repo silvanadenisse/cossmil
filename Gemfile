@@ -33,6 +33,7 @@ gem 'jquery-turbolinks'
 gem 'bootstrap_form'
 
 gem 'cancancan'
+gem 'will_paginate'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

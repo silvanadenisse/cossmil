@@ -5,6 +5,7 @@ class User
   field :role, type: String
   field :speciality, type: String
   belongs_to :area
+  has_many :pacientes
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

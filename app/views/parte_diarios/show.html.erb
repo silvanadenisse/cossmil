@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
 
 <p>
   <strong>Mes:</strong>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Nombre medico:</strong>
-  <%= @parte_diario.user.name + " " +  @parte_diario.user.last_name%>
+  <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
 </p>
 
 <p>
@@ -35,5 +35,92 @@
   <%= @parte_diario.enfermera %>
 </p>
 
-<%= link_to 'Edit', edit_parte_diario_path(@parte_diario) %> |
-<%= link_to 'Back', parte_diarios_path %>
+<p>
+<h2>Pacientes del Parte Diario</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Diagnostico</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_diario.paciente_reportes.each do |paciente_repo| %>
+      <tr>
+        <td>
+          <%= paciente_repo.paciente.nombre + " " + paciente_repo.paciente.apellido %>
+        </td>
+        <td>
+          <%= paciente_repo.diagnostico %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+<p>
+<h2>Agregar Paciente a Parte Diario</h2>
+
+<div id="paciente"><!--style="display:none"--><br>
+  <form method="GET">Nombre:
+    <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Carnet</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @pacientes.each do |paciente| %>
+        <tr>
+          <td>
+            <%= paciente.nombre + " " + paciente.apellido %>
+          </td>
+          <td>
+            <%= paciente.carnet %>
+          </td>
+          <td>
+            <div align="right">
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar a
+                parte
+              </button>
+            </div>
+            <div class="modal fade" id="myModal-<%= paciente.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar a Parte</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for([@parte_diario, @parte_diario.paciente_reportes.build]) do |f| %>
+                        <%= f.label :diagnostico, "Diagnostico:" %>
+                        <%= f.text_field :diagnostico %>
+                        <%= f.hidden_field :paciente_id, :value => paciente.id %>
+                        <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
+                        <%= f.submit "Agregar", class: "btn btn-default" %>
+                    <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+</p>
+
+
+<%= link_to 'Editar', edit_parte_diario_path(@parte_diario) %> |
+<%= link_to 'Volver', parte_diarios_path %>

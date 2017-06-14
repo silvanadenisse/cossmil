@@ -1,31 +1,26 @@
 class ParteDiariosController < ApplicationController
   before_action :set_parte_diario, only: [:show, :edit, :update, :destroy]
 
-  # GET /parte_diarios
-  # GET /parte_diarios.json
   def index
     @parte_diarios = ParteDiario.all
   end
 
-  # GET /parte_diarios/1
-  # GET /parte_diarios/1.json
   def show
+    @pacientes = Paciente.all
   end
 
-  # GET /parte_diarios/new
+
   def new
     @parte_diario = ParteDiario.new
   end
 
-  # GET /parte_diarios/1/edit
+
   def edit
   end
 
-  # POST /parte_diarios
-  # POST /parte_diarios.json
+
   def create
     @parte_diario = ParteDiario.new(parte_diario_params)
-
     respond_to do |format|
       if @parte_diario.save
         format.html { redirect_to @parte_diario, notice: 'Parte diario was successfully created.' }
@@ -37,8 +32,6 @@ class ParteDiariosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /parte_diarios/1
-  # PATCH/PUT /parte_diarios/1.json
   def update
     respond_to do |format|
       if @parte_diario.update(parte_diario_params)
@@ -51,8 +44,6 @@ class ParteDiariosController < ApplicationController
     end
   end
 
-  # DELETE /parte_diarios/1
-  # DELETE /parte_diarios/1.json
   def destroy
     @parte_diario.destroy
     respond_to do |format|

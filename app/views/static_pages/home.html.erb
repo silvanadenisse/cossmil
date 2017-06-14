@@ -4,7 +4,6 @@
   <h2>BIENVENIDOS</h2>
   <% if user_signed_in? %>
       <p>hola <%= current_user.name %></p>
-      <p>hola <%= current_user.area.nombre %></p>
       <p><%= link_to "Cerrar sesion", destroy_user_session_path, :method => 'delete' %></p>
   <% else %>
       <p><%= link_to "Crear cuenta", new_user_registration_path %></p>

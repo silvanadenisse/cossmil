@@ -1,5 +1,7 @@
 class PacienteReporte
   include Mongoid::Document
-  embedded_in :pacientes
-  embedded_in :parte_diarios
+  include Mongoid::Attributes::Dynamic
+  field :diagnostico, type: String
+  belongs_to :paciente
+  belongs_to :parte_diario
 end

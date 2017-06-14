@@ -8,7 +8,7 @@ class ParteDiario
   field :fin_consulta, type: Time
   field :enfermera, type: String
 
-  has_many :pacientes
-  belongs_to :user
 
+  belongs_to :user
+  has_many :paciente_reportes, dependent: :destroy
 end
