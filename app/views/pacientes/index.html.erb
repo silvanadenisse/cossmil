@@ -28,9 +28,9 @@
         <td><%= paciente.carnet %></td>
         <td><%= paciente.grupo_sanguineo %></td>
         <td><%= paciente.nacionalidad %></td>
-        <td><%= link_to 'Show', paciente %></td>
-        <td><%= link_to 'Edit', edit_paciente_path(paciente) %></td>
-        <td><%= link_to 'Destroy', paciente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', paciente %></td>
+        <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
+        <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Paciente', new_paciente_path %>
+<%= link_to 'Nuevo Paciente', new_paciente_path %>

@@ -16,9 +16,9 @@
       <tr>
         <td><%= paciente_reporte.pacientes %></td>
         <td><%= paciente_reporte.parte_diarios %></td>
-        <td><%= link_to 'Show', paciente_reporte %></td>
-        <td><%= link_to 'Edit', edit_paciente_reporte_path(paciente_reporte) %></td>
-        <td><%= link_to 'Destroy', paciente_reporte, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', paciente_reporte %></td>
+        <td><%= link_to 'Editar', edit_paciente_reporte_path(paciente_reporte) %></td>
+        <td><%= link_to 'Eliminar', paciente_reporte, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Paciente Reporte', new_paciente_reporte_path %>
+<%= link_to 'Nuevo Paciente Reporte', new_paciente_reporte_path %>

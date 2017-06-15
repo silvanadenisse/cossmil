@@ -26,9 +26,9 @@
         <td><%= parte_diario.inicio_consulta %></td>
         <td><%= parte_diario.fin_consulta %></td>
         <td><%= parte_diario.enfermera %></td>
-        <td><%= link_to 'Show', parte_diario %></td>
-        <td><%= link_to 'Edit', edit_parte_diario_path(parte_diario) %></td>
-        <td><%= link_to 'Destroy', parte_diario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', parte_diario %></td>
+        <td><%= link_to 'Editar', edit_parte_diario_path(parte_diario) %></td>
+        <td><%= link_to 'Eliminar', parte_diario, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Parte Diario', new_parte_diario_path %>
+<%= link_to 'Nuevo Parte Diario', new_parte_diario_path %>

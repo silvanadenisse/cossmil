@@ -23,7 +23,7 @@ class ParteDiariosController < ApplicationController
     @parte_diario = ParteDiario.new(parte_diario_params)
     respond_to do |format|
       if @parte_diario.save
-        format.html { redirect_to @parte_diario, notice: 'Parte diario was successfully created.' }
+        format.html { redirect_to @parte_diario, notice: 'Parte diario creado correctamente.' }
         format.json { render :show, status: :created, location: @parte_diario }
       else
         format.html { render :new }
@@ -35,7 +35,7 @@ class ParteDiariosController < ApplicationController
   def update
     respond_to do |format|
       if @parte_diario.update(parte_diario_params)
-        format.html { redirect_to @parte_diario, notice: 'Parte diario was successfully updated.' }
+        format.html { redirect_to @parte_diario, notice: 'Parte diario actualizado correctamente' }
         format.json { render :show, status: :ok, location: @parte_diario }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ class ParteDiariosController < ApplicationController
   def destroy
     @parte_diario.destroy
     respond_to do |format|
-      format.html { redirect_to parte_diarios_url, notice: 'Parte diario was successfully destroyed.' }
+      format.html { redirect_to parte_diarios_url, notice: 'Parte diario eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

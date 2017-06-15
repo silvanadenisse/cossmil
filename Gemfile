@@ -27,7 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
-gem 'bcrypt', platforms: :ruby
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'jquery-turbolinks'
 
 gem 'bootstrap_form'
