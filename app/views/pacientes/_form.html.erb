@@ -12,42 +12,42 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :nombre %>
+      <%= f.label 'Nombre: ' %>
       <%= f.text_field :nombre %>
     </div>
 
     <div class="field">
-      <%= f.label :apellido %>
+      <%= f.label 'Apellido: ' %>
       <%= f.text_field :apellido %>
     </div>
 
     <div class="field">
-      <%= f.label :matricula_titular %>
+      <%= f.label 'Matricula titular: ' %>
       <%= f.text_field :matricula_titular %>
     </div>
 
     <div class="field">
-      <%= f.label :fuerza %>
+      <%= f.label 'Fuerza: ' %>
       <%= f.text_field :fuerza %>
     </div>
 
     <div class="field">
-      <%= f.label :matricula_paciente %>
+      <%= f.label 'Matricula paciente: ' %>
       <%= f.text_field :matricula_paciente %>
     </div>
 
     <div class="field">
-      <%= f.label :carnet %>
+      <%= f.label 'Carnet: ' %>
       <%= f.text_field :carnet %>
     </div>
 
     <div class="field">
-      <%= f.label :grupo_sanguineo %>
+      <%= f.label 'Grupo sanguineo: ' %>
       <%= f.text_field :grupo_sanguineo %>
     </div>
 
     <div class="field">
-      <%= f.label :nacionalidad %>
+      <%= f.label 'Nacionalidad: ' %>
       <%= f.text_field :nacionalidad %>
       <%= f.hidden_field :user_id, :value => current_user.id%>
     </div>
