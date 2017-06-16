@@ -63,9 +63,10 @@
 <h2>Agregar Paciente a Parte Diario</h2>
 
 <div id="paciente"><!--style="display:none"--><br>
-  <form method="GET">Nombre:
+  <br><form method="GET">Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
-  </form>
+    <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
+  </form></br>
 
   <table class="table table-striped">
     <thead>
@@ -110,7 +111,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>x
           </td>
         </tr>
     <% end %>
