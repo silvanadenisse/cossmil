@@ -42,6 +42,9 @@
   <tr>
     <th>Nombre</th>
     <th>Diagnostico</th>
+    <th>Edad</th>
+    <th>Tipo de consulta</th>
+    <th>Tipo de asegurado</th>
   </tr>
   </thead>
   <tbody>
@@ -53,6 +56,16 @@
         <td>
           <%= paciente_repo.diagnostico %>
         </td>
+        <td>
+          <%= paciente_repo.edad %>
+        </td>
+        <td>
+          <%= paciente_repo.tipo_consulta %>
+        </td>
+        <td>
+          <%= paciente_repo.tipo_asegurado %>
+        </td>
+        
       </tr>
   <% end %>
   </tbody>
@@ -99,11 +112,19 @@
                   </div>
                   <div class="modal-body">
                     <%= form_for([@parte_diario, @parte_diario.paciente_reportes.build]) do |f| %>
-                        <%= f.label :diagnostico, "Diagnostico:" %>
+                        <%= f.label 'Diagnostico: ' %>
                         <%= f.text_field :diagnostico %>
+                        <%= f.label 'Edad: ' %>
+                        <%= f.number_field :edad %>
+                        <%= f.label 'Tipo de consulta: ' %>
+                        <input type="radio" name="Tipo de consulta" value="Primera">Primera
+                        <input type="radio" name="Tipo de consulta" value="Repetida">Repetida
+                        <%= f.label 'Tipo de segurado: ' %>
+                        <input type="radio" name="Tipo de asegurado" value="Activo">Activo
+                        <input type="radio" name="Tipo de segurado" value="Pasivo">Pasivo
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
-                        <%= f.submit "Agregar", class: "btn btn-default" %>
+                        <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
                   <div class="modal-footer">

@@ -6323,6 +6323,8 @@ button.close {
 .modal-body {
     position: relative;
     padding: 20px;
+    color: #16AEBD;
+
 }
 
 .modal-footer {
@@ -7597,6 +7599,7 @@ td, th
 {
 border: 1px solid black;
 padding: 10px;
+
 }
 
 .footer{
@@ -7614,3 +7617,4 @@ form, label{
 display: block;
 width: 100%;
 }
+
