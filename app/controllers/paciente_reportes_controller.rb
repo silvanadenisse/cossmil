@@ -31,7 +31,7 @@ class PacienteReportesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente_reporte.update(paciente_reporte_params)
-        format.html { redirect_to @paciente_reporte, notice: 'Paciente reporte actualizad correctamente.' }
+        format.html { redirect_to @paciente_reporte, notice: 'Paciente reporte actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @paciente_reporte }
       else
         format.html { render :edit }
@@ -54,6 +54,6 @@ class PacienteReportesController < ApplicationController
   end
 
   def paciente_reporte_params
-    params.require(:paciente_reporte).permit(:paciente_id, :diagnostico, :parte_diario_id)
+    params.require(:paciente_reporte).permit(:paciente_id, :diagnostico, :tratamiento, :edad, :sexo, :tipo_consulta, :tipo_asegurado, :parte_diario_id)
   end
 end

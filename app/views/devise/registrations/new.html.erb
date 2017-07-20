@@ -13,7 +13,7 @@
     </div>  
     <div class="field"> 
       <%= f.label 'Rol:' %> 
-      <%= f.select :role, ['Doctor', 'Administrador'] %> 
+      <%= f.select :role, ['Doctor', 'Administrador', 'Técnico-Encargado'] %> 
     </div>  
     <div class="hidden"> 
       <%= f.label 'Especialidad:' %> 
@@ -23,6 +23,7 @@
       <%= f.label 'Departamento' %>
       <%= collection_select(:user, :area_id, Area.all, :id, :nombre) %>
     </div>
+
     <div class="field">
       <%= f.label 'Correo electrónico:' %> 
       <%= f.email_field :email, autofocus: true %> 

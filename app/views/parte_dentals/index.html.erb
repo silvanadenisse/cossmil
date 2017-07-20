@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parte Dentals</h1>
+
+<%= link_to 'Nuevo Parte Dental', new_parte_dental_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mes</th>
+      <th>Clave</th>
+      <th>Inicio consulta</th>
+      <th>Fin consulta</th>
+      <th>Enfermera</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_dentals.each do |parte_dental| %>
+      <tr>
+        <td><%= parte_dental.mes %></td>
+        <td><%= parte_dental.clave %></td>
+        <td><%= parte_dental.inicio_consulta %></td>
+        <td><%= parte_dental.fin_consulta %></td>
+        <td><%= parte_dental.enfermera %></td>
+        <td><%= link_to 'Mostrar', parte_dental %></td>
+        <td><%= link_to 'Editar', edit_parte_dental_path(parte_dental) %></td>
+        <td><%= link_to 'Eliminar', parte_dental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mes: MyString
+  clave: 1
+  inicio_consulta: 2017-07-19 21:31:39
+  fin_consulta: 2017-07-19 21:31:39
+  enfermera: MyString
+
+two:
+  mes: MyString
+  clave: 1
+  inicio_consulta: 2017-07-19 21:31:39
+  fin_consulta: 2017-07-19 21:31:39
+  enfermera: MyString

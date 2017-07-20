@@ -29,9 +29,18 @@
       <ul class="nav navbar-nav side-nav">
         <% if user_signed_in? %>
             <% if current_user.role == "Doctor" %>
-                <li><%= nav_link raw("Registrar"), parte_diarios_path %></li>
+                <li><%= nav_link raw("Registrar parte diario"), new_parte_diario_path %></li>
                 <li><%= nav_link raw("Mostrar parte diario"), parte_diarios_path %></li>
                 <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
+            <% end %>
+            <% if current_user.role == "Administrador" %>
+                <li><%= nav_link raw("Registrar áreas"), areas_path %></li>
+                <li><%= nav_link raw("Mostrar áreas"), areas_path %></li>
+                <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
+            <% end %>
+            <% if current_user.role == "Técnico-Encargado" %>
+                <li><%= nav_link raw("Ver partes diarios"), parte_diarios_path %></li>
+                <li><%= nav_link raw("Ver reportes"), parte_diarios_path %></li>
             <% end %>
         <% end %>
       </ul>

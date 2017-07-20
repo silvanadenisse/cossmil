@@ -1,71 +1,64 @@
-<p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Mes:</strong>
-  <%= @parte_diario.mes %>
+  <%= @parte_dental.mes %>
 </p>
 
 <p>
-<strong>Especialidad:</strong>
-  <%= @parte_diario.especialidad %>
-</p>
-
-<p>
-  <strong>Servicio de:</strong>
-  <%= @parte_diario.servicio_de %>
-</p>
-
-<p>
-  <strong>Nombre medico:</strong>
+  <strong>Nombre del odontologo:</strong>
   <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
 </p>
 
 <p>
   <strong>Clave:</strong>
-  <%= @parte_diario.clave %>
+  <%= @parte_dental.clave %>
 </p>
 
 <p>
   <strong>Inicio consulta:</strong>
-  <%= @parte_diario.inicio_consulta %>
+  <%= @parte_dental.inicio_consulta %>
 </p>
 
 <p>
   <strong>Fin consulta:</strong>
-  <%= @parte_diario.fin_consulta %>
+  <%= @parte_dental.fin_consulta %>
 </p>
 
 <p>
   <strong>Enfermera:</strong>
-  <%= @parte_diario.enfermera %>
+  <%= @parte_dental.enfermera %>
 </p>
+
 
 <p>
 <h2>Pacientes del Parte Diario</h2>
 <table class="table table-striped">
   <thead>
   <tr>
+    <th>Nombre y apellidos del paciente</th>
     <th>Carnet del asegurado</th>
     <th>Carnet del beneficiario</th>
-    <th>Diagnostico</th>
     <th>Edad</th>
     <th>Sexo</th>
     <th>Tipo de consulta</th>
     <th>Tipo de asegurado</th>
     <th>Fuerza</th>
+    <th>Diagnostico</th>
+    <th>Tratamiento</th>
   </tr>
   </thead>
   <tbody>
   <% @parte_diario.paciente_reportes.each do |paciente_repo| %>
       <tr>
         <td>
+          <%= paciente_repo.paciente.nombre + " " + paciente_repo.paciente.apellido %>
+        </td>
+        <td>
           <%= paciente_repo.paciente.matricula_titular %>
         </td>
         <td>
           <%= paciente_repo.paciente.matricula_paciente %>
-        </td>
-        <td>
-          <%= paciente_repo.diagnostico %>
         </td>
         <td>
           <%= paciente_repo.edad %>
@@ -80,8 +73,15 @@
           <%= paciente_repo.tipo_asegurado %>
         </td>
         <td>
-          <%= paciente_repo.paciente.fuerza %>
+          <%= paciente_repo.fuerza %>
         </td>
+        <td>
+          <%= paciente_repo.diagnostico %>
+        </td>
+        <td>
+          <%= paciente_repo.tratamiento %>
+        </td>
+        
       </tr>
   <% end %>
   </tbody>
@@ -100,7 +100,7 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Nombre y apellidos del paciente</th>
+      <th>Nombre</th>
       <th>Carnet</th>
     </tr>
     </thead>
@@ -113,7 +113,6 @@
           <td>
             <%= paciente.carnet %>
           </td>
-          
           <td>
             <div align="right">
               <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar a
@@ -131,6 +130,8 @@
                     <%= form_for([@parte_diario, @parte_diario.paciente_reportes.build]) do |f| %>
                         <%= f.label 'Diagnostico: ' %>
                         <%= f.text_field :diagnostico %>
+                        <%= f.label 'Tratamiento: ' %>
+                        <%= f.text_field :tratamiento %>
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Sexo: ' %>
@@ -166,5 +167,6 @@
 </p>
 
 
-<%= link_to 'Editar', edit_parte_diario_path(@parte_diario) %> |
-<%= link_to 'Volver', parte_diarios_path %>
+
+<%= link_to 'Editar', edit_parte_dental_path(@parte_dental) %> |
+<%= link_to 'Volver', parte_dentals_path %>

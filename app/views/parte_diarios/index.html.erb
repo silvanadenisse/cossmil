@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parte Diarios</h1>
+<h1>INFORME MEDICO PARTE DIARIO CONSULTORIO EXTERNO</h1>
 
 <br><%= link_to 'Nuevo Parte Diario', new_parte_diario_path %></br>
 
@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>Mes</th>
+      <th>Especialidad</th>
       <th>Servicio de</th>
       <th>Nombre medico</th>
       <th>Clave</th>
@@ -22,6 +23,7 @@
     <% @parte_diarios.each do |parte_diario| %>
       <tr>
         <td><%= parte_diario.mes %></td>
+        <td><%= parte_diario.especialidad %></td>
         <td><%= parte_diario.servicio_de %></td>
         <td><%= parte_diario.user.name + " " + parte_diario.user.last_name %></td>
         <td><%= parte_diario.clave %></td>

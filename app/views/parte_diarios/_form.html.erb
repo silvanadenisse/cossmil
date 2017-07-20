@@ -17,8 +17,15 @@
   </div>
 
   <div class="field">
+    <%= f.label 'Especialidad: ' %>
+    <%= current_user.area.nombre%>
+    <%= f.hidden_field :area_id, :value => current_user.area%>
+    
+  </div>
+
+  <div class="field">
     <%= f.label 'Servicio de: ' %>
-    <%= f.text_field :servicio_de %>
+    <%= f.text_field :mes %>
   </div>
 
   <div class="field">
