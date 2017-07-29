@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paciente Reporte Rayos Xes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pacientes</th>
+      <th>Parte Rayos x</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paciente_reporte_rayos_xes.each do |paciente_reporte_rayos_x| %>
+      <tr>
+        <td><%= paciente_reporte.pacientes %></td>
+        <td><%= paciente_reporte.parte_rayos_xes %></td>
+        <td><%= link_to 'Show', paciente_reporte_rayos_x %></td>
+        <td><%= link_to 'Edit', edit_paciente_reporte_rayos_x_path(paciente_reporte_rayos_x) %></td>
+        <td><%= link_to 'Destroy', paciente_reporte_rayos_x, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paciente Reporte Rayos X', new_paciente_reporte_rayos_x_path %>

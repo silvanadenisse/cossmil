@@ -71,7 +71,7 @@
           <%= paciente_repo.edad %>
         </td>
         <td>
-          <%= paciente_repo.sexo %>
+          <%= paciente_repo.paciente.sexo %>
         </td>
         <td>
           <%= paciente_repo.tipo_consulta %>
@@ -133,9 +133,6 @@
                         <%= f.text_field :diagnostico %>
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
-                        <%= f.label 'Sexo: ' %>
-                        <%= f.radio_button :sexo, 'Masculino', :checked => (:sexo == 'Masculino') %> Masculino
-                        <%= f.radio_button :sexo, 'Femenino', :checked => (:sexo == 'Femenino') %> Femenino
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Primera', :checked => (:tipo_consulta == 'Primera') %> Primera
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
@@ -144,8 +141,6 @@
                         <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
-                        <%= f.label 'Fuerza: ' %>
-                        <%= f.text_field :fuerza %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

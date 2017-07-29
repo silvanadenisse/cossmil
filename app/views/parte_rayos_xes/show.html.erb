@@ -1,0 +1,177 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre medico:</strong>
+  <%= @parte_rayos_x.user.name + " " + @parte_rayos_x.user.last_name %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @parte_rayos_x.mes %>
+</p>
+
+
+<p>
+<h2>Pacientes del Parte Diario</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Matricula</th>
+    <th>Nombres y apellidos</th>
+    <th>Estudios</th>
+    <th>CE/H</th>
+    <th>T.A</th>
+    <th>Edad</th>
+    <th>Sexo</th>
+    <th>H.C</th>
+    <th>Fuerza</th>
+    <th>35/43</th>
+    <th>35/35</th>
+    <th>30/40</th>
+    <th>24/30</th>
+    <th>18/24</th>
+    <th>Observaciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_rayos_x.paciente_reporte_rayos_xes.each do |paciente_repo| %>
+      <tr>
+        <td>
+          <%= paciente_reporte_rayos_xes.paciente.matricula_paciente %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.paciente.nombre + " " + paciente_repo.paciente.apellido %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.estudios %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.ceh %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.ta %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.edad %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.paciente.sexo %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.hc %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.paciente.fuerza %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.uno %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.dos %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.tres %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.cuatro %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.cinco %>
+        </td>
+        <td>
+          <%= paciente_reporte_rayos_xes.paciente.observaciones %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+<p>
+<h2>Agregar Paciente a Parte Diario</h2>
+
+<div id="paciente"><!--style="display:none"--><br>
+  <br><form method="GET">Nombre:
+    <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
+    <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
+  </form></br>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nombre y apellidos del paciente</th>
+      <th>Carnet</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @pacientes.each do |paciente| %>
+        <tr>
+          <td>
+            <%= paciente.nombre + " " + paciente.apellido %>
+          </td>
+          <td>
+            <%= paciente.carnet %>
+          </td>
+          
+          <td>
+            <div align="right">
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar a
+                parte
+              </button>
+            </div>
+            <div class="modal fade" id="myModal-<%= paciente.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar a Parte</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for([@parte_rayos_x, @parte_rayos_x.paciente_reporte_rayos_xes.build]) do |f| %>
+                        <%= f.label 'Estudios: ' %>
+                        <%= f.text_field :estudios %>
+                        <%= f.label 'CE/H: ' %>
+                        <%= f.radio_button :ceh, 'CE', :checked => (:ceh == 'CE') %> CE
+                        <%= f.radio_button :ceh, 'H', :checked => (:ceh == 'H') %> H
+                        <%= f.label 'T.A: ' %>
+                        <%= f.text_field :ta %>
+                        <%= f.label 'Edad: ' %>
+                        <%= f.number_field :edad %>
+                   		  <%= f.label 'H.C: ' %>
+                        <%= f.text_field :hc %>
+                        <%= f.label '35/43: ' %>
+                        <%= f.number_field :uno %>
+                        <%= f.label '35/35: ' %>
+                        <%= f.number_field :dos %>
+                        <%= f.label '30/40: ' %>
+                        <%= f.number_field :tres %>
+                        <%= f.label '24/30: ' %>
+                        <%= f.number_field :cuatro %>
+                        <%= f.label '18/24: ' %>
+                        <%= f.number_field :cinco %>
+                        <%= f.label 'Obeservaciones: ' %>
+                        <%= f.text_field :observaciones %>
+                        <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
+                    <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                  </div>
+                </div>
+              </div>
+            </div>x
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+</p>
+
+
+
+
+<%= link_to 'Editar', edit_parte_rayos_x_path(@parte_rayos_x) %> |
+<%= link_to 'Volver', parte_rayos_xes_path %>

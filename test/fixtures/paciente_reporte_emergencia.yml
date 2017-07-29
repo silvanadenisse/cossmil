@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grado: MyString
+  signos_vitales: MyString
+  diagnostico: MyString
+  tratamiento: MyString
+  observaciones: MyString
+
+two:
+  grado: MyString
+  signos_vitales: MyString
+  diagnostico: MyString
+  tratamiento: MyString
+  observaciones: MyString

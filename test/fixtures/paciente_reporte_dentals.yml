@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_consulta: MyString
+  tipo_asegurado: MyString
+  diagnostico: MyString
+  tratamiento: MyString
+
+two:
+  tipo_consulta: MyString
+  tipo_asegurado: MyString
+  diagnostico: MyString
+  tratamiento: MyString

@@ -8,6 +8,7 @@ class Paciente
   field :carnet, type: Integer
   field :grupo_sanguineo, type: String
   field :nacionalidad, type: String
+  field :sexo, type: String
 
   belongs_to :user
 end

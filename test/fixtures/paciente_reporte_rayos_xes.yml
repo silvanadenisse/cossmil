@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estudios: MyString
+  ceh: MyString
+  ta: MyString
+  edad: 1
+  hc: 1
+  uno: 1
+  dos: 1
+  tres: 1
+  cuatro: 1
+  cinco: 1
+  observaciones: MyString
+
+two:
+  estudios: MyString
+  ceh: MyString
+  ta: MyString
+  edad: 1
+  hc: 1
+  uno: 1
+  dos: 1
+  tres: 1
+  cuatro: 1
+  cinco: 1
+  observaciones: MyString

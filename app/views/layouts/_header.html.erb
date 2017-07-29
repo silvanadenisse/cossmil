@@ -28,7 +28,15 @@
 
       <ul class="nav navbar-nav side-nav">
         <% if user_signed_in? %>
-            <% if current_user.role == "Doctor" %>
+      
+
+       
+
+
+            <% if current_user.role == "Doctor" %> 
+
+
+
                 <li><%= nav_link raw("Registrar parte diario"), new_parte_diario_path %></li>
                 <li><%= nav_link raw("Mostrar parte diario"), parte_diarios_path %></li>
                 <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
@@ -48,3 +56,6 @@
     </div>
   </div>
 </nav>
+
+
+

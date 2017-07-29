@@ -16,7 +16,7 @@ class PacienteReportesController < ApplicationController
   def edit
   end
 
-  def create
+ def create
     @paciente_reporte = PacienteReporte.new(paciente_reporte_params)
     @parte_diario = ParteDiario.find(params[:parte_diario_id])
     if @paciente_reporte.save
@@ -54,6 +54,6 @@ class PacienteReportesController < ApplicationController
   end
 
   def paciente_reporte_params
-    params.require(:paciente_reporte).permit(:paciente_id, :diagnostico, :tratamiento, :edad, :sexo, :tipo_consulta, :tipo_asegurado, :parte_diario_id)
+    params.require(:paciente_reporte).permit(:paciente_id, :diagnostico, :tratamiento, :edad, :tipo_consulta, :tipo_asegurado, :parte_diario_id)
   end
 end

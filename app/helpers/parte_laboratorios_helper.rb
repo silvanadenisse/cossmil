@@ -1,0 +1,2 @@
+module ParteLaboratoriosHelper
+end

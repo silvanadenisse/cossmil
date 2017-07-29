@@ -1,18 +1,68 @@
 Rails.application.routes.draw do
 
-  resources :parte_emergencia
-  resources :parte_dentals
   root 'static_pages#home'
   resources :parte_diarios do
     resources :paciente_reportes
     resources :pacientes
   end
+
+  resources :parte_dentals do
+    resources :paciente_reporte_dentals
+    resources :pacientes
+  end
+
+  resources :parte_emergencia do
+    resources :paciente_reporte_emergencia
+    resources :pacientes
+  end
+
+  resources :parte_rayos_xes do
+    resources :paciente_reporte_rayos_xes
+    resources :pacientes
+  end
+
+  resources :parte_fisioterapia do
+    resources :paciente_reporte_fisioterapia
+    resources :pacientes
+  end
+  resources :paciente_reporte_rayos_xes 
+
+  resources :paciente_reporte_fisioterapia 
+    
+  resources :paciente_reporte_emergencia 
+
+  resources :paciente_reporte_dentals 
+
+  
+  # resources :parte_laboratorios do
+  #   resources :paciente_reportes
+  #   resources :pacientes
+  # end
+  # resources :parte_fisioterapia do
+  #   resources :paciente_reportes
+  #   resources :pacientes
+  # end
+
+  # resources :parte_rayos_xes do
+  #   resources :paciente_reportes
+  #   resources :pacientes
+  # end
+  # resources :parte_emergencia do
+  #   resources :paciente_reportes
+  #   resources :pacientes
+  # end
+  # resources :parte_dentals do
+  #   resources :paciente_reportes
+  #   resources :pacientes
+  # end
+
+  
   
   devise_for :users
 
 
   resources :areas
-  resources :parte_diarios
+  # resources :paciente_reportes
+  # resources :parte_diarios
   resources :pacientes
-  resources :paciente_reportes
 end

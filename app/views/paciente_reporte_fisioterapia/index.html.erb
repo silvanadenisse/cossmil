@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paciente Reporte Fisioterapia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pacientes</th>
+      <th>Parte fisioterapia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paciente_reporte_fisioterapia.each do |paciente_reporte_fisioterapium| %>
+      <tr>
+        <td><%= paciente_reporte_fisioterapium.pacientes %></td>
+        <td><%= paciente_reporte_fisioterapium.paciente_reporte_fisioterapia %></td>
+        <td><%= link_to 'Show', paciente_reporte_fisioterapium %></td>
+        <td><%= link_to 'Edit', edit_paciente_reporte_fisioterapium_path(paciente_reporte_fisioterapium) %></td>
+        <td><%= link_to 'Destroy', paciente_reporte_fisioterapium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paciente Reporte Fisioterapium', new_paciente_reporte_fisioterapium_path %>

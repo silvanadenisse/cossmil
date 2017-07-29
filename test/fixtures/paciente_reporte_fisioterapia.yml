@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_sesion: 1
+  diagnostico: MyString
+  procedencia: MyString
+  tipo_consulta: MyString
+  tipo_asegurado: MyString
+  edad: 1
+
+two:
+  num_sesion: 1
+  diagnostico: MyString
+  procedencia: MyString
+  tipo_consulta: MyString
+  tipo_asegurado: MyString
+  edad: 1

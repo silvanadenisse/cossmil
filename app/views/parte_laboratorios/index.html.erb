@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parte Laboratorios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_laboratorios.each do |parte_laboratorio| %>
+      <tr>
+        <td><%= parte_laboratorio.mes %></td>
+        <td><%= link_to 'Show', parte_laboratorio %></td>
+        <td><%= link_to 'Edit', edit_parte_laboratorio_path(parte_laboratorio) %></td>
+        <td><%= link_to 'Destroy', parte_laboratorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parte Laboratorio', new_parte_laboratorio_path %>

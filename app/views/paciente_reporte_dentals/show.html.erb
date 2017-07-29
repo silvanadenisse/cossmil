@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pacientes:</strong>
+  <%= @paciente_reporte_dental.pacientes %>
+</p>
+
+<p>
+  <strong>Parte dental:</strong>
+  <%= @paciente_reporte_dental.parte_dentals %>
+</p>
+
+<%= link_to 'Edit', edit_paciente_reporte_dental_path(@paciente_reporte_dental) %> |
+<%= link_to 'Back', paciente_reporte_dentals_path %>

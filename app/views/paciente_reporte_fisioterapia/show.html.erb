@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pacientes:</strong>
+  <%= @paciente_reporte_fisioterapium.pacientes %>
+</p>
+
+<p>
+  <strong>Parte diarios:</strong>
+  <%= @paciente_reporte_fisioterapium.parte_fisioterapia %>
+</p>
+
+<%= link_to 'Edit', edit_paciente_reporte_fisioterapium_path(@paciente_reporte_fisioterapium) %> |
+<%= link_to 'Back', paciente_reporte_fisioterapia_path %>

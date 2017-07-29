@@ -1,0 +1,27 @@
+<%= form_for(paciente_reporte_emergencium) do |f| %>
+  <% if paciente_reporte_emergencium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paciente_reporte_emergencium.errors.count, "error") %> prohibited this paciente_reporte_emergencium from being saved:</h2>
+
+      <ul>
+      <% paciente_reporte_emergencium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pacientes_id %>
+    <%= f.text_field :pacientes_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parte_emergencia_id %>
+    <%= f.text_field :parte_emergencia_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
