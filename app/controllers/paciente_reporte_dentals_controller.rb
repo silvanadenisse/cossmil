@@ -21,6 +21,7 @@ class PacienteReporteDentalsController < ApplicationController
   def edit
   end
 
+
   # POST /paciente_reporte_dentals
   # POST /paciente_reporte_dentals.json
   def create
@@ -68,6 +69,6 @@ class PacienteReporteDentalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_reporte_dental_params
-      params.require(:paciente_reporte_dental).permit(:tipo_consulta, :tipo_asegurado, :diagnostico, :tratamiento)
+      params.require(:paciente_reporte_dental).permit(:tipo_consulta, :edad, :paciente_id, :parte_dental_id, :tipo_asegurado, :diagnostico, :tratamiento)
     end
 end

@@ -4,6 +4,7 @@ class User
   field :last_name, type: String
   field :role, type: String
   field :speciality, type: String
+  field :subesp, type: String
   belongs_to :area
   has_many :pacientes
 
@@ -43,4 +44,9 @@ class User
   # field :locked_at,       type: Time
 
   has_and_belongs_to_many :parte_diarios
+  has_and_belongs_to_many :parte_emergencia
+  has_and_belongs_to_many :parte_rayos_xes
+  has_and_belongs_to_many :parte_fisioterapia
+  has_and_belongs_to_many :parte_dentals
+
 end

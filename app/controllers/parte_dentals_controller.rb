@@ -18,6 +18,9 @@ class ParteDentalsController < ApplicationController
     @parte_dental = ParteDental.new
   end
 
+  
+
+
   # GET /parte_dentals/1/edit
   def edit
   end

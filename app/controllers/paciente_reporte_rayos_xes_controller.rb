@@ -67,6 +67,6 @@ class PacienteReporteRayosXesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_reporte_rayos_x_params
-      params.require(:paciente_reporte_rayos_x).permit(:estudios, :ceh, :ta, :edad, :hc, :uno, :dos, :tres, :cuatro, :cinco, :observaciones)
+      params.require(:paciente_reporte_rayos_x).permit(:paciente_id, :parte_rayos_x_id, :estudios, :ceh, :ta, :edad, :hc, :uno, :dos, :tres, :cuatro, :cinco, :observaciones)
     end
 end

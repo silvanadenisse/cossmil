@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parte Fisioterapia</h1>
+<h1>INFORME MEDICO PARTE DIARIO FISIOTERAPIA</h1>
+
+<%= link_to 'Nuevo parte fisioterapia', new_parte_fisioterapium_path %>
 
 <table>
   <thead>
@@ -16,9 +18,9 @@
       <tr>
         <td><%= parte_fisioterapium.turno %></td>
         <td><%= parte_fisioterapium.mes %></td>
-        <td><%= link_to 'Show', parte_fisioterapium %></td>
-        <td><%= link_to 'Edit', edit_parte_fisioterapium_path(parte_fisioterapium) %></td>
-        <td><%= link_to 'Destroy', parte_fisioterapium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', parte_fisioterapium %></td>
+        <td><%= link_to 'Editar', edit_parte_fisioterapium_path(parte_fisioterapium) %></td>
+        <td><%= link_to 'Eliminar', parte_fisioterapium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Parte Fisioterapium', new_parte_fisioterapium_path %>
+

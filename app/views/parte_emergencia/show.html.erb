@@ -64,6 +64,8 @@
         </td>
         <td>
           <%= paciente_reporte_emergencia.tratamiento %>
+        </td><td>
+          <%= paciente_reporte_emergencia.observaciones %>
         </td>
         
       </tr>
@@ -122,6 +124,8 @@
                         <%= f.text_field :grado %>
                         <%= f.label 'Signos vitales: ' %>
                         <%= f.text_field :signos_vitales %>
+                        <%= f.label 'Observaciones: ' %>
+                        <%= f.text_field :observaciones %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

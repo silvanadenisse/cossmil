@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parte Laboratorios</h1>
+<h1>INFORME MEDICO PARTE DIARIO LABORATORIO</h1>
+
+<%= link_to 'Nuevo Parte Laboratorio', new_parte_laboratorio_path %>
 
 <table>
   <thead>
@@ -14,9 +16,9 @@
     <% @parte_laboratorios.each do |parte_laboratorio| %>
       <tr>
         <td><%= parte_laboratorio.mes %></td>
-        <td><%= link_to 'Show', parte_laboratorio %></td>
-        <td><%= link_to 'Edit', edit_parte_laboratorio_path(parte_laboratorio) %></td>
-        <td><%= link_to 'Destroy', parte_laboratorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', parte_laboratorio %></td>
+        <td><%= link_to 'Editar', edit_parte_laboratorio_path(parte_laboratorio) %></td>
+        <td><%= link_to 'Eliminar', parte_laboratorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Parte Laboratorio', new_parte_laboratorio_path %>
+

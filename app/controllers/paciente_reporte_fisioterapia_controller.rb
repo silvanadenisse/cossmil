@@ -67,6 +67,6 @@ class PacienteReporteFisioterapiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_reporte_fisioterapium_params
-      params.require(:paciente_reporte_fisioterapium).permit(:num_sesion, :diagnostico, :procedencia, :tipo_consulta, :tipo_asegurado, :edad)
+      params.require(:paciente_reporte_fisioterapium).permit(:paciente_id, :parte_emergencium_id, :num_sesion, :diagnostico, :procedencia, :tipo_consulta, :tipo_asegurado, :edad)
     end
 end

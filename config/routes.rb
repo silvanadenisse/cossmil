@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :paciente_reporte_dentals 
 
+  #get "reportes_dentales" => "parte_dentals#reporte"
   
   # resources :parte_laboratorios do
   #   resources :paciente_reportes
