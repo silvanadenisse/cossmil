@@ -10,7 +10,7 @@ class CargaDentalsController < ApplicationController
   # GET /carga_dentals/1
   # GET /carga_dentals/1.json
   def show
-    @user = User.all
+    @medicos = User.where(role: 'Doctor').where(area: 'Dental')
   end
 
   # GET /carga_dentals/new
@@ -70,6 +70,6 @@ class CargaDentalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carga_dental_params
-      params.require(:carga_dental).permit(:user_id, :mes, :dias_habiles)
+      params.require(:carga_dental).permit(:current_user_id, :mes, :dias_habiles)
     end
 end

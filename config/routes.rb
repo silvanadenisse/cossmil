@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :carga_reporte_dentals
-  resources :carga_dentals
   root 'static_pages#home'
   
   resources :parte_diarios do
@@ -39,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :carga_dentals do
     resources :carga_reporte_dentals
-    resources :users
+    resources :current_users
   end
 
   resources :carga_reporte_dentals 

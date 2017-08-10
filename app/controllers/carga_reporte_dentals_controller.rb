@@ -26,14 +26,14 @@ class CargaReporteDentalsController < ApplicationController
   def create
     @carga_reporte_dental = CargaReporteDental.new(carga_reporte_dental_params)
 
-    respond_to do |format|
+    
+    @pcarga_dental = CargaDental.find(params[:carga_dental_id])
       if @carga_reporte_dental.save
-        format.html { redirect_to @carga_reporte_dental, notice: 'Carga reporte dental was successfully created.' }
-        format.json { render :show, status: :created, location: @carga_reporte_dental }
-      else
-        format.html { render :new }
-        format.json { render json: @carga_reporte_dental.errors, status: :unprocessable_entity }
-      end
+      flash[:success] = "Medico agregado exitosamente."
+      redirect_to "/carga_dentals/"+@carga_reporte_dental.carga_dental.id.to_s
+    else
+      flash[:danger] = "Error al agregar medico"
+      redirect_to carga_dental_path(@carga_dental)
     end
   end
 
@@ -69,6 +69,6 @@ class CargaReporteDentalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carga_reporte_dental_params
-      params.require(:carga_reporte_dental).permit(:user_id, :carga_dental_id, :observaciones, :horas_trabajadas, :consulta_hora, :hrs_trabajadas, :pacientes_dias, :dias_trabajados, :consultas_programadas, :total)
+      params.require(:carga_reporte_dental).permit(:current_user_id, :carga_dental_id, :observaciones, :horas_trabajadas, :consulta_hora, :hrs_trabajadas, :pacientes_dias, :dias_trabajados, :consultas_programadas, :total)
     end
 end

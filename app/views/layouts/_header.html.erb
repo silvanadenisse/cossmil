@@ -56,14 +56,16 @@
                 <li><%= nav_link raw("Mostrar áreas"), areas_path %></li>
                 <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
             <% end %>
+
             <% if current_user.role == "Técnico-Encargado" %>
                 <li><%= nav_link raw("Ver parte diario consulta externa"), parte_diarios_path %></li>
                 <li><%= nav_link raw("Ver parte diario emergencia"), parte_emergencia_path %></li>
                 <li><%= nav_link raw("Ver parte diario dental"), parte_dentals_path %></li>
                 <li><%= nav_link raw("Ver parte diario rayos x"), parte_rayos_xes_path %></li>
                 <li><%= nav_link raw("Ver parte diario fisioterapia"), parte_fisioterapia_path %></li>
-                <li><%= nav_link raw("Ver reportes"), parte_diarios_path %></li>
+                <li><%= nav_link raw("Ver reportes"), carga_dentals_path %></li>
             <% end %>
+            
         <% end %>
       </ul>
 

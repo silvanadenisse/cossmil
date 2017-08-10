@@ -12,7 +12,7 @@ class ParteFisioterapiaController < ApplicationController
   def show
         @pacientes = Paciente.all
 
-        #@medicos = User.where(role: 'Doctor').where(area: 'Dental')
+        
 
   end
 

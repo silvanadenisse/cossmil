@@ -5,14 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Observaciones</th>
-      <th>Horas trabajadas</th>
-      <th>Consulta hora</th>
-      <th>Hrs trabajadas</th>
-      <th>Pacientes dias</th>
-      <th>Dias trabajados</th>
-      <th>Consultas programadas</th>
-      <th>Total</th>
+      <th>Medicos</th>
+      <th>Carga horaria</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +14,8 @@
   <tbody>
     <% @carga_reporte_dentals.each do |carga_reporte_dental| %>
       <tr>
-        <td><%= carga_reporte_dental.observaciones %></td>
-        <td><%= carga_reporte_dental.horas_trabajadas %></td>
-        <td><%= carga_reporte_dental.consulta_hora %></td>
-        <td><%= carga_reporte_dental.hrs_trabajadas %></td>
-        <td><%= carga_reporte_dental.pacientes_dias %></td>
-        <td><%= carga_reporte_dental.dias_trabajados %></td>
-        <td><%= carga_reporte_dental.consultas_programadas %></td>
-        <td><%= carga_reporte_dental.total %></td>
+        <td><%= carga_reporte_dental.users %></td>
+        <td><%= carga_reporte_dental.carga_dentals %></td>
         <td><%= link_to 'Show', carga_reporte_dental %></td>
         <td><%= link_to 'Edit', edit_carga_reporte_dental_path(carga_reporte_dental) %></td>
         <td><%= link_to 'Destroy', carga_reporte_dental, method: :delete, data: { confirm: 'Are you sure?' } %></td>

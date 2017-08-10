@@ -1,44 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Observaciones:</strong>
-  <%= @carga_reporte_dental.observaciones %>
+  <strong>Medicos:</strong>
+  <%= @carga_reporte_dental.current_users %>
 </p>
 
 <p>
-  <strong>Horas trabajadas:</strong>
-  <%= @carga_reporte_dental.horas_trabajadas %>
+  <strong>Carga horaria:</strong>
+  <%= @carga_reporte_dental.carga_dentals %>
 </p>
 
-<p>
-  <strong>Consulta hora:</strong>
-  <%= @carga_reporte_dental.consulta_hora %>
-</p>
-
-<p>
-  <strong>Hrs trabajadas:</strong>
-  <%= @carga_reporte_dental.hrs_trabajadas %>
-</p>
-
-<p>
-  <strong>Pacientes dias:</strong>
-  <%= @carga_reporte_dental.pacientes_dias %>
-</p>
-
-<p>
-  <strong>Dias trabajados:</strong>
-  <%= @carga_reporte_dental.dias_trabajados %>
-</p>
-
-<p>
-  <strong>Consultas programadas:</strong>
-  <%= @carga_reporte_dental.consultas_programadas %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @carga_reporte_dental.total %>
-</p>
 
 <%= link_to 'Edit', edit_carga_reporte_dental_path(@carga_reporte_dental) %> |
 <%= link_to 'Back', carga_reporte_dentals_path %>

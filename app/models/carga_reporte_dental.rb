@@ -11,6 +11,6 @@ class CargaReporteDental
   field :consultas_programadas, type: Integer
   field :total, type: Integer
 
-  belongs_to :user
+  belongs_to :current_user
   belongs_to :carga_dental
 end

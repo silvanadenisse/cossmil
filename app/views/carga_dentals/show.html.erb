@@ -90,7 +90,7 @@
               <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= user.id %>">Agregar medico
               </button>
             </div>
-            <div class="modal fade" id="myModal-<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal-<%= current_user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -115,7 +115,7 @@
                         <%= f.number_field :consultas_programadas %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
-                        <%= f.hidden_field :user_id, :value => user.id %>
+                        <%= f.hidden_field :current_user_id, :value => current_user.id %>
                         <%= f.hidden_field :carga_dental_id, :value => @carga_dental.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
