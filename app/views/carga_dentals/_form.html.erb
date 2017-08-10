@@ -1,0 +1,27 @@
+<%= form_for(carga_dental) do |f| %>
+  <% if carga_dental.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(carga_dental.errors.count, "error") %> prohibited this carga_dental from being saved:</h2>
+
+      <ul>
+      <% carga_dental.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mes %>
+    <%= f.text_field :mes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dias_habiles %>
+    <%= f.number_field :dias_habiles %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

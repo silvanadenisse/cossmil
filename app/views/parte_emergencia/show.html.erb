@@ -25,6 +25,7 @@
     <th>Nombre y apellidos</th>
     <th>Fuerza</th>
     <th>Grado</th>
+    <th>Tipo de Asegurado</th>
     <th>Edad</th>
     <th>Sexo</th>
     <th>Signos vitales</th>
@@ -48,7 +49,7 @@
           <%= paciente_reporte_emergencia.paciente.fuerza %>
         </td>
         <td>
-          <%= paciente_reporte_emergencia.grado %>
+          <%= paciente_reporte_emergencia.paciente.grado %>
         </td>
         <td>
           <%= paciente_reporte_emergencia.edad %>
@@ -114,14 +115,15 @@
                   </div>
                   <div class="modal-body">
                     <%= form_for([@parte_emergencium, @parte_emergencium.paciente_reporte_emergencia.build]) do |f| %>
+                        <%= f.label 'Tipo de segurado: ' %>
+                        <%= f.radio_button :tipo_asegurado, 'Activo', :checked => (:tipo_consulta == 'Activo') %> Activo
+                        <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
+                        <%= f.label 'Edad: ' %>
+                        <%= f.number_field :edad %>
                         <%= f.label 'Diagnostico: ' %>
                         <%= f.text_field :diagnostico %>
                         <%= f.label 'Tratamiento: ' %>
-                        <%= f.text_field :tratamiento %>
-                        <%= f.label 'Edad: ' %>
-                        <%= f.number_field :edad %>
-                        <%= f.label 'Grado: ' %>
-                        <%= f.text_field :grado %>
+                        <%= f.text_field :tratamiento %>  
                         <%= f.label 'Signos vitales: ' %>
                         <%= f.text_field :signos_vitales %>
                         <%= f.label 'Observaciones: ' %>

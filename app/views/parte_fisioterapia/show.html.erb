@@ -128,7 +128,7 @@
                         <%= f.radio_button :tipo_asegurado, 'Activo', :checked => (:tipo_consulta == 'Activo') %> Activo
                         <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
-                        <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
+                        <%= f.hidden_field :parte_fisioterapium_id, :value => @parte_fisioterapium.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

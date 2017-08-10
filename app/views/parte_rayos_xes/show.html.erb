@@ -34,52 +34,52 @@
   </tr>
   </thead>
   <tbody>
-  <% @parte_rayos_x.paciente_reporte_rayos_xes.each do |paciente_repo| %>
+  <% @parte_rayos_x.paciente_reporte_rayos_x.each do |paciente_repo_rayos_xes| %>
       <tr>
         <td>
-          <%= paciente_reporte_rayos_xes.paciente.matricula_paciente %>
+          <%= paciente_repo_rayos_xes.paciente.matricula_paciente %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.paciente.nombre + " " + paciente_repo.paciente.apellido %>
+          <%= paciente_repo_rayos_xes.paciente.nombre + " " + paciente_repo_rayos_xes.paciente.apellido %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.estudios %>
+          <%= paciente_repo_rayos_xes.estudios %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.ceh %>
+          <%= paciente_repo_rayos_xes.ceh %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.ta %>
+          <%= paciente_repo_rayos_xes.ta %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.edad %>
+          <%= paciente_repo_rayos_xes.edad %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.paciente.sexo %>
+          <%= paciente_repo_rayos_xes.paciente.sexo %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.hc %>
+          <%= paciente_repo_rayos_xes.hc %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.paciente.fuerza %>
+          <%= paciente_repo_rayos_xes.paciente.fuerza %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.uno %>
+          <%= paciente_repo_rayos_xes.uno %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.dos %>
+          <%= paciente_repo_rayos_xes.dos %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.tres %>
+          <%= paciente_repo_rayos_xes.tres %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.cuatro %>
+          <%= paciente_repo_rayos_xes.cuatro %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.cinco %>
+          <%= paciente_repo_rayos_xes.cinco %>
         </td>
         <td>
-          <%= paciente_reporte_rayos_xes.paciente.observaciones %>
+          <%= paciente_repo_rayos_xes.observaciones %>
         </td>
       </tr>
   <% end %>
@@ -127,7 +127,7 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar a Parte</h4>
                   </div>
                   <div class="modal-body">
-                    <%= form_for([@parte_rayos_x, @parte_rayos_x.paciente_reporte_rayos_xes.build]) do |f| %>
+                    <%= form_for([@parte_rayos_x, @parte_rayos_x.paciente_reporte_rayos_x.build]) do |f| %>
                         <%= f.label 'Estudios: ' %>
                         <%= f.text_field :estudios %>
                         <%= f.label 'CE/H: ' %>
@@ -151,6 +151,8 @@
                         <%= f.number_field :cinco %>
                         <%= f.label 'Obeservaciones: ' %>
                         <%= f.text_field :observaciones %>
+                        <%= f.hidden_field :paciente_id, :value => paciente.id %>
+                        <%= f.hidden_field :parte_rayos_x_id, :value => @parte_rayos_x.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

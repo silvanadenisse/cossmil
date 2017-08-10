@@ -26,9 +26,9 @@ class PacienteReporteRayosXesController < ApplicationController
   def create
     @paciente_reporte_rayos_x = PacienteReporteRayosX.new(paciente_reporte_rayos_x_params)
     @parte_rayos_x = ParteRayosX.find(params[:parte_rayos_x_id])
-    if @paciente_rayos_x.save
+    if @paciente_reporte_rayos_x.save
       flash[:success] = "Paciente agregado exitosamente."
-      redirect_to "/parte_diarios/"+@paciente_reporte_rayos_x.parte_rayos_x.id.to_s
+      redirect_to "/parte_rayos_xes/"+@paciente_reporte_rayos_x.parte_rayos_x.id.to_s
     else
       flash[:danger] = "Error al agregar paciente"
       redirect_to parte_rayos_x_path(@parte_rayos_x)

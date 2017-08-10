@@ -10,6 +10,10 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia/1
   # GET /parte_fisioterapia/1.json
   def show
+        @pacientes = Paciente.all
+
+        #@medicos = User.where(role: 'Doctor').where(area: 'Dental')
+
   end
 
   # GET /parte_fisioterapia/new
@@ -69,6 +73,6 @@ class ParteFisioterapiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parte_fisioterapium_params
-      params.require(:parte_fisioterapium).permit(:turno, :mes)
+      params.require(:parte_fisioterapium).permit(:turno, :mes, :user_id)
     end
 end

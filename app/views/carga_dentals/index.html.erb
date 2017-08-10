@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carga Dentals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mes</th>
+      <th>Dias habiles</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carga_dentals.each do |carga_dental| %>
+      <tr>
+        <td><%= carga_dental.mes %></td>
+        <td><%= carga_dental.dias_habiles %></td>
+        <td><%= link_to 'Show', carga_dental %></td>
+        <td><%= link_to 'Edit', edit_carga_dental_path(carga_dental) %></td>
+        <td><%= link_to 'Destroy', carga_dental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Carga Dental', new_carga_dental_path %>

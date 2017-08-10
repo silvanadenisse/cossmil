@@ -1,0 +1,141 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @carga_dental.mes %>
+</p>
+
+<p>
+  <strong>Dias habiles:</strong>
+  <%= @carga_dental.dias_habiles %> 
+</p>
+
+
+<p>
+<h2>Resumen de consulta externa</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Observaciones</th>
+    <th>Horas trabajadas</th>
+    <th>Consulta por hora</th>
+    <th>Horas trabajadas</th>
+    <th>Pacientes por dia</th>
+    <th>Dias trabajados</th>
+    <th>Consulta programadas</th>
+    <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @carga_dental.carga_reporte_dentals.each do |carga_repo_dentals| %>
+      <tr>
+        <td>
+          <%= carga_repo_dentals.observaciones %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.horas_trabajadas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.consulta_hora %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.hrs_trabajadas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.paciente_dia %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.dias_trabajados %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.consultas_programadas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.total %>
+        </td>
+        
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+<p>
+<h2>Medicos de consulta externa</h2>
+
+<div id="user"><!--style="display:none"--><br>
+  <br><form method="GET">Nombre:
+    <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Medico" , class="btn btn-info">
+    <button><%= link_to 'Nuevo Medico', new_user_path %></button>
+  </form></br>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Departamento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |medico| %>
+        <tr>
+          <td>
+            <%= medico.nombre + " " + medico.apellido %>
+          </td>
+          <td>
+            <%= medico.user.departamento %>
+          </td>
+          <td>
+            <div align="right">
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= user.id %>">Agregar medico
+              </button>
+            </div>
+            <div class="modal fade" id="myModal-<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar </h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for([@carga_dental, @carga_dental.carga_reporte_dentals.build]) do |f| %>
+                        <%= f.label 'Observaciones: ' %>
+                        <%= f.text_field :observaciones %>
+                        <%= f.label 'Horas trabajadas: ' %>
+                        <%= f.number_field :horas_trabajadas %>
+                        <%= f.label 'Consulta por hora: ' %>
+                        <%= f.number_field :consulta_hora %>
+                        <%= f.label 'Horas trabajadas: ' %>
+                        <%= f.number_field :hrs_trabajadas %>
+                        <%= f.label 'pacientes por dias: ' %>
+                        <%= f.number_field :paciente_dia %>
+                        <%= f.label 'Dias trabajados: ' %>
+                        <%= f.number_field :dias_trabajados %>
+                        <%= f.label 'Consultas programadas: ' %>
+                        <%= f.number_field :consultas_programadas %>
+                        <%= f.label 'Total: ' %>
+                        <%= f.number_field :total %>
+                        <%= f.hidden_field :user_id, :value => user.id %>
+                        <%= f.hidden_field :carga_dental_id, :value => @carga_dental.id %>
+                        <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
+                    <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                  </div>
+                </div>
+              </div>
+            </div>x
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+</p>
+
+
+<%= link_to 'Edit', edit_carga_dental_path(@carga_dental) %> |
+<%= link_to 'Back', carga_dentals_path %>

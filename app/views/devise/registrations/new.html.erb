@@ -16,14 +16,13 @@
       <%= f.select :role, ['Doctor', 'Administrador', 'Técnico-Encargado'] %>
     </div>
     <div class="field">
-      <%= f.label 'Especialidad:' %>
-      <%= f.text_field :speciality %>
-    </div>
-    <div class="field">
       <%= f.label 'Departamento' %>
       <%= collection_select(:user, :area_id, Area.all, :id, :nombre) %>
     </div>
-
+    <div class="field">
+      <%= f.label 'Especialidad:' %>
+      <%= f.text_field :speciality %>
+    </div>
     <div class="field">
       <%= f.label 'Correo electrónico:' %>
       <%= f.email_field :email, autofocus: true %>
