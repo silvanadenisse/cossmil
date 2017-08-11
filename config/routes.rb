@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+ 
   root 'static_pages#home'
   
   resources :parte_diarios do
@@ -42,6 +43,25 @@ Rails.application.routes.draw do
 
   resources :carga_reporte_dentals 
 
+
+  resources :carga_reporte_emergencia
+
+  resources :carga_emergencia do
+    resources :carga_reporte_emergencia
+    resources :current_users
+  end
+
+  resources :carga_reporte_fisioterapia
+  resources :carga_fisioterapia do
+    resources :carga_reporte_fisioterapia
+    resources :current_users
+  end
+  
+  resources :carga_reportes
+  resources :carga_parte_diarios
+    resources :carga_reportes do
+    resources :current_users
+  end
   #get "reportes_dentales" => "parte_dentals#reporte"
   
   # resources :parte_laboratorios do

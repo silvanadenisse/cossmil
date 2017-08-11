@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medicos:</strong>
+  <%= @carga_reporte_emergencium.current_users %>
+</p>
+
+<p>
+  <strong>Carga horaria:</strong>
+  <%= @carga_reporte_emergencium.carga_emergencia %>
+</p>
+
+<%= link_to 'Edit', edit_carga_reporte_emergencium_path(@carga_reporte_emergencium) %> |
+<%= link_to 'Back', carga_reporte_emergencia_path %>

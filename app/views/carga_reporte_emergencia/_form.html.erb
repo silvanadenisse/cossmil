@@ -1,0 +1,27 @@
+<%= form_for(carga_reporte_emergencium) do |f| %>
+  <% if carga_reporte_emergencium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(carga_reporte_emergencium.errors.count, "error") %> prohibited this carga_reporte_emergencium from being saved:</h2>
+
+      <ul>
+      <% carga_reporte_emergencium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :current_user_id %>
+    <%= f.text_field :current_user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carga_emergencia_id %>
+    <%= f.text_field :carga_emergencia_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

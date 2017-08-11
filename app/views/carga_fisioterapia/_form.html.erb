@@ -1,0 +1,32 @@
+<%= form_for(carga_fisioterapium) do |f| %>
+  <% if carga_fisioterapium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(carga_fisioterapium.errors.count, "error") %> prohibited this carga_fisioterapium from being saved:</h2>
+
+      <ul>
+      <% carga_fisioterapium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dias_habiles %>
+    <%= f.number_field :dias_habiles %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mes %>
+    <%= f.text_field :mes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :anho %>
+    <%= f.number_field :anho %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

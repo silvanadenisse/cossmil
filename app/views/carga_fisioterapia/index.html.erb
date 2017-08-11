@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carga Fisioterapia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dias habiles</th>
+      <th>Mes</th>
+      <th>Anho</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carga_fisioterapia.each do |carga_fisioterapium| %>
+      <tr>
+        <td><%= carga_fisioterapium.dias_habiles %></td>
+        <td><%= carga_fisioterapium.mes %></td>
+        <td><%= carga_fisioterapium.anho %></td>
+        <td><%= link_to 'Show', carga_fisioterapium %></td>
+        <td><%= link_to 'Edit', edit_carga_fisioterapium_path(carga_fisioterapium) %></td>
+        <td><%= link_to 'Destroy', carga_fisioterapium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Carga Fisioterapium', new_carga_fisioterapium_path %>

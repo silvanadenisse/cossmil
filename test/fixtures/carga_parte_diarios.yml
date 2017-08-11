@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dias_habiles: 1
+  mes: MyString
+  anho: 1
+
+two:
+  dias_habiles: 1
+  mes: MyString
+  anho: 1

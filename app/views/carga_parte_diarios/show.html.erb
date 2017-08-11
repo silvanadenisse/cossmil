@@ -1,57 +1,75 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Mes:</strong>
-  <%= @carga_dental.mes %>
-</p>
-
-<p>
   <strong>Dias habiles:</strong>
-  <%= @carga_dental.dias_habiles %> 
+  <%= @carga_parte_diario.dias_habiles %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @carga_parte_diario.mes %>
+</p>
+
+<p>
+  <strong>Anho:</strong>
+  <%= @carga_parte_diario.anho %>
 </p>
 
 
+
 <p>
-<h2>Resumen de dental</h2>
+<h2>Resumen de consulta externa</h2>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Observaciones</th>
-    <th>Horas trabajadas</th>
-    <th>Consulta por hora</th>
-    <th>Horas trabajadas</th>
-    <th>Pacientes por dia</th>
-    <th>Dias trabajados</th>
+    <th>Carga horaria contrato</th>
+    <th>Carga horaria consulta externa</th>
+    <th>Consultas ofertadas</th>
     <th>Consulta programadas</th>
+    <th>Rendimiento medico (paciente por hora)</th>
+    <th>Horas trabajadas</th>
+    <th>Rendimiento medico (paciente por dias)</th>
+    <th>Dias trabajados</th>
+    <th>Rendimiento porcentual</th>
+    <th>Productividad porcentual</th>
     <th>Total</th>
   </tr>
   </thead>
   <tbody>
-  <% @carga_dental.carga_reporte_dentals.each do |carga_repo_dentals| %>
+  <% @carga_parte_diario.carga_reportes.each do |carga_repo| %>
       <tr>
         <td>
-          <%= carga_repo_dentals.observaciones %>
+          <%= carga_repo.carga_horaria_contrato %>
         </td>
         <td>
-          <%= carga_repo_dentals.horas_trabajadas %>
+          <%= carga_repo.carga_horaria_cons_ext %>
         </td>
         <td>
-          <%= carga_repo_dentals.consulta_hora %>
+          <%= carga_repo.consultas_ofertadas %>
         </td>
         <td>
-          <%= carga_repo_dentals.hrs_trabajadas %>
+          <%= carga_repo.consultas_programadas %>
         </td>
         <td>
-          <%= carga_repo_dentals.pacientes_dias %>
+          <%= carga_repo.rendimiento_medico_hora %>
         </td>
         <td>
-          <%= carga_repo_dentals.dias_trabajados %>
+          <%= carga_repo.horas_trabajadas %>
         </td>
         <td>
-          <%= carga_repo_dentals.consultas_programadas %>
+          <%= carga_repo.rendimiento_medico_dia %>
         </td>
         <td>
-          <%= carga_repo_dentals.total %>
+          <%= carga_repo.dias_trabajados %>
+        </td>
+        <td>
+          <%= carga_repo.rendimiento_porcental %>
+        </td>
+        <td>
+          <%= carga_repo.productividad %>
+        </td>
+        <td>
+          <%= carga_repo.total %>
         </td>
         
       </tr>
@@ -61,7 +79,7 @@
 </p>
 
 <p>
-<h2>Medicos de dental</h2>
+<h2>Medicos de consulta externa</h2>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -98,25 +116,31 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar </h4>
                   </div>
                   <div class="modal-body">
-                    <%= form_for([@carga_dental, @carga_dental.carga_reporte_dentals.build]) do |f| %>
-                        <%= f.label 'Observaciones: ' %>
-                        <%= f.text_field :observaciones %>
-                        <%= f.label 'Horas trabajadas: ' %>
-                        <%= f.number_field :horas_trabajadas %>
-                        <%= f.label 'Consulta por hora: ' %>
-                        <%= f.number_field :consulta_hora %>
-                        <%= f.label 'Horas trabajadas: ' %>
-                        <%= f.number_field :hrs_trabajadas %>
-                        <%= f.label 'pacientes por dias: ' %>
-                        <%= f.number_field :pacientes_dias %>
-                        <%= f.label 'Dias trabajados: ' %>
-                        <%= f.number_field :dias_trabajados %>
+                    <%= form_for([@carga_parte_diario, @carga_parte_diario.carga_reportes.build]) do |f| %>
+                        <%= f.label 'Carga horaria contrato: ' %>
+                        <%= f.text_field :carga_horaria_contrato %>
+                        <%= f.label 'Carga horaria consulta externa: ' %>
+                        <%= f.text_field :carga_horaria_cons_ext %>
+                        <%= f.label 'Consultas ofertadas: ' %>
+                        <%= f.number_field :consultas_ofertadas %>
                         <%= f.label 'Consultas programadas: ' %>
                         <%= f.number_field :consultas_programadas %>
+                        <%= f.label 'Rendimiento medico (pacientes por hora): ' %>
+                        <%= f.number_field :rendimiento_medico_hora %>
+                        <%= f.label 'Horas trabajadas: ' %>
+                        <%= f.number_field :horas_trabajadas %>
+                        <%= f.label 'Rendimiento medico (pacientes por dias): ' %>
+                        <%= f.number_field :rendimiento_medico_dia %>
+                        <%= f.label 'Dias trabajados: ' %>
+                        <%= f.number_field :dias_trabajados %>
+                        <%= f.label 'Rendimiento porcentual: ' %>
+                        <%= f.number_field :rendimiento_porcental %>
+                        <%= f.label 'Productividad porcentual: ' %>
+                        <%= f.number_field :productividad %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
                         <%= f.hidden_field :current_user_id, :value => current_user.id %>
-                        <%= f.hidden_field :carga_dental_id, :value => @carga_dental.id %>
+                        <%= f.hidden_field :carga_parte_diario_id, :value => @carga_parte_diario.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
@@ -137,5 +161,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_carga_dental_path(@carga_dental) %> |
-<%= link_to 'Back', carga_dentals_path %>
+<%= link_to 'Edit', edit_carga_parte_diario_path(@carga_parte_diario) %> |
+<%= link_to 'Back', carga_parte_diarios_path %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  carga_horaria_contrato: 1
+  carga_horaria_cons_ext: 1
+  consultas_ofertadas: 1
+  consultas_programadas: 1
+  rendimiento_medico_hora: 1
+  horas_trabajadas: 1
+  rendimiento_medico_dia: 1
+  dias_trabajados: 1
+  rendimiento_porcentual: 1
+  productividad: 
+  total_especialidad: 1
+
+two:
+  carga_horaria_contrato: 1
+  carga_horaria_cons_ext: 1
+  consultas_ofertadas: 1
+  consultas_programadas: 1
+  rendimiento_medico_hora: 1
+  horas_trabajadas: 1
+  rendimiento_medico_dia: 1
+  dias_trabajados: 1
+  rendimiento_porcentual: 1
+  productividad: 
+  total_especialidad: 1

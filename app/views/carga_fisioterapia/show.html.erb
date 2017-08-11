@@ -1,57 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Mes:</strong>
-  <%= @carga_dental.mes %>
-</p>
-
-<p>
   <strong>Dias habiles:</strong>
-  <%= @carga_dental.dias_habiles %> 
+  <%= @carga_fisioterapium.dias_habiles %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @carga_fisioterapium.mes %>
+</p>
+
+<p>
+  <strong>Anho:</strong>
+  <%= @carga_fisioterapium.anho %>
 </p>
 
 
 <p>
-<h2>Resumen de dental</h2>
+<h2>Fisioterapia</h2>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Observaciones</th>
-    <th>Horas trabajadas</th>
     <th>Consulta por hora</th>
     <th>Horas trabajadas</th>
     <th>Pacientes por dia</th>
     <th>Dias trabajados</th>
-    <th>Consulta programadas</th>
     <th>Total</th>
   </tr>
   </thead>
   <tbody>
-  <% @carga_dental.carga_reporte_dentals.each do |carga_repo_dentals| %>
+  <% @carga_fisioterapium.carga_reporte_fisioterapium.each do |carga_repo_fisioterapium| %>
       <tr>
         <td>
-          <%= carga_repo_dentals.observaciones %>
+          <%= carga_repo_fisioterapium.consulta_hora %>
         </td>
         <td>
-          <%= carga_repo_dentals.horas_trabajadas %>
+          <%= carga_repo_fisioterapium.horas_trabajadas %>
         </td>
         <td>
-          <%= carga_repo_dentals.consulta_hora %>
+          <%= carga_repo_fisioterapium.pacientes_dias %>
         </td>
         <td>
-          <%= carga_repo_dentals.hrs_trabajadas %>
+          <%= carga_repo_fisioterapium.dias_trabajados %>
         </td>
         <td>
-          <%= carga_repo_dentals.pacientes_dias %>
-        </td>
-        <td>
-          <%= carga_repo_dentals.dias_trabajados %>
-        </td>
-        <td>
-          <%= carga_repo_dentals.consultas_programadas %>
-        </td>
-        <td>
-          <%= carga_repo_dentals.total %>
+          <%= carga_repo_fisioterapium.total %>
         </td>
         
       </tr>
@@ -61,7 +54,7 @@
 </p>
 
 <p>
-<h2>Medicos de dental</h2>
+<h2>Medicos de fisioterapia</h2>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -98,25 +91,19 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar </h4>
                   </div>
                   <div class="modal-body">
-                    <%= form_for([@carga_dental, @carga_dental.carga_reporte_dentals.build]) do |f| %>
-                        <%= f.label 'Observaciones: ' %>
-                        <%= f.text_field :observaciones %>
-                        <%= f.label 'Horas trabajadas: ' %>
-                        <%= f.number_field :horas_trabajadas %>
+                    <%= form_for([@carga_fisioterapium, @carga_fisioterapium.carga_reporte_fisioterapia.build]) do |f| %>
                         <%= f.label 'Consulta por hora: ' %>
                         <%= f.number_field :consulta_hora %>
                         <%= f.label 'Horas trabajadas: ' %>
-                        <%= f.number_field :hrs_trabajadas %>
-                        <%= f.label 'pacientes por dias: ' %>
+                        <%= f.number_field :horas_trabajadas %>
+                        <%= f.label 'Pacientes por dias: ' %>
                         <%= f.number_field :pacientes_dias %>
                         <%= f.label 'Dias trabajados: ' %>
                         <%= f.number_field :dias_trabajados %>
-                        <%= f.label 'Consultas programadas: ' %>
-                        <%= f.number_field :consultas_programadas %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
                         <%= f.hidden_field :current_user_id, :value => current_user.id %>
-                        <%= f.hidden_field :carga_dental_id, :value => @carga_dental.id %>
+                        <%= f.hidden_field :carga_fisioterapium_id, :value => @carga_fisioterapium.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
@@ -136,6 +123,5 @@
 
 </p>
 
-
-<%= link_to 'Edit', edit_carga_dental_path(@carga_dental) %> |
-<%= link_to 'Back', carga_dentals_path %>
+<%= link_to 'Edit', edit_carga_fisioterapium_path(@carga_fisioterapium) %> |
+<%= link_to 'Back', carga_fisioterapia_path %>

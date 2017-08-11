@@ -128,6 +128,7 @@
                         <%= f.text_field :signos_vitales %>
                         <%= f.label 'Observaciones: ' %>
                         <%= f.text_field :observaciones %>
+                        <%= f.hidden_field :parte_emergencium_id, :value => @parte_emergencium.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

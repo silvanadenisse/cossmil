@@ -1,59 +1,51 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Mes:</strong>
-  <%= @carga_dental.mes %>
-</p>
-
-<p>
   <strong>Dias habiles:</strong>
-  <%= @carga_dental.dias_habiles %> 
+  <%= @carga_emergencium.dias_habiles %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @carga_emergencium.mes %>
+</p>
+
+<p>
+  <strong>Anho:</strong>
+  <%= @carga_emergencium.anho %>
 </p>
 
 
 <p>
-<h2>Resumen de dental</h2>
+<h2>Pacientes del Parte Diario Emergencia</h2>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Observaciones</th>
-    <th>Horas trabajadas</th>
     <th>Consulta por hora</th>
     <th>Horas trabajadas</th>
     <th>Pacientes por dia</th>
     <th>Dias trabajados</th>
-    <th>Consulta programadas</th>
     <th>Total</th>
   </tr>
   </thead>
   <tbody>
-  <% @carga_dental.carga_reporte_dentals.each do |carga_repo_dentals| %>
+  <% @carga_emergencium.carga_reporte_emergencia.each do |carga_reporte_emergencia| %>
       <tr>
-        <td>
-          <%= carga_repo_dentals.observaciones %>
+      	<td>
+          <%= carga_reporte_emergencia.consulta_hora %>
         </td>
         <td>
-          <%= carga_repo_dentals.horas_trabajadas %>
+          <%= carga_reporte_emergencia.horas_trabajadas %>
         </td>
         <td>
-          <%= carga_repo_dentals.consulta_hora %>
+          <%= carga_reporte_emergencia.pacientes_dias %>
         </td>
         <td>
-          <%= carga_repo_dentals.hrs_trabajadas %>
+          <%= carga_reporte_emergencia.dias_trabajados %>
         </td>
         <td>
-          <%= carga_repo_dentals.pacientes_dias %>
+          <%= carga_reporte_emergencia.total %>
         </td>
-        <td>
-          <%= carga_repo_dentals.dias_trabajados %>
-        </td>
-        <td>
-          <%= carga_repo_dentals.consultas_programadas %>
-        </td>
-        <td>
-          <%= carga_repo_dentals.total %>
-        </td>
-        
       </tr>
   <% end %>
   </tbody>
@@ -61,7 +53,7 @@
 </p>
 
 <p>
-<h2>Medicos de dental</h2>
+<h2>Agregar Medico</h2>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -76,7 +68,7 @@
       <th>Departamento</th>
     </tr>
     </thead>
-    <tbody>Departamento
+    <tbody>
     <% @users.each do |medico| %>
         <tr>
           <td>
@@ -90,33 +82,26 @@
               <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= user.id %>">Agregar medico
               </button>
             </div>
-            <div class="modal fade" id="myModal-<%= current_user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal-<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Agregar </h4>
+                    <h4 class="modal-title" id="myModalLabel">Agregar</h4>
                   </div>
                   <div class="modal-body">
-                    <%= form_for([@carga_dental, @carga_dental.carga_reporte_dentals.build]) do |f| %>
-                        <%= f.label 'Observaciones: ' %>
-                        <%= f.text_field :observaciones %>
-                        <%= f.label 'Horas trabajadas: ' %>
-                        <%= f.number_field :horas_trabajadas %>
+                    <%= form_for([@carga_emergencium, @carga_emergencium.carga_reporte_emergencia.build]) do |f| %>
                         <%= f.label 'Consulta por hora: ' %>
                         <%= f.number_field :consulta_hora %>
                         <%= f.label 'Horas trabajadas: ' %>
-                        <%= f.number_field :hrs_trabajadas %>
-                        <%= f.label 'pacientes por dias: ' %>
+                        <%= f.number_field :horas_trabajadas %>
+                        <%= f.label 'Pacientes por dia: ' %>
                         <%= f.number_field :pacientes_dias %>
                         <%= f.label 'Dias trabajados: ' %>
                         <%= f.number_field :dias_trabajados %>
-                        <%= f.label 'Consultas programadas: ' %>
-                        <%= f.number_field :consultas_programadas %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
-                        <%= f.hidden_field :current_user_id, :value => current_user.id %>
-                        <%= f.hidden_field :carga_dental_id, :value => @carga_dental.id %>
+                        <%= f.hidden_field :carga_emergencium_id, :value => @carga_emergencium.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
@@ -137,5 +122,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_carga_dental_path(@carga_dental) %> |
-<%= link_to 'Back', carga_dentals_path %>
+<%= link_to 'Edit', edit_carga_emergencium_path(@carga_emergencium) %> |
+<%= link_to 'Back', carga_emergencia_path %>

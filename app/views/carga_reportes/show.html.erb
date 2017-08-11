@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medicos:</strong>
+  <%= @carga_reporte.current_users %>
+</p>
+
+<p>
+  <strong>Carga horaria:</strong>
+  <%= @carga_reporte.carga_parte_diarios %>
+</p>
+
+<%= link_to 'Edit', edit_carga_reporte_path(@carga_reporte) %> |
+<%= link_to 'Back', carga_reportes_path %>

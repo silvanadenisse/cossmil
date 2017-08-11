@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  consulta_hora: 1
+  horas_trabajadas: 1
+  pacientes_dias: 1
+  dias_trabajados: 1
+  total: 1
+
+two:
+  consulta_hora: 1
+  horas_trabajadas: 1
+  pacientes_dias: 1
+  dias_trabajados: 1
+  total: 1

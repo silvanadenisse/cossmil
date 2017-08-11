@@ -1,0 +1,2 @@
+module CargaParteDiariosHelper
+end

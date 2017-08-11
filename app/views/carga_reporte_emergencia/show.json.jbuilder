@@ -1,0 +1,1 @@
+json.partial! "carga_reporte_emergencia/carga_reporte_emergencium", carga_reporte_emergencium: @carga_reporte_emergencium
