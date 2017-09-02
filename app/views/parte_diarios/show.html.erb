@@ -1,6 +1,12 @@
 <p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
 
 <p>
+<h2>PARTE DIARIO CONSULTORIO EXTERNO</h2>
+</p>
+
+
+
+<p>
   <strong>Mes:</strong>
   <%= @parte_diario.mes %>
 </p>
@@ -22,7 +28,7 @@
 
 <p>
   <strong>Clave:</strong>
-  <%= @parte_diario.clave %>
+  <%= @parte_diario.user.clave %>
 </p>
 
 <p>
@@ -41,7 +47,7 @@
 </p>
 
 <p>
-<h2>Informe medico diario de emergencia</h2>
+<h2>INFORME MÉDICO PARTE DIARIO DE CONSULTORIO EXTERNO</h2>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -77,7 +83,7 @@
           <%= paciente_repo.tipo_consulta %>
         </td>
         <td>
-          <%= paciente_repo.tipo_asegurado %>
+          <%= paciente_repo.paciente.tipo_asegurado %>
         </td>
         <td>
           <%= paciente_repo.paciente.fuerza %>
@@ -89,7 +95,7 @@
 </p>
 
 <p>
-<h2>Agregar Paciente a Parte Diario</h2>
+<h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -136,17 +142,14 @@
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Primera', :checked => (:tipo_consulta == 'Primera') %> Primera
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
-                        <%= f.label 'Tipo de segurado: ' %>
-                        <%= f.radio_button :tipo_asegurado, 'Activo', :checked => (:tipo_consulta == 'Activo') %> Activo
-                        <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-                  </div>
+                  <br><div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button><
+                  </div></br>
                 </div>
               </div>
             </div>x

@@ -1,8 +1,8 @@
 ,<p id="notice"><%= notice %></p>
 
-<h1>INFORME MEDICO PARTE DIARIO CONSULTORIO EXTERNO</h1>
+<h1>INFORME MÉDICO PARTE DIARIO CONSULTORIO EXTERNO</h1>
 
-<br><%= link_to 'Nuevo Parte Diario', new_parte_diario_path %></br>
+<br><%= link_to 'Registrar Nuevo Parte Diario', new_parte_diario_path %></br>
 
 <br><table>
   <thead>
@@ -10,7 +10,7 @@
       <th>Mes</th>
       <th>Especialidad</th>
       <th>Servicio de</th>
-      <th>Nombre medico</th>
+      <th>Nombre médico</th>
       <th>Clave</th>
       <th>Inicio consulta</th>
       <th>Fin consulta</th>
@@ -26,7 +26,7 @@
         <td><%= parte_diario.user.speciality %></td>
         <td><%= parte_diario.user.area %></td>
         <td><%= parte_diario.user.name + " " + parte_diario.user.last_name %></td>
-        <td><%= parte_diario.clave %></td>
+        <td><%= parte_diario.user.clave %></td>
         <td><%= parte_diario.inicio_consulta %></td>
         <td><%= parte_diario.fin_consulta %></td>
         <td><%= parte_diario.enfermera %></td>

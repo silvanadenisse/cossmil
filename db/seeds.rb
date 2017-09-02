@@ -5,5 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-  Area.create(nombre: 'Oncología')
-  
+  Area.create(nombre: 'Consulta Externa')
+  Area.create(nombre: 'Dental')
+  Area.create(nombre: 'Emergencia')
+  Area.create(nombre: 'Fisoterapia')
+  Area.create(nombre: 'Laboratorio')
+  Area.create(nombre: 'Rayos X')
+  Area.create(nombre: 'Servicios Complementarios')

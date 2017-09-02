@@ -4,7 +4,8 @@ class ParteEmergenciaController < ApplicationController
   # GET /parte_emergencia
   # GET /parte_emergencia.json
   def index
-    @parte_emergencia = ParteEmergencium.all
+    #@parte_emergencia = ParteEmergencium.all
+    @parte_emergencia = ParteEmergencium.where(user_id: current_user.id)
   end
 
   # GET /parte_emergencia/1

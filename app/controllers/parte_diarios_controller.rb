@@ -2,7 +2,8 @@ class ParteDiariosController < ApplicationController
   before_action :set_parte_diario, only: [:show, :edit, :update, :destroy]
 
   def index
-    @parte_diarios = ParteDiario.all
+    #@parte_diarios = ParteDiario.all
+    @parte_diarioss = ParteDiario.where(user_id: current_user.id)
   end
 
   def show
@@ -60,6 +61,6 @@ class ParteDiariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parte_diario_params
-      params.require(:parte_diario).permit(:mes, :especialidad, :servicio_de, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
+      params.require(:parte_diario).permit(:establecimiento, :localidad, :mes, :especialidad, :servicio_de, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
     end
 end

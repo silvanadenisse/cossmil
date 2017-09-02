@@ -23,8 +23,10 @@
 
     <div class="field">
       <%= f.label 'Sexo: ' %>
-      <%= f.text_field :sexo %>
+      <%= f.radio_button :sexo, 'Activo', :checked => (:sexo == 'Femenino') %> Femenino
+      <%= f.radio_button :sexo, 'Pasivo', :checked => (:sexo == 'Masculino') %> Masculino
     </div>
+
 
     <div class="field">
       <%= f.label 'Matricula titular: ' %>
@@ -33,7 +35,7 @@
 
     <div class="field">
       <%= f.label 'Fuerza: ' %>
-      <%= f.text_field :fuerza %>
+      <%= f.select :fuerza, ['Ejercito', 'FAB', 'FNB', 'Civil'] %>
     </div>
 
     <div class="field">
@@ -57,7 +59,22 @@
       <%= f.hidden_field :user_id, :value => current_user.id%>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="field">
+      <%= f.label 'Grado: ' %>
+      <%= f.text_field :grado %>
     </div>
+
+    <div class="field">
+      <%= f.label 'Tipo asegurado:' %>
+      <%= f.select :tipo_asegurado, ['Activo', 'Pasivo', 'Sanidad operativa'] %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Letra de asegurado:' %>
+      <%= f.select :letra_asegurado, ['A', 'B', 'C', 'Z', 'Y', 'V', 'X', 'H', 'CAD', 'E' 'F', 'PM'] %>
+    </div>
+
+    </br><div class="actions">
+      <%= f.submit %>
+    </div></br>
 <% end %>

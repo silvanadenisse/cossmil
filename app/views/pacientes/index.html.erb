@@ -2,7 +2,7 @@
 
 <h1>Pacientes</h1>
 
-<br><%= link_to 'Nuevo Paciente', new_paciente_path %></br>
+<br><%= link_to 'REGISTRAR NUEVO PACIENTE', new_paciente_path %></br>
 
 <br><table>
   <thead>
@@ -16,6 +16,9 @@
       <th>Carnet</th>
       <th>Grupo sanguineo</th>
       <th>Nacionalidad</th>
+      <th>Grado</th>
+      <th>Tipo de asegurado</th>
+      <th>Letra de asegurado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,6 +35,9 @@
         <td><%= paciente.carnet %></td>
         <td><%= paciente.grupo_sanguineo %></td>
         <td><%= paciente.nacionalidad %></td>
+        <td><%= paciente.grado %></td>
+        <td><%= paciente.tipo_asegurado %></td>
+        <td><%= paciente.letra_asegurado %></td>
         <td><%= link_to 'Mostrar', paciente %></td>
         <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
         <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Estás seguro?' } %></td>

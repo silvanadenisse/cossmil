@@ -1,10 +1,14 @@
 class User
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
   field :name, type: String
   field :last_name, type: String
   field :role, type: String
   field :speciality, type: String
   field :subesp, type: String
+  field :clave, type: Integer
+  field :establecimiento, type: String
+  field :localidad, type: String
   belongs_to :area
   has_many :pacientes
 

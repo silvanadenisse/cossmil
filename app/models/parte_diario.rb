@@ -1,6 +1,8 @@
 class ParteDiario
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
+  field :establecimiento, type: String
+  field :localidad, type: String
   field :mes, type: String
   field :especialidad, type: String
   field :servicio_de, type: String

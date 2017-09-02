@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<h2>PARTE DIARIO DENTAL</h2>
+</p>
+
+<p>
   <strong>Mes:</strong>
   <%= @parte_dental.mes %>
 </p>
@@ -12,7 +16,7 @@
 
 <p>
   <strong>Clave:</strong>
-  <%= @parte_dental.clave %>
+  <%= @parte_dental.user.clave %>
 </p>
 
 <p>
@@ -30,9 +34,18 @@
   <%= @parte_dental.enfermera %>
 </p>
 
+<p>
+  <strong>Establecimiento:</strong>
+  <%= @parte_dental.user.establecimiento %>
+</p>
 
 <p>
-<h2>Pacientes del Parte Diario</h2>
+  <strong>Localidad:</strong>
+  <%= @parte_dental.user.localidad %>
+</p>
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE DENTAL</h2>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -70,7 +83,7 @@
           <%= paciente_repo_dentals.tipo_consulta %>
         </td>
         <td>
-          <%= paciente_repo_dentals.tipo_asegurado %>
+          <%= paciente_repo_dentals.paciente.tipo_asegurado %>
         </td>
         <td>
           <%= paciente_repo_dentals.paciente.fuerza %>
@@ -89,7 +102,7 @@
 </p>
 
 <p>
-<h2>Agregar Paciente a Parte Diario</h2>
+<h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -137,9 +150,6 @@
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Primera', :checked => (:tipo_consulta == 'Primera') %> Primera
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
-                        <%= f.label 'Tipo de segurado: ' %>
-                        <%= f.radio_button :tipo_asegurado, 'Activo', :checked => (:tipo_consulta == 'Activo') %> Activo
-                        <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_dental_id, :value => @parte_dental.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>

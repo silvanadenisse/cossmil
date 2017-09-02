@@ -4,7 +4,8 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia
   # GET /parte_fisioterapia.json
   def index
-    @parte_fisioterapia = ParteFisioterapium.all
+    #@parte_fisioterapia = ParteFisioterapium.all
+    @parte_fisioterapia = ParteFisioterapium.where(user_id: current_user.id)
   end
 
   # GET /parte_fisioterapia/1

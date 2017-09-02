@@ -6,8 +6,9 @@
       <p>hola <%= current_user.name %></p>
       <p><%= link_to "Cerrar sesion", destroy_user_session_path, :method => 'delete' %></p>
   <% else %>
-      <p><%= link_to "Crear cuenta", new_user_registration_path %></p>
+      
       <p><%= link_to "Iniciar sesión", new_user_session_path %></p>
+      <p><%= link_to "Crear cuenta", new_user_registration_path %></p>
   <% end %>
 </div>
 

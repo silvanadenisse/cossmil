@@ -1,4 +1,4 @@
-cargaclass CargaReporte
+class CargaReporte
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
   field :carga_horaria_contrato, type: Integer
@@ -10,7 +10,7 @@ cargaclass CargaReporte
   field :rendimiento_medico_dia, type: Integer
   field :dias_trabajados, type: Integer
   field :rendimiento_porcentual, type: Integer
-  field :productividad, type: Porcentual
+  field :productividad, type: Integer
   field :total_especialidad, type: Integer
 
   belongs_to :current_user

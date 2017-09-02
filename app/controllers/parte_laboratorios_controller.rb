@@ -4,7 +4,8 @@ class ParteLaboratoriosController < ApplicationController
   # GET /parte_laboratorios
   # GET /parte_laboratorios.json
   def index
-    @parte_laboratorios = ParteLaboratorio.all
+    #@parte_laboratorios = ParteLaboratorio.all
+    @parte_laboratorios = ParteLaboratorio.where(user_id: current_user.id)
   end
 
   # GET /parte_laboratorios/1

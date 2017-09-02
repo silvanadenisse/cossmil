@@ -45,6 +45,21 @@
   <%= @paciente.nacionalidad %>
 </p>
 
+<p>
+  <strong>Grado:</strong>
+  <%= @paciente.grado %>
+</p>
+
+<p>
+  <strong>Tipo de asegurado:</strong>
+  <%= @paciente.tipo_asegurado %>
+</p>
+
+<p>
+  <strong>Letra de asegurado:</strong>
+  <%= @paciente.letra_asegurado %>
+</p>
+
 
 <%= link_to 'Editar', edit_paciente_path(@paciente) %> |
 <%= link_to 'Volver', pacientes_path %>

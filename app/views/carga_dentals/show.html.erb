@@ -24,6 +24,23 @@
     <th>Dias trabajados</th>
     <th>Consulta programadas</th>
     <th>Total</th>
+    <th>Masculino Nuevos</th>
+    <th>Masculino Repetidos</th>
+    <th>Femenino Nuevo</th>
+    <th>Femenino Repetido</th>
+    <th>Activo A</th>
+    <th>Activo B</th>
+    <th>Activo C</th>
+    <th>Pasivo Z</th>
+    <th>Pasivo Y</th>
+    <th>Pasivo V</th>
+    <th>Pasivo X</th>
+    <th>Pasivo H</th>
+    <th>Sanidad operativa CAD</th>
+    <th>Sanidad operativa E</th>
+    <th>Sanidad operativa F</th>
+    <th>Sanidad operativa PM</th>
+    
   </tr>
   </thead>
   <tbody>
@@ -53,7 +70,7 @@
         <td>
           <%= carga_repo_dentals.total %>
         </td>
-        
+       
       </tr>
   <% end %>
   </tbody>
@@ -66,7 +83,7 @@
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Medico" , class="btn btn-info">
-    <button><%= link_to 'Nuevo Medico', new_user_path %></button>
+    <!--  -->
   </form></br>
 
   <table class="table table-striped">
@@ -74,23 +91,27 @@
     <tr>
       <th>Nombre</th>
       <th>Departamento</th>
+      <th>Especialidad</th>
     </tr>
     </thead>
     <tbody>Departamento
-    <% @users.each do |medico| %>
+    <% @medicos.each do |medico| %>
         <tr>
           <td>
-            <%= medico.nombre + " " + medico.apellido %>
+            <%= medico.name + " " + medico.last_name %>
           </td>
           <td>
-            <%= medico.user.departamento %>
+            <%= medico.area.nombre %>
+          </td>
+          <td>
+            <%= medico.speciality %>
           </td>
           <td>
             <div align="right">
-              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= user.id %>">Agregar medico
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= medico.id %>">Agregar medico
               </button>
             </div>
-            <div class="modal fade" id="myModal-<%= current_user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal-<%= medico.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -115,8 +136,8 @@
                         <%= f.number_field :consultas_programadas %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
-                        <%= f.hidden_field :current_user_id, :value => current_user.id %>
                         <%= f.hidden_field :carga_dental_id, :value => @carga_dental.id %>
+                        <%= f.hidden_field :medico_id, :value => medico.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

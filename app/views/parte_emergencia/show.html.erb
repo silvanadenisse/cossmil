@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<h2>PARTE DIARIO EMERGENCIA</h2>
+</p>
+
+<p>
   <strong>Nombre medico:</strong>
   <%= @parte_emergencium.user.name + " " + @parte_emergencium.user.last_name %>
 </p>
@@ -16,7 +20,7 @@
 </p>
 
 <p>
-<h2>Pacientes del Parte Diario Emergencia</h2>
+<h2>INFORME MÉDICO PARTE DIARIO DE EMERGENCIA</h2>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -43,7 +47,7 @@
           <%= paciente_reporte_emergencia.paciente.matricula_paciente %>
         </td>
         <td>
-          <%= paciente_reporte_emergencia.paciente.nombre + " " + paciente_repo.paciente.apellido %>
+          <%= paciente_reporte_emergencia.paciente.nombre + " " + paciente_reporte_emergencia.paciente.apellido %>
         </td>
         <td>
           <%= paciente_reporte_emergencia.paciente.fuerza %>
@@ -52,13 +56,16 @@
           <%= paciente_reporte_emergencia.paciente.grado %>
         </td>
         <td>
+          <%= paciente_reporte_emergencia.paciente.tipo_asegurado %>
+        </td>
+        <td>
           <%= paciente_reporte_emergencia.edad %>
         </td>
         <td>
           <%= paciente_reporte_emergencia.paciente.sexo %>
         </td>
         <td>
-          <%= paciente_reporte_emergencia.Signos vitales %>
+          <%= paciente_reporte_emergencia.signos_vitales %>
         </td>
         <td>
           <%= paciente_reporte_emergencia.diagnostico %>
@@ -76,7 +83,7 @@
 </p>
 
 <p>
-<h2>Agregar Paciente a Parte Diario</h2>
+<h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -115,9 +122,6 @@
                   </div>
                   <div class="modal-body">
                     <%= form_for([@parte_emergencium, @parte_emergencium.paciente_reporte_emergencia.build]) do |f| %>
-                        <%= f.label 'Tipo de segurado: ' %>
-                        <%= f.radio_button :tipo_asegurado, 'Activo', :checked => (:tipo_consulta == 'Activo') %> Activo
-                        <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Diagnostico: ' %>
@@ -128,6 +132,7 @@
                         <%= f.text_field :signos_vitales %>
                         <%= f.label 'Observaciones: ' %>
                         <%= f.text_field :observaciones %>
+                        <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_emergencium_id, :value => @parte_emergencium.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>

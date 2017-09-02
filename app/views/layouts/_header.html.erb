@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/" style="padding-top: 10px;"><img style="max-width:40px; margin-top: -7px;" src="/images/cossmil.jpg"></a>
+      <a class="navbar-brand" href="/" style="padding-top: 0px;"><img style="max-width:70px; margin-top: -7px;" src="/images/cossmil.jpg"></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right navbar-user">
@@ -28,6 +28,15 @@
 
       <ul class="nav navbar-nav side-nav">
         <% if user_signed_in? %>
+
+
+            <% if current_user.role == "Administrador" %>
+                <li><%= nav_link raw("Registrar áreas"), areas_path %></li>
+                <li><%= nav_link raw("Mostrar áreas"), areas_path %></li>
+                <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
+                <li><%= nav_link raw("Registrar usuario"), new_user_registration_path %></li>
+                <p><%= link_to "Crear cuenta", new_user_registration_path %></p>
+            <% end %>
       
             <% if current_user.role == "Doctor" %> 
 
@@ -47,15 +56,9 @@
                       <% when "Exámenes clínicos" %>
                         <%= render 'layouts/examenclinico' %>
                   <%end%>
-
-
-                
+ 
             <% end %>
-            <% if current_user.role == "Administrador" %>
-                <li><%= nav_link raw("Registrar áreas"), areas_path %></li>
-                <li><%= nav_link raw("Mostrar áreas"), areas_path %></li>
-                <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
-            <% end %>
+            
 
             <% if current_user.role == "Técnico-Encargado" %>
                 <li><%= nav_link raw("Ver parte diario consulta externa"), parte_diarios_path %></li>

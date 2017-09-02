@@ -4,7 +4,8 @@ class ParteDentalsController < ApplicationController
   # GET /parte_dentals
   # GET /parte_dentals.json
   def index
-    @parte_dentals = ParteDental.all
+    # @parte_dentals = ParteDental.all
+    @parte_dentals = ParteDental.where(user_id: current_user.id)
   end
 
   # GET /parte_dentals/1

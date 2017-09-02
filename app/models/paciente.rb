@@ -9,6 +9,10 @@ class Paciente
   field :grupo_sanguineo, type: String
   field :nacionalidad, type: String
   field :sexo, type: String
+  field :grado, type: String
+  field :tipo_asegurado, type: String
+  field :letra_asegurado, type: String
+  field :edad, type: Integer
 
   belongs_to :user
 end
