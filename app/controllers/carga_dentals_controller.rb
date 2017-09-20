@@ -10,7 +10,8 @@ class CargaDentalsController < ApplicationController
   # GET /carga_dentals/1
   # GET /carga_dentals/1.json
   def show
-    @medicos = User.where(role: 'Doctor')
+    @area = Area.find_by(nombre: 'Dental')
+    @medicos = User.where(area: @area)
   end
 
   # GET /carga_dentals/new

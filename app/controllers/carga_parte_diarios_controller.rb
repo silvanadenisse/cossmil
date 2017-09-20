@@ -10,7 +10,9 @@ class CargaParteDiariosController < ApplicationController
   # GET /carga_parte_diarios/1
   # GET /carga_parte_diarios/1.json
   def show
-    @medicos = User.where(role: 'Doctor').where(area: 'Consulta Externa')
+    @area = Area.find_by(nombre: 'Consulta Externa')
+    @medicos = User.where(area: @area)
+  end
   end
 
   # GET /carga_parte_diarios/new

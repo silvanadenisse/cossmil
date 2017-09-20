@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2>RESUMEN DE DENTAL</h2>
+
 <p>
   <strong>Mes:</strong>
   <%= @carga_dental.mes %>
@@ -12,10 +14,11 @@
 
 
 <p>
-<h2>Resumen de dental</h2>
+
 <table class="table table-striped">
   <thead>
   <tr>
+    <th>Nombre del médico</th>
     <th>Observaciones</th>
     <th>Horas trabajadas</th>
     <th>Consulta por hora</th>
@@ -47,6 +50,9 @@
   <% @carga_dental.carga_reporte_dentals.each do |carga_repo_dentals| %>
       <tr>
         <td>
+          <%= carga_repo_dentals.medico %>
+        </td>
+        <td>
           <%= carga_repo_dentals.observaciones %>
         </td>
         <td>
@@ -70,15 +76,67 @@
         <td>
           <%= carga_repo_dentals.total %>
         </td>
-       
+        <td>
+          <%= carga_repo_dentals.masculinoN %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.masculinoR %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.femeninoN %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.femeninoR %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraA %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraB %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraC %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraZ %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraY %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraV %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraH %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraCAD %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraE %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraF %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraPM %>
+        </td>
+
       </tr>
   <% end %>
   </tbody>
 </table>
 </p>
 
+
+<%= link_to 'Editar', edit_carga_dental_path(@carga_dental) %> |
+<%= link_to 'Volver', carga_dentals_path %>
+
 <p>
-<h2>Medicos de dental</h2>
+<h2>Médicos de dental</h2>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -86,16 +144,17 @@
     <!--  -->
   </form></br>
 
-  <table class="table table-striped">
+
+  <br><table class="table table-striped">
     <thead>
     <tr>
-      <th>Nombre</th>
+      <th>Nombre del médico</th>
       <th>Departamento</th>
       <th>Especialidad</th>
     </tr>
     </thead>
-    <tbody>Departamento
-    <% @medicos.each do |medico| %>
+    <tbody>
+    <% @medicos.each do |medico| %>    
         <tr>
           <td>
             <%= medico.name + " " + medico.last_name %>
@@ -146,17 +205,16 @@
                   </div>
                 </div>
               </div>
-            </div>x
+            </div>
           </td>
         </tr>
     <% end %>
     </tbody>
-  </table>
+  </table></br>
 
 </div>
 
 </p>
 
 
-<%= link_to 'Edit', edit_carga_dental_path(@carga_dental) %> |
-<%= link_to 'Back', carga_dentals_path %>
+

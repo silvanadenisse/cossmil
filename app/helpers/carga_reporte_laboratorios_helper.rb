@@ -1,0 +1,2 @@
+module CargaReporteLaboratoriosHelper
+end

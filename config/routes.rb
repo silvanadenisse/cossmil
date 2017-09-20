@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
  
+  resources :carga_reporte_laboratorios
+  resources :carga_laboratorios
+  
   root 'static_pages#home'
   
   resources :parte_diarios do
@@ -10,6 +13,11 @@ Rails.application.routes.draw do
 
   resources :parte_dentals do
     resources :paciente_reporte_dentals
+    resources :pacientes
+  end
+
+  resources :parte_laboratorios do
+    resources :paciente_reporte_laboratorios
     resources :pacientes
   end
 
@@ -34,6 +42,8 @@ Rails.application.routes.draw do
   resources :paciente_reporte_emergencia 
 
   resources :paciente_reporte_dentals 
+
+  resources :paciente_reporte_laboratorios
 
 
   resources :carga_dentals do

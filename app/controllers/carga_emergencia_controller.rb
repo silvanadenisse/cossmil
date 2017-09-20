@@ -5,12 +5,14 @@ class CargaEmergenciaController < ApplicationController
   # GET /carga_emergencia.json
   def index
     @carga_emergencia = CargaEmergencium.all
+
   end
 
   # GET /carga_emergencia/1
   # GET /carga_emergencia/1.json
   def show
-    @medicos = User.where(role: 'Doctor').where(area: 'Emergencias')
+    @area = Area.find_by(nombre: 'Emergencia')
+    @medicos = User.where(area: @area)
   end
 
   # GET /carga_emergencia/new

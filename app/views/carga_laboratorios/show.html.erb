@@ -1,0 +1,132 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @carga_laboratorio.mes %>
+</p>
+
+<p>
+  <strong>Año:</strong>
+  <%= @carga_laboratorio.anho %>
+</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Tipo de atención y especialidad</th>
+    <th>Total</th>
+    <th>Activo A</th>
+    <th>Activo B</th>
+    <th>Activo C</th>
+    <th>Pasivo Z</th>
+    <th>Pasivo Y</th>
+    <th>Pasivo V</th>
+    <th>Pasivo X</th>
+    <th>Hematología</th>
+    <th>Bioquímica</th>
+    <th>Serología</th>
+    <th>Orinas</th>
+    <th>Heces</th>
+    <th>Grupo de sangre</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+  <% @carga_laboratorio.carga_reporte_laboratorios.each do |carga_repo_laboratorios| %>
+      <tr>
+        <td>
+          <%= carga_repo_laboratorios.speciality %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.total %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraA %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraB %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraC %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraZ %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraY %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraV %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.hematologia %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.bioquimica %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.serologia %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.orinas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.heces %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.gsanguineo %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+
+
+
+<p>
+<h2>Especialidades</h2>
+
+<div id="speciality"><!--style="display:none"--><br>
+  <br><form method="GET">Nombre:
+    <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Especialidad" , class="btn btn-info">
+    <!--  -->
+  </form></br>
+
+
+  <br><table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Áreas</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @areas.each do |area| %>    
+        <tr>
+          <td>
+            <%= area.nombre %>
+          </td>
+          <td>
+            <div align="right">
+	            
+            </div>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table></br>
+
+</div>
+
+</p>
+
+
+
+
+<%= link_to 'Editar', edit_carga_laboratorio_path(@carga_laboratorio) %> |
+<%= link_to 'Volver', carga_laboratorios_path %>

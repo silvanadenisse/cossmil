@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Carga Reporte Dentals</h1>
+<h1>Carga Reporte Dental</h1>
 
-<table>
+<br><%= link_to 'Nuevo Carga Reporte Dental', new_carga_reporte_dental_path %></br>
+
+<br><table>
   <thead>
     <tr>
       <th>Medicos</th>
@@ -16,14 +18,14 @@
       <tr>
         <td><%= carga_reporte_dental.users %></td>
         <td><%= carga_reporte_dental.carga_dentals %></td>
-        <td><%= link_to 'Show', carga_reporte_dental %></td>
-        <td><%= link_to 'Edit', edit_carga_reporte_dental_path(carga_reporte_dental) %></td>
-        <td><%= link_to 'Destroy', carga_reporte_dental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', carga_reporte_dental %></td>
+        <td><%= link_to 'Editar', edit_carga_reporte_dental_path(carga_reporte_dental) %></td>
+        <td><%= link_to 'Destroy', carga_reporte_dental, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table></br>
 
 <br>
 
-<%= link_to 'New Carga Reporte Dental', new_carga_reporte_dental_path %>
+

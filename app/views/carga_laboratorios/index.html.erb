@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carga Laboratorios</h1>
+
+<%= link_to 'Nuevo Carga Laboratorio', new_carga_laboratorio_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mes</th>
+      <th>Anho</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carga_laboratorios.each do |carga_laboratorio| %>
+      <tr>
+        <td><%= carga_laboratorio.mes %></td>
+        <td><%= carga_laboratorio.anho %></td>
+        <td><%= link_to 'Mostrar', carga_laboratorio %></td>
+        <td><%= link_to 'Editar', edit_carga_laboratorio_path(carga_laboratorio) %></td>
+        <td><%= link_to 'Eliminar', carga_laboratorio, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

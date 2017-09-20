@@ -29,22 +29,58 @@ class CargaReporteDentalsController < ApplicationController
   
     @masculinoN = 0
     @masculinoR = 0
-
-
-
+    @femeninoN = 0
+    @femeninoR = 0
     @letraA = 0
+    @letraB = 0
+    @letraC = 0
+    @letraZ = 0
+    @letraY = 0
+    @letraV = 0
+    @letraX = 0
+    @letraH = 0
+    @letraCAD = 0
+    @letraE = 0
+    @letraF = 0
+    @letraPM = 0
+
 
     @partesDoctor.each do |parte|
       @masculinoN = @masculinoN + parte.obtenerMasculinoN
       @masculinoR = @masculinoR + parte.obtenerMasculinoR
-
-
+      @femeninoN = @femeninoN + parte.obtenerFemeninoN
+      @femeninoR = @femeninoR + parte.obtenerFemeninoR
       @letraA = @letraA + parte.obtenerLetraA
+      @letraA = @letraB + parte.obtenerLetraB
+      @letraA = @letraC + parte.obtenerLetraC
+      @letraA = @letraZ + parte.obtenerLetraZ
+      @letraA = @letraY + parte.obtenerLetraY
+      @letraA = @letraV + parte.obtenerLetraV
+      @letraA = @letraX + parte.obtenerLetraX
+      @letraA = @letraH + parte.obtenerLetraH
+      @letraA = @letraCAD + parte.obtenerLetraCAD
+      @letraA = @letraE + parte.obtenerLetraE
+      @letraA = @letraF + parte.obtenerLetraF
+      @letraA = @letraPM + parte.obtenerLetraPM
+
     end
 
     @carga_reporte_dental.masculinoN = @masculinoN
-    @carga_reporte_dental[:masculinoR]= @masculinoR
-    @carga_reporte_dental[:letraA] = @letraA
+    @carga_reporte_dental.masculinoR = @masculinoR
+    @carga_reporte_dental.femeninoN = @femeninoN
+    @carga_reporte_dental.femeninoR = @femeninoR
+    @carga_reporte_dental.letraA = @letraA
+    @carga_reporte_dental.letraB = @letraB
+    @carga_reporte_dental.letraC = @letraC
+    @carga_reporte_dental.letraZ = @letraZ
+    @carga_reporte_dental.letraY = @letraY
+    @carga_reporte_dental.letraV = @letraV
+    @carga_reporte_dental.letraX = @letraX
+    @carga_reporte_dental.letraH = @letraH
+    @carga_reporte_dental.letraCAD = @letraCAD
+    @carga_reporte_dental.letraE = @letraE
+    @carga_reporte_dental.letraF = @letraF
+    @carga_reporte_dental.letraPM = @letraPM
 
 
 
@@ -71,6 +107,9 @@ class CargaReporteDentalsController < ApplicationController
     # @carga_reporte_dental.femeninoN =@femeninoN
 
     # @pcarga_dental = CargaDental.find(params[:carga_dental_id])
+    @user = User.find(carga_reporte_dental_params[:medico_id])
+    @carga_reporte_dental.medico = @user.name + " " + @user.last_name
+
       if @carga_reporte_dental.save
       flash[:success] = "Medico agregado exitosamente."
       redirect_to "/carga_dentals/"+@carga_reporte_dental.carga_dental.id.to_s
@@ -112,6 +151,6 @@ class CargaReporteDentalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carga_reporte_dental_params
-      params.require(:carga_reporte_dental).permit(:carga_dental_id, :masculinoR, :masculinoN, :medico_id, :observaciones, :horas_trabajadas, :consulta_hora, :hrs_trabajadas, :pacientes_dias, :dias_trabajados, :consultas_programadas, :total)
+      params.require(:carga_reporte_dental).permit(:carga_dental_id, :masculinoR, :masculinoN, :femeninoN, :femeninoR, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :observaciones, :horas_trabajadas, :consulta_hora, :hrs_trabajadas, :pacientes_dias, :dias_trabajados, :consultas_programadas, :total)
     end
 end

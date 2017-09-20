@@ -5,7 +5,7 @@ class CargaParteDiario
   field :mes, type: String
   field :anho, type: Integer
 
-  belongs_to :current_user
+  
   has_many :carga_reportes, dependent: :destroy
 
 end

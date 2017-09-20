@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pacientes:</strong>
+  <%= @paciente_reporte_laboratorio.pacientes %>
+</p>
+
+<p>
+  <strong>Parte laboratorio:</strong>
+  <%= @paciente_reporte_laboratorio.parte_laboratorios %>
+</p>
+
+<%= link_to 'Editar', edit_paciente_reporte_laboratorio_path(@paciente_reporte_laboratorio) %> |
+<%= link_to 'Volver', paciente_reporte_laboratorios_path %>

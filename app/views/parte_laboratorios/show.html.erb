@@ -1,9 +1,176 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<h2>PARTE DIARIO LABORATORIO</h2>
+</p>
+
+<p>
   <strong>Mes:</strong>
   <%= @parte_laboratorio.mes %>
 </p>
 
+<p>
+  <strong>Establecimiento:</strong>
+  <%= @parte_dental.user.establecimiento %>
+</p>
+
+<p>
+  <strong>Localidad:</strong>
+  <%= @parte_dental.user.localidad %>
+</p>
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE LABORATORIO</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Carnet del asegurado</th>
+    <th>Nombre y apellidos del paciente</th>
+    <th>Edad</th>
+    <th>Sexo</th>
+    <th>Tipo de asegurado</th>
+    <th>Fuerza</th>
+    <th>Procedencia</th>
+    <th>Hematología</th>
+    <th>Bioquímica</th>
+    <th>Serologías</th>
+    <th>Orinas</th>
+    <th>Heces</th>
+    <th>Grupo Sanguineo</th>
+    <th>Nombre del laboratorio</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_laboratorio.paciente_reportelaboratorios.each do |paciente_repo_labo| %>
+      <tr>
+        <td>
+          <%= paciente_repo_labo.paciente.matricula_titular %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.nombre + " " + paciente_repo_labo.paciente.apellido %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.edad %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.sexo %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.tipo_asegurado %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.fuerza %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.procedencia %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.hematologia %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.bioquimica %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.serologias %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.orinas %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.heces %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.gsanguineo %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.nomlab %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
 <%= link_to 'Editar', edit_parte_laboratorio_path(@parte_laboratorio) %> |
 <%= link_to 'Volver', parte_laboratorios_path %>
+
+
+<p>
+<h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
+
+<div id="paciente"><!--style="display:none"--><br>
+  <br><form method="GET">Nombre:
+    <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
+    <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
+  </form></br>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Carnet</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @pacientes.each do |paciente| %>
+        <tr>
+          <td>
+            <%= paciente.nombre + " " + paciente.apellido %>
+          </td>
+          <td>
+            <%= paciente.carnet %>
+          </td>
+          <td>
+            <div align="right">
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar al
+                parte
+              </button>
+            </div>
+            <div class="modal fade" id="myModal-<%= paciente.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar al Parte</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for([@parte_laboratorio, @parte_laboratorio.paciente_reporte_laboratorios.build]) do |f| %>
+                        <%= f.label 'Procedencia: ' %>
+                        <%= f.radio_button :procedencia, 'C.E.', :checked => (:procedencia == 'C.E.') %> C.E.
+                        <%= f.radio_button :procedencia, 'H', :checked => (:procedencia == 'H') %> H
+                        <%= f.label 'Hematología: ' %>
+                        <%= f.text_field :hematologia %>
+                        <%= f.label 'Bioquímica: ' %>
+                        <%= f.text_field :bioquimica %>
+                        <%= f.label 'Serologías: ' %>
+                        <%= f.number_field :serologias %>
+                        <%= f.label 'Orinas: ' %>
+                        <%= f.number_field :orinas %>
+                        <%= f.label 'Heces: ' %>
+                        <%= f.number_field :heces %>
+                        <%= f.label 'Grupo Sanguineo: ' %>
+                        <%= f.number_field :gsanguineo %>
+                        <%= f.label 'Nombre del laboratorio: ' %>
+                        <%= f.number_field :nomlab %>
+                        <%= f.hidden_field :paciente_id, :value => paciente.id %>
+                        <%= f.hidden_field :parte_laboratorio_id, :value => @parte_laboratorio.id %>
+                        <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
+                    <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+</p>
+
+

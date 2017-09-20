@@ -32,9 +32,12 @@
     <th>Tipo de Asegurado</th>
     <th>Edad</th>
     <th>Sexo</th>
-    <th>Signos vitales</th>
+    <th>T</th>
+    <th>P</th>
+    <th>PA</th>
     <th>Diagnostico</th>
     <th>Tratamiento</th>
+    <th>Observaciones</th>
   </tr>
   </thead>
   <tbody>
@@ -65,7 +68,13 @@
           <%= paciente_reporte_emergencia.paciente.sexo %>
         </td>
         <td>
-          <%= paciente_reporte_emergencia.signos_vitales %>
+          <%= paciente_reporte_emergencia.t %>
+        </td>
+        <td>
+          <%= paciente_reporte_emergencia.p %>
+        </td>
+        <td>
+          <%= paciente_reporte_emergencia.pa %>
         </td>
         <td>
           <%= paciente_reporte_emergencia.diagnostico %>
@@ -129,7 +138,12 @@
                         <%= f.label 'Tratamiento: ' %>
                         <%= f.text_field :tratamiento %>  
                         <%= f.label 'Signos vitales: ' %>
-                        <%= f.text_field :signos_vitales %>
+                        <%= f.label 'T: ' %>
+                        <%= f.text_field :t %>
+                        <%= f.label 'P: ' %>
+                        <%= f.text_field :p %>
+                        <%= f.label 'PA: ' %>
+                        <%= f.text_field :pa %>
                         <%= f.label 'Observaciones: ' %>
                         <%= f.text_field :observaciones %>
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>

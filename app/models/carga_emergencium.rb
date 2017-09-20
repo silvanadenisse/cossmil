@@ -5,6 +5,6 @@ class CargaEmergencium
   field :mes, type: String
   field :anho, type: Integer
 
-  belongs_to :current_user
+
   has_many :carga_reporte_emergencia, dependent: :destroy
 end

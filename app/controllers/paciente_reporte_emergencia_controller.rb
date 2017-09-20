@@ -67,6 +67,6 @@ class PacienteReporteEmergenciaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_reporte_emergencium_params
-      params.require(:paciente_reporte_emergencium).permit(:paciente_id, :parte_emergencium_id, :grado, :signos_vitales, :diagnostico, :tratamiento, :observaciones)
+      params.require(:paciente_reporte_emergencium).permit(:paciente_id, :parte_emergencium_id, :edad, :grado, :t, :p, :pa, :diagnostico, :tratamiento, :observaciones)
     end
 end

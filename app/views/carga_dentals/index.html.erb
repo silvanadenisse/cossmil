@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Carga Dentals</h1>
+<h1>REPORTE DE DENTAL</h1>
 
-<%= link_to 'Nuevo Carga Dental', new_carga_dental_path %>
+<br><%= link_to 'Nuevo Carga Dental', new_carga_dental_path %></br>
 
-<table>
+<br><table>
   <thead>
     <tr>
       <th>Mes</th>
@@ -18,13 +18,13 @@
       <tr>
         <td><%= carga_dental.mes %></td>
         <td><%= carga_dental.dias_habiles %></td>
-        <td><%= link_to 'Show', carga_dental %></td>
-        <td><%= link_to 'Edit', edit_carga_dental_path(carga_dental) %></td>
-        <td><%= link_to 'Destroy', carga_dental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', carga_dental %></td>
+        <td><%= link_to 'Editar', edit_carga_dental_path(carga_dental) %></td>
+        <td><%= link_to 'Eliminar', carga_dental, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table></br>
 
 <br>
 

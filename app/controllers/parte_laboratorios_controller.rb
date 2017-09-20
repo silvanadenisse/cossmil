@@ -11,6 +11,7 @@ class ParteLaboratoriosController < ApplicationController
   # GET /parte_laboratorios/1
   # GET /parte_laboratorios/1.json
   def show
+    @pacientes = Paciente.all
   end
 
   # GET /parte_laboratorios/new
@@ -70,6 +71,6 @@ class ParteLaboratoriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parte_laboratorio_params
-      params.require(:parte_laboratorio).permit(:mes)
+      params.require(:parte_laboratorio).permit(:mes, :user_id)
     end
 end

@@ -1,0 +1,27 @@
+<%= form_for(paciente_reporte_laboratorio) do |f| %>
+  <% if paciente_reporte_laboratorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paciente_reporte_laboratorio.errors.count, "error") %> prohibited this paciente_reporte_laboratorio from being saved:</h2>
+
+      <ul>
+      <% paciente_reporte_laboratorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pacientes_id %>
+    <%= f.text_field :pacientes_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parte_laboratorios_id %>
+    <%= f.text_field :parte_laboratorios_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

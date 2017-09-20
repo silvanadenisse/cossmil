@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @carga_reporte_laboratorio.total %>
+</p>
+
+<p>
+  <strong>Total examenes:</strong>
+  <%= @carga_reporte_laboratorio.total_examenes %>
+</p>
+
+<%= link_to 'Edit', edit_carga_reporte_laboratorio_path(@carga_reporte_laboratorio) %> |
+<%= link_to 'Back', carga_reporte_laboratorios_path %>

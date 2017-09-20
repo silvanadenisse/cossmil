@@ -52,5 +52,6 @@ class User
   has_and_belongs_to_many :parte_rayos_xes
   has_and_belongs_to_many :parte_fisioterapia
   has_and_belongs_to_many :parte_dentals
+  has_and_belongs_to_many :parte_laboratorios
 
 end

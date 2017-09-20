@@ -1,6 +1,7 @@
 class CargaReporte
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
+  
   field :carga_horaria_contrato, type: Integer
   field :carga_horaria_cons_ext, type: Integer
   field :consultas_ofertadas, type: Integer
@@ -13,6 +14,6 @@ class CargaReporte
   field :productividad, type: Integer
   field :total_especialidad, type: Integer
 
-  belongs_to :current_user
+  
   belongs_to :carga_parte_diario
 end

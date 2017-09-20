@@ -16,9 +16,9 @@
       <tr>
         <td><%= carga_reporte_emergencium.users %></td>
         <td><%= carga_reporte_emergencium.carga_emergencia %></td>
-        <td><%= link_to 'Show', carga_reporte_emergencium %></td>
-        <td><%= link_to 'Edit', edit_carga_reporte_emergencium_path(carga_reporte_emergencium) %></td>
-        <td><%= link_to 'Destroy', carga_reporte_emergencium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', carga_reporte_emergencium %></td>
+        <td><%= link_to 'Editar', edit_carga_reporte_emergencium_path(carga_reporte_emergencium) %></td>
+        <td><%= link_to 'Destroy', carga_reporte_emergencium, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Carga Reporte Emergencium', new_carga_reporte_emergencium_path %>
+<%= link_to 'Nuevo Carga Reporte Emergencium', new_carga_reporte_emergencium_path %>

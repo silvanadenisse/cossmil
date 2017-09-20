@@ -10,15 +10,17 @@
   <%= @carga_parte_diario.mes %>
 </p>
 
+<h2>RESUMEN DE CONSULTA EXTERNA</h2>
+
 <p>
-  <strong>Anho:</strong>
+  <strong>Año:</strong>
   <%= @carga_parte_diario.anho %>
 </p>
 
 
 
 <p>
-<h2>Resumen de consulta externa</h2>
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -78,13 +80,15 @@
 </table>
 </p>
 
+<%= link_to 'Editar', edit_carga_parte_diario_path(@carga_parte_diario) %> |
+<%= link_to 'Volver', carga_parte_diarios_path %>
+
 <p>
 <h2>Medicos de consulta externa</h2>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Medico" , class="btn btn-info">
-    <button><%= link_to 'Nuevo Medico', new_user_path %></button>
   </form></br>
 
   <table class="table table-striped">
@@ -92,20 +96,24 @@
     <tr>
       <th>Nombre</th>
       <th>Departamento</th>
+      <th>Especialidad</th>
     </tr>
     </thead>
     <tbody>Departamento
-    <% @users.each do |medico| %>
+    <% @medicos.each do |medico| %>
         <tr>
-          <td>
-            <%= medico.nombre + " " + medico.apellido %>
+           <td>
+            <%= medico.name + " " + medico.last_name %>
           </td>
           <td>
-            <%= medico.user.departamento %>
+            <%= medico.area.nombre %>
+          </td>
+          <td>
+            <%= medico.speciality %>
           </td>
           <td>
             <div align="right">
-              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= user.id %>">Agregar medico
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= medico.id %>">Agregar medico
               </button>
             </div>
             <div class="modal fade" id="myModal-<%= current_user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -139,8 +147,8 @@
                         <%= f.number_field :productividad %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
-                        <%= f.hidden_field :current_user_id, :value => current_user.id %>
                         <%= f.hidden_field :carga_parte_diario_id, :value => @carga_parte_diario.id %>
+                        <%= f.hidden_field :medico_id, :value => medico.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
@@ -161,5 +169,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_carga_parte_diario_path(@carga_parte_diario) %> |
-<%= link_to 'Back', carga_parte_diarios_path %>
+

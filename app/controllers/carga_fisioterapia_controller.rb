@@ -10,7 +10,9 @@ class CargaFisioterapiaController < ApplicationController
   # GET /carga_fisioterapia/1
   # GET /carga_fisioterapia/1.json
   def show
-    @medicos = User.where(role: 'Doctor').where(area: 'Fisioterapia')
+    @area = Area.find_by(nombre: 'Fisioterapia')
+    @medicos = User.where(area: @area)
+  end
   end
 
   # GET /carga_fisioterapia/new

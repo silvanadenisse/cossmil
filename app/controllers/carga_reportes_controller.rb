@@ -10,6 +10,7 @@ class CargaReportesController < ApplicationController
   # GET /carga_reportes/1
   # GET /carga_reportes/1.json
   def show
+    
   end
 
   # GET /carga_reportes/new
@@ -25,15 +26,76 @@ class CargaReportesController < ApplicationController
   # POST /carga_reportes.json
   def create
     @carga_reporte = CargaReporte.new(carga_reporte_params)
+    @partesDoctor = ParteReporte.where(user_id: carga_reporte_params[:medico_id])
 
-    respond_to do |format|
-      if @carga_reporte.save
-        format.html { redirect_to @carga_reporte, notice: 'Carga reporte was successfully created.' }
-        format.json { render :show, status: :created, location: @carga_reporte }
-      else
-        format.html { render :new }
-        format.json { render json: @carga_reporte.errors, status: :unprocessable_entity }
-      end
+    
+    @masculino = 0
+    @femenino = 0
+    @nuevos = 0
+    @repetidos = 0
+    @letraA = 0
+    @letraB = 0
+    @letraC = 0
+    @letraZ = 0
+    @letraY = 0
+    @letraV = 0
+    @letraX = 0
+    @letraH = 0
+    @letraCAD = 0
+    @letraE = 0
+    @letraF = 0
+    @letraPM = 0
+
+
+    @partesDoctor.each do |parte|
+      @masculino = @masculino + parte.obtenerMasculino
+      @femenino = @femenino + parte.obtenerFemenino
+      @nuevos = @nuevos + parte.obtenerNuevos
+      @repetidos = @repetidos + parte.obtenerRepetidos
+      @letraA = @letraA + parte.obtenerLetraA
+      @letraA = @letraB + parte.obtenerLetraB
+      @letraA = @letraC + parte.obtenerLetraC
+      @letraA = @letraZ + parte.obtenerLetraZ
+      @letraA = @letraY + parte.obtenerLetraY
+      @letraA = @letraV + parte.obtenerLetraV
+      @letraA = @letraX + parte.obtenerLetraX
+      @letraA = @letraH + parte.obtenerLetraH
+      @letraA = @letraCAD + parte.obtenerLetraCAD
+      @letraA = @letraE + parte.obtenerLetraE
+      @letraA = @letraF + parte.obtenerLetraF
+      @letraA = @letraPM + parte.obtenerLetraPM
+
+    end
+
+    @carga_reporte_dental.masculino = @masculino
+    @carga_reporte_dental.femenino = @femenino
+    @carga_reporte_dental.nuevos = @nuevos
+    @carga_reporte_dental.repetidos = @repetidos
+    @carga_reporte_dental.letraA = @letraA
+    @carga_reporte_dental.letraB = @letraB
+    @carga_reporte_dental.letraC = @letraC
+    @carga_reporte_dental.letraZ = @letraZ
+    @carga_reporte_dental.letraY = @letraY
+    @carga_reporte_dental.letraV = @letraV
+    @carga_reporte_dental.letraX = @letraX
+    @carga_reporte_dental.letraH = @letraH
+    @carga_reporte_dental.letraCAD = @letraCAD
+    @carga_reporte_dental.letraE = @letraE
+    @carga_reporte_dental.letraF = @letraF
+    @carga_reporte_dental.letraPM = @letraPM
+
+
+    @user = User.find(carga_reporte_params[:medico_id])
+    @carga_reporte.medico = @user.name + " " + @user.last_name
+
+
+
+    if @carga_reporte_dental.save
+      flash[:success] = "Medico agregado exitosamente."
+      redirect_to "/carga_dentals/"+@carga_reporte.carga_parte_diario.id.to_s
+    else
+      flash[:danger] = "Error al agregar medico"
+      redirect_to carga_parte_diario_path(@carga_parte_diario)
     end
   end
 
@@ -69,6 +131,6 @@ class CargaReportesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carga_reporte_params
-      params.require(:carga_reporte).permit(:current_user_id, :carga_parte_diario_id, :carga_horaria_contrato, :carga_horaria_cons_ext, :consultas_ofertadas, :consultas_programadas, :rendimiento_medico_hora, :horas_trabajadas, :rendimiento_medico_dia, :dias_trabajados, :rendimiento_porcentual, :productividad, :total_especialidad)
+      params.require(:carga_reporte).permit(:carga_parte_diario_id, :masculino, :femenino, :nuenos, :repetidos, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :carga_horaria_contrato, :carga_horaria_cons_ext, :consultas_ofertadas, :consultas_programadas, :rendimiento_medico_hora, :horas_trabajadas, :rendimiento_medico_dia, :dias_trabajados, :rendimiento_porcentual, :productividad, :total_especialidad)
     end
 end

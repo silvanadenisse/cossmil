@@ -2,7 +2,7 @@
 
 <h1>INFORME MEDICO PARTE DIARIO LABORATORIO</h1>
 
-<%= link_to 'Nuevo Parte Laboratorio', new_parte_laboratorio_path %>
+<%= link_to 'Registrar Nuevo Parte Laboratorio', new_parte_laboratorio_path %>
 
 <table>
   <thead>
@@ -18,7 +18,7 @@
         <td><%= parte_laboratorio.mes %></td>
         <td><%= link_to 'Mostrar', parte_laboratorio %></td>
         <td><%= link_to 'Editar', edit_parte_laboratorio_path(parte_laboratorio) %></td>
-        <td><%= link_to 'Eliminar', parte_laboratorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', parte_laboratorio, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

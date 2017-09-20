@@ -1,0 +1,27 @@
+<%= form_for(carga_laboratorio) do |f| %>
+  <% if carga_laboratorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(carga_laboratorio.errors.count, "error") %> prohibited this carga_laboratorio from being saved:</h2>
+
+      <ul>
+      <% carga_laboratorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mes %>
+    <%= f.text_field :mes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :anho %>
+    <%= f.number_field :anho %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -101,6 +101,9 @@
 </table>
 </p>
 
+<%= link_to 'Editar', edit_parte_dental_path(@parte_dental) %> |
+<%= link_to 'Volver', parte_dentals_path %>
+
 <p>
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 
@@ -128,7 +131,7 @@
           </td>
           <td>
             <div align="right">
-              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar a
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar al
                 parte
               </button>
             </div>
@@ -148,7 +151,7 @@
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Tipo de consulta: ' %>
-                        <%= f.radio_button :tipo_consulta, 'Primera', :checked => (:tipo_consulta == 'Primera') %> Primera
+                        <%= f.radio_button :tipo_consulta, 'Nueva', :checked => (:tipo_consulta == 'Nueva') %> Nueva
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_dental_id, :value => @parte_dental.id %>
@@ -160,7 +163,7 @@
                   </div>
                 </div>
               </div>
-            </div>x
+            </div>
           </td>
         </tr>
     <% end %>
@@ -173,5 +176,4 @@
 
 
 
-<%= link_to 'Editar', edit_parte_dental_path(@parte_dental) %> |
-<%= link_to 'Volver', parte_dentals_path %>
+
