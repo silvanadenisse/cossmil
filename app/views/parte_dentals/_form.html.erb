@@ -23,22 +23,22 @@
   </div>
 
   <div class="field">
-    <%= f.label :clave %>
-    <%= f.number_field :clave %>
+    <%= f.label 'Clave: ' %>
+    <%= current_user.clave%>
   </div>
 
   <div class="field">
-    <%= f.label :inicio_consulta %>
+    <%= f.label 'Inicio de consulta: ' %>
     <%= f.time_select :inicio_consulta %>
   </div>
 
   <div class="field">
-    <%= f.label :fin_consulta %>
+    <%= f.label 'Fin de consulta: ' %>
     <%= f.time_select :fin_consulta %>
   </div>
 
   <div class="field">
-    <%= f.label :enfermera %>
+    <%= f.label 'Enfermera: ' %>
     <%= f.text_field :enfermera %>
   </div>
 

@@ -28,7 +28,7 @@ class PacienteReporteLaboratoriosController < ApplicationController
     @parte_laboratorio = ParteLaboratorio.find(params[:parte_laboratorio_id])
       if @paciente_reporte_laboratorio.save
       flash[:success] = "Paciente agregado exitosamente."
-      redirect_to "/parte_laboratorios/"+@paciente_reporte_laboratorios.parte_laboratorio.id.to_s
+      redirect_to "/parte_laboratorios/"+@paciente_reporte_laboratorio.parte_laboratorio.id.to_s
     else
       flash[:danger] = "Error al agregar paciente"
       redirect_to parte_laboratorio_path(@parte_laboratorio)
@@ -67,6 +67,6 @@ class PacienteReporteLaboratoriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_reporte_laboratorio_params
-      params.require(:paciente_reporte_laboratorio).permit(:paciente_id, :parte_laboratorio_id, :procedencia, :hematologia, :bioquimica, :serologia, :orinas, :heces, :gsanguineo, :nomlab)
+      params.require(:paciente_reporte_laboratorio).permit(:paciente_id, :edad, :parte_laboratorio_id, :area_id, :speciality_id, :procedencia, :hematologia, :bioquimica, :serologia, :orinas, :heces, :gsanguineo)
     end
 end

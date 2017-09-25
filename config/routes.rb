@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
  
+  resources :specialities
   resources :carga_reporte_laboratorios
   resources :carga_laboratorios
   
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
   resources :parte_laboratorios do
     resources :paciente_reporte_laboratorios
     resources :pacientes
+    resources :specialities
+    resources :areas
   end
 
   resources :parte_emergencia do
@@ -51,6 +54,8 @@ Rails.application.routes.draw do
     resources :current_users
   end
 
+  get '/carga_parte_diarios/:id/grafica'=> 'carga_parte_diarios#grafica'
+
   resources :carga_reporte_dentals 
 
 
@@ -68,8 +73,9 @@ Rails.application.routes.draw do
   end
   
   resources :carga_reportes
-  resources :carga_parte_diarios
-    resources :carga_reportes do
+
+  resources :carga_parte_diarios do
+    resources :carga_reportes
     resources :current_users
   end
   #get "reportes_dentales" => "parte_dentals#reporte"

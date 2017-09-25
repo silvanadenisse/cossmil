@@ -11,12 +11,12 @@
 
 <p>
   <strong>Establecimiento:</strong>
-  <%= @parte_dental.user.establecimiento %>
+  <%= @parte_laboratorio.user.establecimiento %>
 </p>
 
 <p>
   <strong>Localidad:</strong>
-  <%= @parte_dental.user.localidad %>
+  <%= @parte_laboratorio.user.localidad %>
 </p>
 
 <p>
@@ -37,11 +37,12 @@
     <th>Orinas</th>
     <th>Heces</th>
     <th>Grupo Sanguineo</th>
-    <th>Nombre del laboratorio</th>
+    <th>Area</th>
+    <th>Especialidad</th>
   </tr>
   </thead>
   <tbody>
-  <% @parte_laboratorio.paciente_reportelaboratorios.each do |paciente_repo_labo| %>
+  <% @parte_laboratorio.paciente_reporte_laboratorios.each do |paciente_repo_labo| %>
       <tr>
         <td>
           <%= paciente_repo_labo.paciente.matricula_titular %>
@@ -71,7 +72,7 @@
           <%= paciente_repo_labo.bioquimica %>
         </td>
         <td>
-          <%= paciente_repo_labo.serologias %>
+          <%= paciente_repo_labo.serologia %>
         </td>
         <td>
           <%= paciente_repo_labo.orinas %>
@@ -83,7 +84,10 @@
           <%= paciente_repo_labo.gsanguineo %>
         </td>
         <td>
-          <%= paciente_repo_labo.nomlab %>
+          <%= paciente_repo_labo.area.nombre %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.speciality.nombre %>
         </td>
       </tr>
   <% end %>
@@ -143,15 +147,19 @@
                         <%= f.label 'Bioquímica: ' %>
                         <%= f.text_field :bioquimica %>
                         <%= f.label 'Serologías: ' %>
-                        <%= f.number_field :serologias %>
+                        <%= f.number_field :serologia %>
                         <%= f.label 'Orinas: ' %>
                         <%= f.number_field :orinas %>
                         <%= f.label 'Heces: ' %>
                         <%= f.number_field :heces %>
                         <%= f.label 'Grupo Sanguineo: ' %>
-                        <%= f.number_field :gsanguineo %>
-                        <%= f.label 'Nombre del laboratorio: ' %>
-                        <%= f.number_field :nomlab %>
+                        <%= f.text_field :gsanguineo %>
+                        <%= f.label 'Edad: ' %>
+                        <%= f.number_field :edad %>
+                        <%= f.label 'Area: ' %>
+                        <%= collection_select(:paciente_reporte_laboratorio, :area_id, Area.all, :id, :nombre) %>
+                        <%= f.label 'Especialidad: ' %>
+                        <%= collection_select(:paciente_reporte_laboratorio, :speciality_id, Speciality.all, :id, :nombre) %>
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_laboratorio_id, :value => @parte_laboratorio.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>

@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+j# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -12,3 +12,39 @@
   Area.create(nombre: 'Laboratorio')
   Area.create(nombre: 'Rayos X')
   Area.create(nombre: 'Servicios Complementarios')
+
+
+#  Speciality.create(nombre: 'Cardiología')
+  # Speciality.create(nombre: 'Cirugía Cardio Vascular')
+  # Speciality.create(nombre: 'Cirugía Maxilo Facial')
+  # Speciality.create(nombre: 'Cirugía Pediatrica')
+  # Speciality.create(nombre: 'Cirugía General')
+  # Speciality.create(nombre: 'Dermatología')
+  # Speciality.create(nombre: 'Endocrinología')
+  # Speciality.create(nombre: 'Gastroenterología')
+  # Speciality.create(nombre: 'Geriatría')
+  # Speciality.create(nombre: 'Ginecología')
+  # Speciality.create(nombre: 'Hematología')
+  # Speciality.create(nombre: 'Medicina General')
+  # Speciality.create(nombre: 'Medicina Interna')
+  # Speciality.create(nombre: 'Nefrología')
+  # Speciality.create(nombre: 'Neumología')
+  # Speciality.create(nombre: 'Neurocirugía')
+  # Speciality.create(nombre: 'Neurología')
+  # Speciality.create(nombre: 'Nutrición y detética')
+  # Speciality.create(nombre: 'Oftalmología')
+  # Speciality.create(nombre: 'Oncología')
+  # Speciality.create(nombre: 'Otorrino')
+  # Speciality.create(nombre: 'Pediatría')
+  # Speciality.create(nombre: 'Psicología')
+  # Speciality.create(nombre: 'Psiquiatría')
+  # Speciality.create(nombre: 'Reumatología')
+  # Speciality.create(nombre: 'Traumatología')
+  # Speciality.create(nombre: 'Urología')
+
+
+  # Speciality.create(nombre: 'Odontopediatría')
+  # Speciality.create(nombre: 'Dental adultos')
+
+
+

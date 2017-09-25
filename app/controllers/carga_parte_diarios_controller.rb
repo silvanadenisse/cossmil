@@ -13,8 +13,10 @@ class CargaParteDiariosController < ApplicationController
     @area = Area.find_by(nombre: 'Consulta Externa')
     @medicos = User.where(area: @area)
   end
-  end
 
+  def grafica
+    @parte = CargaParteDiario.find(params[:id])
+  end
   # GET /carga_parte_diarios/new
   def new
     @carga_parte_diario = CargaParteDiario.new

@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label :mes %>
     <%= f.text_field :mes %>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
   </div>
 
   <div class="actions">

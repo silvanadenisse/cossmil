@@ -12,9 +12,6 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia/1.json
   def show
         @pacientes = Paciente.all
-
-        
-
   end
 
   # GET /parte_fisioterapia/new

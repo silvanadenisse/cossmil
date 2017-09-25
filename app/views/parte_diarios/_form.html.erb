@@ -26,8 +26,9 @@
 
   <div class="field">
     <%= f.label 'Servicio de: ' %>
-    <%= current_user.speciality%>
-    <%= f.hidden_field :user_id, :value => current_user.speciality%>
+    <%= current_user.speciality.nombre%>
+    <%= f.hidden_field :speciality_id, :value => current_user.speciality%>
+    
   </div>
 
   <div class="field">

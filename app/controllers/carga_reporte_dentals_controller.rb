@@ -82,31 +82,6 @@ class CargaReporteDentalsController < ApplicationController
     @carga_reporte_dental.letraF = @letraF
     @carga_reporte_dental.letraPM = @letraPM
 
-
-
-    puts("==================")
-      puts(@carga_reporte_dental.inspect)
-      puts("==================")
-
-
-    puts("==============================")
-    puts("Primera")
-    puts(@carga_reporte_dental[:masculinoN])
-    puts("Repetida")
-    puts(@carga_reporte_dental[:masculinoR])
-    puts("==============================")
-    # @femeninoN = 0
-    # @femaninoR = 0
-
-    # @partesDoctor.each do |parte|
-    #   @femaninoN = @femaninoN+parte.obtenerFemeninoN
-    #   @femaninoR = @femaninoR + parte.obtenerFemeninoR
-    # end
-
-    # @carga_reporte_dental.femeninoR =@femeninoR
-    # @carga_reporte_dental.femeninoN =@femeninoN
-
-    # @pcarga_dental = CargaDental.find(params[:carga_dental_id])
     @user = User.find(carga_reporte_dental_params[:medico_id])
     @carga_reporte_dental.medico = @user.name + " " + @user.last_name
 

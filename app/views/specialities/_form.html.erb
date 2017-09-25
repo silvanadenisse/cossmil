@@ -1,0 +1,27 @@
+<%= form_for(speciality) do |f| %>
+  <% if speciality.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(speciality.errors.count, "error") %> prohibited this speciality from being saved:</h2>
+
+      <ul>
+      <% speciality.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'Nombre:' %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Area:' %>
+    <%= collection_select(:speciality, :area_id, Area.all, :id, :nombre) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

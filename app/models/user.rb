@@ -4,7 +4,7 @@ class User
   field :name, type: String
   field :last_name, type: String
   field :role, type: String
-  field :speciality, type: String
+  belongs_to :speciality
   field :subesp, type: String
   field :clave, type: Integer
   field :establecimiento, type: String

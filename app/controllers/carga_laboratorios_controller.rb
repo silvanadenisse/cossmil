@@ -11,6 +11,7 @@ class CargaLaboratoriosController < ApplicationController
   # GET /carga_laboratorios/1.json
   def show
     @areas = Area.all
+    @specialities = Speciality.all
   end
 
   # GET /carga_laboratorios/new

@@ -21,7 +21,8 @@
     </div>
     <div class="field">
       <%= f.label 'Especialidad:' %>
-      <%= f.text_field :speciality %>
+      <%= collection_select(:user, :speciality_id, Speciality.all, :id, :nombre) %>
+      <!--%= f.text_field :speciality %-->
     </div>
     <div class="field">
       <%= f.label 'Clave:' %>

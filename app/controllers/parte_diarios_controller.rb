@@ -3,7 +3,7 @@ class ParteDiariosController < ApplicationController
 
   def index
     #@parte_diarios = ParteDiario.all
-    @parte_diarioss = ParteDiario.where(user_id: current_user.id)
+    @parte_diarios = ParteDiario.where(user_id: current_user.id)
   end
 
   def show

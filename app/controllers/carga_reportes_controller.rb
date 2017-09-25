@@ -21,12 +21,11 @@ class CargaReportesController < ApplicationController
   # GET /carga_reportes/1/edit
   def edit
   end
-
   # POST /carga_reportes
   # POST /carga_reportes.json
   def create
     @carga_reporte = CargaReporte.new(carga_reporte_params)
-    @partesDoctor = ParteReporte.where(user_id: carga_reporte_params[:medico_id])
+    @partesDoctor = ParteDiario.where(user_id: carga_reporte_params[:medico_id])
 
     
     @masculino = 0
@@ -67,22 +66,22 @@ class CargaReportesController < ApplicationController
 
     end
 
-    @carga_reporte_dental.masculino = @masculino
-    @carga_reporte_dental.femenino = @femenino
-    @carga_reporte_dental.nuevos = @nuevos
-    @carga_reporte_dental.repetidos = @repetidos
-    @carga_reporte_dental.letraA = @letraA
-    @carga_reporte_dental.letraB = @letraB
-    @carga_reporte_dental.letraC = @letraC
-    @carga_reporte_dental.letraZ = @letraZ
-    @carga_reporte_dental.letraY = @letraY
-    @carga_reporte_dental.letraV = @letraV
-    @carga_reporte_dental.letraX = @letraX
-    @carga_reporte_dental.letraH = @letraH
-    @carga_reporte_dental.letraCAD = @letraCAD
-    @carga_reporte_dental.letraE = @letraE
-    @carga_reporte_dental.letraF = @letraF
-    @carga_reporte_dental.letraPM = @letraPM
+    @carga_reporte.masculino = @masculino
+    @carga_reporte.femenino = @femenino
+    @carga_reporte.nuevos = @nuevos
+    @carga_reporte.repetidos = @repetidos
+    @carga_reporte.letraA = @letraA
+    @carga_reporte.letraB = @letraB
+    @carga_reporte.letraC = @letraC
+    @carga_reporte.letraZ = @letraZ
+    @carga_reporte.letraY = @letraY
+    @carga_reporte.letraV = @letraV
+    @carga_reporte.letraX = @letraX
+    @carga_reporte.letraH = @letraH
+    @carga_reporte.letraCAD = @letraCAD
+    @carga_reporte.letraE = @letraE
+    @carga_reporte.letraF = @letraF
+    @carga_reporte.letraPM = @letraPM
 
 
     @user = User.find(carga_reporte_params[:medico_id])
@@ -90,9 +89,9 @@ class CargaReportesController < ApplicationController
 
 
 
-    if @carga_reporte_dental.save
+    if @carga_reporte.save
       flash[:success] = "Medico agregado exitosamente."
-      redirect_to "/carga_dentals/"+@carga_reporte.carga_parte_diario.id.to_s
+      redirect_to "/carga_parte_diarios/"+@carga_reporte.carga_parte_diario.id.to_s
     else
       flash[:danger] = "Error al agregar medico"
       redirect_to carga_parte_diario_path(@carga_parte_diario)
@@ -131,6 +130,6 @@ class CargaReportesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carga_reporte_params
-      params.require(:carga_reporte).permit(:carga_parte_diario_id, :masculino, :femenino, :nuenos, :repetidos, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :carga_horaria_contrato, :carga_horaria_cons_ext, :consultas_ofertadas, :consultas_programadas, :rendimiento_medico_hora, :horas_trabajadas, :rendimiento_medico_dia, :dias_trabajados, :rendimiento_porcentual, :productividad, :total_especialidad)
+      params.require(:carga_reporte).permit(:carga_parte_diario_id, :speciality_id, :area_id, :masculino, :femenino, :nuevos, :repetidos, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :carga_horaria_contrato, :carga_horaria_cons_ext, :consultas_ofertadas, :consultas_programadas, :rendimiento_medico_hora, :horas_trabajadas, :rendimiento_medico_dia, :dias_trabajados, :rendimiento_porcentual, :productividad, :total)
     end
 end

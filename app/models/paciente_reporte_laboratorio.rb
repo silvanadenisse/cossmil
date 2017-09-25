@@ -7,9 +7,11 @@ class PacienteReporteLaboratorio
   field :serologia, type: Integer
   field :orinas, type: Integer
   field :heces, type: Integer
-  field :gsanguineo, type: Integer
-  field :nomlab, type: String
+  field :gsanguineo, type: String
+  field :edad, type: Integer
 
   belongs_to :paciente
+  belongs_to :area
+  belongs_to :speciality
   belongs_to :parte_laboratorio
 end

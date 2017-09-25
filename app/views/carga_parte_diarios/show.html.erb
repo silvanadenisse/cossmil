@@ -18,12 +18,14 @@
 </p>
 
 
-
-<p>
-
+ <div align="right">
+   <%=link_to "Ver Grafica", controller: "carga_parte_diarios", action: "grafica", id: @carga_parte_diario.id%>
+  </div>
+  <br>
 <table class="table table-striped">
   <thead>
   <tr>
+  <th>Medico</th>
     <th>Carga horaria contrato</th>
     <th>Carga horaria consulta externa</th>
     <th>Consultas ofertadas</th>
@@ -35,11 +37,15 @@
     <th>Rendimiento porcentual</th>
     <th>Productividad porcentual</th>
     <th>Total</th>
+    <th>Masculino</th>
   </tr>
   </thead>
   <tbody>
   <% @carga_parte_diario.carga_reportes.each do |carga_repo| %>
       <tr>
+           <td>
+          <%= carga_repo.medico %>
+        </td>
         <td>
           <%= carga_repo.carga_horaria_contrato %>
         </td>
@@ -65,13 +71,16 @@
           <%= carga_repo.dias_trabajados %>
         </td>
         <td>
-          <%= carga_repo.rendimiento_porcental %>
+          <%= carga_repo.rendimiento_porcentual %>
         </td>
         <td>
           <%= carga_repo.productividad %>
         </td>
         <td>
           <%= carga_repo.total %>
+        </td>
+        <td>
+          <%= carga_repo.masculino %>
         </td>
         
       </tr>
@@ -109,14 +118,14 @@
             <%= medico.area.nombre %>
           </td>
           <td>
-            <%= medico.speciality %>
+            <%= medico.speciality.nombre %>
           </td>
           <td>
             <div align="right">
               <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= medico.id %>">Agregar medico
               </button>
             </div>
-            <div class="modal fade" id="myModal-<%= current_user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal-<%= medico.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -142,11 +151,13 @@
                         <%= f.label 'Dias trabajados: ' %>
                         <%= f.number_field :dias_trabajados %>
                         <%= f.label 'Rendimiento porcentual: ' %>
-                        <%= f.number_field :rendimiento_porcental %>
+                        <%= f.number_field :rendimiento_porcentual %>
                         <%= f.label 'Productividad porcentual: ' %>
                         <%= f.number_field :productividad %>
                         <%= f.label 'Total: ' %>
                         <%= f.number_field :total %>
+                        <%= f.hidden_field :area_id, :value => medico.area.id %>
+                        <%= f.hidden_field :speciality_id, :value => medico.speciality.id %>
                         <%= f.hidden_field :carga_parte_diario_id, :value => @carga_parte_diario.id %>
                         <%= f.hidden_field :medico_id, :value => medico.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
@@ -157,7 +168,7 @@
                   </div>
                 </div>
               </div>
-            </div>x
+            </div>
           </td>
         </tr>
     <% end %>
