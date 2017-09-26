@@ -22,6 +22,11 @@
     <th>Pasivo Y</th>
     <th>Pasivo V</th>
     <th>Pasivo X</th>
+    <th>Sanidad operativa CAD</th>
+    <th>Sanidad operativa E</th>
+    <th>Sanidad operativa F</th>
+    <th>Sanidad operativa PM</th>
+    <th>Total examenes</th>
     <th>Hematología</th>
     <th>Bioquímica</th>
     <th>Serología</th>
@@ -32,52 +37,73 @@
   </tr>
   </thead>
   <tbody>
-  <% @carga_laboratorio.carga_reporte_laboratorios.each do |carga_repo_laboratorios| %>
+  <% @carga_laboratorio.carga_reporte_laboratorios.each do |carga_repo_labo| %>
       <tr>
         <td>
-          <%= carga_repo_laboratorios.speciality %>
+          <%= carga_repo_labo.speciality %>
         </td>
         <td>
-          <%= carga_repo_dentals.total %>
+          <%= carga_repo_labo.total %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraA %>
+          <%= carga_repo_labo.letraA %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraB %>
+          <%= carga_repo_labo.letraB %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraC %>
+          <%= carga_repo_labo.letraC %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraZ %>
+          <%= carga_repo_labo.letraZ %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraY %>
+          <%= carga_repo_labo.letraY %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraV %>
+          <%= carga_repo_labo.letraV %>
         </td>
         <td>
-          <%= carga_repo_dentals.letraX %>
+          <%= carga_repo_labo.letraX %>
         </td>
         <td>
-          <%= carga_repo_dentals.hematologia %>
+          <%= carga_repo_labo.letraX %>
         </td>
         <td>
-          <%= carga_repo_dentals.bioquimica %>
+          <%= carga_repo_labo.letraX %>
         </td>
         <td>
-          <%= carga_repo_dentals.serologia %>
+          <%= carga_repo_labo.letraX %>
         </td>
         <td>
-          <%= carga_repo_dentals.orinas %>
+          <%= carga_repo_labo.letraCAD %>
         </td>
         <td>
-          <%= carga_repo_dentals.heces %>
+          <%= carga_repo_labo.letraE %>
         </td>
         <td>
-          <%= carga_repo_dentals.gsanguineo %>
+          <%= carga_repo_labo.letraF %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraPM %>
+        </td>
+        <td>
+          <%= carga_repo_labo.hematologia %>
+        </td>
+        <td>
+          <%= carga_repo_labo.bioquimica %>
+        </td>
+        <td>
+          <%= carga_repo_labo.serologia %>
+        </td>
+        <td>
+          <%= carga_repo_labo.orinas %>
+        </td>
+        <td>
+          <%= carga_repo_labo.heces %>
+        </td>
+        <td>
+          <%= carga_repo_labo.gsanguineo %>
         </td>
 
       </tr>
@@ -86,6 +112,8 @@
 </table>
 </p>
 
+<%= link_to 'Editar', edit_carga_laboratorio_path(@carga_laboratorio) %> |
+<%= link_to 'Volver', carga_laboratorios_path %>
 
 
 
@@ -103,6 +131,7 @@
     <thead>
     <tr>
       <th>Áreas</th>
+      <th>Especialidad</th>
     </tr>
     </thead>
     <tbody>
@@ -112,9 +141,34 @@
             <%= area.nombre %>
           </td>
           <td>
+            <%= speciality.nombre %>
+          </td>
+          <td>
             <div align="right">
-	            
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= speciality.id %>">Agregar Especialidad
+              </button>
             </div>
+            <div class="modal fade" id="myModal-<%= medico.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar </h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for([@carga_laboratorio, @carga_laboratorio.carga_reporte_laboratorios.build]) do |f| %>
+                        <%= f.label 'Total: ' %>
+                        <%= f.number_field :total %>
+                        <%= f.label 'Total examenes: ' %>
+                        <%= f.number_field :total_examenes %>  
+                        <%= f.hidden_field :carga_laboratorio_id, :value => @carga_dental.id %>
+                        <%= f.hidden_field :speciality_id, :value => speciality.id %>
+                        <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
+                    <% end %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                  </div>
           </td>
         </tr>
     <% end %>
@@ -128,5 +182,4 @@
 
 
 
-<%= link_to 'Editar', edit_carga_laboratorio_path(@carga_laboratorio) %> |
-<%= link_to 'Volver', carga_laboratorios_path %>
+

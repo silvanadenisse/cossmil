@@ -2,6 +2,8 @@
 
 <h1>Carga Reporte Laboratorios</h1>
 
+<br><%= link_to 'Nuevo Carga Reporte Laboratorio', new_carga_reporte_laboratorio_path %></br>
+
 <table>
   <thead>
     <tr>
@@ -16,9 +18,9 @@
       <tr>
         <td><%= carga_reporte_laboratorio.total %></td>
         <td><%= carga_reporte_laboratorio.total_examenes %></td>
-        <td><%= link_to 'Show', carga_reporte_laboratorio %></td>
-        <td><%= link_to 'Edit', edit_carga_reporte_laboratorio_path(carga_reporte_laboratorio) %></td>
-        <td><%= link_to 'Destroy', carga_reporte_laboratorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', carga_reporte_laboratorio %></td>
+        <td><%= link_to 'Editar', edit_carga_reporte_laboratorio_path(carga_reporte_laboratorio) %></td>
+        <td><%= link_to 'Eliminar', carga_reporte_laboratorio, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Carga Reporte Laboratorio', new_carga_reporte_laboratorio_path %>
+
