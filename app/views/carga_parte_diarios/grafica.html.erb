@@ -1,9 +1,10 @@
 <p>
 Hola
-<%=@parte.inspect%>
+<%=@parte.carga_reportes().inspect%>
 </p>
 
 <div>
-	<!--%= column_chart @parte.carga_reportes.group_by(:speciality).count %-->
+
+	<%=line_chart @parte.carga_reportes %>
 </div>
 
