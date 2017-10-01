@@ -44,6 +44,10 @@ class CargaReportesController < ApplicationController
     @letraE = 0
     @letraF = 0
     @letraPM = 0
+    @fab = 0
+    @ejercito = 0
+    @fnb = 0
+    @civil = 0
 
 
     @partesDoctor.each do |parte|
@@ -52,18 +56,21 @@ class CargaReportesController < ApplicationController
       @nuevos = @nuevos + parte.obtenerNuevos
       @repetidos = @repetidos + parte.obtenerRepetidos
       @letraA = @letraA + parte.obtenerLetraA
-      @letraA = @letraB + parte.obtenerLetraB
-      @letraA = @letraC + parte.obtenerLetraC
-      @letraA = @letraZ + parte.obtenerLetraZ
-      @letraA = @letraY + parte.obtenerLetraY
-      @letraA = @letraV + parte.obtenerLetraV
-      @letraA = @letraX + parte.obtenerLetraX
-      @letraA = @letraH + parte.obtenerLetraH
-      @letraA = @letraCAD + parte.obtenerLetraCAD
-      @letraA = @letraE + parte.obtenerLetraE
-      @letraA = @letraF + parte.obtenerLetraF
-      @letraA = @letraPM + parte.obtenerLetraPM
-
+      @letraB = @letraB + parte.obtenerLetraB
+      @letraC = @letraC + parte.obtenerLetraC
+      @letraZ = @letraZ + parte.obtenerLetraZ
+      @letraY = @letraY + parte.obtenerLetraY
+      @letraV = @letraV + parte.obtenerLetraV
+      @letraX = @letraX + parte.obtenerLetraX
+      @letraH = @letraH + parte.obtenerLetraH
+      @letraCAD = @letraCAD + parte.obtenerLetraCAD
+      @letraE = @letraE + parte.obtenerLetraE
+      @letraF = @letraF + parte.obtenerLetraF
+      @letraPM = @letraPM + parte.obtenerLetraPM
+      @ejercito = @ejercito + parte.obtenerEjercito
+      @fab = @fab + parte.obtenerFab
+      @fnb = @fnb + parte.obtenerFnb
+      @civil = @civil + parte.obtenerCivil
     end
 
     @carga_reporte.masculino = @masculino
@@ -82,6 +89,10 @@ class CargaReportesController < ApplicationController
     @carga_reporte.letraE = @letraE
     @carga_reporte.letraF = @letraF
     @carga_reporte.letraPM = @letraPM
+    @carga_reporte.ejercito = @ejercito
+    @carga_reporte.fab = @fab
+    @carga_reporte.fnb = @fnb
+    @carga_reporte.civil = @civil
 
 
     @user = User.find(carga_reporte_params[:medico_id])
@@ -130,6 +141,6 @@ class CargaReportesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carga_reporte_params
-      params.require(:carga_reporte).permit(:carga_parte_diario_id, :speciality_id, :area_id, :masculino, :femenino, :nuevos, :repetidos, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :carga_horaria_contrato, :carga_horaria_cons_ext, :consultas_ofertadas, :consultas_programadas, :rendimiento_medico_hora, :horas_trabajadas, :rendimiento_medico_dia, :dias_trabajados, :rendimiento_porcentual, :productividad, :total)
+      params.require(:carga_reporte).permit(:carga_parte_diario_id, :speciality_id, :area_id, :masculino, :femenino, :nuevos, :repetidos, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :carga_horaria_contrato, :carga_horaria_cons_ext, :consultas_ofertadas, :consultas_programadas, :rendimiento_medico_hora, :horas_trabajadas, :rendimiento_medico_dia, :dias_trabajados, :rendimiento_porcentual, :productividad, :ejercito, :fab, :fnb, :civil, :total)
     end
 end

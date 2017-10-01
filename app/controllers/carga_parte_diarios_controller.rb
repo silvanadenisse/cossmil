@@ -15,8 +15,29 @@ class CargaParteDiariosController < ApplicationController
   end
 
   def grafica
-    @parte = CargaParteDiario.find(params[:id])
+  	@graficaReporte = {}
+  	@especialidades = Speciality.all.to_a
+  	@parte = CargaParteDiario.find(params[:id])
+  	@fuerzas = ['Ejercito', 'FAB', 'FNB', 'Civil']
+  	@graficaFuerzas = {}
+
+  	@especialidades.each do |especialidad|
+  		@graficaReporte[especialidad.nombre] = 0
+  		@parte.carga_reportes.each do |reporte|
+  			if(reporte.speciality.nombre == especialidad.nombre)
+  				@graficaReporte[especialidad.nombre] += (reporte.masculino + reporte.femenino)
+  			end
+  		end
+  	end   
+
+  	@fuerzas.each do |fuerza|
+  		@graficaFuerzas[fuerza] = 0
+		@parte.carga_reportes.each do |reporte|
+			@graficaFuerzas[fuerza] += reporte[fuerza.downcase]
+  		end
+  	end
   end
+
   # GET /carga_parte_diarios/new
   def new
     @carga_parte_diario = CargaParteDiario.new

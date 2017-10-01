@@ -191,4 +191,48 @@ class ParteDiario
     end
     val
   end
+
+   def obtenerEjercito
+    val = 0
+    paciente_reportes.each do|repo|
+      @paciente = Paciente.find(repo.paciente_id)
+      if  @paciente.fuerza == 'Ejercito'
+        val = val+1       
+      end
+    end
+    val
+  end
+
+  def obtenerFab
+    val = 0
+    paciente_reportes.each do|repo|
+      @paciente = Paciente.find(repo.paciente_id)
+      if  @paciente.fuerza == 'FAB'
+        val = val+1       
+      end
+    end
+    val
+  end
+
+  def obtenerFnb
+    val = 0
+    paciente_reportes.each do|repo|
+      @paciente = Paciente.find(repo.paciente_id)
+      if  @paciente.fuerza == 'FNB'
+        val = val+1       
+      end
+    end
+    val
+  end
+
+  def obtenerCivil
+    val = 0
+    paciente_reportes.each do|repo|
+      @paciente = Paciente.find(repo.paciente_id)
+      if  @paciente.fuerza == 'Civil'
+        val = val+1       
+      end
+    end
+    val
+  end
 end

@@ -4,8 +4,6 @@ class CargaParteDiario
   field :dias_habiles, type: Integer
   field :mes, type: String
   field :anho, type: Integer
-
-  
   has_many :carga_reportes, dependent: :destroy
 
 end

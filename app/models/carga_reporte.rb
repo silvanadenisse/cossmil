@@ -30,6 +30,12 @@ class CargaReporte
   field :letraE, type: Integer
   field :letraF, type: Integer
   field :letraPM, type: Integer
+  field :ejercito, type: Integer
+  field :fab, type: Integer
+  field :fnb, type: Integer
+  field :civil, type: Integer
+
+
 
   belongs_to :area
   belongs_to :speciality  

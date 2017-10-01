@@ -1,10 +1,12 @@
-<p>
-Hola
-<%=@parte.carga_reportes().inspect%>
-</p>
+<div>
+<h2>NÚMERO DE CONSULTAS MÉDICAS POR ESPECIALIDAD</h2>
+	<%=column_chart @graficaReporte %>
+</div>
+
 
 <div>
-
-	<%=line_chart @parte.carga_reportes %>
+<h2>GRÁFICO RESUMEN DE CONSULTA EXTERNA POR FUERZAS</h2>
+	<%=column_chart @graficaFuerzas %>
 </div>
+<br><br><br><br><br>
 
