@@ -11,7 +11,7 @@ class CargaParteDiariosController < ApplicationController
   # GET /carga_parte_diarios/1.json
   def show
     @area = Area.find_by(nombre: 'Consulta Externa')
-    @medicos = User.where(area: @area)
+    @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
   end
 
   def grafica

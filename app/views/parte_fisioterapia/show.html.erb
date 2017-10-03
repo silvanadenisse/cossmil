@@ -75,10 +75,14 @@
   </tbody>
 </table>
 </p>
+  
+
+<%= link_to 'Editar', edit_parte_fisioterapium_path(@parte_fisioterapium) %> |
+<%= link_to 'Volver', parte_fisioterapia_path %>
 
 <p>
 <h2>Agregar Paciente a Parte Diario</h2>
-
+</p>
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
@@ -146,9 +150,8 @@
 
 </div>
 
-</p>
-
-
-
-<%= link_to 'Editar', edit_parte_fisioterapium_path(@parte_fisioterapium) %> |
-<%= link_to 'Volver', parte_fisioterapia_path %>
+<div><center>
+    <%= will_paginate @pacientes, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>

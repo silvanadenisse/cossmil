@@ -137,6 +137,7 @@
 
 <p>
 <h2>Médicos de dental</h2>
+</p>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -214,7 +215,12 @@
 
 </div>
 
-</p>
+
+<div><center>
+    <%= will_paginate @medicos, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>
 
 
 

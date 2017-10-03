@@ -11,7 +11,7 @@ class CargaFisioterapiaController < ApplicationController
   # GET /carga_fisioterapia/1.json
   def show
     @area = Area.find_by(nombre: 'Fisioterapia')
-    @medicos = User.where(area: @area)
+    @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
   end
   end
 

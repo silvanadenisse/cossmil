@@ -119,7 +119,7 @@
 
 <p>
 <h2>Especialidades</h2>
-
+</p>
 <div id="speciality"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Especialidad" , class="btn btn-info">
@@ -177,7 +177,11 @@
 
 </div>
 
-</p>
+<div><center>
+    <%= will_paginate @specialities, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>
 
 
 

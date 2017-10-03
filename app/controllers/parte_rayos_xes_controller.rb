@@ -11,7 +11,7 @@ class ParteRayosXesController < ApplicationController
   # GET /parte_rayos_xes/1
   # GET /parte_rayos_xes/1.json
   def show
-    @pacientes = Paciente.all
+    @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /parte_rayos_xes/new

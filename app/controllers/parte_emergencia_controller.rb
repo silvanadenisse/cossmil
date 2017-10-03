@@ -11,7 +11,7 @@ class ParteEmergenciaController < ApplicationController
   # GET /parte_emergencia/1
   # GET /parte_emergencia/1.json
   def show
-    @pacientes = Paciente.all
+    @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /parte_emergencia/new

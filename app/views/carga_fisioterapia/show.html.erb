@@ -55,6 +55,7 @@
 
 <p>
 <h2>Medicos de fisioterapia</h2>
+</p>
 
 <div id="user"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -121,7 +122,12 @@
 
 </div>
 
-</p>
+<div><center>
+    <%= will_paginate @medicos, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>
+
 
 <%= link_to 'Edit', edit_carga_fisioterapium_path(@carga_fisioterapium) %> |
 <%= link_to 'Back', carga_fisioterapia_path %>

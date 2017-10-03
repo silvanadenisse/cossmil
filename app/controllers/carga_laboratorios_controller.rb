@@ -11,7 +11,7 @@ class CargaLaboratoriosController < ApplicationController
   # GET /carga_laboratorios/1.json
   def show
     @areas = Area.all
-    @specialities = Speciality.all
+    @specialities = Speciality.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /carga_laboratorios/new

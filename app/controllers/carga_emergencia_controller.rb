@@ -12,7 +12,7 @@ class CargaEmergenciaController < ApplicationController
   # GET /carga_emergencia/1.json
   def show
     @area = Area.find_by(nombre: 'Emergencia')
-    @medicos = User.where(area: @area)
+    @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /carga_emergencia/new

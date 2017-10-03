@@ -13,6 +13,7 @@
 
 <p>
 <h2>Pacientes del Parte Diario</h2>
+</p>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -85,10 +86,14 @@
   <% end %>
   </tbody>
 </table>
-</p>
+
+<%= link_to 'Editar', edit_parte_rayos_x_path(@parte_rayos_x) %> |
+<%= link_to 'Volver', parte_rayos_xes_path %>
+
 
 <p>
 <h2>Agregar Paciente a Parte Diario</h2>
+</p>
 
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -170,10 +175,9 @@
 
 </div>
 
-</p>
 
-
-
-
-<%= link_to 'Editar', edit_parte_rayos_x_path(@parte_rayos_x) %> |
-<%= link_to 'Volver', parte_rayos_xes_path %>
+<div><center>
+    <%= will_paginate @pacientes, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>

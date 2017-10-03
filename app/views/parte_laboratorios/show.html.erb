@@ -101,6 +101,7 @@
 
 <p>
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
+</p>
 
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -179,6 +180,12 @@
 
 </div>
 
-</p>
+
+<div><center>
+    <%= will_paginate @pacientes, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>
+
 
 

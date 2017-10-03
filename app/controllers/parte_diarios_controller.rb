@@ -7,7 +7,8 @@ class ParteDiariosController < ApplicationController
   end
 
   def show
-    @pacientes = Paciente.all
+    # @pacientes = Paciente.all
+    @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
   end
 
 
@@ -17,6 +18,13 @@ class ParteDiariosController < ApplicationController
 
 
   def edit
+  end
+
+  def search_paciente
+    puts("=================")
+    puts(params)
+    @pacientes = Paciente.where("nombre like ?", "%#{params[:name]}%").paginate(:per_page => 5, :page => params[:page])
+    # render 'show'
   end
 
 

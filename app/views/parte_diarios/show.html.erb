@@ -50,6 +50,7 @@
 
 <p>
 <h2>INFORME MÉDICO PARTE DIARIO DE CONSULTORIO EXTERNO</h2>
+</p>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -101,9 +102,10 @@
 
 <p>
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
+</p>
 
 <div id="paciente"><!--style="display:none"--><br>
-  <br><form method="GET">Nombre:
+  <br><form method="GET" >Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
     <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
   </form></br>
@@ -157,15 +159,20 @@
                   </div></br>
                 </div>
               </div>
-            </div>x
+            </div>
           </td>
         </tr>
     <% end %>
     </tbody>
   </table>
-
 </div>
 
-</p>
+<div><center>
+    <%= will_paginate @pacientes, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
+  </center>
+</div>
+<br><br><br>
+
+
 
 

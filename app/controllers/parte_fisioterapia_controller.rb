@@ -11,7 +11,7 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia/1
   # GET /parte_fisioterapia/1.json
   def show
-        @pacientes = Paciente.all
+     @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /parte_fisioterapia/new
