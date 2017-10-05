@@ -11,7 +11,15 @@ class CargaDentalsController < ApplicationController
   # GET /carga_dentals/1.json
   def show
     @area = Area.find_by(nombre: 'Dental')
-    @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
+
+    if params[:name] == nil
+      @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
+    else
+      @medicos = User.where(area: @area)
+                    .and(
+                          User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                        ).paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   # GET /carga_dentals/new

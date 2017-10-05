@@ -11,7 +11,11 @@ class ParteRayosXesController < ApplicationController
   # GET /parte_rayos_xes/1
   # GET /parte_rayos_xes/1.json
   def show
-    @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i).or(apellido: /.*#{params[:name].downcase}.*/i).paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   # GET /parte_rayos_xes/new

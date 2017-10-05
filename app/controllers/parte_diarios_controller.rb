@@ -7,8 +7,11 @@ class ParteDiariosController < ApplicationController
   end
 
   def show
-    # @pacientes = Paciente.all
-    @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i).or(apellido: /.*#{params[:name].downcase}.*/i).paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
 
@@ -19,14 +22,6 @@ class ParteDiariosController < ApplicationController
 
   def edit
   end
-
-  def search_paciente
-    puts("=================")
-    puts(params)
-    @pacientes = Paciente.where("nombre like ?", "%#{params[:name]}%").paginate(:per_page => 5, :page => params[:page])
-    # render 'show'
-  end
-
 
   def create
     @parte_diario = ParteDiario.new(parte_diario_params)
