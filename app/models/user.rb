@@ -9,6 +9,11 @@ class User
   field :clave, type: Integer
   field :establecimiento, type: String
   field :localidad, type: String
+
+  validates :name, :last_name, presence: true, numericality: false
+  validates :clave, :localidad, :email, presence: true
+
+
   belongs_to :area
   has_many :pacientes
 
