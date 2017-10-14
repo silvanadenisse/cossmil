@@ -1,22 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <h2>RESUMEN MENSUAL DE CONSULTA EXTERNA CLASIFICADOS POR MEDICOS, TIPO DE CONSULTA Y CLASE DE ASEGURADO</h2>
-
-<p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
   <strong>Dias habiles:</strong>
   <%= @carga_parte_diario.dias_habiles %>
 </p>
-
-<p>
+  </div>
+  <div class="col-md-3">
+    <p>
   <strong>Mes:</strong>
   <%= @carga_parte_diario.mes %>
 </p>
 
-
+  </div>
+  <div class="col-md-3">
+    
 <p>
   <strong>Año:</strong>
   <%= @carga_parte_diario.anho %>
 </p>
+  </div>
+</div>
+
+
+
+
 
  <div align="right">
    <%=link_to "Grafica", controller: "carga_parte_diarios", action: "grafica_reporte", id: @carga_parte_diario.id%>

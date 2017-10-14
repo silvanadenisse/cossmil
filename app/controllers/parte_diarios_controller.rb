@@ -2,8 +2,12 @@ class ParteDiariosController < ApplicationController
   before_action :set_parte_diario, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@parte_diarios = ParteDiario.all
-    @parte_diarios = ParteDiario.where(user_id: current_user.id)
+    #
+    if current_user.role == "Técnico-Encargado"
+      @parte_diarios = ParteDiario.all
+    else
+      @parte_diarios = ParteDiario.where(user_id: current_user.id)
+    end
   end
 
   def show
@@ -12,6 +16,7 @@ class ParteDiariosController < ApplicationController
     else
       @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i).or(apellido: /.*#{params[:name].downcase}.*/i).paginate(:page => params[:page], :per_page => 5)
     end
+    @parte_diario
   end
 
 

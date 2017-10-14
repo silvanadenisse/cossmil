@@ -85,7 +85,8 @@
   </tr>
   </thead>
   <tbody>
-  <% @parte_diario.paciente_reportes.each do |paciente_repo| %>
+
+  <% @parte_diario.paciente_reportes.reverse!.each do |paciente_repo| %>
       <tr>
         <td>
           <%= paciente_repo.paciente.matricula_titular %>
@@ -115,7 +116,6 @@
   <% end %>
   </tbody>
 </table>
-</p>
 
 
 
