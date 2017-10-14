@@ -30,7 +30,7 @@ class CargaLaboratoriosController < ApplicationController
 
     respond_to do |format|
       if @carga_laboratorio.save
-        format.html { redirect_to @carga_laboratorio, notice: 'Carga laboratorio was successfully created.' }
+        format.html { redirect_to @carga_laboratorio, notice: 'Carga laboratorio creado correctamente.' }
         format.json { render :show, status: :created, location: @carga_laboratorio }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class CargaLaboratoriosController < ApplicationController
   def update
     respond_to do |format|
       if @carga_laboratorio.update(carga_laboratorio_params)
-        format.html { redirect_to @carga_laboratorio, notice: 'Carga laboratorio was successfully updated.' }
+        format.html { redirect_to @carga_laboratorio, notice: 'Carga laboratorio actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @carga_laboratorio }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class CargaLaboratoriosController < ApplicationController
   def destroy
     @carga_laboratorio.destroy
     respond_to do |format|
-      format.html { redirect_to carga_laboratorios_url, notice: 'Carga laboratorio was successfully destroyed.' }
+      format.html { redirect_to carga_laboratorios_url, notice: 'Carga laboratorio eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

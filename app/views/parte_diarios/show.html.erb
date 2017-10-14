@@ -1,52 +1,72 @@
-<p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
+<br><p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
 
 <p>
-<h2>PARTE DIARIO CONSULTORIO EXTERNO</h2>
+<h2><center>PARTE DIARIO CONSULTORIO EXTERNO</center></h2>
 </p>
 
+<center><table>
+ <tr>
+  <td class="uno">
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_diario.mes %> 
+    </p>
+
+    <p>
+      <strong>Especialidad:</strong>
+      <%= @parte_diario.user.area.nombre %>
+    </p>
+
+    
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Servicio de:</strong>
+      <%= @parte_diario.user.speciality.nombre %>
+    </p>
+
+    <p>
+      <strong>Nombre medico:</strong>
+      <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
+    </p>
+    
+
+  <td class="tres">
+
+    <p>
+      <strong>Clave:</strong>
+      <%= @parte_diario.user.clave %>
+    </p>
+
+    <p>
+      <strong>Inicio consulta:</strong>
+      <%= @parte_diario.inicio_consulta %>
+      </p>
+ 
+  <td class="cuatro">
+
+    <p>
+      <strong>Fin consulta:</strong>
+      <%= @parte_diario.fin_consulta %>
+    </p>
+
+    <p>
+      <strong>Enfermera:</strong>
+      <%= @parte_diario.enfermera %>
+    </p>
 
 
-<p>
-  <strong>Mes:</strong>
-  <%= @parte_diario.mes %>
-</p>
 
-<p>
-  <strong>Especialidad:</strong>
-    <%= @parte_diario.user.area.nombre %>
-</p>
+       </td>
+      </td>
+    </tr>
+  </td>
+</table></center>
 
-<p>
-<strong>Servicio de:</strong>
-<%= @parte_diario.user.speciality.nombre %>
-</p>
+<%= link_to 'Editar', edit_parte_diario_path(@parte_diario) %> |
+<%= link_to 'Volver', parte_diarios_path %>
 
-
-
-<p>
-  <strong>Nombre medico:</strong>
-  <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
-</p>
-
-<p>
-  <strong>Clave:</strong>
-  <%= @parte_diario.user.clave %>
-</p>
-
-<p>
-  <strong>Inicio consulta:</strong>
-  <%= @parte_diario.inicio_consulta %>
-</p>
-
-<p>
-  <strong>Fin consulta:</strong>
-  <%= @parte_diario.fin_consulta %>
-</p>
-
-<p>
-  <strong>Enfermera:</strong>
-  <%= @parte_diario.enfermera %>
-</p>
 
 <p>
 <h2>INFORME MÉDICO PARTE DIARIO DE CONSULTORIO EXTERNO</h2>
@@ -97,22 +117,22 @@
 </table>
 </p>
 
-<%= link_to 'Editar', edit_parte_diario_path(@parte_diario) %> |
-<%= link_to 'Volver', parte_diarios_path %>
+
+
 
 <p>
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 </p>
-
 <div id="paciente"><!--style="display:none"--><br>
-  <br><form method="GET" >Nombre:
+  <br><form method="GET">Nombre:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
     <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
   </form></br>
-  <table class="table table-striped">
+
+   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Nombre y apellidos del paciente</th>
+      <th>Nombre</th>
       <th>Carnet</th>
     </tr>
     </thead>
@@ -125,13 +145,13 @@
           <td>
             <%= paciente.carnet %>
           </td>
-          
           <td>
-            <div align="right">
-              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar a
+
+          <div align="right">
+              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar al
                 parte
               </button>
-            </div>
+          </div>
             <div class="modal fade" id="myModal-<%= paciente.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -139,39 +159,41 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Agregar a Parte</h4>
                   </div>
-                  <div class="modal-body">
+            <div class="modal-body">
                     <%= form_for([@parte_diario, @parte_diario.paciente_reportes.build]) do |f| %>
                         <%= f.label 'Diagnostico: ' %>
-                        <%= f.text_field :diagnostico %>
+                        <%= f.text_area :diagnostico %>
+                        <%= f.label 'Tratamiento: ' %>
+                        <%= f.text_area :tratamiento %>
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Tipo de consulta: ' %>
-                        <%= f.radio_button :tipo_consulta, 'Primera', :checked => (:tipo_consulta == 'Primera') %> Primera
+                        <%= f.radio_button :tipo_consulta, 'Nueva', :checked => (:tipo_consulta == 'Nueva') %> Nueva
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
-                  <br><div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button><
-                  </div></br>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                  </div>
                 </div>
               </div>
             </div>
           </td>
         </tr>
-    <% end %>
+
+
+          <% end %>
     </tbody>
   </table>
-</div>
+
+</div></br>
 
 <div><center>
     <%= will_paginate @pacientes, :previous_label => '<- Anterior', :next_label => 'Siguiente ->' %>
   </center>
 </div>
 <br><br><br>
-
-
-
 

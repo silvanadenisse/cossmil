@@ -34,7 +34,7 @@ class ParteFisioterapiaController < ApplicationController
 
     respond_to do |format|
       if @parte_fisioterapium.save
-        format.html { redirect_to @parte_fisioterapium, notice: 'Parte fisioterapium was successfully created.' }
+        format.html { redirect_to @parte_fisioterapium, notice: 'Parte fisioterapia creado correctamente.' }
         format.json { render :show, status: :created, location: @parte_fisioterapium }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class ParteFisioterapiaController < ApplicationController
   def update
     respond_to do |format|
       if @parte_fisioterapium.update(parte_fisioterapium_params)
-        format.html { redirect_to @parte_fisioterapium, notice: 'Parte fisioterapium was successfully updated.' }
+        format.html { redirect_to @parte_fisioterapium, notice: 'Parte fisioterapia actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @parte_fisioterapium }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class ParteFisioterapiaController < ApplicationController
   def destroy
     @parte_fisioterapium.destroy
     respond_to do |format|
-      format.html { redirect_to parte_fisioterapia_url, notice: 'Parte fisioterapium was successfully destroyed.' }
+      format.html { redirect_to parte_fisioterapia_url, notice: 'Parte fisioterapia eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

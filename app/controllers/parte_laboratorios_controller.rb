@@ -34,7 +34,7 @@ class ParteLaboratoriosController < ApplicationController
 
     respond_to do |format|
       if @parte_laboratorio.save
-        format.html { redirect_to @parte_laboratorio, notice: 'Parte laboratorio was successfully created.' }
+        format.html { redirect_to @parte_laboratorio, notice: 'Parte laboratorio creado correctamente.' }
         format.json { render :show, status: :created, location: @parte_laboratorio }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class ParteLaboratoriosController < ApplicationController
   def update
     respond_to do |format|
       if @parte_laboratorio.update(parte_laboratorio_params)
-        format.html { redirect_to @parte_laboratorio, notice: 'Parte laboratorio was successfully updated.' }
+        format.html { redirect_to @parte_laboratorio, notice: 'Parte laboratorio actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @parte_laboratorio }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class ParteLaboratoriosController < ApplicationController
   def destroy
     @parte_laboratorio.destroy
     respond_to do |format|
-      format.html { redirect_to parte_laboratorios_url, notice: 'Parte laboratorio was successfully destroyed.' }
+      format.html { redirect_to parte_laboratorios_url, notice: 'Parte laboratorio eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

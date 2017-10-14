@@ -34,7 +34,7 @@ class ParteRayosXesController < ApplicationController
 
     respond_to do |format|
       if @parte_rayos_x.save
-        format.html { redirect_to @parte_rayos_x, notice: 'Parte rayos x was successfully created.' }
+        format.html { redirect_to @parte_rayos_x, notice: 'Parte rayos x creado correctamente.' }
         format.json { render :show, status: :created, location: @parte_rayos_x }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class ParteRayosXesController < ApplicationController
   def update
     respond_to do |format|
       if @parte_rayos_x.update(parte_rayos_x_params)
-        format.html { redirect_to @parte_rayos_x, notice: 'Parte rayos x was successfully updated.' }
+        format.html { redirect_to @parte_rayos_x, notice: 'Parte rayos x actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @parte_rayos_x }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class ParteRayosXesController < ApplicationController
   def destroy
     @parte_rayos_x.destroy
     respond_to do |format|
-      format.html { redirect_to parte_rayos_xes_url, notice: 'Parte rayos x was successfully destroyed.' }
+      format.html { redirect_to parte_rayos_xes_url, notice: 'Parte rayos x eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

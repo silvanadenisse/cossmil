@@ -38,7 +38,7 @@ class CargaEmergenciaController < ApplicationController
 
     respond_to do |format|
       if @carga_emergencium.save
-        format.html { redirect_to @carga_emergencium, notice: 'Carga emergencium was successfully created.' }
+        format.html { redirect_to @carga_emergencium, notice: 'Carga emergencia creado correctamente.' }
         format.json { render :show, status: :created, location: @carga_emergencium }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class CargaEmergenciaController < ApplicationController
   def update
     respond_to do |format|
       if @carga_emergencium.update(carga_emergencium_params)
-        format.html { redirect_to @carga_emergencium, notice: 'Carga emergencium was successfully updated.' }
+        format.html { redirect_to @carga_emergencium, notice: 'Carga emergencia actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @carga_emergencium }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class CargaEmergenciaController < ApplicationController
   def destroy
     @carga_emergencium.destroy
     respond_to do |format|
-      format.html { redirect_to carga_emergencia_url, notice: 'Carga emergencium was successfully destroyed.' }
+      format.html { redirect_to carga_emergencia_url, notice: 'Carga emergencia eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -81,4 +81,5 @@ class CargaEmergenciaController < ApplicationController
     def carga_emergencium_params
       params.require(:carga_emergencium).permit(:dias_habiles, :mes, :anho)
     end
+end
 end

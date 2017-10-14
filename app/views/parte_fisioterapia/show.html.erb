@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<h2>PARTE DIARIO FISIOTERAPIA</h2>
+</p>
+
+<p>
   <strong>Turno:</strong>
   <%= @parte_fisioterapium.turno %>
 </p>
@@ -13,7 +17,7 @@
 
 
 <p>
-<h2>Pacientes del Parte Fisioterapia</h2>
+<h2>INFORME MÉDICO PARTE DIARIO DE FISIOTERAPIA</h2>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -55,9 +59,7 @@
         <td>
           <%= paciente_reporte_fisioterapia.num_sesion %>
         </td>
-        <td>
-          <%= paciente_reporte_fisioterapia.medico %>
-        </td>
+        
         <td>
           <%= paciente_reporte_fisioterapia.diagnostico %>
         </td>
@@ -67,9 +69,7 @@
         <td>
           <%= paciente_reporte_fisioterapia.tipo_consulta %>
         </td>
-        <td>
-          <%= paciente_reporte_fisioterapia.responsable %>
-        </td>
+        
       </tr>
   <% end %>
   </tbody>

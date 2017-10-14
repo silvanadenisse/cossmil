@@ -38,7 +38,7 @@ class CargaFisioterapiaController < ApplicationController
 
     respond_to do |format|
       if @carga_fisioterapium.save
-        format.html { redirect_to @carga_fisioterapium, notice: 'Carga fisioterapium was successfully created.' }
+        format.html { redirect_to @carga_fisioterapium, notice: 'Carga fisioterapia creado correctamente.' }
         format.json { render :show, status: :created, location: @carga_fisioterapium }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class CargaFisioterapiaController < ApplicationController
   def update
     respond_to do |format|
       if @carga_fisioterapium.update(carga_fisioterapium_params)
-        format.html { redirect_to @carga_fisioterapium, notice: 'Carga fisioterapium was successfully updated.' }
+        format.html { redirect_to @carga_fisioterapium, notice: 'Carga fisioterapia actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @carga_fisioterapium }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class CargaFisioterapiaController < ApplicationController
   def destroy
     @carga_fisioterapium.destroy
     respond_to do |format|
-      format.html { redirect_to carga_fisioterapia_url, notice: 'Carga fisioterapium was successfully destroyed.' }
+      format.html { redirect_to carga_fisioterapia_url, notice: 'Carga fisioterapia eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

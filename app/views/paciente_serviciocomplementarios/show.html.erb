@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estudio:</strong>
+  <%= @paciente_serviciocomplementario.estudio %>
+</p>
+
+<p>
+  <strong>Diagnostico:</strong>
+  <%= @paciente_serviciocomplementario.diagnostico %>
+</p>
+
+<%= link_to 'Edit', edit_paciente_serviciocomplementario_path(@paciente_serviciocomplementario) %> |
+<%= link_to 'Back', paciente_serviciocomplementarios_path %>

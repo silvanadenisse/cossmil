@@ -35,7 +35,7 @@
                 <li><%= nav_link raw("Mostrar áreas"), areas_path %></li>
                 <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
                 <li><%= nav_link raw("Registrar usuario"), new_user_registration_path %></li>
-                <p><%= link_to "Crear cuenta", new_user_registration_path %></p>
+               
             <% end %>
       
             <% if current_user.role == "Doctor" %> 
@@ -61,17 +61,24 @@
             
 
             <% if current_user.role == "Técnico-Encargado" %>
+                <br>
                 <li><%= nav_link raw("Ver parte diario consulta externa"), parte_diarios_path %></li>
-                <li><%= nav_link raw("Ver parte diario emergencia"), parte_emergencia_path %></li>
                 <li><%= nav_link raw("Ver parte diario dental"), parte_dentals_path %></li>
-                <li><%= nav_link raw("Ver parte diario rayos x"), parte_rayos_xes_path %></li>
+                <li><%= nav_link raw("Ver parte diario emergencia"), parte_emergencia_path %></li>
                 <li><%= nav_link raw("Ver parte diario fisioterapia"), parte_fisioterapia_path %></li>
-                
+                <li><%= nav_link raw("Ver parte diario laboratorio"), parte_laboratorios_path %></li>
+                <li><%= nav_link raw("Ver parte diario rayos x"), parte_rayos_xes_path %></li>
+                </br>
+
+                <br>
+                <li><%= nav_link raw("Ver reportes consulta externa"), carga_parte_diarios_path %></li>
+                <li><%= nav_link raw("Ver reportes dental"), carga_dentals_path %></li>
                 <li><%= nav_link raw("Ver reportes emergencia"), carga_emergencia_path %></li>
                 <li><%= nav_link raw("Ver reportes fisioterapia"), carga_fisioterapia_path %></li>
-                <li><%= nav_link raw("Ver reportes dental"), carga_dentals_path %></li>
-                <li><%= nav_link raw("Ver reportes consulta externa"), carga_parte_diarios_path %></li>
-  
+                <li><%= nav_link raw("Ver reportes laboratorio"), carga_laboratorios_path %></li>
+                
+                
+                </br>
 
             <% end %>
             

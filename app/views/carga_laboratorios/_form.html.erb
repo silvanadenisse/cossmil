@@ -12,16 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :mes %>
+    <%= f.label 'Mes: ' %>
     <%= f.text_field :mes %>
   </div>
 
   <div class="field">
-    <%= f.label :anho %>
+    <%= f.label 'Año: ' %>
     <%= f.number_field :anho %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <br><div class="actions">
+    <%= f.submit "Crear reporte"%>
+  </div></br>
 <% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parte Serviciocomplementarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_serviciocomplementarios.each do |parte_serviciocomplementario| %>
+      <tr>
+        <td><%= parte_serviciocomplementario.mes %></td>
+        <td><%= link_to 'Show', parte_serviciocomplementario %></td>
+        <td><%= link_to 'Edit', edit_parte_serviciocomplementario_path(parte_serviciocomplementario) %></td>
+        <td><%= link_to 'Destroy', parte_serviciocomplementario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parte Serviciocomplementario', new_parte_serviciocomplementario_path %>

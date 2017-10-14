@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
  
+  resources :parte_serviciocomplementarios
+  resources :paciente_serviciocomplementarios
   resources :specialities
   resources :carga_reporte_laboratorios
   resources :carga_laboratorios

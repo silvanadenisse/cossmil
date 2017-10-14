@@ -37,7 +37,7 @@ class ParteDentalsController < ApplicationController
 
     respond_to do |format|
       if @parte_dental.save
-        format.html { redirect_to @parte_dental, notice: 'Parte dental was successfully created.' }
+        format.html { redirect_to @parte_dental, notice: 'Parte dental creado correctamente.' }
         format.json { render :show, status: :created, location: @parte_dental }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class ParteDentalsController < ApplicationController
   def update
     respond_to do |format|
       if @parte_dental.update(parte_dental_params)
-        format.html { redirect_to @parte_dental, notice: 'Parte dental was successfully updated.' }
+        format.html { redirect_to @parte_dental, notice: 'Parte dental actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @parte_dental }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class ParteDentalsController < ApplicationController
   def destroy
     @parte_dental.destroy
     respond_to do |format|
-      format.html { redirect_to parte_dentals_url, notice: 'Parte dental was successfully destroyed.' }
+      format.html { redirect_to parte_dentals_url, notice: 'Parte dental eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

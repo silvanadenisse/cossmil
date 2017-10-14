@@ -34,7 +34,7 @@ class ParteEmergenciaController < ApplicationController
 
     respond_to do |format|
       if @parte_emergencium.save
-        format.html { redirect_to @parte_emergencium, notice: 'Parte emergencium was successfully created.' }
+        format.html { redirect_to @parte_emergencium, notice: 'Parte emergencia creado correctamente.' }
         format.json { render :show, status: :created, location: @parte_emergencium }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class ParteEmergenciaController < ApplicationController
   def update
     respond_to do |format|
       if @parte_emergencium.update(parte_emergencium_params)
-        format.html { redirect_to @parte_emergencium, notice: 'Parte emergencium was successfully updated.' }
+        format.html { redirect_to @parte_emergencium, notice: 'Parte emergencium actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @parte_emergencium }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class ParteEmergenciaController < ApplicationController
   def destroy
     @parte_emergencium.destroy
     respond_to do |format|
-      format.html { redirect_to parte_emergencia_url, notice: 'Parte emergencium was successfully destroyed.' }
+      format.html { redirect_to parte_emergencia_url, notice: 'Parte emergencium eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

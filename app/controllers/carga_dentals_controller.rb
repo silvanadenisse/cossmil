@@ -38,7 +38,7 @@ class CargaDentalsController < ApplicationController
 
     respond_to do |format|
       if @carga_dental.save
-        format.html { redirect_to @carga_dental, notice: 'Carga dental was successfully created.' }
+        format.html { redirect_to @carga_dental, notice: 'Carga dental creado correctamente.' }
         format.json { render :show, status: :created, location: @carga_dental }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class CargaDentalsController < ApplicationController
   def update
     respond_to do |format|
       if @carga_dental.update(carga_dental_params)
-        format.html { redirect_to @carga_dental, notice: 'Carga dental was successfully updated.' }
+        format.html { redirect_to @carga_dental, notice: 'Carga dental actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @carga_dental }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class CargaDentalsController < ApplicationController
   def destroy
     @carga_dental.destroy
     respond_to do |format|
-      format.html { redirect_to carga_dentals_url, notice: 'Carga dental was successfully destroyed.' }
+      format.html { redirect_to carga_dentals_url, notice: 'Carga dental eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
