@@ -18,9 +18,10 @@
   <%= @carga_parte_diario.anho %>
 </p>
 
-
  <div align="right">
-   <%=link_to "Ver Grafica", controller: "carga_parte_diarios", action: "grafica", id: @carga_parte_diario.id%>
+   <%=link_to "Grafica", controller: "carga_parte_diarios", action: "grafica_reporte", id: @carga_parte_diario.id%>
+   <%=link_to "Grafica por fuerzas", controller: "carga_parte_diarios", action: "grafica_fuerzas", id: @carga_parte_diario.id%>
+   <%=link_to "Imprimir Reporte", controller: "carga_parte_diarios", action: "print", id: @carga_parte_diario.id%>
   </div>
   <br>
 <table class="table table-striped">
@@ -88,7 +89,6 @@
   <% end %>
   </tbody>
 </table>
-</p>
 
 <%= link_to 'Editar', edit_carga_parte_diario_path(@carga_parte_diario) %> |
 <%= link_to 'Volver', carga_parte_diarios_path %>
