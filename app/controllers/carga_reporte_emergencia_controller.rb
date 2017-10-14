@@ -82,12 +82,8 @@ class CargaReporteEmergenciaController < ApplicationController
     @carga_reporte_dental.letraF = @letraF
     @carga_reporte_dental.letraPM = @letraPM
 
-
-
     @user = User.find(carga_reporte_emergencium_params[:medico_id])
     @carga_reporte_emergencium.medico = @user.name + " " + @user.last_name
-
-
 
 
      

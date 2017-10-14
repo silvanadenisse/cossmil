@@ -54,7 +54,9 @@ Rails.application.routes.draw do
     resources :current_users
   end
 
-  get '/carga_parte_diarios/:id/grafica'=> 'carga_parte_diarios#grafica'
+  get '/carga_parte_diarios/:id/grafica_reporte'=> 'carga_parte_diarios#grafica_reporte'
+  get '/carga_parte_diarios/:id/grafica_fuerzas'=> 'carga_parte_diarios#grafica_fuerzas'
+  get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
 
   resources :carga_reporte_dentals 
 
