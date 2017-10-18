@@ -9,6 +9,7 @@ class PacienteReporteEmergencium
   field :tratamiento, type: String
   field :observaciones, type: String
   field :edad, type: Integer
+  field :enfermera, type: String
 
   belongs_to :paciente
   belongs_to :parte_emergencium

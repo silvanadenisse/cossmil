@@ -1851,11 +1851,13 @@ th {
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
     background-color: #080808;
+    padding: 20px;
 }
 
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
     background-color: #282828;
+    margin-right: auto;
 }
 
 table col[class*="col-"] {

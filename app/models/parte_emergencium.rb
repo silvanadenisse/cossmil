@@ -3,7 +3,7 @@ class ParteEmergencium
   include Mongoid::Attributes::Dynamic
 
   field :mes, type: String
-  field :enfermera, type: String
+  field :anho, type: String
 
 
   belongs_to :user

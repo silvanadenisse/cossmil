@@ -1,44 +1,60 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<h2>PARTE DIARIO LABORATORIO</h2>
+<h2><center>PARTE DIARIO LABORATORIO</center></h2>
 </p>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @parte_laboratorio.mes %>
-</p>
+<center><table>
+ <tr>
+  <td class="uno">
 
-<p>
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_laboratorio.mes %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Localidad:</strong>
+      <%= @parte_laboratorio.user.localidad %>
+    </p>
+    
+
+  <td class="tres">
+
+    <p>
   <strong>Establecimiento:</strong>
   <%= @parte_laboratorio.user.establecimiento %>
 </p>
+    
 
-<p>
-  <strong>Localidad:</strong>
-  <%= @parte_laboratorio.user.localidad %>
-</p>
+      </td>
+    </tr>
+  </td>
+</table></center>
+
 
 <p>
 <h2>INFORME MÉDICO PARTE DIARIO DE LABORATORIO</h2>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Carnet del asegurado</th>
-    <th>Nombre y apellidos del paciente</th>
-    <th>Edad</th>
-    <th>Sexo</th>
-    <th>Tipo de asegurado</th>
-    <th>Fuerza</th>
-    <th>Procedencia</th>
-    <th>Hematología</th>
-    <th>Bioquímica</th>
-    <th>Serologías</th>
-    <th>Orinas</th>
-    <th>Heces</th>
-    <th>Grupo Sanguineo</th>
-    <th>Area</th>
-    <th>Especialidad</th>
+    <th>CARNET DEL ASEGURADO</th>
+    <th>NONMBRE Y APELLIDO</th>
+    <th>EDAD</th>
+    <th>SEXO</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>PROCEDENCIA</th>
+    <th>HEMATOLOGÍA</th>
+    <th>BIOQUÍMICA</th>
+    <th>SEROLOGÍAS</th>
+    <th>ORINAS</th>
+    <th>HECES</th>
+    <th>GRUPO SANGUÍNEO</th>
+    <th>NOMBRE DEL LABORATORIO</th>
   </tr>
   </thead>
   <tbody>
@@ -83,9 +99,7 @@
         <td>
           <%= paciente_repo_labo.gsanguineo %>
         </td>
-        <td>
-          <%= paciente_repo_labo.area.nombre %>
-        </td>
+        
         <td>
           <%= paciente_repo_labo.speciality.nombre %>
         </td>
@@ -140,6 +154,9 @@
                   </div>
                   <div class="modal-body">
                     <%= form_for([@parte_laboratorio, @parte_laboratorio.paciente_reporte_laboratorios.build]) do |f| %>
+                        <br>
+                        <%= f.label 'Edad: ' %>
+                        <%= f.number_field :edad %>
                         <%= f.label 'Procedencia: ' %>
                         <%= f.radio_button :procedencia, 'C.E.', :checked => (:procedencia == 'C.E.') %> C.E.
                         <%= f.radio_button :procedencia, 'H', :checked => (:procedencia == 'H') %> H
@@ -153,16 +170,15 @@
                         <%= f.number_field :orinas %>
                         <%= f.label 'Heces: ' %>
                         <%= f.number_field :heces %>
-                        <%= f.label 'Grupo Sanguineo: ' %>
+                        <%= f.label 'Grupo Sanguíneo: ' %>
                         <%= f.text_field :gsanguineo %>
-                        <%= f.label 'Edad: ' %>
-                        <%= f.number_field :edad %>
-                        <%= f.label 'Area: ' %>
+                        
+                        <%= f.label 'Área: ' %>
                         <%= collection_select(:paciente_reporte_laboratorio, :area_id, Area.all, :id, :nombre) %>
                         <%= f.label 'Especialidad: ' %>
                         <%= collection_select(:paciente_reporte_laboratorio, :speciality_id, Speciality.all, :id, :nombre) %>
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
-                        <%= f.hidden_field :parte_laboratorio_id, :value => @parte_laboratorio.id %>
+                        <%= f.hidden_field :parte_laboratorio_id, :value => @parte_laboratorio.id %></br>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

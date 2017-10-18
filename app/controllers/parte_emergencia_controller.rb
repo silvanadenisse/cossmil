@@ -5,8 +5,12 @@ class ParteEmergenciaController < ApplicationController
   # GET /parte_emergencia.json
   def index
     #@parte_emergencia = ParteEmergencium.all
+    if current_user.role == "Técnico-Encargado"
+      @parte_emergencia = ParteEmergencium.all
+    else
     @parte_emergencia = ParteEmergencium.where(user_id: current_user.id)
   end
+end
 
   # GET /parte_emergencia/1
   # GET /parte_emergencia/1.json
@@ -75,6 +79,6 @@ class ParteEmergenciaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parte_emergencium_params
-      params.require(:parte_emergencium).permit(:mes, :user_id, :enfermera)
+      params.require(:parte_emergencium).permit(:mes, :user_id, :anho)
     end
 end

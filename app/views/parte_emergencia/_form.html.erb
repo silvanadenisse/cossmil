@@ -12,20 +12,22 @@
   <% end %>
 
   <div class="field">
+    <%= f.label 'Médico: ' %>
+    <%= current_user.name + " " +current_user.last_name%>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
+  </div>
+
+  <div class="field">
     <%= f.label 'Mes: ' %>
     <%= f.text_field :mes %>
   </div>
 
   <div class="field">
-    <%= f.label 'Enfermera: ' %>
-    <%= f.text_field :enfermera %>
+    <%= f.label 'Año: ' %>
+    <%= f.text_field :anho %>
   </div>
 
-  <div class="field">
-    <%= f.label 'Medico: ' %>
-    <%= current_user.name + " " +current_user.last_name%>
-    <%= f.hidden_field :user_id, :value => current_user.id%>
-  </div>
+  
 
 
   </br><div class="actions">

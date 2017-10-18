@@ -1,4 +1,4 @@
-<br><p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
+<p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
 
 <p>
 <h2><center>PARTE DIARIO CONSULTORIO EXTERNO</center></h2>
@@ -7,19 +7,11 @@
 <center><table>
  <tr>
   <td class="uno">
-    <p>
-      <strong>Mes:</strong>
-      <%= @parte_diario.mes %> 
-    </p>
 
     <p>
-      <strong>Especialidad:</strong>
-      <%= @parte_diario.user.area.nombre %>
+      <strong>Establecimiento:</strong>
+      <%= @parte_diario.user.establecimiento %> 
     </p>
-
-    
-  </td>
-  <td class="dos">
 
     <p>
       <strong>Servicio de:</strong>
@@ -27,12 +19,35 @@
     </p>
 
     <p>
+      <strong>Inicio consulta:</strong>
+      <%= @parte_diario.inicio_consulta %>
+      </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Localidad:</strong>
+      <%= @parte_diario.user.localidad %> 
+    </p>
+
+    <p>
       <strong>Nombre medico:</strong>
       <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
+    </p>
+
+    <p>
+      <strong>Fin consulta:</strong>
+      <%= @parte_diario.fin_consulta %>
     </p>
     
 
   <td class="tres">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_diario.mes %> 
+    </p>
 
     <p>
       <strong>Clave:</strong>
@@ -40,25 +55,11 @@
     </p>
 
     <p>
-      <strong>Inicio consulta:</strong>
-      <%= @parte_diario.inicio_consulta %>
-      </p>
- 
-  <td class="cuatro">
-
-    <p>
-      <strong>Fin consulta:</strong>
-      <%= @parte_diario.fin_consulta %>
-    </p>
-
-    <p>
       <strong>Enfermera:</strong>
       <%= @parte_diario.enfermera %>
     </p>
+    
 
-
-
-       </td>
       </td>
     </tr>
   </td>
@@ -74,44 +75,52 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Carnet del asegurado</th>
-    <th>Carnet del beneficiario</th>
-    <th>Diagnostico</th>
-    <th>Edad</th>
-    <th>Sexo</th>
-    <th>Tipo de consulta</th>
-    <th>Tipo de asegurado</th>
-    <th>Fuerza</th>
+    <th>CARNET DEL ASEGURADO</th>
+    <th>CARNET DEL BENEFICIARIO</th>
+    <th>DIAGNÓSTICO</th>
+    <th>EDAD</th>
+    <th><center>SEXO</center></th>
+    <th>TIPO DE CONSULTA</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>N. DE RECETAS</th>
+    <th>REFERIDO A:</th>
   </tr>
   </thead>
   <tbody>
 
   <% @parte_diario.paciente_reportes.reverse!.each do |paciente_repo| %>
       <tr>
-        <td>
+        <td><center>
           <%= paciente_repo.paciente.matricula_titular %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.paciente.matricula_paciente %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.diagnostico %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.edad %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.paciente.sexo %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.tipo_consulta %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.paciente.tipo_asegurado %>
-        </td>
-        <td>
+        </center></td>
+        <td><center>
           <%= paciente_repo.paciente.fuerza %>
-        </td>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.num_recetas %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.referido %>
+        </center></td>
       </tr>
   <% end %>
   </tbody>
@@ -161,17 +170,19 @@
                   </div>
             <div class="modal-body">
                     <%= form_for([@parte_diario, @parte_diario.paciente_reportes.build]) do |f| %>
-                        <%= f.label 'Diagnostico: ' %>
+                        <br><%= f.label 'Diagnostico: ' %>
                         <%= f.text_area :diagnostico %>
-                        <%= f.label 'Tratamiento: ' %>
-                        <%= f.text_area :tratamiento %>
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Nueva', :checked => (:tipo_consulta == 'Nueva') %> Nueva
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
+                        <%= f.label 'Número de recetas: ' %>
+                        <%= f.number_field :num_recetas %>
+                        <%= f.label 'Referido a: ' %>
+                        <%= f.number_field :referido %>
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
-                        <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %>
+                        <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %></br>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

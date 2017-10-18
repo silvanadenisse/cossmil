@@ -1,98 +1,116 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<h2>PARTE DIARIO EMERGENCIA</h2>
+<h2><center>PARTE DIARIO EMERGENCIA</center></h2>
 </p>
 
-<p>
-  <strong>Nombre medico:</strong>
-  <%= @parte_emergencium.user.name + " " + @parte_emergencium.user.last_name %>
-</p>
+<center><table>
+ <tr>
+  <td class="uno">
 
-<p>
-  <strong>Mes:</strong>
-  <%= @parte_emergencium.mes %>
-</p>
+    <p>
+      <strong>Nombre médico:</strong>
+      <%= @parte_emergencium.user.name + " " + @parte_emergencium.user.last_name %>
+    </p>
 
-<p>
-  <strong>Enfermera:</strong>
-  <%= @parte_emergencium.enfermera %>
-</p>
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_emergencium.mes %>
+    </p>
+
+  <td class="tres">
+
+    <p>
+      <strong>Año:</strong>
+      <%= @parte_emergencium.anho %>
+    </p>
+        
+      </td>
+    </tr>
+  </td>
+</table></center>
+
+<%= link_to 'Editar', edit_parte_emergencium_path(@parte_emergencium) %> |
+<%= link_to 'Volver', parte_emergencia_path %>
 
 <p>
 <h2>INFORME MÉDICO PARTE DIARIO DE EMERGENCIA</h2>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Carnet del asegurado</th>
-    <th>Carnet del beneficiario</th>
-    <th>Nombre y apellidos</th>
-    <th>Fuerza</th>
-    <th>Grado</th>
-    <th>Tipo de Asegurado</th>
-    <th>Edad</th>
-    <th>Sexo</th>
-    <th>T</th>
-    <th>P</th>
-    <th>PA</th>
-    <th>Diagnostico</th>
-    <th>Tratamiento</th>
-    <th>Observaciones</th>
+    <th>CARNET DL ASEGURADO</th>
+    <th>CARNET DEL BENEFICIARIO</th>
+    <th>NOMBRE Y APELLIDOS</th>
+    <th><center>FUERZA</center></th>
+    <th><cneter>GRADO</cneter></th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>EDAD</th>
+    <th><center>SEXO</center></th>
+    <th><center>T</center></th>
+    <th><center>P</center></th>
+    <th><center>PA</center></th>
+    <th><center>DIAGNÓSTICO</center></th>
+    <th><center>TRATAMIENTO</center></th>
+    <th><center>OBSERVACIONES</center></th>
+    <th><center>ENFERMERA</center></th>
   </tr>
   </thead>
   <tbody>
   <% @parte_emergencium.paciente_reporte_emergencia.each do |paciente_reporte_emergencia| %>
       <tr>
-      	<td>
+      	<td><center>
           <%= paciente_reporte_emergencia.paciente.matricula_titular %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.paciente.matricula_paciente %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.paciente.nombre + " " + paciente_reporte_emergencia.paciente.apellido %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.paciente.fuerza %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.paciente.grado %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.paciente.tipo_asegurado %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.edad %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.paciente.sexo %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.t %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.p %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.pa %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.diagnostico %>
-        </td>
-        <td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.tratamiento %>
-        </td><td>
+        </td></center>
+        <td><center>
           <%= paciente_reporte_emergencia.observaciones %>
-        </td>
-        
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.enfermera %>
+        </td></center>
       </tr>
   <% end %>
   </tbody>
 </table>
 </p>
-
-<%= link_to 'Editar', edit_parte_emergencium_path(@parte_emergencium) %> |
-<%= link_to 'Volver', parte_emergencia_path %>
 
 
 <p>
@@ -135,12 +153,12 @@
                   </div>
                   <div class="modal-body">
                     <%= form_for([@parte_emergencium, @parte_emergencium.paciente_reporte_emergencia.build]) do |f| %>
-                        <%= f.label 'Edad: ' %>
+                        <br><%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
-                        <%= f.label 'Diagnostico: ' %>
-                        <%= f.text_field :diagnostico %>
+                        <%= f.label 'Diagnóstico: ' %>
+                        <%= f.text_area :diagnostico %>
                         <%= f.label 'Tratamiento: ' %>
-                        <%= f.text_field :tratamiento %>  
+                        <%= f.text_area :tratamiento %>  
                         <%= f.label 'Signos vitales: ' %>
                         <%= f.label 'T: ' %>
                         <%= f.text_field :t %>
@@ -150,8 +168,10 @@
                         <%= f.text_field :pa %>
                         <%= f.label 'Observaciones: ' %>
                         <%= f.text_field :observaciones %>
+                        <%= f.label 'Enfermera: ' %>
+                        <%= f.text_field :enfermera %>
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
-                        <%= f.hidden_field :parte_emergencium_id, :value => @parte_emergencium.id %>
+                        <%= f.hidden_field :parte_emergencium_id, :value => @parte_emergencium.id %></br>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>
@@ -160,7 +180,7 @@
                   </div>
                 </div>
               </div>
-            </div>x
+            </div>
           </td>
         </tr>
     <% end %>

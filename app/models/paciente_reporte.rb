@@ -22,6 +22,8 @@ class PacienteReporte
   field :observaciones, type: String
   field :num_sesion, type: Integer
   field :procedencia, type: String
+  field :num_recetas, type: Integer
+  field :referido, type: Integer
 
   belongs_to :paciente
   belongs_to :parte_diario
