@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :mes %>
-    <%= f.text_field :mes %>
+    <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
     <%= f.hidden_field :user_id, :value => current_user.id%>
   </div>
 
