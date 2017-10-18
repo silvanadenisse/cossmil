@@ -5,7 +5,7 @@
 
     <div class="field">
       <%= f.label 'Nombre:' %>
-      <%= f.text_field :name, :maxlength => 25 %>
+      <%= f.text_field :name, :maxlength => 25, autofocus: true %>
     </div>
     <div class="field">
       <%= f.label 'Apellido:' %>
@@ -17,12 +17,11 @@
     </div>
     <div class="field">
       <%= f.label 'Departamento' %>
-      <%= collection_select(:user, :area_id, Area.all, :id, :nombre) %>
+      <%= f.collection_select :area_id, Area.all, :id, :nombre, include_blank: true %>
     </div>
     <div class="field">
       <%= f.label 'Especialidad:' %>
-      <%= collection_select(:user, :speciality_id, Speciality.all, :id, :nombre) %>
-      <!--%= f.text_field :speciality %-->
+      <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true %>
     </div>
     <div class="field">
       <%= f.label 'Clave:' %>
@@ -38,7 +37,7 @@
     </div>
     <div class="field">
       <%= f.label 'Correo electrónico:' %>
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email, autofocus: false %>
     </div>
     <div class="field">
       <%= f.label 'Contraseña:' %>
