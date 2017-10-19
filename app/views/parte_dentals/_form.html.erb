@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :mes %>
-    <%= f.text_field :mes %>
+    <%= f.label 'Mes: ' %>
+    <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
   </div>
 
   <div class="field"> 

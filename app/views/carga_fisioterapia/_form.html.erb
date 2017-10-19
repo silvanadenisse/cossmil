@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= f.label 'Mes: ' %>
-    <%= f.text_field :mes %>
+    <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
   </div>
 
   <div class="field">
     <%= f.label 'Año: ' %>
-    <%= f.number_field :anho %>
+    <%= f.number_field :anho, value: Date.today.year, readonly:true%>
   </div>
 
   <br><div class="actions">

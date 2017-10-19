@@ -20,7 +20,6 @@ class CargaFisioterapiaController < ApplicationController
                         ).paginate(:page => params[:page], :per_page => 5)
     end
   end
-  end
 
   # GET /carga_fisioterapia/new
   def new
