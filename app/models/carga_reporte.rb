@@ -1,7 +1,7 @@
 class CargaReporte
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
-  
+
   field :medico, type: String
   field :carga_horaria_contrato, type: Integer
   field :carga_horaria_cons_ext, type: Integer
@@ -36,8 +36,7 @@ class CargaReporte
   field :civil, type: Integer
 
 
-
   belongs_to :area
-  belongs_to :speciality  
+  belongs_to :speciality
   belongs_to :carga_parte_diario
 end

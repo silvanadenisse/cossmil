@@ -28,11 +28,11 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to @area, notice: 'Área creada correctamente.' }
-        format.json { render :show, status: :created, location: @area }
+        format.html {redirect_to @area, notice: 'Área creada correctamente.'}
+        format.json {render :show, status: :created, location: @area}
       else
-        format.html { render :new }
-        format.json { render json: @area.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @area.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +42,11 @@ class AreasController < ApplicationController
   def update
     respond_to do |format|
       if @area.update(area_params)
-        format.html { redirect_to @area, notice: 'Área actualizada correctamente.' }
-        format.json { render :show, status: :ok, location: @area }
+        format.html {redirect_to @area, notice: 'Área actualizada correctamente.'}
+        format.json {render :show, status: :ok, location: @area}
       else
-        format.html { render :edit }
-        format.json { render json: @area.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @area.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,19 +56,19 @@ class AreasController < ApplicationController
   def destroy
     @area.destroy
     respond_to do |format|
-      format.html { redirect_to areas_url, notice: 'Área eliminada correctamente.' }
-      format.json { head :no_content }
+      format.html {redirect_to areas_url, notice: 'Área eliminada correctamente.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_area
-      @area = Area.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_area
+    @area = Area.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def area_params
-      params.require(:area).permit(:nombre)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def area_params
+    params.require(:area).permit(:nombre)
+  end
 end

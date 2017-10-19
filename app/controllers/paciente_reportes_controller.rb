@@ -16,7 +16,7 @@ class PacienteReportesController < ApplicationController
   def edit
   end
 
- def create
+  def create
     @paciente_reporte = PacienteReporte.new(paciente_reporte_params)
     @parte_diario = ParteDiario.find(params[:parte_diario_id])
     if @paciente_reporte.save
@@ -31,11 +31,11 @@ class PacienteReportesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente_reporte.update(paciente_reporte_params)
-        format.html { redirect_to @paciente_reporte, notice: 'Paciente reporte actualizado correctamente.' }
-        format.json { render :show, status: :ok, location: @paciente_reporte }
+        format.html {redirect_to @paciente_reporte, notice: 'Paciente reporte actualizado correctamente.'}
+        format.json {render :show, status: :ok, location: @paciente_reporte}
       else
-        format.html { render :edit }
-        format.json { render json: @paciente_reporte.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @paciente_reporte.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -43,8 +43,8 @@ class PacienteReportesController < ApplicationController
   def destroy
     @paciente_reporte.destroy
     respond_to do |format|
-      format.html { redirect_to paciente_reportes_url, notice: 'Paciente reporte eliminado correctamente.' }
-      format.json { head :no_content }
+      format.html {redirect_to paciente_reportes_url, notice: 'Paciente reporte eliminado correctamente.'}
+      format.json {head :no_content}
     end
   end
 

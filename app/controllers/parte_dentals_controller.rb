@@ -23,8 +23,6 @@ class ParteDentalsController < ApplicationController
     @parte_dental = ParteDental.new
   end
 
-  
-
 
   # GET /parte_dentals/1/edit
   def edit
@@ -37,11 +35,11 @@ class ParteDentalsController < ApplicationController
 
     respond_to do |format|
       if @parte_dental.save
-        format.html { redirect_to @parte_dental, notice: 'Parte dental creado correctamente.' }
-        format.json { render :show, status: :created, location: @parte_dental }
+        format.html {redirect_to @parte_dental, notice: 'Parte dental creado correctamente.'}
+        format.json {render :show, status: :created, location: @parte_dental}
       else
-        format.html { render :new }
-        format.json { render json: @parte_dental.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @parte_dental.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -51,11 +49,11 @@ class ParteDentalsController < ApplicationController
   def update
     respond_to do |format|
       if @parte_dental.update(parte_dental_params)
-        format.html { redirect_to @parte_dental, notice: 'Parte dental actualizado correctamente.' }
-        format.json { render :show, status: :ok, location: @parte_dental }
+        format.html {redirect_to @parte_dental, notice: 'Parte dental actualizado correctamente.'}
+        format.json {render :show, status: :ok, location: @parte_dental}
       else
-        format.html { render :edit }
-        format.json { render json: @parte_dental.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @parte_dental.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -65,19 +63,19 @@ class ParteDentalsController < ApplicationController
   def destroy
     @parte_dental.destroy
     respond_to do |format|
-      format.html { redirect_to parte_dentals_url, notice: 'Parte dental eliminado correctamente.' }
-      format.json { head :no_content }
+      format.html {redirect_to parte_dentals_url, notice: 'Parte dental eliminado correctamente.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_parte_dental
-      @parte_dental = ParteDental.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_parte_dental
+    @parte_dental = ParteDental.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def parte_dental_params
-      params.require(:parte_dental).permit(:mes, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def parte_dental_params
+    params.require(:parte_dental).permit(:mes, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
+  end
 end

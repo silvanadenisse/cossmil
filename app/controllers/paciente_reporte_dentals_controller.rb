@@ -27,14 +27,14 @@ class PacienteReporteDentalsController < ApplicationController
   def create
     @paciente_reporte_dental = PacienteReporteDental.new(paciente_reporte_dental_params)
     @parte_dental = ParteDental.find(params[:parte_dental_id])
-      if @paciente_reporte_dental.save
+    if @paciente_reporte_dental.save
       flash[:success] = "Paciente agregado exitosamente."
       redirect_to "/parte_dentals/"+@paciente_reporte_dental.parte_dental.id.to_s
     else
       flash[:danger] = "Error al agregar paciente"
       redirect_to parte_dental_path(@parte_dental)
     end
-    
+
   end
 
   # PATCH/PUT /paciente_reporte_dentals/1
@@ -42,11 +42,11 @@ class PacienteReporteDentalsController < ApplicationController
   def update
     respond_to do |format|
       if @paciente_reporte_dental.update(paciente_reporte_dental_params)
-        format.html { redirect_to @paciente_reporte_dental, notice: 'Paciente reporte dental was successfully updated.' }
-        format.json { render :show, status: :ok, location: @paciente_reporte_dental }
+        format.html {redirect_to @paciente_reporte_dental, notice: 'Paciente reporte dental was successfully updated.'}
+        format.json {render :show, status: :ok, location: @paciente_reporte_dental}
       else
-        format.html { render :edit }
-        format.json { render json: @paciente_reporte_dental.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @paciente_reporte_dental.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,19 +56,19 @@ class PacienteReporteDentalsController < ApplicationController
   def destroy
     @paciente_reporte_dental.destroy
     respond_to do |format|
-      format.html { redirect_to paciente_reporte_dentals_url, notice: 'Paciente reporte dental was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to paciente_reporte_dentals_url, notice: 'Paciente reporte dental was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paciente_reporte_dental
-      @paciente_reporte_dental = PacienteReporteDental.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_paciente_reporte_dental
+    @paciente_reporte_dental = PacienteReporteDental.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def paciente_reporte_dental_params
-      params.require(:paciente_reporte_dental).permit(:tipo_consulta, :edad, :paciente_id, :parte_dental_id, :tipo_asegurado, :diagnostico, :tratamiento)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def paciente_reporte_dental_params
+    params.require(:paciente_reporte_dental).permit(:tipo_consulta, :edad, :paciente_id, :parte_dental_id, :tipo_asegurado, :diagnostico, :tratamiento)
+  end
 end

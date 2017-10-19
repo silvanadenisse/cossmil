@@ -7,12 +7,12 @@ class ParteLaboratorio
   belongs_to :user
   has_many :paciente_reporte_laboratorios, dependent: :destroy
 
-   def obtenerLetraA
+  def obtenerLetraA
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'A'
-        val = val+1       
+      if @paciente.letra_asegurado == 'A'
+        val = val+1
       end
     end
     val
@@ -20,10 +20,10 @@ class ParteLaboratorio
 
   def obtenerLetraB
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'B'
-        val = val+1       
+      if @paciente.letra_asegurado == 'B'
+        val = val+1
       end
     end
     val
@@ -31,10 +31,10 @@ class ParteLaboratorio
 
   def obtenerLetraC
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'C'
-        val = val+1       
+      if @paciente.letra_asegurado == 'C'
+        val = val+1
       end
     end
     val
@@ -42,10 +42,10 @@ class ParteLaboratorio
 
   def obtenerLetraZ
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'Z'
-        val = val+1       
+      if @paciente.letra_asegurado == 'Z'
+        val = val+1
       end
     end
     val
@@ -53,10 +53,10 @@ class ParteLaboratorio
 
   def obtenerLetraY
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'Y'
-        val = val+1       
+      if @paciente.letra_asegurado == 'Y'
+        val = val+1
       end
     end
     val
@@ -64,10 +64,10 @@ class ParteLaboratorio
 
   def obtenerLetraV
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'V'
-        val = val+1       
+      if @paciente.letra_asegurado == 'V'
+        val = val+1
       end
     end
     val
@@ -75,10 +75,10 @@ class ParteLaboratorio
 
   def obtenerLetraX
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'X'
-        val = val+1       
+      if @paciente.letra_asegurado == 'X'
+        val = val+1
       end
     end
     val
@@ -86,10 +86,10 @@ class ParteLaboratorio
 
   def obtenerLetraH
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'H'
-        val = val+1       
+      if @paciente.letra_asegurado == 'H'
+        val = val+1
       end
     end
     val
@@ -97,10 +97,10 @@ class ParteLaboratorio
 
   def obtenerLetraCAD
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'CAD'
-        val = val+1       
+      if @paciente.letra_asegurado == 'CAD'
+        val = val+1
       end
     end
     val
@@ -108,10 +108,10 @@ class ParteLaboratorio
 
   def obtenerLetraE
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'E'
-        val = val+1       
+      if @paciente.letra_asegurado == 'E'
+        val = val+1
       end
     end
     val
@@ -119,10 +119,10 @@ class ParteLaboratorio
 
   def obtenerLetraF
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'F'
-        val = val+1       
+      if @paciente.letra_asegurado == 'F'
+        val = val+1
       end
     end
     val
@@ -130,30 +130,30 @@ class ParteLaboratorio
 
   def obtenerLetraPM
     val = 0
-    paciente_reporte_dentals.each do|paciente_reporte|
+    paciente_reporte_dentals.each do |paciente_reporte|
       @paciente = Paciente.find(paciente_reporte.paciente_id)
-      if  @paciente.letra_asegurado == 'PM'
-        val = val+1       
+      if @paciente.letra_asegurado == 'PM'
+        val = val+1
       end
     end
     val
   end
 
   def obtenerHematologia
-  	val = 0
-  	paciente_reporte_laboratorios.each do|paciente_reporte|
-  		if @paciente_reporte.hematologia 
-  			val = val + 1  			
-  		end
-  	end
-  	val
+    val = 0
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.hematologia
+        val = val + 1
+      end
+    end
+    val
   end
 
   def obtenerHematologia
     val = 0
-    paciente_reporte_laboratorios.each do|paciente_reporte|
-      if @paciente_reporte.hematologia 
-        val = val + 1       
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.hematologia
+        val = val + 1
       end
     end
     val
@@ -161,9 +161,9 @@ class ParteLaboratorio
 
   def obtenerBioquimica
     val = 0
-    paciente_reporte_laboratorios.each do|paciente_reporte|
-      if @paciente_reporte.bioquimica 
-        val = val + 1       
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.bioquimica
+        val = val + 1
       end
     end
     val
@@ -171,9 +171,9 @@ class ParteLaboratorio
 
   def obtenerSerologia
     val = 0
-    paciente_reporte_laboratorios.each do|paciente_reporte|
-      if @paciente_reporte.serologia 
-        val = val + 1       
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.serologia
+        val = val + 1
       end
     end
     val
@@ -181,9 +181,9 @@ class ParteLaboratorio
 
   def obtenerOrinas
     val = 0
-    paciente_reporte_laboratorios.each do|paciente_reporte|
-      if @paciente_reporte.orinas 
-        val = val + 1       
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.orinas
+        val = val + 1
       end
     end
     val
@@ -191,9 +191,9 @@ class ParteLaboratorio
 
   def obtenerHeces
     val = 0
-    paciente_reporte_laboratorios.each do|paciente_reporte|
-      if @paciente_reporte.heces 
-        val = val + 1       
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.heces
+        val = val + 1
       end
     end
     val
@@ -201,9 +201,9 @@ class ParteLaboratorio
 
   def obtenerGsanguineo
     val = 0
-    paciente_reporte_laboratorios.each do|paciente_reporte|
-      if @paciente_reporte.gsanguineo 
-        val = val + 1       
+    paciente_reporte_laboratorios.each do |paciente_reporte|
+      if @paciente_reporte.gsanguineo
+        val = val + 1
       end
     end
     val

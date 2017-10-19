@@ -16,12 +16,12 @@ class ParteDiario
   belongs_to :user
   has_many :paciente_reportes, dependent: :destroy
 
-   def obtenerMasculino
+  def obtenerMasculino
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
       if @paciente.sexo == 'Masculino'
-        val = val + 1       
+        val = val + 1
       end
     end
     val
@@ -29,10 +29,10 @@ class ParteDiario
 
   def obtenerNuevos
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
       if repo.tipo_consulta == 'Nueva'
-        val = val+1       
+        val = val+1
       end
     end
     val
@@ -40,10 +40,10 @@ class ParteDiario
 
   def obtenerFemenino
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
       if @paciente.sexo == 'Femenino'
-        val = val + 1       
+        val = val + 1
       end
     end
     val
@@ -51,10 +51,10 @@ class ParteDiario
 
   def obtenerRepetidos
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
       if repo.tipo_consulta == 'Repetida'
-        val = val+1       
+        val = val+1
       end
     end
     val
@@ -63,10 +63,10 @@ class ParteDiario
 
   def obtenerLetraA
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'A'
-        val = val+1       
+      if @paciente.letra_asegurado == 'A'
+        val = val+1
       end
     end
     val
@@ -74,10 +74,10 @@ class ParteDiario
 
   def obtenerLetraB
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'B'
-        val = val+1       
+      if @paciente.letra_asegurado == 'B'
+        val = val+1
       end
     end
     val
@@ -85,10 +85,10 @@ class ParteDiario
 
   def obtenerLetraC
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'C'
-        val = val+1       
+      if @paciente.letra_asegurado == 'C'
+        val = val+1
       end
     end
     val
@@ -96,10 +96,10 @@ class ParteDiario
 
   def obtenerLetraZ
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'Z'
-        val = val+1       
+      if @paciente.letra_asegurado == 'Z'
+        val = val+1
       end
     end
     val
@@ -107,10 +107,10 @@ class ParteDiario
 
   def obtenerLetraY
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'Y'
-        val = val+1       
+      if @paciente.letra_asegurado == 'Y'
+        val = val+1
       end
     end
     val
@@ -118,10 +118,10 @@ class ParteDiario
 
   def obtenerLetraV
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'V'
-        val = val+1       
+      if @paciente.letra_asegurado == 'V'
+        val = val+1
       end
     end
     val
@@ -129,10 +129,10 @@ class ParteDiario
 
   def obtenerLetraX
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'X'
-        val = val+1       
+      if @paciente.letra_asegurado == 'X'
+        val = val+1
       end
     end
     val
@@ -140,10 +140,10 @@ class ParteDiario
 
   def obtenerLetraH
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'H'
-        val = val+1       
+      if @paciente.letra_asegurado == 'H'
+        val = val+1
       end
     end
     val
@@ -151,10 +151,10 @@ class ParteDiario
 
   def obtenerLetraCAD
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'CAD'
-        val = val+1       
+      if @paciente.letra_asegurado == 'CAD'
+        val = val+1
       end
     end
     val
@@ -162,10 +162,10 @@ class ParteDiario
 
   def obtenerLetraE
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'E'
-        val = val+1       
+      if @paciente.letra_asegurado == 'E'
+        val = val+1
       end
     end
     val
@@ -173,10 +173,10 @@ class ParteDiario
 
   def obtenerLetraF
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'F'
-        val = val+1       
+      if @paciente.letra_asegurado == 'F'
+        val = val+1
       end
     end
     val
@@ -184,21 +184,21 @@ class ParteDiario
 
   def obtenerLetraPM
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.letra_asegurado == 'PM'
-        val = val+1       
+      if @paciente.letra_asegurado == 'PM'
+        val = val+1
       end
     end
     val
   end
 
-   def obtenerEjercito
+  def obtenerEjercito
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.fuerza == 'Ejercito'
-        val = val+1       
+      if @paciente.fuerza == 'Ejercito'
+        val = val+1
       end
     end
     val
@@ -206,10 +206,10 @@ class ParteDiario
 
   def obtenerFab
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.fuerza == 'FAB'
-        val = val+1       
+      if @paciente.fuerza == 'FAB'
+        val = val+1
       end
     end
     val
@@ -217,10 +217,10 @@ class ParteDiario
 
   def obtenerFnb
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.fuerza == 'FNB'
-        val = val+1       
+      if @paciente.fuerza == 'FNB'
+        val = val+1
       end
     end
     val
@@ -228,10 +228,10 @@ class ParteDiario
 
   def obtenerCivil
     val = 0
-    paciente_reportes.each do|repo|
+    paciente_reportes.each do |repo|
       @paciente = Paciente.find(repo.paciente_id)
-      if  @paciente.fuerza == 'Civil'
-        val = val+1       
+      if @paciente.fuerza == 'Civil'
+        val = val+1
       end
     end
     val

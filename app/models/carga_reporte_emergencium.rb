@@ -25,6 +25,6 @@ class CargaReporteEmergencium
   field :letraF, type: Integer
   field :letraPM, type: Integer
 
-  
+
   belongs_to :carga_emergencium
 end

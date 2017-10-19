@@ -1,22 +1,23 @@
 <%= form_for(area) do |f| %>
-  <% if area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
+    <% if area.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
 
-      <ul>
-      <% area.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% area.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'Nombre: ' %>
+      <%= f.text_field :nombre %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label 'Nombre: ' %> 
-    <%= f.text_field :nombre %>
-  </div>
-
-  <br><div class="actions">
-    <%= f.submit "Crear área"%>
-  </div></br>
+    <br>
+    <div class="actions">
+      <%= f.submit "Crear área" %>
+    </div></br>
 <% end %>

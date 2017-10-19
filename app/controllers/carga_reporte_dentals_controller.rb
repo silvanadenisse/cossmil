@@ -26,7 +26,7 @@ class CargaReporteDentalsController < ApplicationController
   def create
     @carga_reporte_dental = CargaReporteDental.new(carga_reporte_dental_params)
     @partesDoctor = ParteDental.where(user_id: carga_reporte_dental_params[:medico_id])
-  
+
     @masculinoN = 0
     @masculinoR = 0
     @femeninoN = 0
@@ -85,7 +85,7 @@ class CargaReporteDentalsController < ApplicationController
     @user = User.find(carga_reporte_dental_params[:medico_id])
     @carga_reporte_dental.medico = @user.name + " " + @user.last_name
 
-      if @carga_reporte_dental.save
+    if @carga_reporte_dental.save
       flash[:success] = "Medico agregado exitosamente."
       redirect_to "/carga_dentals/"+@carga_reporte_dental.carga_dental.id.to_s
     else
@@ -99,11 +99,11 @@ class CargaReporteDentalsController < ApplicationController
   def update
     respond_to do |format|
       if @carga_reporte_dental.update(carga_reporte_dental_params)
-        format.html { redirect_to @carga_reporte_dental, notice: 'Carga reporte dental was successfully updated.' }
-        format.json { render :show, status: :ok, location: @carga_reporte_dental }
+        format.html {redirect_to @carga_reporte_dental, notice: 'Carga reporte dental was successfully updated.'}
+        format.json {render :show, status: :ok, location: @carga_reporte_dental}
       else
-        format.html { render :edit }
-        format.json { render json: @carga_reporte_dental.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @carga_reporte_dental.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -113,19 +113,19 @@ class CargaReporteDentalsController < ApplicationController
   def destroy
     @carga_reporte_dental.destroy
     respond_to do |format|
-      format.html { redirect_to carga_reporte_dentals_url, notice: 'Carga reporte dental was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to carga_reporte_dentals_url, notice: 'Carga reporte dental was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carga_reporte_dental
-      @carga_reporte_dental = CargaReporteDental.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carga_reporte_dental
+    @carga_reporte_dental = CargaReporteDental.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def carga_reporte_dental_params
-      params.require(:carga_reporte_dental).permit(:carga_dental_id, :masculinoR, :masculinoN, :femeninoN, :femeninoR, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :observaciones, :horas_trabajadas, :consulta_hora, :hrs_trabajadas, :pacientes_dias, :dias_trabajados, :consultas_programadas, :total)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def carga_reporte_dental_params
+    params.require(:carga_reporte_dental).permit(:carga_dental_id, :masculinoR, :masculinoN, :femeninoN, :femeninoR, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :observaciones, :horas_trabajadas, :consulta_hora, :hrs_trabajadas, :pacientes_dias, :dias_trabajados, :consultas_programadas, :total)
+  end
 end

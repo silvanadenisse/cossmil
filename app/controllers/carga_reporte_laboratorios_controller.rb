@@ -92,7 +92,6 @@ class CargaReporteLaboratoriosController < ApplicationController
     @carga_reporte_laboratorio.area = @area.nombre
 
 
-
     if @carga_reporte_laboratorio.save
       flash[:success] = "Especialidad agregada exitosamente."
       redirect_to "/carga_laboratorios/"+@carga_reporte_laboratorio.carga_laboratorio.id.to_s
@@ -107,11 +106,11 @@ class CargaReporteLaboratoriosController < ApplicationController
   def update
     respond_to do |format|
       if @carga_reporte_laboratorio.update(carga_reporte_laboratorio_params)
-        format.html { redirect_to @carga_reporte_laboratorio, notice: 'Carga reporte laboratorio was successfully updated.' }
-        format.json { render :show, status: :ok, location: @carga_reporte_laboratorio }
+        format.html {redirect_to @carga_reporte_laboratorio, notice: 'Carga reporte laboratorio was successfully updated.'}
+        format.json {render :show, status: :ok, location: @carga_reporte_laboratorio}
       else
-        format.html { render :edit }
-        format.json { render json: @carga_reporte_laboratorio.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @carga_reporte_laboratorio.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -121,19 +120,19 @@ class CargaReporteLaboratoriosController < ApplicationController
   def destroy
     @carga_reporte_laboratorio.destroy
     respond_to do |format|
-      format.html { redirect_to carga_reporte_laboratorios_url, notice: 'Carga reporte laboratorio was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to carga_reporte_laboratorios_url, notice: 'Carga reporte laboratorio was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carga_reporte_laboratorio
-      @carga_reporte_laboratorio = CargaReporteLaboratorio.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carga_reporte_laboratorio
+    @carga_reporte_laboratorio = CargaReporteLaboratorio.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def carga_reporte_laboratorio_params
-      params.require(:carga_reporte_laboratorio).permit(:carga_laboratorio_id, :speciality, :speciality_id, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :hematologia, :bioquimica, :serologia, :orinas, :heces, :gsanguineo, :total, :total_examenes)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def carga_reporte_laboratorio_params
+    params.require(:carga_reporte_laboratorio).permit(:carga_laboratorio_id, :speciality, :speciality_id, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :hematologia, :bioquimica, :serologia, :orinas, :heces, :gsanguineo, :total, :total_examenes)
+  end
 end

@@ -1,7 +1,7 @@
 class PacienteReporte
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
-  
+
   field :diagnostico, type: String
   field :tratamiento, type: String
   field :edad, type: Integer
