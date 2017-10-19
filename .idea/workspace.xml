@@ -1,61 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27f1300a-9065-4829-bad7-f397ff444d16" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/areas/_area.json.jbuilder" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cossmil.iml" afterPath="$PROJECT_DIR$/.idea/cossmil.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/areas_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/areas_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_dentals_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_dentals_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_emergencia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_emergencia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_fisioterapia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_fisioterapia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_laboratorios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_laboratorios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_parte_diarios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_parte_diarios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_reporte_dentals_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_reporte_dentals_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_reporte_emergencia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_reporte_emergencia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_reporte_fisioterapia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_reporte_fisioterapia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_reporte_laboratorios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_reporte_laboratorios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carga_reportes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carga_reportes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_reporte_dentals_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_reporte_dentals_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_reporte_emergencia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_reporte_emergencia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_reporte_fisioterapia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_reporte_fisioterapia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_reporte_laboratorios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_reporte_laboratorios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_reporte_rayos_xes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_reporte_rayos_xes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_reportes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_reportes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/paciente_serviciocomplementarios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/paciente_serviciocomplementarios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/pacientes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/pacientes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_dentals_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_dentals_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_diarios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_diarios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_emergencia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_emergencia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_fisioterapia_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_fisioterapia_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_laboratorios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_laboratorios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_rayos_xes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_rayos_xes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parte_serviciocomplementarios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parte_serviciocomplementarios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/specialities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/specialities_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/static_pages_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/static_pages_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/area.rb" afterPath="$PROJECT_DIR$/app/models/area.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/carga_dental.rb" afterPath="$PROJECT_DIR$/app/models/carga_dental.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/carga_emergencium.rb" afterPath="$PROJECT_DIR$/app/models/carga_emergencium.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/carga_laboratorio.rb" afterPath="$PROJECT_DIR$/app/models/carga_laboratorio.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/carga_reporte.rb" afterPath="$PROJECT_DIR$/app/models/carga_reporte.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/carga_reporte_emergencium.rb" afterPath="$PROJECT_DIR$/app/models/carga_reporte_emergencium.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/paciente_reporte.rb" afterPath="$PROJECT_DIR$/app/models/paciente_reporte.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/paciente_reporte_emergencium.rb" afterPath="$PROJECT_DIR$/app/models/paciente_reporte_emergencium.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/parte_dental.rb" afterPath="$PROJECT_DIR$/app/models/parte_dental.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/parte_diario.rb" afterPath="$PROJECT_DIR$/app/models/parte_diario.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/parte_laboratorio.rb" afterPath="$PROJECT_DIR$/app/models/parte_laboratorio.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/parte_rayos_x.rb" afterPath="$PROJECT_DIR$/app/models/parte_rayos_x.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/areas/index.html.erb" afterPath="$PROJECT_DIR$/app/views/areas/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/parte_diarios/show.html.erb" afterPath="$PROJECT_DIR$/app/views/parte_diarios/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/home.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/home.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-    </list>
+    <list default="true" id="27f1300a-9065-4829-bad7-f397ff444d16" name="Default" comment="" />
     <ignored path="cossmil.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -572,12 +518,12 @@
       <updated>1497186206345</updated>
       <workItem from="1497186208114" duration="14213000" />
       <workItem from="1497394457325" duration="8921000" />
-      <workItem from="1508371947628" duration="4697000" />
+      <workItem from="1508371947628" duration="4818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27831000" />
+    <option name="totallyTimeSpent" value="27952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="0" />
