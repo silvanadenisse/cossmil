@@ -8,8 +8,8 @@ class ParteDiario
   field :especialidad, type: String
   field :servicio_de, type: String
   field :clave, type: Integer
-  field :inicio_consulta, :type => DateTime
-  field :fin_consulta, :type => DateTime
+  field :inicio_consulta, type: Time
+  field :fin_consulta, type: Time
   field :enfermera, type: String
 
 

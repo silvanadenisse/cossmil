@@ -1,13 +1,12 @@
 class ParteDental
   include Mongoid::Document
-  include Mongoid::Attributes::Dynamic
-  
+  include Mongoid::Attributes::Dynamic  
   field :establecimiento, type: String
   field :localidad, type: String
   field :mes, type: String
   field :clave, type: Integer
-  field :inicio_consulta, type: String
-  field :fin_consulta, type: String
+  field :inicio_consulta, type: Time
+  field :fin_consulta, type: Time
   field :enfermera, type: String
   
   

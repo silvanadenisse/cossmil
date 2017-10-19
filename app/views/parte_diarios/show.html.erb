@@ -4,6 +4,7 @@
 <h2><center>PARTE DIARIO CONSULTORIO EXTERNO</center></h2>
 </p>
 
+<<<<<<< HEAD
 <center><table>
  <tr>
   <td class="uno">
@@ -20,7 +21,7 @@
 
     <p>
       <strong>Inicio consulta:</strong>
-      <%= @parte_diario.inicio_consulta %>
+      <%= @parte_diario.inicio_consulta.strftime("%H:%M") %>
       </p>
 
   </td>
@@ -38,7 +39,7 @@
 
     <p>
       <strong>Fin consulta:</strong>
-      <%= @parte_diario.fin_consulta %>
+      <%= @parte_diario.fin_consulta.strftime("%H:%M") %>
     </p>
     
 
@@ -60,7 +61,8 @@
     </p>
     
 
-</td>
+  </td>
+
     </tr>
   </td>
 </table></center>

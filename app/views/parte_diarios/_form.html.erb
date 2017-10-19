@@ -46,14 +46,14 @@
     <%= current_user.clave%>
   </div>
 
-  <div class="field">
+<div class="field">
     <%= f.label 'Inicio de consulta: ' %>
-    <%= f.time_select :inicio_consulta %>
+    <%= f.text_field :inicio_consulta, :size=> 5 %> <small>En este formato (HH:MM)</small>
   </div>
 
   <div class="field">
     <%= f.label 'Fin de consulta: ' %>
-    <%= f.time_select :fin_consulta %>
+    <%= f.text_field :fin_consulta, :size => 5 %> <small>En este formato (HH:MM)</small>
   </div>
 
   <div class="field">
