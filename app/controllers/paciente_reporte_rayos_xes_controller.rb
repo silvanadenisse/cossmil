@@ -40,11 +40,11 @@ class PacienteReporteRayosXesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente_reporte_rayos_x.update(paciente_reporte_rayos_x_params)
-        format.html { redirect_to @paciente_reporte_rayos_x, notice: 'Paciente reporte rayos x was successfully updated.' }
-        format.json { render :show, status: :ok, location: @paciente_reporte_rayos_x }
+        format.html {redirect_to @paciente_reporte_rayos_x, notice: 'Paciente reporte rayos x was successfully updated.'}
+        format.json {render :show, status: :ok, location: @paciente_reporte_rayos_x}
       else
-        format.html { render :edit }
-        format.json { render json: @paciente_reporte_rayos_x.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @paciente_reporte_rayos_x.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -54,19 +54,19 @@ class PacienteReporteRayosXesController < ApplicationController
   def destroy
     @paciente_reporte_rayos_x.destroy
     respond_to do |format|
-      format.html { redirect_to paciente_reporte_rayos_xes_url, notice: 'Paciente reporte rayos x was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to paciente_reporte_rayos_xes_url, notice: 'Paciente reporte rayos x was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paciente_reporte_rayos_x
-      @paciente_reporte_rayos_x = PacienteReporteRayosX.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_paciente_reporte_rayos_x
+    @paciente_reporte_rayos_x = PacienteReporteRayosX.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def paciente_reporte_rayos_x_params
-      params.require(:paciente_reporte_rayos_x).permit(:paciente_id, :parte_rayos_x_id, :estudios, :ceh, :ta, :edad, :hc, :uno, :dos, :tres, :cuatro, :cinco, :observaciones)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def paciente_reporte_rayos_x_params
+    params.require(:paciente_reporte_rayos_x).permit(:paciente_id, :parte_rayos_x_id, :estudios, :ceh, :ta, :edad, :hc, :uno, :dos, :tres, :cuatro, :cinco, :observaciones)
+  end
 end

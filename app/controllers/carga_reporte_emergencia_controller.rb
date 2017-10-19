@@ -26,7 +26,7 @@ class CargaReporteEmergenciaController < ApplicationController
   def create
     @carga_reporte_emergencium = CargaReporteEmergencium.new(carga_reporte_emergencium_params)
     @partesDoctor = ParteEmergencium.where(user_id: carga_reporte_emergencium_params[:medico_id])
-     
+
     @masculinoN = 0
     @masculinoR = 0
     @femeninoN = 0
@@ -86,8 +86,7 @@ class CargaReporteEmergenciaController < ApplicationController
     @carga_reporte_emergencium.medico = @user.name + " " + @user.last_name
 
 
-     
-      if @carga_reporte_emergencium.save
+    if @carga_reporte_emergencium.save
       flash[:success] = "Medico agregado exitosamente."
       redirect_to "/carga_emergencia/"+@carga_reporte_emergencium.carga_emergencium.id.to_s
     else
@@ -101,11 +100,11 @@ class CargaReporteEmergenciaController < ApplicationController
   def update
     respond_to do |format|
       if @carga_reporte_emergencium.update(carga_reporte_emergencium_params)
-        format.html { redirect_to @carga_reporte_emergencium, notice: 'Carga reporte emergencium was successfully updated.' }
-        format.json { render :show, status: :ok, location: @carga_reporte_emergencium }
+        format.html {redirect_to @carga_reporte_emergencium, notice: 'Carga reporte emergencium was successfully updated.'}
+        format.json {render :show, status: :ok, location: @carga_reporte_emergencium}
       else
-        format.html { render :edit }
-        format.json { render json: @carga_reporte_emergencium.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @carga_reporte_emergencium.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -115,19 +114,19 @@ class CargaReporteEmergenciaController < ApplicationController
   def destroy
     @carga_reporte_emergencium.destroy
     respond_to do |format|
-      format.html { redirect_to carga_reporte_emergencia_url, notice: 'Carga reporte emergencium was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to carga_reporte_emergencia_url, notice: 'Carga reporte emergencium was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carga_reporte_emergencium
-      @carga_reporte_emergencium = CargaReporteEmergencium.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carga_reporte_emergencium
+    @carga_reporte_emergencium = CargaReporteEmergencium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def carga_reporte_emergencium_params
-      params.require(:carga_reporte_emergencium).permit(:carga_emergencium_id, :masculinoR, :masculinoN, :femeninoN, :femeninoR, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :consulta_hora, :horas_trabajadas, :pacientes_dias, :dias_trabajados, :total)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def carga_reporte_emergencium_params
+    params.require(:carga_reporte_emergencium).permit(:carga_emergencium_id, :masculinoR, :masculinoN, :femeninoN, :femeninoR, :letraA, :letraB, :letraC, :letraZ, :letraY, :letraV, :letraX, :letraH, :letraCAD, :letraE, :letraF, :letraPM, :medico, :medico_id, :consulta_hora, :horas_trabajadas, :pacientes_dias, :dias_trabajados, :total)
+  end
 end

@@ -28,11 +28,11 @@ class CargaReporteFisioterapiaController < ApplicationController
 
     respond_to do |format|
       if @carga_reporte_fisioterapium.save
-        format.html { redirect_to @carga_reporte_fisioterapium, notice: 'Carga reporte fisioterapium was successfully created.' }
-        format.json { render :show, status: :created, location: @carga_reporte_fisioterapium }
+        format.html {redirect_to @carga_reporte_fisioterapium, notice: 'Carga reporte fisioterapium was successfully created.'}
+        format.json {render :show, status: :created, location: @carga_reporte_fisioterapium}
       else
-        format.html { render :new }
-        format.json { render json: @carga_reporte_fisioterapium.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @carga_reporte_fisioterapium.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +42,11 @@ class CargaReporteFisioterapiaController < ApplicationController
   def update
     respond_to do |format|
       if @carga_reporte_fisioterapium.update(carga_reporte_fisioterapium_params)
-        format.html { redirect_to @carga_reporte_fisioterapium, notice: 'Carga reporte fisioterapium was successfully updated.' }
-        format.json { render :show, status: :ok, location: @carga_reporte_fisioterapium }
+        format.html {redirect_to @carga_reporte_fisioterapium, notice: 'Carga reporte fisioterapium was successfully updated.'}
+        format.json {render :show, status: :ok, location: @carga_reporte_fisioterapium}
       else
-        format.html { render :edit }
-        format.json { render json: @carga_reporte_fisioterapium.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @carga_reporte_fisioterapium.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,19 +56,19 @@ class CargaReporteFisioterapiaController < ApplicationController
   def destroy
     @carga_reporte_fisioterapium.destroy
     respond_to do |format|
-      format.html { redirect_to carga_reporte_fisioterapia_url, notice: 'Carga reporte fisioterapium was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to carga_reporte_fisioterapia_url, notice: 'Carga reporte fisioterapium was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carga_reporte_fisioterapium
-      @carga_reporte_fisioterapium = CargaReporteFisioterapium.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carga_reporte_fisioterapium
+    @carga_reporte_fisioterapium = CargaReporteFisioterapium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def carga_reporte_fisioterapium_params
-      params.require(:carga_reporte_fisioterapium).permit(:current_user_id, :carga_fisioterapium_id, :consulta_hora, :horas_trabajadas, :pacientes_dias, :dias_trabajados, :total)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def carga_reporte_fisioterapium_params
+    params.require(:carga_reporte_fisioterapium).permit(:current_user_id, :carga_fisioterapium_id, :consulta_hora, :horas_trabajadas, :pacientes_dias, :dias_trabajados, :total)
+  end
 end

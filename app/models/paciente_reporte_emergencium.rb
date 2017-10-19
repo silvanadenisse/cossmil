@@ -13,5 +13,5 @@ class PacienteReporteEmergencium
   belongs_to :paciente
   belongs_to :parte_emergencium
 
-  
+
 end

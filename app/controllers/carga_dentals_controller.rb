@@ -16,9 +16,9 @@ class CargaDentalsController < ApplicationController
       @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
     else
       @medicos = User.where(area: @area)
-                    .and(
-                          User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
-                        ).paginate(:page => params[:page], :per_page => 5)
+                     .and(
+                         User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                     ).paginate(:page => params[:page], :per_page => 5)
     end
   end
 
@@ -38,11 +38,11 @@ class CargaDentalsController < ApplicationController
 
     respond_to do |format|
       if @carga_dental.save
-        format.html { redirect_to @carga_dental, notice: 'Carga dental creado correctamente.' }
-        format.json { render :show, status: :created, location: @carga_dental }
+        format.html {redirect_to @carga_dental, notice: 'Carga dental creado correctamente.'}
+        format.json {render :show, status: :created, location: @carga_dental}
       else
-        format.html { render :new }
-        format.json { render json: @carga_dental.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @carga_dental.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -52,11 +52,11 @@ class CargaDentalsController < ApplicationController
   def update
     respond_to do |format|
       if @carga_dental.update(carga_dental_params)
-        format.html { redirect_to @carga_dental, notice: 'Carga dental actualizado correctamente.' }
-        format.json { render :show, status: :ok, location: @carga_dental }
+        format.html {redirect_to @carga_dental, notice: 'Carga dental actualizado correctamente.'}
+        format.json {render :show, status: :ok, location: @carga_dental}
       else
-        format.html { render :edit }
-        format.json { render json: @carga_dental.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @carga_dental.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -66,19 +66,19 @@ class CargaDentalsController < ApplicationController
   def destroy
     @carga_dental.destroy
     respond_to do |format|
-      format.html { redirect_to carga_dentals_url, notice: 'Carga dental eliminado correctamente.' }
-      format.json { head :no_content }
+      format.html {redirect_to carga_dentals_url, notice: 'Carga dental eliminado correctamente.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carga_dental
-      @carga_dental = CargaDental.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carga_dental
+    @carga_dental = CargaDental.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def carga_dental_params
-      params.require(:carga_dental).permit(:mes, :dias_habiles)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def carga_dental_params
+    params.require(:carga_dental).permit(:mes, :dias_habiles)
+  end
 end

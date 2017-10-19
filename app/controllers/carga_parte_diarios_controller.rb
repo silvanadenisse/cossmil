@@ -15,9 +15,9 @@ class CargaParteDiariosController < ApplicationController
       @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
     else
       @medicos = User.where(area: @area)
-                    .and(
-                          User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
-                        ).paginate(:page => params[:page], :per_page => 5)
+                     .and(
+                         User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                     ).paginate(:page => params[:page], :per_page => 5)
     end
   end
 
@@ -34,12 +34,12 @@ class CargaParteDiariosController < ApplicationController
     @especialidades.each do |especialidad|
       @graficaReporte[especialidad.nombre] = 0
       @parte.carga_reportes.each do |reporte|
-        if(reporte.speciality.nombre == especialidad.nombre)
+        if (reporte.speciality.nombre == especialidad.nombre)
           @graficaReporte[especialidad.nombre] += (reporte.masculino + reporte.femenino)
         end
       end
-    end 
-    
+    end
+
   end
 
   def grafica_fuerzas
@@ -48,8 +48,8 @@ class CargaParteDiariosController < ApplicationController
     @graficaFuerzas = {}
     @fuerzas.each do |fuerza|
       @graficaFuerzas[fuerza] = 0
-    @parte.carga_reportes.each do |reporte|
-      @graficaFuerzas[fuerza] += reporte[fuerza.downcase]
+      @parte.carga_reportes.each do |reporte|
+        @graficaFuerzas[fuerza] += reporte[fuerza.downcase]
       end
     end
   end
@@ -70,11 +70,11 @@ class CargaParteDiariosController < ApplicationController
 
     respond_to do |format|
       if @carga_parte_diario.save
-        format.html { redirect_to @carga_parte_diario, notice: 'Carga parte diario was successfully created.' }
-        format.json { render :show, status: :created, location: @carga_parte_diario }
+        format.html {redirect_to @carga_parte_diario, notice: 'Carga parte diario was successfully created.'}
+        format.json {render :show, status: :created, location: @carga_parte_diario}
       else
-        format.html { render :new }
-        format.json { render json: @carga_parte_diario.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @carga_parte_diario.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -84,11 +84,11 @@ class CargaParteDiariosController < ApplicationController
   def update
     respond_to do |format|
       if @carga_parte_diario.update(carga_parte_diario_params)
-        format.html { redirect_to @carga_parte_diario, notice: 'Carga parte diario was successfully updated.' }
-        format.json { render :show, status: :ok, location: @carga_parte_diario }
+        format.html {redirect_to @carga_parte_diario, notice: 'Carga parte diario was successfully updated.'}
+        format.json {render :show, status: :ok, location: @carga_parte_diario}
       else
-        format.html { render :edit }
-        format.json { render json: @carga_parte_diario.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @carga_parte_diario.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -98,19 +98,19 @@ class CargaParteDiariosController < ApplicationController
   def destroy
     @carga_parte_diario.destroy
     respond_to do |format|
-      format.html { redirect_to carga_parte_diarios_url, notice: 'Carga parte diario was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to carga_parte_diarios_url, notice: 'Carga parte diario was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carga_parte_diario
-      @carga_parte_diario = CargaParteDiario.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carga_parte_diario
+    @carga_parte_diario = CargaParteDiario.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def carga_parte_diario_params
-      params.require(:carga_parte_diario).permit(:dias_habiles, :mes, :anho)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def carga_parte_diario_params
+    params.require(:carga_parte_diario).permit(:dias_habiles, :mes, :anho)
+  end
 end

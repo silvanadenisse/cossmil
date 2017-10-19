@@ -11,7 +11,7 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia/1
   # GET /parte_fisioterapia/1.json
   def show
-     if params[:name] == nil
+    if params[:name] == nil
       @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
     else
       @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i).or(apellido: /.*#{params[:name].downcase}.*/i).paginate(:page => params[:page], :per_page => 5)
@@ -34,11 +34,11 @@ class ParteFisioterapiaController < ApplicationController
 
     respond_to do |format|
       if @parte_fisioterapium.save
-        format.html { redirect_to @parte_fisioterapium, notice: 'Parte fisioterapia creado correctamente.' }
-        format.json { render :show, status: :created, location: @parte_fisioterapium }
+        format.html {redirect_to @parte_fisioterapium, notice: 'Parte fisioterapia creado correctamente.'}
+        format.json {render :show, status: :created, location: @parte_fisioterapium}
       else
-        format.html { render :new }
-        format.json { render json: @parte_fisioterapium.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @parte_fisioterapium.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -48,11 +48,11 @@ class ParteFisioterapiaController < ApplicationController
   def update
     respond_to do |format|
       if @parte_fisioterapium.update(parte_fisioterapium_params)
-        format.html { redirect_to @parte_fisioterapium, notice: 'Parte fisioterapia actualizado correctamente.' }
-        format.json { render :show, status: :ok, location: @parte_fisioterapium }
+        format.html {redirect_to @parte_fisioterapium, notice: 'Parte fisioterapia actualizado correctamente.'}
+        format.json {render :show, status: :ok, location: @parte_fisioterapium}
       else
-        format.html { render :edit }
-        format.json { render json: @parte_fisioterapium.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @parte_fisioterapium.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -62,19 +62,19 @@ class ParteFisioterapiaController < ApplicationController
   def destroy
     @parte_fisioterapium.destroy
     respond_to do |format|
-      format.html { redirect_to parte_fisioterapia_url, notice: 'Parte fisioterapia eliminado correctamente.' }
-      format.json { head :no_content }
+      format.html {redirect_to parte_fisioterapia_url, notice: 'Parte fisioterapia eliminado correctamente.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_parte_fisioterapium
-      @parte_fisioterapium = ParteFisioterapium.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_parte_fisioterapium
+    @parte_fisioterapium = ParteFisioterapium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def parte_fisioterapium_params
-      params.require(:parte_fisioterapium).permit(:turno, :mes, :user_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def parte_fisioterapium_params
+    params.require(:parte_fisioterapium).permit(:turno, :mes, :user_id)
+  end
 end

@@ -26,7 +26,7 @@ class PacienteReporteFisioterapiaController < ApplicationController
   def create
     @paciente_reporte_fisioterapium = PacienteReporteFisioterapium.new(paciente_reporte_fisioterapium_params)
     @parte_fisioterapium = ParteFisioterapium.find(params[:parte_fisioterapium_id])
-      if @paciente_reporte_fisioterapium.save
+    if @paciente_reporte_fisioterapium.save
       flash[:success] = "Paciente agregado exitosamente."
       redirect_to "/parte_fisioterapia/"+@paciente_reporte_fisioterapium.parte_fisioterapium.id.to_s
     else
@@ -40,11 +40,11 @@ class PacienteReporteFisioterapiaController < ApplicationController
   def update
     respond_to do |format|
       if @paciente_reporte_fisioterapium.update(paciente_reporte_fisioterapium_params)
-        format.html { redirect_to @paciente_reporte_fisioterapium, notice: 'Paciente reporte fisioterapium was successfully updated.' }
-        format.json { render :show, status: :ok, location: @paciente_reporte_fisioterapium }
+        format.html {redirect_to @paciente_reporte_fisioterapium, notice: 'Paciente reporte fisioterapium was successfully updated.'}
+        format.json {render :show, status: :ok, location: @paciente_reporte_fisioterapium}
       else
-        format.html { render :edit }
-        format.json { render json: @paciente_reporte_fisioterapium.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @paciente_reporte_fisioterapium.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -54,19 +54,19 @@ class PacienteReporteFisioterapiaController < ApplicationController
   def destroy
     @paciente_reporte_fisioterapium.destroy
     respond_to do |format|
-      format.html { redirect_to paciente_reporte_fisioterapia_url, notice: 'Paciente reporte fisioterapium was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to paciente_reporte_fisioterapia_url, notice: 'Paciente reporte fisioterapium was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paciente_reporte_fisioterapium
-      @paciente_reporte_fisioterapium = PacienteReporteFisioterapium.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_paciente_reporte_fisioterapium
+    @paciente_reporte_fisioterapium = PacienteReporteFisioterapium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def paciente_reporte_fisioterapium_params
-      params.require(:paciente_reporte_fisioterapium).permit(:paciente_id, :parte_fisioterapium_id, :num_sesion, :diagnostico, :procedencia, :tipo_consulta, :tipo_asegurado, :edad)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def paciente_reporte_fisioterapium_params
+    params.require(:paciente_reporte_fisioterapium).permit(:paciente_id, :parte_fisioterapium_id, :num_sesion, :diagnostico, :procedencia, :tipo_consulta, :tipo_asegurado, :edad)
+  end
 end

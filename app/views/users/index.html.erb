@@ -1,0 +1,34 @@
+<h1>All Users</h1>
+
+<table id="users">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Rol</th>
+    <th>Clave</th>
+    <th>Establecimiento</th>
+    <th>Localidad</th>
+    <th>Correo Electrónico</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <th><%= user.name %></th>
+        <th><%= user.last_name %></th>
+        <th><%= user.role %></th>
+        <th><%= user.clave %></th>
+        <th><%= user.establecimiento %></th>
+        <th><%= user.localidad %></th>
+        <th><%= user.email %></th>
+        <th><%= link_to "Editar", edit_user_path(user) %></th>
+        <th><%= link_to "Eliminar", user, :method => :delete, :confirm => "Seguro?" %></th>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to "Nuevo Usuario", new_user_path %></p>
