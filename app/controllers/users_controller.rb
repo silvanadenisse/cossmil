@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.save
-        format.html {redirect_to @user, notice: 'User was successfully created.'}
+        format.html {redirect_to @user, notice: 'Usuario creado!.'}
       else
         format.html {render :new} ## Specify the format in which you are rendering "new" page
       end
@@ -44,10 +45,10 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html {redirect_to @user, :notice => 'User was successfully updated.'}
+        format.html {redirect_to @user, :notice => 'Usuario editado.'}
         format.json {head :ok}
       else
         format.html {render :action => "edit"}
@@ -68,6 +69,9 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
   def user_params
     params.require(:user).permit(:name, :email, :last_name, :establecimiento, :localidad, :area_id, :speciality_id, :role, :clave, :password, :password_confirmation)
   end

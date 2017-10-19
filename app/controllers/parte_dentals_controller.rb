@@ -32,7 +32,6 @@ class ParteDentalsController < ApplicationController
   # POST /parte_dentals.json
   def create
     @parte_dental = ParteDental.new(parte_dental_params)
-
     respond_to do |format|
       if @parte_dental.save
         format.html {redirect_to @parte_dental, notice: 'Parte dental creado correctamente.'}
