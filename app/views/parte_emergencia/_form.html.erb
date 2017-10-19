@@ -12,20 +12,16 @@
   <% end %>
 
   <div class="field">
-<<<<<<< HEAD
+
     <%= f.label 'Médico: ' %>
     <%= current_user.name + " " +current_user.last_name%>
     <%= f.hidden_field :user_id, :value => current_user.id%>
-=======
+
     <%= f.label 'Mes: ' %>
     <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
->>>>>>> 81bd9c08d29edca529496aa5532bd365bd697012
+
   </div>
 
-  <div class="field">
-    <%= f.label 'Mes: ' %>
-    <%= f.text_field :mes %>
-  </div>
 
   <div class="field">
     <%= f.label 'Año: ' %>

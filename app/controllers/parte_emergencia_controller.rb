@@ -52,7 +52,7 @@ end
   def update
     respond_to do |format|
       if @parte_emergencium.update(parte_emergencium_params)
-        format.html {redirect_to @parte_emergencium, notice: 'Parte emergencium actualizado correctamente.'}
+        format.html {redirect_to @parte_emergencium, notice: 'Parte emergencia actualizado correctamente.'}
         format.json {render :show, status: :ok, location: @parte_emergencium}
       else
         format.html {render :edit}
@@ -66,7 +66,7 @@ end
   def destroy
     @parte_emergencium.destroy
     respond_to do |format|
-      format.html {redirect_to parte_emergencia_url, notice: 'Parte emergencium eliminado correctamente.'}
+      format.html {redirect_to parte_emergencia_url, notice: 'Parte emergencia eliminado correctamente.'}
       format.json {head :no_content}
     end
   end

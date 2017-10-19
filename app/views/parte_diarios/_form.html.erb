@@ -14,24 +14,19 @@
 <br>
 
   <div class="field">
-<<<<<<< HEAD
+
     <%= f.label 'Establecimiento: ' %>
     <%= current_user.establecimiento%>
-=======
-    <%= f.label 'Mes: ' %>
-    <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
->>>>>>> 81bd9c08d29edca529496aa5532bd365bd697012
-  </div>
 
-  <div class="field">
     <%= f.label 'Localidad: ' %>
     <%= current_user.localidad%>
+
+    <%= f.label 'Mes: ' %>
+    <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
+
   </div>
 
-  <div class="field">
-    <%= f.label 'Mes: ' %>
-    <%= f.text_field :mes %>
-  </div>
+  
 
   <div class="field">
     <%= f.label 'Servicio de: ' %>

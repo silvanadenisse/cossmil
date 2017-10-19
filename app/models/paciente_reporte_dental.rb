@@ -6,6 +6,7 @@ class PacienteReporteDental
   field :diagnostico, type: String
   field :tratamiento, type: String
   field :edad, type: Integer
+  field :num_recetas, type: Integer
 
   belongs_to :paciente
   belongs_to :parte_dental

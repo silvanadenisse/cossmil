@@ -1,9 +1,7 @@
 <p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
 
 <p>
-<h2>
-  <center>PARTE DIARIO CONSULTORIO EXTERNO</center>
-</h2>
+<h2><center>PARTE DIARIO CONSULTORIO EXTERNO</center></h2>
 </p>
 
 <center><table>
@@ -62,71 +60,10 @@
     </p>
     
 
-=======
-<%= @parte_diario.inicio_consulta %>
-
-<center>
-  <table>
-    <tr>
-      <td class="uno">
-        <p>
-          <strong>Mes:</strong>
-          <%= @parte_diario.mes %>
-        </p>
-
-        <p>
-          <strong>Especialidad:</strong>
-          <%= @parte_diario.user.area.nombre %>
-        </p>
-
-
-      </td>
-      <td class="dos">
-
-        <p>
-          <strong>Servicio de:</strong>
-          <%= @parte_diario.user.speciality.nombre %>
-        </p>
-
-        <p>
-          <strong>Nombre medico:</strong>
-          <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
-        </p>
-
-
-      <td class="tres">
-
-        <p>
-          <strong>Clave:</strong>
-          <%= @parte_diario.user.clave %>
-        </p>
-
-        <p>
-          <strong>Inicio consulta:</strong>
-          <%= @parte_diario.inicio_consulta %>
-        </p>
-
-      <td class="cuatro">
-
-        <p>
-          <strong>Fin consulta:</strong>
-          <%= @parte_diario.fin_consulta %>
-        </p>
-
-        <p>
-          <strong>Enfermera:</strong>
-          <%= @parte_diario.enfermera %>
-        </p>
-
-
-      </td>
->>>>>>> a8a3ac8db3f3e4206b1f407f47e7eae30b5c920e
-      </td>
+</td>
     </tr>
-    </td>
-  </table>
-</center>
-
+  </td>
+</table></center>
 <%= link_to 'Editar', edit_parte_diario_path(@parte_diario) %> |
 <%= link_to 'Volver', parte_diarios_path %>
 
@@ -145,7 +82,7 @@
     <th>TIPO DE CONSULTA</th>
     <th>TIPO DE ASEGURADO</th>
     <th>FUERZA</th>
-    <th>N. DE RECETAS</th>
+    <th>N° DE RECETAS</th>
     <th>REFERIDO A:</th>
   </tr>
   </thead>
@@ -240,16 +177,12 @@
                         <%= f.number_field :edad %>
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Nueva', :checked => (:tipo_consulta == 'Nueva') %> Nueva
-<<<<<<< HEAD
+
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
                         <%= f.label 'Número de recetas: ' %>
                         <%= f.number_field :num_recetas %>
                         <%= f.label 'Referido a: ' %>
                         <%= f.number_field :referido %>
-=======
-                        <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %>
-                        Repetida
->>>>>>> a8a3ac8db3f3e4206b1f407f47e7eae30b5c920e
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_diario_id, :value => @parte_diario.id %></br>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>

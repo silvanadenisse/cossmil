@@ -4,8 +4,12 @@ class ParteDentalsController < ApplicationController
   # GET /parte_dentals
   # GET /parte_dentals.json
   def index
-    # @parte_dentals = ParteDental.all
-    @parte_dentals = ParteDental.where(user_id: current_user.id)
+
+    if current_user.role == "Técnico-Encargado"
+      @parte_dentals = ParteDental.all
+    else
+      @parte_dentals = ParteDental.where(user_id: current_user.id)
+    end
   end
 
   # GET /parte_dentals/1
@@ -75,6 +79,6 @@ class ParteDentalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def parte_dental_params
-    params.require(:parte_dental).permit(:mes, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
+    params.require(:parte_dental).permit(:establecimiento, :localidad, :mes, :user_id, :clave, :inicio_consulta, :fin_consulta, :enfermera)
   end
 end

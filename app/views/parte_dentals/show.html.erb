@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<h2>PARTE DIARIO DENTAL</h2>
+<h2><center>PARTE DIARIO DENTAL</center></h2>
 </p>
 
 <center><table>
  <tr>
   <td class="uno">
+
     <p>
-      <strong>Mes:</strong>
-      <%= @parte_dental.mes %>
+      <strong>Establecimiento:</strong>
+      <%= @parte_dental.user.establecimiento %> 
     </p>
 
     <p>
@@ -17,9 +18,18 @@
       <%= @parte_dental.user.name + " " + @parte_dental.user.last_name %>
     </p>
 
-    
+    <p>
+      <strong>Inicio consulta:</strong>
+      <%= @parte_dental.inicio_consulta %>
+    </p>
+
   </td>
   <td class="dos">
+
+    <p>
+      <strong>Localidad:</strong>
+      <%= @parte_dental.user.localidad %> 
+    </p>
 
     <p>
       <strong>Clave:</strong>
@@ -27,36 +37,22 @@
     </p>
 
     <p>
-      <strong>Inicio consulta:</strong>
-      <%= @parte_dental.inicio_consulta %>
+      <strong>Fin consulta:</strong>
+      <%= @parte_dental.fin_consulta %>
     </p>
         
 
   <td class="tres">
 
     <p>
-      <strong>Fin consulta:</strong>
-      <%= @parte_dental.fin_consulta %>
+      <strong>Mes:</strong>
+      <%= @parte_dental.mes %>
     </p>
 
     <p>
       <strong>Enfermera:</strong>
       <%= @parte_dental.enfermera %>
     </p>
- 
-  <td class="cuatro">
-
-    <p>
-      <strong>Establecimiento:</strong>
-      <%= @parte_dental.user.establecimiento %>
-    </p>
-
-    <p>
-      <strong>Localidad:</strong>
-      <%= @parte_dental.user.localidad %>
-    </p>
-
-
 
        </td>
       </td>
@@ -64,23 +60,25 @@
   </td>
 </table></center>
 
-
+<%= link_to 'Editar', edit_parte_dental_path(@parte_dental) %> |
+<%= link_to 'Volver', parte_dentals_path %>
 
 <p>
 <h2>INFORME MÉDICO PARTE DIARIO DE DENTAL</h2>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Nombre y apellidos del paciente</th>
-    <th>Carnet del asegurado</th>
-    <th>Carnet del beneficiario</th>
-    <th>Edad</th>
-    <th>Sexo</th>
-    <th>Tipo de consulta</th>
-    <th>Tipo de asegurado</th>
-    <th>Fuerza</th>
-    <th>Diagnostico</th>
-    <th>Tratamiento</th>
+    <th>NOMBRE Y APELLIDO</th>
+    <th>CARNET DEL ASEGURADO</th>
+    <th>CARNET DEL BENEFICIARIO</th>
+    <th>EDAD</th>
+    <th>SEXO</th>
+    <th>TIPO DE CONSULTA</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>DIAGNÓSTICO</th>
+    <th>TRATAMIENTO</th>
+    <th>N° DE RECETAS</th>
   </tr>
   </thead>
   <tbody>
@@ -116,15 +114,16 @@
         <td>
           <%= paciente_repo_dentals.tratamiento %>
         </td>
-        
+        <td>
+          <%= paciente_repo_dentals.num_recetas %>
+        </td>
       </tr>
   <% end %>
   </tbody>
 </table>
 </p>
 
-<%= link_to 'Editar', edit_parte_dental_path(@parte_dental) %> |
-<%= link_to 'Volver', parte_dentals_path %>
+
 
 <p>
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
