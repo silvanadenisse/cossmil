@@ -1,7 +1,69 @@
 <h2>Editar usuario</h2>
 
-<%= render 'form' %>
-<p></p>
-<%= render 'passwords' %>
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'Nombre:' %>
+      <%= f.text_field :name, :maxlength => 25, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Apellido:' %>
+      <%= f.text_field :last_name, :maxlength => 25 %>
+    </div>
+    <div class="field">
+      <%= f.label 'Rol:' %>
+      <%= f.select :role, ['Doctor', 'Técnico-Encargado'] %>
+    </div>
+    <div class="field">
+      <%= f.label 'Departamento' %>
+      <%= f.collection_select :area_id, Area.all, :id, :nombre, include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Especialidad:' %>
+      <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Clave:' %>
+      <%= f.text_field :clave %>
+    </div>
+    <div class="field">
+      <%= f.label 'Establecimiento:' %>
+      <%= f.text_field :establecimiento %>
+    </div>
+    <div class="field">
+      <%= f.label 'Localidad:' %>
+      <%= f.text_field :localidad %>
+    </div>
+    <div class="field">
+      <%= f.label 'Correo electrónico:' %>
+      <%= f.email_field :email, autofocus: false %>
+    </div>
+    <div class="field">
+      <%= f.label 'Contraseña:' %>
+      <% if @minimum_password_length %> <em>(<%= @minimum_password_length %> Caracteres mínimo)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+    <div class="field">
+      <%= f.label 'Confirmar Contraseña:' %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Guardar" %>
+    </div>
+<% end %>
 
 <%= link_to 'Todos los usuarios', users_path %>
+<br><br><br><br>
