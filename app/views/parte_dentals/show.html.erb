@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <p>
 <h2>PARTE DIARIO DENTAL</h2>
 </p>
+
 
 <center><table>
  <tr>
@@ -28,7 +27,7 @@
 
     <p>
       <strong>Inicio consulta:</strong>
-      <%= @parte_dental.inicio_consulta %>
+      <%= @parte_dental.inicio_consulta.strftime("%H:%M") %>
     </p>
         
 
@@ -36,7 +35,7 @@
 
     <p>
       <strong>Fin consulta:</strong>
-      <%= @parte_dental.fin_consulta %>
+      <%= @parte_dental.fin_consulta.strftime("%H:%M") %>
     </p>
 
     <p>
