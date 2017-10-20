@@ -12,7 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label 'Días habiles: ' %>
+    <%= f.label 'Localidad: ' %>
+    <%= current_user.localidad%>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Días hábiles: ' %>
     <%= f.number_field :dias_habiles %>
   </div>
 

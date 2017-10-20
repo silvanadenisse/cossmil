@@ -1,20 +1,14 @@
-,<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h1>INFORME MÉDICO PARTE DIARIO CONSULTORIO EXTERNO</h1>
 
-<br><%= link_to 'Registrar Nuevo Parte Diario', new_parte_diario_path %></br>
 
-<br><table>
+<br><center><table>
   <thead>
     <tr>
-      <th>Mes</th>
-      <th>Especialidad</th>
-      <th>Servicio de</th>
-      <th>Nombre médico</th>
-      <th>Clave</th>
-      <th>Inicio consulta</th>
-      <th>Fin consulta</th>
-      <th>Enfermera</th>
+      <th><center>Nombre médico</center></th>
+      <th><center>Especialidad</center></th>
+      <th><center>Mes</center></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,21 +16,16 @@
   <tbody>
     <% @parte_diarios.each do |parte_diario| %>
       <tr>
-        <td><%= parte_diario.mes %></td>
-        <td><%= parte_diario.user.speciality.nombre %></td>
-        <td><%= parte_diario.user.area.nombre %></td>
         <td><%= parte_diario.user.name + " " + parte_diario.user.last_name %></td>
-        <td><%= parte_diario.user.clave %></td>
-        <td><%= parte_diario.inicio_consulta %></td>
-        <td><%= parte_diario.fin_consulta %></td>
-        <td><%= parte_diario.enfermera %></td>
+        <td><%= parte_diario.user.speciality.nombre %></td>
+        <td><%= parte_diario.mes %></td>
         <td><%= link_to 'Mostrar', parte_diario %></td>
         <td><%= link_to 'Editar', edit_parte_diario_path(parte_diario) %></td>
         <td><%= link_to 'Eliminar', parte_diario, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table></br>
+</table></center></br>
 
 <br>
 

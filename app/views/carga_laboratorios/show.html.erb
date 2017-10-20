@@ -1,14 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @carga_laboratorio.mes %>
-</p>
+<h2><center>RESUMEN DEL NÚMERO DE PACIENTES POR TIPO DE ASEGURADO Y CLASE DE EXÁMENES DE LABORATORIO CLASIFICADOS POR TIPO DE ATENCIÓN, ESPECIALIDAD</center></h2>
 
-<p>
-  <strong>Año:</strong>
-  <%= @carga_laboratorio.anho %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_laboratorio.user.localidad %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_laboratorio.dias_habiles %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_laboratorio.mes %>
+    </p>
+
+  </div>
+  <div class="col-md-3">
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_laboratorio.anho %>
+    </p>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_carga_laboratorio_path(@carga_laboratorio) %> |
+<%= link_to 'Volver', carga_laboratorios_path %>
+
+
+<div align="right">
+   <br><%=link_to "Gráfica por exámenes", controller: "carga_laboratorios", action: "grafica_examen", id: @carga_laboratorio.id%></br>
+   <br><%=link_to "Imprimir Reporte", controller: "carga_laboratorios", action: "print", id: @carga_laboratorio.id%></br>
+  </div>
+  <br>
+
 
 <table class="table table-striped">
   <thead>
@@ -112,8 +145,7 @@
 </table>
 </p>
 
-<%= link_to 'Editar', edit_carga_laboratorio_path(@carga_laboratorio) %> |
-<%= link_to 'Volver', carga_laboratorios_path %>
+
 
 
 

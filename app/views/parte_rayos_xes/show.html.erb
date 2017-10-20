@@ -1,19 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<h2>PARTE DIARIO RAYOS X</h2>
+<h2><center>PARTE DIARIO RAYOS X</center></h2>
 </p>
 
+<center><table>
+ <tr>
+  <td class="uno">
 
-<p>
-  <strong>Nombre medico:</strong>
-  <%= @parte_rayos_x.user.name + " " + @parte_rayos_x.user.last_name %>
-</p>
+    <p>
+      <strong>Nombre médico:</strong>
+      <%= @parte_rayos_x.user.name + " " + @parte_rayos_x.user.last_name %>
+    </p>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @parte_rayos_x.mes %>
-</p>
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_rayos_x.mes %>
+    </p>
+
+    </tr>
+  </td>
+</table></center>
+
+
+<%= link_to 'Editar', edit_parte_rayos_x_path(@parte_rayos_x) %> |
+<%= link_to 'Volver', parte_rayos_xes_path %>
 
 
 <p>
@@ -22,22 +36,22 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Matricula</th>
-    <th>Nombres y apellidos</th>
-    <th>Estudios</th>
+    <th>MATRÍCULA</th>
+    <th>NOMBRES Y APELLIDOS</th>
+    <th>ESTUDIOS</th>
     <th>CE/H</th>
     <th>T.A</th>
-    <th>Edad</th>
-    <th>Sexo</th>
+    <th>EDAD</th>
+    <th>SEXO</th>
     <th>H.C</th>
-    <th>Fuerza</th>
+    <th>FUERZA</th>
     <th>35/43</th>
     <th>35/35</th>
     <th>30/40</th>
     <th>24/30</th>
     <th>18/24</th>
-    <th>Observaciones</th>
-    <th>Consulta</th>
+    <th>OBSERVACIONES</th>
+    <th>CONSULTA</th>
   </tr>
   </thead>
   <tbody>
@@ -96,8 +110,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Editar', edit_parte_rayos_x_path(@parte_rayos_x) %> |
-<%= link_to 'Volver', parte_rayos_xes_path %>
 
 
 <p>

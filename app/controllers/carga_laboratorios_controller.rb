@@ -14,6 +14,26 @@ class CargaLaboratoriosController < ApplicationController
     @specialities = Speciality.paginate(:page => params[:page], :per_page => 5)
   end
 
+  def print
+    @carga_laboratorio = CargaLaboratorio.find(params[:id])
+    render layout: false
+  end
+
+  def grafica_examen
+    @graficaReporte = {}
+    @especialidades = Speciality.all.to_a
+    @parte = CargaParteDiario.find(params[:id])
+    @especialidades.each do |especialidad|
+      @graficaReporte[especialidad.nombre] = 0
+      @parte.carga_reportes.each do |reporte|
+        if (reporte.speciality.nombre == especialidad.nombre)
+          @graficaReporte[especialidad.nombre] += (reporte.masculino + reporte.femenino)
+        end
+      end
+    end
+
+  end
+
   # GET /carga_laboratorios/new
   def new
     @carga_laboratorio = CargaLaboratorio.new
@@ -71,6 +91,6 @@ class CargaLaboratoriosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def carga_laboratorio_params
-    params.require(:carga_laboratorio).permit(:mes, :anho)
+    params.require(:carga_laboratorio).permit(:localidad, :dias_habiles, :mes, :anho)
   end
 end

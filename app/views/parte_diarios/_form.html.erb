@@ -11,18 +11,22 @@
     </div>
   <% end %>
 
+<br>
 
   <div class="field">
+
+    <%= f.label 'Establecimiento: ' %>
+    <%= current_user.establecimiento%>
+
+    <%= f.label 'Localidad: ' %>
+    <%= current_user.localidad%>
+
     <%= f.label 'Mes: ' %>
     <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
+
   </div>
 
-  <div class="field">
-    <%= f.label 'Especialidad: ' %>
-    <%= current_user.area.nombre%>
-    <%= f.hidden_field :area_id, :value => current_user.area%>
-    
-  </div>
+  
 
   <div class="field">
     <%= f.label 'Servicio de: ' %>
@@ -61,3 +65,4 @@
       <%= f.submit "Crear parte diario" %>
   </div></br>
 <% end %>
+</br>

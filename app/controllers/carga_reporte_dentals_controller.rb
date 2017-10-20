@@ -86,10 +86,10 @@ class CargaReporteDentalsController < ApplicationController
     @carga_reporte_dental.medico = @user.name + " " + @user.last_name
 
     if @carga_reporte_dental.save
-      flash[:success] = "Medico agregado exitosamente."
+      flash[:success] = "Médico agregado exitosamente."
       redirect_to "/carga_dentals/"+@carga_reporte_dental.carga_dental.id.to_s
     else
-      flash[:danger] = "Error al agregar medico"
+      flash[:danger] = "Error al agregar médico"
       redirect_to carga_dental_path(@carga_dental)
     end
   end

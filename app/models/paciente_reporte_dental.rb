@@ -7,6 +7,7 @@ class PacienteReporteDental
   field :tratamiento, type: String
   field :edad, type: Integer
   field :fecha_consulta, type: Time, default: Time.now
+  field :num_recetas, type: Integer
 
   belongs_to :paciente
   belongs_to :parte_dental

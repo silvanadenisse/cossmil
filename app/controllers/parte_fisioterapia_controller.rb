@@ -4,8 +4,11 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia
   # GET /parte_fisioterapia.json
   def index
-    #@parte_fisioterapia = ParteFisioterapium.all
-    @parte_fisioterapia = ParteFisioterapium.where(user_id: current_user.id)
+    if current_user.role == "Técnico-Encargado"
+      @parte_fisioterapia = ParteFisioterapium.all
+    else
+      @parte_fisioterapia = ParteFisioterapium.where(user_id: current_user.id)
+    end
   end
 
   # GET /parte_fisioterapia/1
@@ -75,6 +78,6 @@ class ParteFisioterapiaController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def parte_fisioterapium_params
-    params.require(:parte_fisioterapium).permit(:turno, :mes, :user_id)
+    params.require(:parte_fisioterapium).permit(:turno, :mes, :anho, :user_id)
   end
 end

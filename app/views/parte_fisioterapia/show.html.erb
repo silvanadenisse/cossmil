@@ -1,18 +1,53 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<h2>PARTE DIARIO FISIOTERAPIA</h2>
+<h2><center>PARTE DIARIO FISIOTERAPIA</center></h2>
 </p>
 
-<p>
-  <strong>Turno:</strong>
-  <%= @parte_fisioterapium.turno %>
-</p>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @parte_fisioterapium.mes %>
-</p>
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Nombre Lic.:</strong>
+      <%= @parte_fisioterapium.user.name + " " + @parte_fisioterapium.user.last_name %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Turno:</strong>
+      <%= @parte_fisioterapium.turno %>
+    </p>  
+
+  <td class="tres">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_fisioterapium.mes %>
+    </p>
+        
+  </td>
+
+  <td class="cuatro">
+
+    <p>
+      <strong>Año:</strong>
+      <%= @parte_fisioterapium.anho %>
+    </p>
+        
+  </td>
+  </td>
+    </tr>
+  </td>
+</table></center>
+
+
+<%= link_to 'Editar', edit_parte_fisioterapium_path(@parte_fisioterapium) %> |
+<%= link_to 'Volver', parte_fisioterapia_path %>
+
 
 
 
@@ -21,19 +56,19 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Matricula asegurado</th>
-    <th>Matricula beneficiario</th>
-    <th>Sexo</th>
-    <th>Edad</th>
-    <th>Tipo de asegurado</th>
-    <th>Fuerza</th>
-    <th>Numero de sesiones</th>
-    <th>Medico</th>
-    <th>Diagnostico</th>
-    <th>Procedencia</th>
-    <th>Tipo de consulta</th>
-    <th>Responsable</th>
-    <th>Consulta</th>
+    <th>MATRÍCULA ASEGURADO</th>
+    <th>MATRÍCULA BENEFICIARIO</th>
+    <th>SEXO</th>
+    <th>EDAD</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>NÚMERO DE SESIONES</th>
+    <th>MÉDICO</th>
+    <th>DIAGNÓSTICO</th>
+    <th>PROCEDENCIA</th>
+    <th>TIPO DE CONSULTA</th>
+    <th>RESPONSABLE</th>
+    <th>CONSULTA</th>
   </tr>
   </thead>
   <tbody>
@@ -52,7 +87,7 @@
           <%= paciente_reporte_fisioterapia.edad %>
         </td>
         <td>
-          <%= paciente_reporte_fisioterapia.tipo_asegurado %>
+          <%= paciente_reporte_fisioterapia.paciente.tipo_asegurado %>
         </td>
         <td>
           <%= paciente_reporte_fisioterapia.paciente.fuerza %>
@@ -80,11 +115,8 @@
 </p>
   
 
-<%= link_to 'Editar', edit_parte_fisioterapium_path(@parte_fisioterapium) %> |
-<%= link_to 'Volver', parte_fisioterapia_path %>
-
 <p>
-<h2>Agregar Paciente a Parte Diario</h2>
+<h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 </p>
 <div id="paciente"><!--style="display:none"--><br>
   <br><form method="GET">Nombre:
@@ -124,16 +156,13 @@
                   </div>
                   <div class="modal-body">
                     <%= form_for([@parte_fisioterapium, @parte_fisioterapium.paciente_reporte_fisioterapia.build]) do |f| %>
-                        <%= f.label 'Diagnostico: ' %>
-                        <%= f.text_field :diagnostico %>
+                        <%= f.label 'Diagnóstico: ' %>
+                        <%= f.text_area :diagnostico %>
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Primera', :checked => (:tipo_consulta == 'Primera') %> Primera
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
-                        <%= f.label 'Tipo de segurado: ' %>
-                        <%= f.radio_button :tipo_asegurado, 'Activo', :checked => (:tipo_consulta == 'Activo') %> Activo
-                        <%= f.radio_button :tipo_asegurado, 'Pasivo', :checked => (:tipo_consulta == 'Pasivo') %> Pasivo
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
                         <%= f.hidden_field :parte_fisioterapium_id, :value => @parte_fisioterapium.id %>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>

@@ -22,6 +22,11 @@ class CargaDentalsController < ApplicationController
     end
   end
 
+  def print
+    @carga_parte_dental = CargaParteDental.find(params[:id])
+    render layout: false
+  end
+
   # GET /carga_dentals/new
   def new
     @carga_dental = CargaDental.new
@@ -79,6 +84,6 @@ class CargaDentalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def carga_dental_params
-    params.require(:carga_dental).permit(:mes, :dias_habiles)
+    params.require(:carga_dental).permit(:localidad, :mes, :dias_habiles, :anho)
   end
 end

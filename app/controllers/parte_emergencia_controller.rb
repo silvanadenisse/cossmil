@@ -5,8 +5,12 @@ class ParteEmergenciaController < ApplicationController
   # GET /parte_emergencia.json
   def index
     #@parte_emergencia = ParteEmergencium.all
+    if current_user.role == "Técnico-Encargado"
+      @parte_emergencia = ParteEmergencium.all
+    else
     @parte_emergencia = ParteEmergencium.where(user_id: current_user.id)
   end
+end
 
   # GET /parte_emergencia/1
   # GET /parte_emergencia/1.json
@@ -48,7 +52,7 @@ class ParteEmergenciaController < ApplicationController
   def update
     respond_to do |format|
       if @parte_emergencium.update(parte_emergencium_params)
-        format.html {redirect_to @parte_emergencium, notice: 'Parte emergencium actualizado correctamente.'}
+        format.html {redirect_to @parte_emergencium, notice: 'Parte emergencia actualizado correctamente.'}
         format.json {render :show, status: :ok, location: @parte_emergencium}
       else
         format.html {render :edit}
@@ -62,7 +66,7 @@ class ParteEmergenciaController < ApplicationController
   def destroy
     @parte_emergencium.destroy
     respond_to do |format|
-      format.html {redirect_to parte_emergencia_url, notice: 'Parte emergencium eliminado correctamente.'}
+      format.html {redirect_to parte_emergencia_url, notice: 'Parte emergencia eliminado correctamente.'}
       format.json {head :no_content}
     end
   end
@@ -73,8 +77,8 @@ class ParteEmergenciaController < ApplicationController
     @parte_emergencium = ParteEmergencium.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def parte_emergencium_params
-    params.require(:parte_emergencium).permit(:mes, :user_id, :enfermera)
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def parte_emergencium_params
+      params.require(:parte_emergencium).permit(:mes, :user_id, :anho)
+    end
   end
-end

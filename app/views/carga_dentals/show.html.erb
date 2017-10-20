@@ -1,19 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h2>RESUMEN DE DENTAL</h2>
+<h2><center>RESUMEN DE ATENCIÓN DENTAL CLASIFICADOS POR MÉDICOS, SEXO, TIPO DE CONSULTA Y CLASE DE ASEGURADO</center></h2>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @carga_dental.mes %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_dental.user.localidad %>
+    </p>
+  </div>
 
-<p>
-  <strong>Dias habiles:</strong>
-  <%= @carga_dental.dias_habiles %> 
-</p>
+  <div class="col-md-3">
+    <p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_dental.dias_habiles %> 
+    </p>
+  </div>
 
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_dental.mes %>
+    </p>
 
-<p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_dental.anho %>
+    </p>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_carga_dental_path(@carga_dental) %> |
+<%= link_to 'Volver', carga_dentals_path %>
+
+<div align="right">
+   <br><%=link_to "Imprimir Reporte", controller: "carga_dentals", action: "print", id: @carga_dentals.id%></br>
+  </div>
+  <br>
 
 <table class="table table-striped">
   <thead>
@@ -23,8 +48,8 @@
     <th>Horas trabajadas</th>
     <th>Consulta por hora</th>
     <th>Horas trabajadas</th>
-    <th>Pacientes por dia</th>
-    <th>Dias trabajados</th>
+    <th>Pacientes por día</th>
+    <th>Días trabajados</th>
     <th>Consulta programadas</th>
     <th>Total</th>
     <th>Masculino Nuevos</th>
@@ -43,7 +68,6 @@
     <th>Sanidad operativa E</th>
     <th>Sanidad operativa F</th>
     <th>Sanidad operativa PM</th>
-    
   </tr>
   </thead>
   <tbody>
@@ -132,8 +156,7 @@
 </p>
 
 
-<%= link_to 'Editar', edit_carga_dental_path(@carga_dental) %> |
-<%= link_to 'Volver', carga_dentals_path %>
+
 
 <p>
 <h2>Médicos de dental</h2>

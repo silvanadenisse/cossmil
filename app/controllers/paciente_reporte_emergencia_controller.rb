@@ -65,8 +65,8 @@ class PacienteReporteEmergenciaController < ApplicationController
     @paciente_reporte_emergencium = PacienteReporteEmergencium.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def paciente_reporte_emergencium_params
-    params.require(:paciente_reporte_emergencium).permit(:paciente_id, :fecha_consulta, :parte_emergencium_id, :edad, :grado, :t, :p, :pa, :diagnostico, :tratamiento, :observaciones)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def paciente_reporte_emergencium_params
+      params.require(:paciente_reporte_emergencium).permit(:paciente_id, :parte_emergencium_id, :fecha_consulta, :edad, :grado, :t, :p, :pa, :diagnostico, :tratamiento, :observaciones, :enfermera)
+    end
 end
