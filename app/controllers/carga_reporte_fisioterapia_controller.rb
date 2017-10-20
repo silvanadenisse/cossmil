@@ -24,16 +24,31 @@ class CargaReporteFisioterapiaController < ApplicationController
   # POST /carga_reporte_fisioterapia
   # POST /carga_reporte_fisioterapia.json
   def create
-    @carga_reporte_fisioterapium = CargaReporteFisioterapium.new(carga_reporte_fisioterapium_params)
 
-    respond_to do |format|
+    @carga_reporte_fisioterapium = CargaReporteFisioterapium.new(carga_reporte_fisioterapium_params)
+    @partesDoctor = ParteFisioterapium.where(user_id: carga_reporte_fisioterapium_params[:medico_id])
+
+    @masculino = 0
+    @femenino = 0
+
+    @partesDoctor.each do |parte|
+      @masculino = @masculino + parte.obtenerMasculino
+      @femenino = @femenino + parte.obtenerFemenino
+    end
+
+    @carga_reporte.masculino = @masculino
+    @carga_reporte.femenino = @femenino
+
+    @user = User.find(carga_reporte_fisioterapium_params[:medico_id])
+    @carga_reporte_fisioterapium.medico = @user.name + " " + @user.last_name
+
+    
       if @carga_reporte_fisioterapium.save
-        format.html {redirect_to @carga_reporte_fisioterapium, notice: 'Carga reporte fisioterapium was successfully created.'}
-        format.json {render :show, status: :created, location: @carga_reporte_fisioterapium}
-      else
-        format.html {render :new}
-        format.json {render json: @carga_reporte_fisioterapium.errors, status: :unprocessable_entity}
-      end
+      flash[:success] = "Médico agregado exitosamente."
+      redirect_to "/carga_parte_fisioterapia/"+@carga_reporte_fisioterapium.carga_parte_fisioterapia.id.to_s
+    else
+      flash[:danger] = "Error al agregar médico"
+      redirect_to carga_parte_fisioterapia_path(@carga_parte_diario)
     end
   end
 

@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="print.css" type="text/css" media="print" />
+</HEAD>
+<BODY onLoad="window.print();">
+<h2>RESUMEN MENSUAL DEL NÚMERO DE PACIENTES ATENDIDOS EN EL SERVICIO DE FISIOTERAPIA CLASIFICADO POR LICENCIADA, SEXO</h2>
+
+<p>
+  <strong>Dias habiles:</strong>
+  <%= @carga_fisioterapium.dias_habiles %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @carga_fisioterapium.mes %>
+</p>
+
+<p>
+  <strong>Anho:</strong>
+  <%= @carga_fisioterapium.anho %>
+</p>
+
+
+<p>
+<h2>Fisioterapia</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Consulta por hora</th>
+    <th>Horas trabajadas</th>
+    <th>Pacientes por dia</th>
+    <th>Dias trabajados</th>
+    <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @carga_fisioterapium.carga_reporte_fisioterapium.each do |carga_repo_fisioterapium| %>
+      <tr>
+        <td>
+          <%= carga_repo_fisioterapium.consulta_hora %>
+        </td>
+        <td>
+          <%= carga_repo_fisioterapium.horas_trabajadas %>
+        </td>
+        <td>
+          <%= carga_repo_fisioterapium.pacientes_dias %>
+        </td>
+        <td>
+          <%= carga_repo_fisioterapium.dias_trabajados %>
+        </td>
+        <td>
+          <%= carga_repo_fisioterapium.total %>
+        </td>
+        
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</BODY>

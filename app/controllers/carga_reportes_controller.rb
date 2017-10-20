@@ -101,10 +101,10 @@ class CargaReportesController < ApplicationController
 
 
     if @carga_reporte.save
-      flash[:success] = "Medico agregado exitosamente."
+      flash[:success] = "Médico agregado exitosamente."
       redirect_to "/carga_parte_diarios/"+@carga_reporte.carga_parte_diario.id.to_s
     else
-      flash[:danger] = "Error al agregar medico"
+      flash[:danger] = "Error al agregar médico"
       redirect_to carga_parte_diario_path(@carga_parte_diario)
     end
   end

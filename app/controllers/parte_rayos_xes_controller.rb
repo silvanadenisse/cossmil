@@ -4,8 +4,12 @@ class ParteRayosXesController < ApplicationController
   # GET /parte_rayos_xes
   # GET /parte_rayos_xes.json
   def index
-    #@parte_rayos_xes = ParteRayosX.all
-    @parte_rayos_xes = ParteRayosX.where(user_id: current_user.id)
+
+    if current_user.role == "Técnico-Encargado"
+      @parte_rayos_xes = ParteRayosX.all
+      else
+      @parte_rayos_xes = ParteRayosX.where(user_id: current_user.id)
+    end
   end
 
   # GET /parte_rayos_xes/1

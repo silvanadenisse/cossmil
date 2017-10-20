@@ -12,13 +12,23 @@
   <% end %>
 
   <div class="field">
+    <%= f.label 'Localidad: ' %>
+    <%= current_user.localidad%>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Días hábiles: ' %>
+    <%= f.number_field :dias_habiles %>
+  </div>
+
+  <div class="field">
     <%= f.label 'Mes: ' %>
     <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>
   </div>
 
   <div class="field">
-    <%= f.label 'Días habiles: ' %>
-    <%= f.number_field :dias_habiles %>
+    <%= f.label 'Año: ' %>
+    <%= f.number_field :anho, value: Date.today.year, readonly:true%>
   </div>
 
   

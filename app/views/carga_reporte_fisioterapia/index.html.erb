@@ -2,10 +2,12 @@
 
 <h1>Carga Reporte Fisioterapia</h1>
 
+<br><%= link_to 'Nuevo Carga Reporte Fisioterapia', new_carga_reporte_fisioterapium_path %></br>
+
 <table>
   <thead>
     <tr>
-      <th>Medicos</th>
+      <th>Médicos</th>
       <th>Carga horaria</th>
       <th colspan="3"></th>
     </tr>
@@ -16,9 +18,9 @@
       <tr>
         <td><%= carga_reporte_fisioterapium.users %></td>
         <td><%= carga_reporte_fioterapium.carga_fisioterapia %></td>
-        <td><%= link_to 'Show', carga_reporte_fisioterapium %></td>
-        <td><%= link_to 'Edit', edit_carga_reporte_fisioterapium_path(carga_reporte_fisioterapium) %></td>
-        <td><%= link_to 'Destroy', carga_reporte_fisioterapium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', carga_reporte_fisioterapium %></td>
+        <td><%= link_to 'Editar', edit_carga_reporte_fisioterapium_path(carga_reporte_fisioterapium) %></td>
+        <td><%= link_to 'Eliminar', carga_reporte_fisioterapium, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Carga Reporte Fisioterapium', new_carga_reporte_fisioterapium_path %>
+

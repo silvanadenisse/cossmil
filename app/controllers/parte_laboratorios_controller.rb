@@ -6,7 +6,7 @@ class ParteLaboratoriosController < ApplicationController
   def index
     #@parte_laboratorios = ParteLaboratorio.all
     if current_user.role == "Técnico-Encargado"
-      @parte_laboratorios = ParteLaboratorios.all
+      @parte_laboratorios = ParteLaboratorio.all
     else
       @parte_laboratorios = ParteLaboratorio.where(user_id: current_user.id)
     end
@@ -79,6 +79,6 @@ class ParteLaboratoriosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def parte_laboratorio_params
-    params.require(:parte_laboratorio).permit(:mes, :user_id)
+    params.require(:parte_laboratorio).permit(:establecimiento, :localidad, :mes, :user_id)
   end
 end

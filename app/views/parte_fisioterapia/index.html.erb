@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>INFORME MEDICO PARTE DIARIO FISIOTERAPIA</h1>
+<h1>INFORME MÉDICO PARTE DIARIO FISIOTERAPIA</h1>
 
-<%= link_to 'Nuevo parte fisioterapia', new_parte_fisioterapium_path %>
+
 
 <table>
   <thead>
     <tr>
-      <th>Turno</th>
+      <th><center>Nombre lic.</center></th>
+      <th>Especialidad</th>
       <th>Mes</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +17,8 @@
   <tbody>
     <% @parte_fisioterapia.each do |parte_fisioterapium| %>
       <tr>
-        <td><%= parte_fisioterapium.turno %></td>
+        <td><%= parte_fisioterapium.user.name + " " + parte_fisioterapium.user.last_name %></td>
+        <td><%= parte_fisioterapium.user.speciality.nombre %></td>
         <td><%= parte_fisioterapium.mes %></td>
         <td><%= link_to 'Mostrar', parte_fisioterapium %></td>
         <td><%= link_to 'Editar', edit_parte_fisioterapium_path(parte_fisioterapium) %></td>

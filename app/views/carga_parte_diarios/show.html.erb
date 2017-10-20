@@ -1,31 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h2>RESUMEN MENSUAL DE CONSULTA EXTERNA CLASIFICADOS POR MÉDICOS, TIPO DE CONSULTA Y CLASE DE ASEGURADO</h2>
+<h2><center>RESUMEN MENSUAL DE CONSULTA EXTERNA CLASIFICADOS POR MÉDICOS, TIPO DE CONSULTA Y CLASE DE ASEGURADO</center></h2>
+
 <div class="row">
   <div class="col-md-3">
     <p>
-  <strong>Días hábiles:</strong>
-  <%= @carga_parte_diario.dias_habiles %>
-</p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_parte_diario.user.localidad %>
+    </p>
   </div>
+
   <div class="col-md-3">
     <p>
-  <strong>Mes:</strong>
-  <%= @carga_parte_diario.mes %>
-</p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_parte_diario.dias_habiles %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_parte_diario.mes %>
+    </p>
 
   </div>
   <div class="col-md-3">
-    
-<p>
-  <strong>Año:</strong>
-  <%= @carga_parte_diario.anho %>
-</p>
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_parte_diario.anho %>
+    </p>
   </div>
 </div>
 
 
-
+<%= link_to 'Editar', edit_carga_parte_diario_path(@carga_parte_diario) %> |
+<%= link_to 'Volver', carga_parte_diarios_path %>
 
 
  <div align="right">
@@ -159,11 +168,10 @@
   </tbody>
 </table>
 
-<%= link_to 'Editar', edit_carga_parte_diario_path(@carga_parte_diario) %> |
-<%= link_to 'Volver', carga_parte_diarios_path %>
+
 
 <p>
-<h2>Medicos de consulta externa</h2>
+<h2>Médicos de consulta externa</h2>
 </p>
 
 <div id="user"><!--style="display:none"--><br>
