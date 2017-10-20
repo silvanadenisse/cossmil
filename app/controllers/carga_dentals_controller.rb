@@ -23,7 +23,7 @@ class CargaDentalsController < ApplicationController
   end
 
   def print
-    @carga_parte_dental = CargaParteDental.find(params[:id])
+    @carga_dental = CargaDental.find(params[:id])
     render layout: false
   end
 

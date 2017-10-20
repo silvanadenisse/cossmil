@@ -52,22 +52,19 @@ Rails.application.routes.draw do
   resources :carga_dentals do
     resources :carga_reporte_dentals
     resources :users
-
   end
 
-  get '/carga_parte_diarios/:id/grafica_reporte' => 'carga_parte_diarios#grafica_reporte'
-  get '/carga_parte_diarios/:id/grafica_fuerzas' => 'carga_parte_diarios#grafica_fuerzas'
-  get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
+    resources :carga_emergencia do
+    resources :carga_reporte_emergencia
+    resources :users
+  end
+
 
   resources :carga_reporte_dentals
 
 
   resources :carga_reporte_emergencia
 
-  resources :carga_emergencia do
-    resources :carga_reporte_emergencia
-    resources :users
-  end
 
   resources :carga_reporte_fisioterapia
   resources :carga_fisioterapia do
@@ -81,6 +78,13 @@ Rails.application.routes.draw do
     resources :carga_reportes
     resources :users
   end
+
+
+  get '/carga_parte_diarios/:id/grafica_reporte' => 'carga_parte_diarios#grafica_reporte'
+  get '/carga_parte_diarios/:id/grafica_fuerzas' => 'carga_parte_diarios#grafica_fuerzas'
+  get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
+
+  get '/carga_dentals/:id/print' => 'carga_dentals#print'
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

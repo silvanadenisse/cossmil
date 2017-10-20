@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label 'Localidad: ' %>
     <%= current_user.localidad%>
+    <%= f.hidden_field :localidad, :value => current_user.localidad %>
   </div>
 
   <div class="field">
