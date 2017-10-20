@@ -6,7 +6,7 @@ class User
   field :role, type: String
   belongs_to :speciality
   field :subesp, type: String
-  field :clave, type: Integer
+  field :clave, type: String
   field :establecimiento, type: String
   field :localidad, type: String
 

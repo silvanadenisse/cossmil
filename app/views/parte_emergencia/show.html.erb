@@ -38,6 +38,7 @@
     <th>Diagnostico</th>
     <th>Tratamiento</th>
     <th>Observaciones</th>
+    <th>Consulta</th>
   </tr>
   </thead>
   <tbody>
@@ -84,7 +85,9 @@
         </td><td>
           <%= paciente_reporte_emergencia.observaciones %>
         </td>
-        
+        <td>
+          <%= paciente_reporte_emergencia.fecha_consulta.strftime("%d/%m/%Y - %H:%M") %>
+        </td>        
       </tr>
   <% end %>
   </tbody>

@@ -67,6 +67,6 @@ class PacienteReporteLaboratoriosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paciente_reporte_laboratorio_params
-    params.require(:paciente_reporte_laboratorio).permit(:paciente_id, :edad, :parte_laboratorio_id, :area_id, :speciality_id, :procedencia, :hematologia, :bioquimica, :serologia, :orinas, :heces, :gsanguineo)
+    params.require(:paciente_reporte_laboratorio).permit(:paciente_id, :edad, :fecha_consulta, :parte_laboratorio_id, :area_id, :speciality_id, :procedencia, :hematologia, :bioquimica, :serologia, :orinas, :heces, :gsanguineo)
   end
 end

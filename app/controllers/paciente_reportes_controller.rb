@@ -54,6 +54,6 @@ class PacienteReportesController < ApplicationController
   end
 
   def paciente_reporte_params
-    params.require(:paciente_reporte).permit(:paciente_id, :diagnostico, :tratamiento, :edad, :tipo_consulta, :tipo_asegurado, :parte_diario_id)
+    params.require(:paciente_reporte).permit(:paciente_id, :diagnostico, :fecha_consulta, :tratamiento, :edad, :tipo_consulta, :tipo_asegurado, :parte_diario_id)
   end
 end

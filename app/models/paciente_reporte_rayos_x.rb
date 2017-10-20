@@ -12,6 +12,7 @@ class PacienteReporteRayosX
   field :cuatro, type: Integer
   field :cinco, type: Integer
   field :observaciones, type: String
+  field :fecha_consulta, type: Time, default: Time.now
 
   belongs_to :paciente
   belongs_to :parte_rayos_x

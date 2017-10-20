@@ -39,6 +39,7 @@
     <th>Grupo Sanguineo</th>
     <th>Area</th>
     <th>Especialidad</th>
+    <th>Consulta</th>
   </tr>
   </thead>
   <tbody>
@@ -88,6 +89,9 @@
         </td>
         <td>
           <%= paciente_repo_labo.speciality.nombre %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.fecha_consulta.strftime("%d/%m/%Y") %>
         </td>
       </tr>
   <% end %>

@@ -69,6 +69,6 @@ class PacienteServiciocomplementariosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paciente_serviciocomplementario_params
-    params.require(:paciente_serviciocomplementario).permit(:estudio, :diagnostico)
+    params.require(:paciente_serviciocomplementario).permit(:estudio, :fecha_consulta, :diagnostico)
   end
 end

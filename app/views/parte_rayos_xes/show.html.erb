@@ -37,6 +37,7 @@
     <th>24/30</th>
     <th>18/24</th>
     <th>Observaciones</th>
+    <th>Consulta</th>
   </tr>
   </thead>
   <tbody>
@@ -86,6 +87,9 @@
         </td>
         <td>
           <%= paciente_repo_rayos_xes.observaciones %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.fecha_consulta.strftime("%d/%m/%Y") %>
         </td>
       </tr>
   <% end %>

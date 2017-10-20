@@ -9,6 +9,7 @@ class PacienteReporteLaboratorio
   field :heces, type: Integer
   field :gsanguineo, type: String
   field :edad, type: Integer
+  field :fecha_consulta, type: Time, default: Time.now
 
   belongs_to :paciente
   belongs_to :area
