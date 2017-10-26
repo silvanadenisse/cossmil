@@ -1,61 +1,60 @@
 <h2>Registrar usuario</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label 'Nombre:' %>
-      <%= f.text_field :name, :maxlength => 25, autofocus: true %>
+        <%= f.text_field :name, :maxlength => 25, autofocus: true %>
     </div>
     <div class="field">
       <%= f.label 'Apellido:' %>
-      <%= f.text_field :last_name, :maxlength => 25 %>
+        <%= f.text_field :last_name, :maxlength => 25 %>
     </div>
     <div class="field">
       <%= f.label 'Rol:' %>
-      <%= f.select :role, ['Administrador', 'Doctor', 'Técnico-Encargado'] %>
+        <%= f.select :role, ['Administrador', 'Doctor', 'Técnico-Encargado'] %>
     </div>
     <div class="field">
       <%= f.label 'Departamento' %>
-      <%= f.collection_select :area_id, Area.all, :id, :nombre, include_blank: true %>
+        <%= f.collection_select :area_id, Area.order(:nombre), :id, :nombre, include_blank: true, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label 'Especialidad:' %>
-      <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true %>
+        <%= f.grouped_collection_select :speciality_id, Area.order(:name), :specialities, :nombre, :id, :nombre, class: "form-control"%>
     </div>
     <div class="field">
       <%= f.label 'Clave:' %>
-      <%= f.text_field :clave %>
+        <%= f.text_field :clave %>
     </div>
     <div class="field">
       <%= f.label 'Establecimiento:' %>
-      <%= f.text_field :establecimiento %>
+        <%= f.text_field :establecimiento %>
     </div>
     <div class="field">
       <%= f.label 'Localidad:' %>
-      <%= f.text_field :localidad %>
+        <%= f.text_field :localidad %>
     </div>
     <div class="field">
       <%= f.label 'Correo electrónico:' %>
-      <%= f.email_field :email, autofocus: false %>
+        <%= f.email_field :email, autofocus: false %>
     </div>
     <div class="field">
       <%= f.label 'Contraseña:' %>
-      <% if @minimum_password_length %> <em>(<%= @minimum_password_length %> Caracteres mínimo)</em>
-      <% end %><br/>
-      <%= f.password_field :password, autocomplete: "off" %>
+        <% if @minimum_password_length %>
+          <em>(
+            <%= @minimum_password_length %> Caracteres mínimo)</em>
+          <% end %>
+            <br/>
+            <%= f.password_field :password, autocomplete: "off" %>
     </div>
     <div class="field">
       <%= f.label 'Confirmar Contraseña:' %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
     <div class="actions">
       <%= f.submit "Registrarse" %>
     </div>
-<% end %>
+    <% end %>
 
-<%= render "devise/shared/links" %>
-
-
-
-
+      <%= render "devise/shared/links" %>

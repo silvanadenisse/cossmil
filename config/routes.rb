@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, :path_prefix => 'my'
+  resources :users
   resources :parte_serviciocomplementarios
   resources :paciente_serviciocomplementarios
   resources :specialities
@@ -110,8 +112,7 @@ Rails.application.routes.draw do
   # end
 
 
-  devise_for :users, :path_prefix => 'my'
-  resources :users
+  
 
   post 'create_user' => 'users#create', as: :create_user
 

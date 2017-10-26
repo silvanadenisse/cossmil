@@ -3,4 +3,5 @@ class Speciality
   include Mongoid::Attributes::Dynamic
   field :nombre, type: String
   belongs_to :area
+  has_many :user
 end
