@@ -54,7 +54,6 @@ class ParteEmergencium
     val
   end
 
-
   def obtenerLetraA
     val = 0
     paciente_reporte_emergencia.each do |paciente_reporte|

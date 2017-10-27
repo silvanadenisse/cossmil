@@ -85,6 +85,8 @@ Rails.application.routes.draw do
   get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
 
   get '/carga_dentals/:id/print' => 'carga_dentals#print'
+
+  get '/mostrar_informe/:id' => 'parte_diarios#mostrar'
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

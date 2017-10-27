@@ -83,7 +83,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @parte_dental.paciente_reporte_dentals.each do |paciente_repo_dentals| %>
+  <% @parte_dental.paciente_reporte_dentals.reverse!.each do |paciente_repo_dentals| %>
       <tr>
         <td>
           <%= paciente_repo_dentals.paciente.nombre + " " + paciente_repo_dentals.paciente.apellido %>
@@ -171,16 +171,18 @@
                   <div class="modal-body">
                     <%= form_for([@parte_dental, @parte_dental.paciente_reporte_dentals.build]) do |f| %>
                         <%= f.label 'Diagnostico: ' %>
-                        <%= f.text_field :diagnostico %>
+                        <%= f.text_area :diagnostico %>
                         <%= f.label 'Tratamiento: ' %>
-                        <%= f.text_field :tratamiento %>
+                        <%= f.text_area :tratamiento %>
                         <%= f.label 'Edad: ' %>
                         <%= f.number_field :edad %>
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Nueva', :checked => (:tipo_consulta == 'Nueva') %> Nueva
                         <%= f.radio_button :tipo_consulta, 'Repetida', :checked => (:tipo_consulta == 'Repetida') %> Repetida
+                        <%= f.label 'Número de recetas: ' %>
+                        <%= f.number_field :num_recetas %>
                         <%= f.hidden_field :paciente_id, :value => paciente.id %>
-                        <%= f.hidden_field :parte_dental_id, :value => @parte_dental.id %>
+                        <%= f.hidden_field :parte_dental_id, :value => @parte_dental.id %></br>
                         <br><%= f.submit "Agregar", class: "btn btn-default" %></br>
                     <% end %>
                   </div>

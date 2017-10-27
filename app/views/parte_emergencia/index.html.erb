@@ -21,8 +21,6 @@
         <td><%= parte_emergencium.user.speciality.nombre %></td>
         <td><%= parte_emergencium.mes %></td>
         <td><%= link_to 'Mostrar', parte_emergencium %></td>
-        <td><%= link_to 'Editar', edit_parte_emergencium_path(parte_emergencium) %></td>
-        <td><%= link_to 'Eliminar', parte_emergencium, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

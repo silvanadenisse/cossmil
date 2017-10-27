@@ -7,21 +7,35 @@
 <BODY onLoad="window.print();">
 <h2>RESUMEN MENSUAL DE CONSULTA EXTERNA CLASIFICADOS POR MÉDICOS, TIPO DE CONSULTA Y CLASE DE ASEGURADO</h2>
 
-<p>
-  <strong>Dias habiles:</strong>
-  <%= @carga_parte_diario.dias_habiles %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_parte_diario.localidad %>
+    </p>
+  </div>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @carga_parte_diario.mes %>
-</p>
+  <div class="col-md-3">
+    <p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_parte_diario.dias_habiles %>
+    </p>
+  </div>
 
-<p>
-  <strong>Año:</strong>
-  <%= @carga_parte_diario.anho %>
-</p>
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_parte_diario.mes %>
+    </p>
 
+  </div>
+  <div class="col-md-3">
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_parte_diario.anho %>
+    </p>
+  </div>
+</div>
 
 <br>
 <table class="table table-striped" border=1>

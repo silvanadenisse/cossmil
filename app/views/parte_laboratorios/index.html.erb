@@ -20,8 +20,7 @@
         <td><%= parte_laboratorio.mes %></td>
         <td><%= parte_laboratorio.user.speciality.nombre %></td>
         <td><%= link_to 'Mostrar', parte_laboratorio %></td>
-        <td><%= link_to 'Editar', edit_parte_laboratorio_path(parte_laboratorio) %></td>
-        <td><%= link_to 'Eliminar', parte_laboratorio, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+
       </tr>
     <% end %>
   </tbody>

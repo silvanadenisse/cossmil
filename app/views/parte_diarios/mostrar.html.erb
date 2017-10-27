@@ -1,0 +1,137 @@
+
+<p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
+
+<p>
+<h2><center>PARTE DIARIO CONSULTORIO EXTERNO</center></h2>
+</p>
+
+
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Establecimiento:</strong>
+      <%= @parte_diario.user.establecimiento %> 
+    </p>
+
+    <p>
+      <strong>Servicio de:</strong>
+      <%= @parte_diario.user.speciality.nombre %>
+    </p>
+
+    <p>
+      <strong>Inicio consulta:</strong>
+      <%= @parte_diario.inicio_consulta.strftime("%H:%M") %>
+      </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Localidad:</strong>
+      <%= @parte_diario.user.localidad %> 
+    </p>
+
+    <p>
+      <strong>Nombre médico:</strong>
+      <%= @parte_diario.user.name + " " + @parte_diario.user.last_name %>
+    </p>
+
+    <p>
+      <strong>Fin consulta:</strong>
+      <%= @parte_diario.fin_consulta.strftime("%H:%M") %>
+    </p>
+    
+  <td class="tres">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_diario.mes %> 
+    </p>
+
+    <p>
+      <strong>Clave:</strong>
+      <%= @parte_diario.user.clave %>
+    </p>
+
+    <p>
+      <strong>Enfermera:</strong>
+      <%= @parte_diario.enfermera %>
+    </p>   
+
+  </td>
+
+    </tr>
+  </td>
+</table></center>
+
+
+
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE CONSULTORIO EXTERNO</h2>
+</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>CARNET DEL ASEGURADO</th>
+    <th>CARNET DEL BENEFICIARIO</th>
+    <th>DIAGNÓSTICO</th>
+    <th>EDAD</th>
+    <th><center>SEXO</center></th>
+    <th>TIPO DE CONSULTA</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>N° DE RECETAS</th>
+    <th>REFERIDO A:</th>
+    <th>CONSULTA</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @parte_diario.paciente_reportes.reverse!.each do |paciente_repo| %>
+      <tr>
+        <td><center>
+          <%= paciente_repo.paciente.matricula_titular %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.paciente.matricula_paciente %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.diagnostico %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.edad %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.paciente.sexo %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.tipo_consulta %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.paciente.tipo_asegurado %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.paciente.fuerza %>        
+        </center></td>
+        <td><center>
+          <%= paciente_repo.num_recetas %>
+        </center></td>
+        <td><center>
+          <%= paciente_repo.referido %>
+        </center></td>
+        <td>
+          <%= paciente_repo.fecha_consulta.strftime("%d/%m/%Y") %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Volver', parte_diarios_path %>
+<br><br><br>
