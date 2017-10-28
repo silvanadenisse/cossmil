@@ -23,4 +23,7 @@ class CargaReporteLaboratorio
   field :orinas, type: Integer
   field :heces, type: Integer
   field :gsanquineo, type: Integer
+
+  belongs_to :speciality
+  belongs_to :carga_laboratorio
 end

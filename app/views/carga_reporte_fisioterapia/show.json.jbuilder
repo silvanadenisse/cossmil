@@ -1,1 +1,0 @@
-json.partial! "carga_reporte_fisioterapia/carga_reporte_fisioterapium", carga_reporte_fisioterapium: @carga_reporte_fisioterapium

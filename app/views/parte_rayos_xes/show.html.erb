@@ -55,7 +55,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @parte_rayos_x.paciente_reporte_rayos_x.each do |paciente_repo_rayos_xes| %>
+  <% @parte_rayos_x.paciente_reporte_rayos_x.reverse!.each do |paciente_repo_rayos_xes| %>
       <tr>
         <td>
           <%= paciente_repo_rayos_xes.paciente.matricula_paciente %>
@@ -117,7 +117,7 @@
 </p>
 
 <div id="paciente"><!--style="display:none"--><br>
-  <br><form method="GET">Nombre:
+  <br><form method="GET">Nombre / Carnet:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
     <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
   </form></br>
@@ -162,7 +162,7 @@
                         <%= f.label 'T.A: ' %>
                         <%= f.text_field :ta %>
                         <%= f.label 'Edad: ' %>
-                        <%= f.number_field :edad %>
+                        <%= f.number_field :edad , value: paciente.getAge, readonly: true %>
                    		  <%= f.label 'H.C: ' %>
                         <%= f.text_field :hc %>
                         <%= f.label '35/43: ' %>

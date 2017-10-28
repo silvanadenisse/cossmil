@@ -138,8 +138,7 @@
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 </p>
 <div id="paciente"><!--style="display:none"--><br>
-  <br>
-  <form method="GET">Nombre:
+  <br><form method="GET">Nombre / Carnet:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
     <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
   </form>
@@ -180,7 +179,7 @@
                         <br><%= f.label 'Diagnostico: ' %>
                         <%= f.text_area :diagnostico %>
                         <%= f.label 'Edad: ' %>
-                        <%= f.number_field :edad %>
+                        <%= f.number_field :edad , value: paciente.getAge, readonly: true %>
                         <%= f.label 'Tipo de consulta: ' %>
                         <%= f.radio_button :tipo_consulta, 'Nueva', :checked => (:tipo_consulta == 'Nueva') %> Nueva
 

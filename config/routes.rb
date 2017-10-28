@@ -80,11 +80,22 @@ Rails.application.routes.draw do
   end
 
 
+  resources :carga_laboratorio do
+    resources :carga_reporte_laboratorios
+    resources :specialities
+  end
+
+
   get '/carga_parte_diarios/:id/grafica_reporte' => 'carga_parte_diarios#grafica_reporte'
   get '/carga_parte_diarios/:id/grafica_fuerzas' => 'carga_parte_diarios#grafica_fuerzas'
+  get '/carga_laboratorios/:id/grafica_examen' => 'carga_laboratorios#grafica_examen'
   get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
-
   get '/carga_dentals/:id/print' => 'carga_dentals#print'
+
+  get '/carga_emergencia/:id/print' => 'carga_emergencia#print'
+  get '/carga_fisioterapia/:id/print' => 'carga_fisioterapia#print'
+  get '/carga_laboratorios/:id/print' => 'carga_laboratorios#print'
+
 
   get '/mostrar_informe/:id' => 'parte_diarios#mostrar'
   get '/mostrar_informe/:id' => 'parte_dentals#mostrar'

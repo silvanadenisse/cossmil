@@ -29,7 +29,10 @@ class ParteDiariosController < ApplicationController
     if params[:name] == nil
       @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
     else
-      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i).or(apellido: /.*#{params[:name].downcase}.*/i).paginate(:page => params[:page], :per_page => 5)
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i)
+                           .or(apellido: /.*#{params[:name].downcase}.*/i)
+                           .or(carnet: /.*#{params[:name]}.*/i)
+                           .paginate(:page => params[:page], :per_page => 5)
     end
     @parte_diario
 
@@ -37,6 +40,14 @@ class ParteDiariosController < ApplicationController
       @parte_diarios = ParteDiario.all
     else
       @parte_diarios = ParteDiario.where(user_id: current_user.id)
+    end
+
+    @pacientes.each do |paciente|
+      @parte_diario.paciente_reportes.each do |paciente_reporte|
+        if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
+          @pacientes.delete paciente
+        end
+      end
     end
   end
 
