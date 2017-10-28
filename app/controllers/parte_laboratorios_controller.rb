@@ -1,6 +1,29 @@
 class ParteLaboratoriosController < ApplicationController
-  before_action :set_parte_laboratorio, only: [:show, :edit, :update, :destroy]
+  before_action :set_parte_laboratorio, only: [:show, :edit, :update, :destroy, :mostrar]
 
+
+  def mostrar 
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i)
+                           .or(apellido: /.*#{params[:name].downcase}.*/i)
+                           .or(carnet: /.*#{params[:name]}.*/i)
+                           .paginate(:page => params[:page], :per_page => 5)
+    end
+     @pacientes.each do |paciente|
+      @parte_laboratorio.paciente_reporte_laboratorios.each do |paciente_reporte|
+        if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
+          @pacientes.delete paciente
+        end
+      end
+    end
+    if current_user.role == "Técnico-Encargado"
+      @parte_laboratorios = ParteLaboratorio.all
+    else
+      @parte_laboratorios = ParteLaboratorio.where(user_id: current_user.id)
+    end
+  end
   # GET /parte_laboratorios
   # GET /parte_laboratorios.json
   def index
@@ -35,6 +58,11 @@ class ParteLaboratoriosController < ApplicationController
   # GET /parte_laboratorios/new
   def new
     @parte_laboratorio = ParteLaboratorio.new
+    if current_user.role == "Técnico-Encargado"
+      @parte_laboratorios = ParteLaboratorio.all
+    else
+      @parte_laboratorios = ParteLaboratorio.where(user_id: current_user.id)
+    end
   end
 
   # GET /parte_laboratorios/1/edit

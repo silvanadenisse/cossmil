@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>INFORME MÉDICO PARTE DIARIO RAYOS X</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th><center>NOMBRE MÉDICO</center></th>
+      <th><center>ESPECIALIDAD</center></th>
+      <th><center>MES</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_rayos_xes.each do |parte_rayos_x| %>
+      <tr>
+        <td><%= parte_rayos_x.user.name + " " + parte_rayos_x.user.last_name %></td>
+        <td><%= parte_rayos_x.user.speciality.nombre %></td>
+        <td><%= parte_rayos_x.mes %></td>
+        <td><%= link_to 'Agregar Datos', parte_rayos_x %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,6 +1,28 @@
 class ParteRayosXesController < ApplicationController
-  before_action :set_parte_rayos_x, only: [:show, :edit, :update, :destroy]
+  before_action :set_parte_rayos_x, only: [:show, :edit, :update, :destroy, :mostrar]
 
+  def mostrar
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i)
+                           .or(apellido: /.*#{params[:name].downcase}.*/i)
+                           .or(carnet: /.*#{params[:name]}.*/i)
+                           .paginate(:page => params[:page], :per_page => 5)
+    end
+    @pacientes.each do |paciente|
+      @parte_rayos_x.paciente_reporte_rayos_x.each do |paciente_reporte|
+        if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
+          @pacientes.delete paciente
+        end
+      end
+    end
+    if current_user.role == "Técnico-Encargado"
+      @parte_rayos_xes = ParteRayosX.all
+      else
+      @parte_rayos_xes = ParteRayosX.where(user_id: current_user.id)
+    end
+  end
   # GET /parte_rayos_xes
   # GET /parte_rayos_xes.json
   def index
@@ -35,6 +57,11 @@ class ParteRayosXesController < ApplicationController
   # GET /parte_rayos_xes/new
   def new
     @parte_rayos_x = ParteRayosX.new
+    if current_user.role == "Técnico-Encargado"
+      @parte_rayos_xes = ParteRayosX.all
+      else
+      @parte_rayos_xes = ParteRayosX.where(user_id: current_user.id)
+    end
   end
 
   # GET /parte_rayos_xes/1/edit

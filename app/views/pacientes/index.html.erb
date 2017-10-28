@@ -1,43 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pacientes</h1>
+<h1>PACIENTES</h1>
 
 <br><%= link_to 'REGISTRAR NUEVO PACIENTE', new_paciente_path %></br>
 
 <br><table>
   <thead>
     <tr>
-      <th>Nombres</th>
-      <th>Apellido</th>
-      <th>Sexo</th>
-      <th>Matricula titular</th>
-      <th>Fuerza</th>
-      <th>Matricula paciente</th>
-      <th>Carnet</th>
-      <th>Grupo sanguineo</th>
-      <th>Nacionalidad</th>
-      <th>Grado</th>
-      <th>Tipo de asegurado</th>
-      <th>Letra de asegurado</th>
+      <th><center>NOMBRE</center></th>
+      <th><center>APELLIDO</center></th>
+      <th><center>MATRÍCULA TITULAR</center></th>
+      <th><center>MATRÍCULA PACIENTE</center></th>
+      <th><center>FUERZA</center></th>
+      <th><center>GRADO</center></th>
+      <th><center>TIPO DE ASEGURADO</center></th>
+      <th><cewnter>LETRA DE ASEGURADO</cewnter></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @pacientes.each do |paciente| %>
+    <% @pacientes.reverse!.each do |paciente| %>
       <tr>
-        <td><%= paciente.nombre %></td>
-        <td><%= paciente.apellido %></td>
-        <td><%= paciente.sexo %></td>
-        <td><%= paciente.matricula_titular %></td>
-        <td><%= paciente.fuerza %></td>
-        <td><%= paciente.matricula_paciente %></td>
-        <td><%= paciente.carnet %></td>
-        <td><%= paciente.grupo_sanguineo %></td>
-        <td><%= paciente.nacionalidad %></td>
-        <td><%= paciente.grado %></td>
-        <td><%= paciente.tipo_asegurado %></td>
-        <td><%= paciente.letra_asegurado %></td>
+        <td><center><%= paciente.nombre %></center></td>
+        <td><center><%= paciente.apellido %></center></td>
+        <td><center><%= paciente.matricula_titular %></center></td>
+        <td><center><%= paciente.matricula_paciente %></center></td>
+        <td><center><%= paciente.fuerza %></center></td>
+        <td><center><%= paciente.grado %></center></td>
+        <td><center><%= paciente.tipo_asegurado %></center></td>
+        <td><center><%= paciente.letra_asegurado %></center></td>
         <td><%= link_to 'Mostrar', paciente %></td>
         <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
         <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Estás seguro?' } %></td>

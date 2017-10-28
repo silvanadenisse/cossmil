@@ -1,6 +1,28 @@
 class ParteFisioterapiaController < ApplicationController
-  before_action :set_parte_fisioterapium, only: [:show, :edit, :update, :destroy]
+  before_action :set_parte_fisioterapium, only: [:show, :edit, :update, :destroy, :mostrar]
 
+  def mostrar
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i)
+                           .or(apellido: /.*#{params[:name].downcase}.*/i)
+                           .or(carnet: /.*#{params[:name]}.*/i)
+                           .paginate(:page => params[:page], :per_page => 5)
+    end
+    @pacientes.each do |paciente|
+      @parte_fisioterapium.paciente_reporte_fisioterapia.each do |paciente_reporte|
+        if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
+          @pacientes.delete paciente
+        end
+      end
+    end
+    if current_user.role == "Técnico-Encargado"
+      @parte_fisioterapia = ParteFisioterapium.all
+    else
+      @parte_fisioterapia = ParteFisioterapium.where(user_id: current_user.id)
+    end
+  end
   # GET /parte_fisioterapia
   # GET /parte_fisioterapia.json
   def index
@@ -34,6 +56,11 @@ class ParteFisioterapiaController < ApplicationController
   # GET /parte_fisioterapia/new
   def new
     @parte_fisioterapium = ParteFisioterapium.new
+    if current_user.role == "Técnico-Encargado"
+      @parte_fisioterapia = ParteFisioterapium.all
+    else
+      @parte_fisioterapia = ParteFisioterapium.where(user_id: current_user.id)
+    end
   end
 
   # GET /parte_fisioterapia/1/edit

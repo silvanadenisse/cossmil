@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<h2><center>PARTE DIARIO RAYOS X</center></h2>
+</p>
+
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Nombre médico:</strong>
+      <%= @parte_rayos_x.user.name + " " + @parte_rayos_x.user.last_name %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_rayos_x.mes %>
+    </p>
+
+    </tr>
+  </td>
+</table></center>
+
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE RAYOS X</h2>
+</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>MATRÍCULA</th>
+    <th>NOMBRES Y APELLIDOS</th>
+    <th>ESTUDIOS</th>
+    <th>CE/H</th>
+    <th>T.A</th>
+    <th>EDAD</th>
+    <th>SEXO</th>
+    <th>H.C</th>
+    <th>FUERZA</th>
+    <th>35/43</th>
+    <th>35/35</th>
+    <th>30/40</th>
+    <th>24/30</th>
+    <th>18/24</th>
+    <th>OBSERVACIONES</th>
+    <th>CONSULTA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_rayos_x.paciente_reporte_rayos_x.reverse!.each do |paciente_repo_rayos_xes| %>
+      <tr>
+        <td>
+          <%= paciente_repo_rayos_xes.paciente.matricula_paciente %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.paciente.nombre + " " + paciente_repo_rayos_xes.paciente.apellido %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.estudios %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.ceh %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.ta %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.edad %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.paciente.sexo %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.hc %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.paciente.fuerza %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.uno %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.dos %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.tres %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.cuatro %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.cinco %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.observaciones %>
+        </td>
+        <td>
+          <%= paciente_repo_rayos_xes.fecha_consulta.strftime("%d/%m/%Y") %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Volver', parte_diarios_path %>
+<br><br><br>

@@ -1,0 +1,115 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<h2><center>PARTE DIARIO LABORATORIO</center></h2>
+</p>
+
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Localidad:</strong>
+      <%= @parte_laboratorio.user.localidad %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Establecimiento:</strong>
+      <%= @parte_laboratorio.user.establecimiento %>
+    </p>
+
+  <td class="tres">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_laboratorio.mes %>
+    </p>
+    
+      </td>
+    </tr>
+  </td>
+</table></center>
+
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE LABORATORIO</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>CARNET DEL ASEGURADO</th>
+    <th>NONMBRE Y APELLIDO</th>
+    <th>EDAD</th>
+    <th>SEXO</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>PROCEDENCIA</th>
+    <th>HEMATOLOGÍA</th>
+    <th>BIOQUÍMICA</th>
+    <th>SEROLOGÍAS</th>
+    <th>ORINAS</th>
+    <th>HECES</th>
+    <th>GRUPO SANGUÍNEO</th>
+    <th>NOMBRE DEL LABORATORIO</th>
+    <th>CONSULTA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_laboratorio.paciente_reporte_laboratorios.reverse!.each do |paciente_repo_labo| %>
+      <tr>
+        <td>
+          <%= paciente_repo_labo.paciente.matricula_titular %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.nombre + " " + paciente_repo_labo.paciente.apellido %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.edad %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.sexo %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.tipo_asegurado %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.paciente.fuerza %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.procedencia %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.hematologia %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.bioquimica %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.serologia %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.orinas %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.heces %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.gsanguineo %>
+        </td>
+        
+        <td>
+          <%= paciente_repo_labo.speciality.nombre %>
+        </td>
+        <td>
+          <%= paciente_repo_labo.fecha_consulta.strftime("%d/%m/%Y") %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+<%= link_to 'Volver', parte_laboratorios_path %>
+<br><br><br>

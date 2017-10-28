@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>INFORME MÉDICO PARTE DIARIO FISIOTERAPIA</h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th><center>NOMBRE LIC.</center></th>
+      <th>ESPECIALIDAD</th>
+      <th>MES</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_fisioterapia.reverse!.each do |parte_fisioterapium| %>
+      <tr>
+        <td><%= parte_fisioterapium.user.name + " " + parte_fisioterapium.user.last_name %></td>
+        <td><%= parte_fisioterapium.user.speciality.nombre %></td>
+        <td><%= parte_fisioterapium.mes %></td>
+        <td><%= link_to 'Agregar Datos', parte_fisioterapium %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

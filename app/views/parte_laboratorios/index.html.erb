@@ -19,7 +19,7 @@
         <td><%= parte_laboratorio.user.name + " " + parte_laboratorio.user.last_name %></td>
         <td><%= parte_laboratorio.mes %></td>
         <td><%= parte_laboratorio.user.speciality.nombre %></td>
-        <td><%= link_to 'Mostrar', parte_laboratorio %></td>
+        <td><%= link_to 'Mostrar', {:controller => "parte_laboratorios", :action => "mostrar", :id => parte_laboratorio.id } %></td>  parte_laboratorio %></td>
 
       </tr>
     <% end %>

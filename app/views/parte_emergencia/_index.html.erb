@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>INFORME MÉDICO PARTE DIARIO EMERGENCIA</h1>
+
+
+<br><center>
+<table>
+  <thead>
+    <tr>
+      <th><center>MÉDICO</center></th>
+      <th><center>ESPECIALIDAD</center></th>
+      <th><center>MES</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_emergencia.reserve!.each do |parte_emergencium| %>
+      <tr>
+        <td><%= parte_emergencium.user.name + " " + parte_emergencium.user.last_name %></td>
+        <td><%= parte_emergencium.user.speciality.nombre %></td>
+        <td><%= parte_emergencium.mes %></td>
+        <td><%= link_to 'Agregar Datos', parte_emergencium %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table></center>
+</br>
+<br>
