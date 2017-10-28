@@ -38,7 +38,7 @@ class ParteDentalsController < ApplicationController
                            .paginate(:page => params[:page], :per_page => 5)
     end
 
-    @pacientes.each do |paciente|
+    @pacientes.to_a.each do |paciente|
       @parte_dental.paciente_reporte_dentals.each do |paciente_reporte|
         if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
           @pacientes.delete paciente

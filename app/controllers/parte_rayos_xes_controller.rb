@@ -45,7 +45,7 @@ class ParteRayosXesController < ApplicationController
                            .or(carnet: /.*#{params[:name]}.*/i)
                            .paginate(:page => params[:page], :per_page => 5)
     end
-    @pacientes.each do |paciente|
+    @pacientes.to_a.each do |paciente|
       @parte_rayos_x.paciente_reporte_rayos_x.each do |paciente_reporte|
         if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
           @pacientes.delete paciente
