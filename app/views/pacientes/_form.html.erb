@@ -27,6 +27,11 @@
       <%= f.radio_button :sexo, 'Masculino', :checked => (:sexo == 'Masculino') %> Masculino
     </div>
 
+    <div class="field">
+    <%= f.label 'Fecha de nacimiento: ' %>
+    <%= f.text_field :fecha_nacimiento, :size=> 10 %> <small>En este formato (dd/mm/aa)</small>
+  </div>
+
 
     <div class="field">
       <%= f.label 'Matrícula titular: ' %>

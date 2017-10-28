@@ -15,6 +15,17 @@
   <%= @paciente.sexo %>
 </p>
 
+
+<p>
+  <strong>Fecha de nacimiento:</strong>
+  <%= @paciente.fecha_nacimiento.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @paciente.getAge %>
+</p>
+
 <p>
   <strong>Matricula titular:</strong>
   <%= @paciente.matricula_titular %>
@@ -59,6 +70,8 @@
   <strong>Letra de asegurado:</strong>
   <%= @paciente.letra_asegurado %>
 </p>
+
+
 
 
 <%= link_to 'Editar', edit_paciente_path(@paciente) %> |

@@ -60,7 +60,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @parte_emergencium.paciente_reporte_emergencia.each do |paciente_reporte_emergencia| %>
+  <% @parte_emergencium.paciente_reporte_emergencia.reverse!.each do |paciente_reporte_emergencia| %>
       <tr>
       	<td><center>
           <%= paciente_reporte_emergencia.paciente.matricula_titular %>
@@ -121,7 +121,7 @@
 <h2>AGREGAR PACIENTE AL PARTE DIARIO</h2>
 </p>
 <div id="paciente"><!--style="display:none"--><br>
-  <br><form method="GET">Nombre:
+  <br><form method="GET">Nombre / Carnet:
     <input type="text" name="name"> &nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar Paciente" , class="btn btn-info">
     <button><%= link_to 'Nuevo Paciente', new_paciente_path %></button>
   </form></br>
@@ -158,7 +158,7 @@
                   <div class="modal-body">
                     <%= form_for([@parte_emergencium, @parte_emergencium.paciente_reporte_emergencia.build]) do |f| %>
                         <br><%= f.label 'Edad: ' %>
-                        <%= f.number_field :edad %>
+                        <%= f.number_field :edad , value: paciente.getAge, readonly: true %>
                         <%= f.label 'Diagnóstico: ' %>
                         <%= f.text_area :diagnostico %>
                         <%= f.label 'Tratamiento: ' %>
