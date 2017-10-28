@@ -1,0 +1,134 @@
+<p id="notice" xmlns:data="http://www.w3.org/1999/xhtml"><%= notice %></p>
+
+<p>
+<h2><center>PARTE DIARIO DENTAL</center></h2>
+</p>
+
+
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Establecimiento:</strong>
+      <%= @parte_dental.user.establecimiento %> 
+    </p>
+
+    <p>
+      <strong>Nombre del odontologo:</strong>
+      <%= @parte_dental.user.name + " " + @parte_dental.user.last_name %>
+    </p>
+
+    <p>
+      <strong>Inicio consulta:</strong>
+      <%= @parte_dental.inicio_consulta.strftime("%H:%M") %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Localidad:</strong>
+      <%= @parte_dental.user.localidad %> 
+    </p>
+
+    <p>
+      <strong>Clave:</strong>
+      <%= @parte_dental.user.clave %>
+    </p>
+
+    <p>
+      <strong>Fin consulta:</strong>
+      <%= @parte_dental.fin_consulta.strftime("%H:%M") %>
+    </p>
+        
+
+  <td class="tres">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_dental.mes %>
+    </p>
+
+    <p>
+      <strong>Enfermera:</strong>
+      <%= @parte_dental.enfermera %>
+    </p>
+
+       </td>
+      </td>
+    </tr>
+  </td>
+</table></center>
+
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE DENTAL</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+
+    <th>NOMBRE Y APELLIDO</th>
+    <th>CARNET DEL ASEGURADO</th>
+    <th>CARNET DEL BENEFICIARIO</th>
+    <th>EDAD</th>
+    <th>SEXO</th>
+    <th>TIPO DE CONSULTA</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>DIAGNÓSTICO</th>
+    <th>TRATAMIENTO</th>
+    <th>N° DE RECETAS</th>
+    <th>CONSULTA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_dental.paciente_reporte_dentals.reverse!.each do |paciente_repo_dentals| %>
+      <tr>
+        <td>
+          <%= paciente_repo_dentals.paciente.nombre + " " + paciente_repo_dentals.paciente.apellido %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.paciente.matricula_titular %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.paciente.matricula_paciente %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.edad %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.paciente.sexo %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.tipo_consulta %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.paciente.tipo_asegurado %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.paciente.fuerza %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.diagnostico %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.tratamiento %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.num_recetas %>
+        </td>
+        <td>
+          <%= paciente_repo_dentals.fecha_consulta.strftime("%d/%m/%Y") %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+ |
+<%= link_to 'Volver', parte_dentals_path %>
+
+<br><br><br>

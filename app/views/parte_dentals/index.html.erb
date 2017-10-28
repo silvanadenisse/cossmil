@@ -14,14 +14,13 @@
   </thead>
 
   <tbody>
-    <% @parte_dentals.each do |parte_dental| %>
+    <% @parte_dentals.reverse!.each do |parte_dental| %>
       <tr>
         <td><%= parte_dental.user.name + " " + parte_dental.user.last_name %></td>
         <td><%= parte_dental.user.area.nombre %></td>
         <td><%= parte_dental.mes %></td>
-        <td><%= link_to 'Mostrar', parte_dental %></td>
-        <td><%= link_to 'Editar', edit_parte_dental_path(parte_dental) %></td>
-        <td><%= link_to 'Eliminar', parte_dental, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+        <td><%= link_to 'Mostrar', {:controller => "parte_dentals", :action => "mostrar", :id => parte_dental.id } %></td>
+
       </tr>
     <% end %>
   </tbody>
