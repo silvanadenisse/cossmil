@@ -91,10 +91,13 @@ Rails.application.routes.draw do
   get '/carga_laboratorios/:id/grafica_examen' => 'carga_laboratorios#grafica_examen'
   get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
   get '/carga_dentals/:id/print' => 'carga_dentals#print'
+
   get '/carga_emergencia/:id/print' => 'carga_emergencia#print'
   get '/carga_fisioterapia/:id/print' => 'carga_fisioterapia#print'
   get '/carga_laboratorios/:id/print' => 'carga_laboratorios#print'
 
+
+  get '/mostrar_informe/:id' => 'parte_diarios#mostrar'
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

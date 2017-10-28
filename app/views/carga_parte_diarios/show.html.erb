@@ -2,7 +2,7 @@
 
 <h2><center>RESUMEN MENSUAL DE CONSULTA EXTERNA CLASIFICADOS POR MÉDICOS, TIPO DE CONSULTA Y CLASE DE ASEGURADO</center></h2>
 
-<div class="row">
+<center><div class="row">
   <div class="col-md-3">
     <p>
       <strong>REGIONAL:</strong>
@@ -30,7 +30,7 @@
       <%= @carga_parte_diario.anho %>
     </p>
   </div>
-</div>
+</div></center>
 
 
 <%= link_to 'Editar', edit_carga_parte_diario_path(@carga_parte_diario) %> |
@@ -38,9 +38,9 @@
 
 
  <div align="right">
-   <br><%=link_to "Gráfica por especialidad", controller: "carga_parte_diarios", action: "grafica_reporte", id: @carga_parte_diario.id%></br>
-   <br><%=link_to "Gráfica por fuerzas", controller: "carga_parte_diarios", action: "grafica_fuerzas", id: @carga_parte_diario.id%></br>
-   <br><%=link_to "Imprimir Reporte", controller: "carga_parte_diarios", action: "print", id: @carga_parte_diario.id%></br>
+   <%=link_to "Gráfica por especialidad", controller: "carga_parte_diarios", action: "grafica_reporte", id: @carga_parte_diario.id%> | 
+  <%=link_to "Gráfica por fuerzas", controller: "carga_parte_diarios", action: "grafica_fuerzas", id: @carga_parte_diario.id%> | 
+   <%=link_to "Imprimir Reporte", controller: "carga_parte_diarios", action: "print", id: @carga_parte_diario.id%>
   </div>
   <br>
 <table class="table table-striped">

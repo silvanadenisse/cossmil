@@ -111,6 +111,6 @@ class CargaParteDiariosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def carga_parte_diario_params
-    params.require(:carga_parte_diario).permit(:localidad, :dias_habiles, :mes, :anho)
+    params.require(:carga_parte_diario).permit(:localidad, :dias_habiles, :mes, :anho, :user_id)
   end
 end
