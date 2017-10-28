@@ -1,1 +1,0 @@
-json.partial! "paciente_serviciocomplementarios/paciente_serviciocomplementario", paciente_serviciocomplementario: @paciente_serviciocomplementario

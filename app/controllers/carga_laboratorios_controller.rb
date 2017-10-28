@@ -20,18 +20,15 @@ class CargaLaboratoriosController < ApplicationController
   end
 
   def grafica_examen
-    @graficaReporte = {}
-    @especialidades = Speciality.all.to_a
-    @parte = CargaParteDiario.find(params[:id])
-    @especialidades.each do |especialidad|
-      @graficaReporte[especialidad.nombre] = 0
-      @parte.carga_reportes.each do |reporte|
-        if (reporte.speciality.nombre == especialidad.nombre)
-          @graficaReporte[especialidad.nombre] += (reporte.masculino + reporte.femenino)
-        end
+    @graficaExamen = {}
+    @parte = CargaLaboratorio.find(params[:id])
+    @examenes = ['hematologia','bioquimica', 'serologia', 'orinas', 'heces', 'gsanguineo']
+    @examenes.each do |examen|
+      @graficaExamen[examen] = 0
+      @parte.carga_reporte_laboratorios.each do |reporte|
+          @graficaExamen[examen] += reporte.masculino[examen]
       end
     end
-
   end
 
   # GET /carga_laboratorios/new

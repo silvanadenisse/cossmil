@@ -1,1 +1,0 @@
-json.partial! "parte_serviciocomplementarios/parte_serviciocomplementario", parte_serviciocomplementario: @parte_serviciocomplementario

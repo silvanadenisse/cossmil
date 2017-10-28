@@ -1,1 +1,0 @@
-json.partial! "carga_reporte_laboratorios/carga_reporte_laboratorio", carga_reporte_laboratorio: @carga_reporte_laboratorio
