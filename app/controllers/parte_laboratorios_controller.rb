@@ -23,13 +23,15 @@ class ParteLaboratoriosController < ApplicationController
                            .or(carnet: /.*#{params[:name]}.*/i)
                            .paginate(:page => params[:page], :per_page => 5)
     end
-     @pacientes.each do |paciente|
+    
+    @pacientes.to_a.each do |paciente|
       @parte_laboratorio.paciente_reporte_laboratorios.each do |paciente_reporte|
         if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
-          @pacientes.delete paciente
+          @pacientes.delete(paciente)
         end
       end
-    end
+    end        
+
   end
 
   # GET /parte_laboratorios/new

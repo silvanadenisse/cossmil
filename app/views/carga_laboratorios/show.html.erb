@@ -202,15 +202,15 @@
                       <div class="modal-body">
                         <%= form_for([@carga_laboratorio, @carga_laboratorio.carga_reporte_laboratorios.build]) do |f| %>
                           <%= f.label 'Total: ' %>
-                            <%= f.number_field :total %>
-                              <%= f.label 'Total examenes: ' %>
-                                <%= f.number_field :total_examenes %>
-                                  <%= f.hidden_field :carga_laboratorio_id, :value => @carga_laboratorio.id %>
-                                    <%= f.hidden_field :speciality_id, :value => speciality.id %>
-                                      <br>
-                                      <%= f.submit "Agregar", class: "btn btn-default" %>
-                                        </br>
-                                        <% end %>
+                          <%= f.number_field :total %>
+                          <%= f.label 'Total examenes: ' %>
+                          <%= f.number_field :total_examenes %>
+                          <%= f.hidden_field :carga_laboratorio_id, :value => @carga_laboratorio.id %>
+                          <%= f.hidden_field :speciality_id, :value => speciality.id %>
+                          <br>
+                          <%= f.submit "Agregar", class: "btn btn-default" %>
+                          </br>
+                        <% end %>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
