@@ -144,8 +144,8 @@ class ParteLaboratorio
   def obtenerHematologia
     val = 0
     paciente_reporte_laboratorios.each do |paciente_reporte|
-      if @paciente_reporte.hematologia
-        val = val + 1
+      if paciente_reporte.hematologia
+        val += paciente_reporte.hematologia
       end
     end
     val
@@ -154,8 +154,8 @@ class ParteLaboratorio
   def obtenerBioquimica
     val = 0
     paciente_reporte_laboratorios.each do |paciente_reporte|
-      if @paciente_reporte.bioquimica
-        val = val + 1
+      if paciente_reporte.bioquimica
+        val += paciente_reporte.bioquimica
       end
     end
     val
@@ -164,8 +164,8 @@ class ParteLaboratorio
   def obtenerSerologia
     val = 0
     paciente_reporte_laboratorios.each do |paciente_reporte|
-      if @paciente_reporte.serologia
-        val = val + 1
+      if paciente_reporte.serologia
+        val += paciente_reporte.serologia
       end
     end
     val
@@ -174,8 +174,8 @@ class ParteLaboratorio
   def obtenerOrinas
     val = 0
     paciente_reporte_laboratorios.each do |paciente_reporte|
-      if @paciente_reporte.orinas
-        val = val + 1
+      if paciente_reporte.orinas
+        val += paciente_reporte.orinas
       end
     end
     val
@@ -184,8 +184,8 @@ class ParteLaboratorio
   def obtenerHeces
     val = 0
     paciente_reporte_laboratorios.each do |paciente_reporte|
-      if @paciente_reporte.heces
-        val = val + 1
+      if paciente_reporte.heces
+        val += paciente_reporte.heces
       end
     end
     val
@@ -194,8 +194,8 @@ class ParteLaboratorio
   def obtenerGsanguineo
     val = 0
     paciente_reporte_laboratorios.each do |paciente_reporte|
-      if @paciente_reporte.gsanguineo
-        val = val + 1
+      if paciente_reporte.gsanguineo
+        val += 1
       end
     end
     val

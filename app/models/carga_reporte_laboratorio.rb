@@ -2,9 +2,6 @@ class CargaReporteLaboratorio
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
 
-  field :total, type: Integer
-  field :total_examenes, type: Integer
-
   field :letraA, type: Integer
   field :letraB, type: Integer
   field :letraC, type: Integer
@@ -17,12 +14,14 @@ class CargaReporteLaboratorio
   field :letraE, type: Integer
   field :letraF, type: Integer
   field :letraPM, type: Integer
+  field :total, type: Integer
+  field :total_examenes, type: Integer
   field :hematologia, type: Integer
   field :bioquimica, type: Integer
   field :serologia, type: Integer
   field :orinas, type: Integer
   field :heces, type: Integer
-  field :gsanquineo, type: Integer
+  field :gsanguineo, type: Integer
 
   belongs_to :speciality
   belongs_to :carga_laboratorio

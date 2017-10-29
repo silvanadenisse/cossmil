@@ -14,10 +14,10 @@
   <div class="field">
 
     <%= f.label 'Establecimiento: ' %>
-    <%= current_user.establecimiento%>
+    <%= f.text_field :establecimiento, :value => current_user.establecimiento, readonly: true%>
 
     <%= f.label 'Localidad: ' %>
-    <%= current_user.localidad%>
+    <%= f.text_field :localidad, :value => current_user.localidad, readonly: true%>
 
     <%= f.label :mes %>
     <%= f.text_field :mes, value: l(Date.today, format: :short), readonly:true %>

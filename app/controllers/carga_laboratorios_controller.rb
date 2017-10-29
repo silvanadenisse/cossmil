@@ -26,7 +26,7 @@ class CargaLaboratoriosController < ApplicationController
     @examenes.each do |examen|
       @graficaExamen[examen] = 0
       @parte.carga_reporte_laboratorios.each do |reporte|
-          @graficaExamen[examen] += reporte.masculino[examen]
+          @graficaExamen[examen] += reporte[examen]
       end
     end
   end
