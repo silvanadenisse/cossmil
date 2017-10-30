@@ -1,7 +1,7 @@
 class ParteDentalsController < ApplicationController
-  before_action :set_parte_dental, only: [:show, :edit, :update, :destroy, :mostrar]
+  before_action :set_parte_dental, only: [:show, :edit, :update, :destroy, :mostrar_informe]
 
-  def mostrar
+  def mostrar_informe
     if params[:name] == nil
       @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
     else
@@ -18,7 +18,8 @@ class ParteDentalsController < ApplicationController
 
   # GET /parte_dentals
   # GET /parte_dentals.json
-  def index
+  def index    
+
     if current_user.role == "Técnico-Encargado"
       @parte_dentals = ParteDental.all
     else

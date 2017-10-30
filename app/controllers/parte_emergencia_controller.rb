@@ -1,8 +1,8 @@
 class ParteEmergenciaController < ApplicationController
-  before_action :set_parte_emergencium, only: [:show, :edit, :update, :destroy, :mostrar]
+  before_action :set_parte_emergencium, only: [:show, :edit, :update, :destroy, :mostrar_emergencia]
 
 
-  def mostrar
+  def mostrar_emergencia
     if params[:name] == nil
       @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
     else
@@ -18,13 +18,14 @@ class ParteEmergenciaController < ApplicationController
         end
       end
     end
-
+    @parte_emergencium
     if current_user.role == "Técnico-Encargado"
       @parte_emergencia = ParteEmergencium.all
     else
       @parte_emergencia = ParteEmergencium.where(user_id: current_user.id)
     end
   end
+
     
   end
   # GET /parte_emergencia
@@ -122,4 +123,4 @@ end
     def parte_emergencium_params
       params.require(:parte_emergencium).permit(:mes, :user_id, :anho)
     end
-  end
+  

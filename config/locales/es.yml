@@ -1,5 +1,16 @@
 ---
 es:
+  mongoid:
+    attributes:
+      user: 
+        name: "Nombre"
+        speciality: "Especialidad"
+        last_name: "Apellido"
+        email: "Correo electrónico"
+        encrypted_password: "Contraseña"
+        password: "Contraseña"
+
+
   devise:
     confirmations:
       confirmed: "Tu dirección de correo electrónico ha sido confirmada con éxito."

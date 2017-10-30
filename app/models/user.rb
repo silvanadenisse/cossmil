@@ -12,6 +12,7 @@ class User
 
   validates :name, :last_name, presence: true, numericality: false
   validates :clave, :localidad, :email, presence: true
+  validates :encrypted_password, presence: true, uniqueness: true, length: { minimum: 6}
 
 
   belongs_to :area

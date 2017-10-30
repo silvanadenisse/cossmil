@@ -1,7 +1,7 @@
 class ParteRayosXesController < ApplicationController
-  before_action :set_parte_rayos_x, only: [:show, :edit, :update, :destroy, :mostrar]
+  before_action :set_parte_rayos_x, only: [:show, :edit, :update, :destroy, :mostrar_rayos_x]
 
-  def mostrar
+  def mostrar_rayos_x
     if params[:name] == nil
       @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
     else

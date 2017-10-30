@@ -19,7 +19,7 @@
         <td><%= parte_dental.user.name + " " + parte_dental.user.last_name %></td>
         <td><%= parte_dental.user.area.nombre %></td>
         <td><%= parte_dental.mes %></td>
-        <td><%= link_to 'Mostrar', {:controller => "parte_dentals", :action => "mostrar", :id => parte_dental.id } %></td>
+        <td><%= link_to 'Mostrar', {:controller => "parte_dentals", :action => "mostrar_informe", :id => parte_dental.id } %></td>
 
       </tr>
     <% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   resources :parte_serviciocomplementarios
   resources :paciente_serviciocomplementarios
   resources :specialities
@@ -97,8 +99,12 @@ Rails.application.routes.draw do
   get '/carga_laboratorios/:id/print' => 'carga_laboratorios#print'
 
 
-  get '/mostrar_informe/:id' => 'parte_diarios#mostrar'
-  get '/mostrar_informe/:id' => 'parte_dentals#mostrar'
+  get '/mostrar_informe_diario/:id' => 'parte_diarios#mostrar'
+  get '/mostrar_informe_dental/:id' => 'parte_dentals#mostrar_informe'
+  get '/mostrar_informe_emergencia/:id' => 'parte_emergencia#mostrar_emergencia'
+  get '/mostrar_informe/:id' => 'parte_fisioterapia#mostrar'
+  get '/mostrar_informe_rayos_x/:id' => 'parte_rayos_xes#mostrar_rayos_x'
+  get '/mostrar_informe_laboratorio/:id' => 'parte_laboratorios#mostrar_laboratorio'
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

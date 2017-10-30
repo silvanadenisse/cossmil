@@ -1,8 +1,8 @@
 class ParteLaboratoriosController < ApplicationController
-  before_action :set_parte_laboratorio, only: [:show, :edit, :update, :destroy, :mostrar]
+  before_action :set_parte_laboratorio, only: [:show, :edit, :update, :destroy, :mostrar_laboratorio]
 
 
-  def mostrar 
+  def mostrar_laboratorio 
     if params[:name] == nil
       @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
     else

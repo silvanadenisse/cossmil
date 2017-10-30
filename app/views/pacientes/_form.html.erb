@@ -1,4 +1,30 @@
-<br><%= form_for(paciente) do |f| %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <script type="text/javascript">
+  
+  function fuerza(value) {
+    if (value == "Ejercito") {
+      document.getElementById("paciente_grado").disabled=true;
+    }
+    if (value == "FAB") {
+      document.getElementById("paciente_grado").disabled=false;
+    }
+    if (value == "FNB") {
+      document.getElementById("paciente_grado").disabled=true;
+    }
+    if (value == "Civil") {
+      document.getElementById("paciente_grado").disabled=false;
+    }
+  }
+
+</script>
+
+</head>
+<body>
+  <br><%= form_for(paciente) do |f| %>
     <% if paciente.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
@@ -40,7 +66,7 @@
 
     <div class="field">
       <%= f.label 'Fuerza: ' %>
-      <%= f.select :fuerza, ['Ejercito', 'FAB', 'FNB', 'Civil'] %>
+      <%= f.select :fuerza, ['Ejercito', 'FAB', 'FNB', 'Civil'], {:onchange => "fuerza(this.value);"} %>
     </div>
 
     <div class="field">
@@ -66,7 +92,7 @@
 
     <div class="field">
       <%= f.label 'Grado: ' %>
-      <%= f.text_field :grado %>
+      <%= f.select :grado, ['h','n'] %>
     </div>
 
     <div class="field">
@@ -83,3 +109,8 @@
       <%= f.submit "Agregar" %>
     </div></br>
 <% end %></br>
+
+
+
+</body>
+</html>
