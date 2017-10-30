@@ -24,9 +24,17 @@ class CargaReporteLaboratoriosController < ApplicationController
   # POST /carga_reporte_laboratorios
   # POST /carga_reporte_laboratorios.json
   def create
+    @carga_laboratorio = CargaLaboratorio.find(carga_reporte_laboratorio_params[:carga_laboratorio_id])
     @carga_reporte_laboratorio = CargaReporteLaboratorio.new(carga_reporte_laboratorio_params)
-    @partesEspecialidad = ParteLaboratorio.where(speciality_id: carga_reporte_laboratorio_params[:area_id])
-
+    @partesLaboratorio = ParteLaboratorio.where(mes: @carga_laboratorio.mes)
+    @speciality = Speciality.find(carga_reporte_laboratorio_params[:speciality_id])
+    @partesEspecialidad = []
+    @partesLaboratorio.each do |parte|
+      if(parte.user.speciality.nombre == @speciality.nombre)
+        @partesEspecialidad.push(parte)
+      end
+    end
+    
     @letraA = 0
     @letraB = 0
     @letraC = 0
@@ -49,17 +57,17 @@ class CargaReporteLaboratoriosController < ApplicationController
 
     @partesEspecialidad.each do |parte|
       @letraA = @letraA + parte.obtenerLetraA
-      @letraA = @letraB + parte.obtenerLetraB
-      @letraA = @letraC + parte.obtenerLetraC
-      @letraA = @letraZ + parte.obtenerLetraZ
-      @letraA = @letraY + parte.obtenerLetraY
-      @letraA = @letraV + parte.obtenerLetraV
-      @letraA = @letraX + parte.obtenerLetraX
-      @letraA = @letraH + parte.obtenerLetraH
-      @letraA = @letraCAD + parte.obtenerLetraCAD
-      @letraA = @letraE + parte.obtenerLetraE
-      @letraA = @letraF + parte.obtenerLetraF
-      @letraA = @letraPM + parte.obtenerLetraPM
+      @letraB = @letraB + parte.obtenerLetraB
+      @letraC = @letraC + parte.obtenerLetraC
+      @letraZ = @letraZ + parte.obtenerLetraZ
+      @letraY = @letraY + parte.obtenerLetraY
+      @letraV = @letraV + parte.obtenerLetraV
+      @letraX = @letraX + parte.obtenerLetraX
+      @letraH = @letraH + parte.obtenerLetraH
+      @letraCAD = @letraCAD + parte.obtenerLetraCAD
+      @letraE = @letraE + parte.obtenerLetraE
+      @letraF = @letraF + parte.obtenerLetraF
+      @letraPM = @letraPM + parte.obtenerLetraPM
       @hematologia = @hematologia + parte.obtenerHematologia
       @bioquimica = @bioquimica + parte.obtenerBioquimica
       @serologia = @serologia + parte.obtenerSerologia
@@ -88,8 +96,8 @@ class CargaReporteLaboratoriosController < ApplicationController
     @carga_reporte_laboratorio.heces = @heces
     @carga_reporte_laboratorio.gsanguineo = @gsanguineo
 
-    @area = Area.find(carga_reporte_laboratorio_params[:area_id])
-    @carga_reporte_laboratorio.area = @area.nombre
+    # @area = Area.find(carga_reporte_laboratorio_params[:area_id])
+    # @carga_reporte_laboratorio.area = @area.nombre
 
 
     if @carga_reporte_laboratorio.save

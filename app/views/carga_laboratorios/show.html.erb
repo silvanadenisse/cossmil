@@ -65,6 +65,7 @@
           <th>Pasivo Y</th>
           <th>Pasivo V</th>
           <th>Pasivo X</th>
+          <th>Pasivo H</th>
           <th>Sanidad operativa CAD</th>
           <th>Sanidad operativa E</th>
           <th>Sanidad operativa F</th>
@@ -83,7 +84,7 @@
         <% @carga_laboratorio.carga_reporte_laboratorios.each do |carga_repo_labo| %>
           <tr>
             <td>
-              <%= carga_repo_labo.speciality %>
+              <%= carga_repo_labo.speciality.nombre %>
             </td>
             <td>
               <%= carga_repo_labo.total %>
@@ -110,13 +111,7 @@
               <%= carga_repo_labo.letraX %>
             </td>
             <td>
-              <%= carga_repo_labo.letraX %>
-            </td>
-            <td>
-              <%= carga_repo_labo.letraX %>
-            </td>
-            <td>
-              <%= carga_repo_labo.letraX %>
+              <%= carga_repo_labo.letraH %>
             </td>
             <td>
               <%= carga_repo_labo.letraCAD %>
@@ -129,6 +124,9 @@
             </td>
             <td>
               <%= carga_repo_labo.letraPM %>
+            </td>
+            <td>
+              <%= carga_repo_labo.total_examenes %>
             </td>
             <td>
               <%= carga_repo_labo.hematologia %>
@@ -154,10 +152,6 @@
       </tbody>
     </table>
     </p>
-
-
-
-
 
     <p>
       <h2>Especialidades</h2>
