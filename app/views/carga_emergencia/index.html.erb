@@ -20,7 +20,7 @@
         <td><%= carga_emergencium.dias_habiles %></td>
         <td><%= carga_emergencium.mes %></td>
         <td><%= carga_emergencium.anho %></td>
-        <td><%= link_to 'Mostrar', carga_emergencium %></td>
+        <td><%= link_to 'Mostrar', {:controller => "carga_emergencia", :action => "mostrar_emergencia", :id => carga_emergencium.id } %></td>
 
       </tr>
     <% end %>

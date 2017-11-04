@@ -19,8 +19,7 @@
         <td><%= carga_parte_diario.dias_habiles %></td>
         <td><%= carga_parte_diario.mes %></td>
         <td><%= carga_parte_diario.anho %></td>
-        <td><%= link_to 'Mostrar', carga_parte_diario %></td>
-
+        <td><%= link_to 'Mostrar', {:controller => "carga_parte_diarios", :action => "mostrar", :id => carga_parte_diario.id } %></td> 
       </tr>
     <% end %>
   </tbody>

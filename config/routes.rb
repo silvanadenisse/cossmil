@@ -105,6 +105,12 @@ Rails.application.routes.draw do
   get '/mostrar_informe/:id' => 'parte_fisioterapia#mostrar'
   get '/mostrar_informe_rayos_x/:id' => 'parte_rayos_xes#mostrar_rayos_x'
   get '/mostrar_informe_laboratorio/:id' => 'parte_laboratorios#mostrar_laboratorio'
+ 
+
+  get '/mostrar_reporte_diario/:id' => 'carga_parte_diarios#mostrar'
+  get '/mostrar_reporte_dental/:id' => 'carga_dentals#mostrar_dental'
+  get '/mostrar_reporte_emergencia/:id' => 'carga_emergencia#mostrar_emergencia'
+  get '/mostrar_reporte_fisioterapia/:id' => 'carga_fisioterapia#mostrar_fisioterapia'
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

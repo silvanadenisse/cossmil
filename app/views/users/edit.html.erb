@@ -31,7 +31,7 @@
     </div>
     <div class="field">
       <%= f.label 'Especialidad:' %>
-      <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true %>
+      <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, incude_blank: true %>
     </div>
     <div class="field">
       <%= f.label 'Clave:' %>
@@ -67,3 +67,4 @@
 
 <%= link_to 'Todos los usuarios', users_path %>
 <br><br><br><br>
+

@@ -1,29 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-
-  <script type="text/javascript">
-  
-  function fuerza(value) {
-    if (value == "Ejercito") {
-      document.getElementById("paciente_grado").disabled=true;
-    }
-    if (value == "FAB") {
-      document.getElementById("paciente_grado").disabled=false;
-    }
-    if (value == "FNB") {
-      document.getElementById("paciente_grado").disabled=true;
-    }
-    if (value == "Civil") {
-      document.getElementById("paciente_grado").disabled=false;
-    }
-  }
-
-</script>
-
-</head>
-<body>
   <br><%= form_for(paciente) do |f| %>
     <% if paciente.errors.any? %>
         <div id="error_explanation">
@@ -58,15 +32,30 @@
     <%= f.text_field :fecha_nacimiento, :size=> 10 %> <small>En este formato (dd/mm/aa)</small>
   </div>
 
+    <div class="field">    
+      <%= f.label :fuerza, 'Fuerza:' %><br>
+      &nbsp;
+      <%= f.label 'Ejercito'%>
+      <%= f.radio_button :fuerza, "Ejército", class: "fuerza"%>
+      &nbsp;
+      <%= f.label :fuerza, 'FAB'%>
+      <%= f.radio_button :fuerza, "FAB", checked: true, class: "fuerza"%>
+      &nbsp;
+      <%= f.label 'FNB'%>  
+      <%= f.radio_button :fuerza, "FNB",  class: "fuerza"%>   
+      &nbsp;
+      <%= f.label 'Civil'%>
+      <%= f.radio_button :fuerza, "Civil", class: "fuerza"%>                   
+    </div>
+
+    <div class="field">
+      <%= f.label 'Grado: ' %>
+      <%= f.select(:grado, options_for_select([['']])) %>
+    </div>
 
     <div class="field">
       <%= f.label 'Matrícula titular: ' %>
       <%= f.text_field :matricula_titular %>
-    </div>
-
-    <div class="field">
-      <%= f.label 'Fuerza: ' %>
-      <%= f.select :fuerza, ['Ejercito', 'FAB', 'FNB', 'Civil'], {:onchange => "fuerza(this.value);"} %>
     </div>
 
     <div class="field">
@@ -90,20 +79,24 @@
       <%= f.hidden_field :user_id, :value => current_user.id%>
     </div>
 
-    <div class="field">
-      <%= f.label 'Grado: ' %>
-      <%= f.select :grado, ['h','n'] %>
+    <div class="field">    
+      <%= f.label :tipo_asegurado, 'Tipo_asegurado:' %><br>
+      &nbsp;
+      <%= f.radio_button :tipo_asegurado, "Activo", class: "tipo_asegurado"%>
+      <%= f.label 'Activo'%> 
+      &nbsp;
+      <%= f.radio_button :tipo_asegurado, "Pasivo",  class: "tipo_asegurado"%>
+      <%= f.label 'Pasivo'%>      
+      &nbsp;
+      <%= f.radio_button :tipo_asegurado, "Sanidad operativa", class: "tipo_asegurado"%> 
+      <%= f.label 'Sanidad operativa'%>                     
     </div>
 
     <div class="field">
-      <%= f.label 'Tipo de asegurado:' %>
-      <%= f.select :tipo_asegurado, ['Activo', 'Pasivo', 'Sanidad operativa'] %>
+      <%= f.label 'Letra de asegurado: ' %>
+      <%= f.select(:letra_asegurado, options_for_select([['']])) %>
     </div>
 
-    <div class="field">
-      <%= f.label 'Letra de asegurado:' %>
-      <%= f.select :letra_asegurado, ['A', 'B', 'C', 'Z', 'Y', 'V', 'X', 'H', 'CAD', 'E' 'F', 'PM'] %>
-    </div>
 
     </br><div class="actions">
       <%= f.submit "Agregar" %>
@@ -112,5 +105,154 @@
 
 
 
-</body>
-</html>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fuerza").change(function(){
+
+      if ($(this).val() == "Ejército") {
+        var options = {
+          'General de Fuerza': 'general de fuerza',
+          'General de División': 'general de división',
+          'General de Brigada': 'general de brigada',
+          'Coronel': 'coronel',
+          'Teniente Coronel': 'teniente coronel',
+          'Mayor': 'mayor',
+          'Capitán': 'capitán',
+          'Teniente': 'teniente',
+          'Subteniente': 'subteniente',
+          'Cadete': 'cadete',
+          'Suboficial Maestre': 'suboficial maestre',
+          'Suboficial Mayor': 'suboficial mayor',
+          'Suboficial Primero': 'suboficial primero',
+          'Suboficial segundo': 'suboficial segundo',
+          'Suboficial inicial': 'suboficial inicial',
+          'Sargento Primero': 'sargento primero',
+          'Sargento segundo': 'sargento segundo',
+          'Sargente inicial': 'sargento inicial',
+          'Alumno': 'alumno',
+          'Cabo': 'cabo',
+          'Dragoneante': 'dragoneante',
+          'Soldado raso': 'soldado raso'
+        }
+      }
+
+      if ($(this).val() == "FAB")  {
+        var options = {
+          'General de Fuerza': 'general de fuerza',
+          'General de División': 'general de división',
+          'General de Brigada': 'general de brigada',
+          'Coronel': 'coronel',
+          'Teniente Coronel': 'teniente coronel',
+          'Mayor': 'mayor',
+          'Capitán': 'capitán',
+          'Teniente': 'teniente',
+          'Subteniente': 'subteniente',
+          'Cadete': 'cadete',
+          'Suboficial Maestre': 'suboficial maestre',
+          'Suboficial Mayor': 'suboficial mayor',
+          'Suboficial Primero': 'suboficial primero',
+          'Suboficial segundo': 'suboficial segundo',
+          'Suboficial inicial': 'suboficial inicial',
+          'Sargento Primero': 'sargento primero',
+          'Sargento segundo': 'sargento segundo',
+          'Sargente inicial': 'sargento inicial',
+          'Alumno': 'alumno',
+          'Cabo': 'cabo',
+          'Dragoneante': 'dragoneante',
+          'Soldado raso': 'soldado raso'
+        }
+      }
+
+
+      if ($(this).val() == 'FNB') {
+        var options = {
+          'Almirante': 'almirante',
+          'Vicealmirante': 'vicealmirante',
+          'Contraalmirante': 'contraalmirante',
+          'Capitán de navío': 'capitán',
+          'Capitán de fragata': 'capitán de fragata',
+          'Capitán de corbeta': 'capitán de corbeta',
+          'Teniente de navío': 'teniente de navío',
+          'Teniente de fragata': 'teniente de fragata',
+          'Alférez': 'alférez',
+          'Cadete': 'cadete',
+          'Suboficial Maestre': 'suboficial maestre',
+          'Suboficial Mayor': 'suboficial mayor',
+          'Suboficial Primero': 'suboficial primero',
+          'Suboficial segundo': 'suboficial segundo',
+          'Suboficial inicial': 'suboficial inicial',
+          'Sargento Primero': 'sargento primero',
+          'Sargento segundo': 'sargento segundo',
+          'Sargente inicial': 'sargento inicial',
+          'Alumno': 'alumno',
+          'Cabo': 'cabo',
+          'Dragoneante': 'dragoneante',
+          'Marinero': 'marinero'        }
+      }      
+
+      if ($(this).val() == 'Civil') {
+        var options = {
+          'Estudiante': 'estudiante',
+          'Juez':'juez'
+        }
+      }
+
+      $('#paciente_grado').empty();
+      $.each(options, function(key, value){
+        $('#paciente_grado').append('<option value="'+value+'">'+key+'</option>');
+      });
+
+    });
+  });
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".tipo_asegurado").change(function(){
+
+      if ($(this).val() == "Activo") {
+        var options = {
+          'A': 'a',
+          'B': 'b',
+          'C': 'c',
+          'Estudiante': 'estudiante',
+          'Juez':'juez'
+        }
+      }
+
+      if ($(this).val() == "Pasivo")  {
+        var options = {
+          'General de Fuerza': 'capitan',
+          'General de División': 'capitan',
+          'General de Brigada': 'capitan',
+          'Coronel': 'capitan',
+        }
+      }
+
+
+      if ($(this).val() == 'Sanidad operativa') {
+        var options = {
+          'Almirante': 'capitan',
+          'Vicealmirante': 'capitan',
+          'Contraalmirante': 'capitan',
+          'Capitán de navío': 'capitan',
+        }
+      }      
+
+      if ($(this).val() == 'Civil') {
+        var options = {
+          'Estudiante': 'estudiante',
+          'Juez':'juez'
+        }
+      }
+
+      $('#paciente_letra_asegurado').empty();
+      $.each(options, function(key, value){
+        $('#paciente_letra_asegurado').append('<option value="'+value+'">'+key+'</option>');
+      });
+
+    });
+  });
+</script>
+

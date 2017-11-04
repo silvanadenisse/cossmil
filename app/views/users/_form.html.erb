@@ -27,10 +27,12 @@
       <%= f.label 'Rol:' %>
       <%= f.select :role, ['Doctor', 'Técnico-Encargado'] %>
     </div>
+
     <div class="field">
       <%= f.label 'Departamento' %>
       <%= f.collection_select :area_id, Area.all, :id, :nombre, include_blank: true %>
     </div>
+
     <div class="field">
       <%= f.label 'Especialidad:' %>
       <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true %>
@@ -67,4 +69,64 @@
     </div>
 <% end %>
 
+
+
 <br><br><br><br>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".area_id").change(function(){
+
+      if ($(this).val() == "Consulta externa") {
+        var options = {
+          'Cardiología': 'cardiología',
+          'Cir. Cardio vas.': 'general de división',
+          'Dermatología': 'general de brigada'
+        }
+      }
+
+      if ($(this).val() == "Dental")  {
+        var options = {
+          'General': 'general de fuerza',
+          'Dental adultos': 'general de división'
+        }
+      }
+
+      if ($(this).val() == 'Emergencia') {
+        var options = {
+          'Emergencia': 'emergencia'      
+        }
+      }      
+
+      if ($(this).val() == 'Fisioterapia') {
+        var options = {
+          'Fisioterapia': 'fisioterapia'
+        }
+      }
+
+      if ($(this).val() == 'Laboratorio') {
+        var options = {
+          'Laboratorio': 'laboratorio'
+        }
+      }
+
+      if ($(this).val() == 'Rayos X') {
+        var options = {
+          'Rayos X': 'rayos x'
+        }
+      }
+
+      if ($(this).val() == 'Servicios complementarios') {
+        var options = {
+          'Servicios complementarios': 'servicios complementarios'
+        }
+      }
+
+      $('#user_speciality_id').empty();
+      $.each(options, function(key, value){
+        $('#user_speciality_id').append('<option value="'+value+'">'+key+'</option>');
+      });
+
+    });
+  });
+</script>

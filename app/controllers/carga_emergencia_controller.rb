@@ -1,6 +1,18 @@
 class CargaEmergenciaController < ApplicationController
-  before_action :set_carga_emergencium, only: [:show, :edit, :update, :destroy]
+  before_action :set_carga_emergencium, only: [:show, :edit, :update, :destroy, :mostrar_emergencia]
 
+  def mostrar_emergencia
+    @area = Area.find_by(nombre: 'Emergencia')
+    if params[:name] == nil
+      @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
+    else
+      @medicos = User.where(area: @area)
+                     .and(
+                         User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                     ).paginate(:page => params[:page], :per_page => 5)
+      end
+    @carga_emergencium = CargaEmergencium.new
+  end
   # GET /carga_emergencia
   # GET /carga_emergencia.json
   def index
@@ -19,7 +31,7 @@ class CargaEmergenciaController < ApplicationController
                      .and(
                          User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
                      ).paginate(:page => params[:page], :per_page => 5)
-      ends
+      end
     end
 
     # GET /carga_emergencia/new
@@ -82,4 +94,3 @@ class CargaEmergenciaController < ApplicationController
       params.require(:carga_emergencium).permit(:dias_habiles, :mes, :anho)
     end
   end
-end

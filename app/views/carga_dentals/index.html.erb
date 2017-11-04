@@ -18,8 +18,7 @@
       <tr>
         <td><%= carga_dental.mes %></td>
         <td><%= carga_dental.anho %></td>
-        <td><%= link_to 'Mostrar', carga_dental %></td>
-
+        <td><%= link_to 'Mostrar', {:controller => "carga_dentals", :action => "mostrar_dental", :id => carga_dental.id } %></td> 
       </tr>
     <% end %>
   </tbody>
