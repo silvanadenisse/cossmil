@@ -31,6 +31,7 @@ gem 'chartkick'
 gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'jquery-turbolinks'
+gem 'semantic-ui-sass'
 
 gem 'bootstrap_form'
 

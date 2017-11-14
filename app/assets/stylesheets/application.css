@@ -9,6 +9,15 @@ body {
     margin: 0;
 }
 
+.opacity{
+   background-color:rgb(255,0,0);
+   opacity:0.70; /* Opacidad 60% */
+}
+
+.imagen{
+  background-image: url('/images/cbba.png') ;
+}
+
 article,
 aside,
 details,
@@ -330,7 +339,7 @@ body {
     line-height: 1.42857143;
     background-color: #BDBDBD;
     background-image: url("small_steps.png");
-    
+
 }
 
 footer {
@@ -7598,7 +7607,7 @@ border-collapse: collapse;
 background: #BBBFC8;
 color: #000000;
 }
-td, th 
+td, th
 {
 border: 1px solid black;
 padding: 10px;
@@ -7612,7 +7621,7 @@ position: fixed;
 
 form_for(parte_diario) {
 width: 25%;
-border: 1px solid #ccc; 
+border: 1px solid #ccc;
 margin: 20px;
 padding: 20;
 }
@@ -7620,5 +7629,3 @@ form, label{
 display: block;
 width: 100%;
 }
-
-

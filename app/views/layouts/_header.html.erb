@@ -35,10 +35,10 @@
                 <li><%= nav_link raw("Mostrar áreas"), areas_path %></li>
                 <li><%= nav_link raw("Mostrar pacientes"), pacientes_path %></li>
                 <li><%= nav_link raw("Mostrar usuarios"), users_path %></li>
-               
+
             <% end %>
-      
-            <% if current_user.role == "Doctor" %> 
+
+            <% if current_user.role == "Doctor" %>
 
                   <% case current_user.area.nombre %>
                       <% when "Consulta Externa" %>
@@ -56,9 +56,9 @@
                       <% when "Servicios Complementarios" %>
                         <%= render 'layouts/examenclinico' %>
                   <%end%>
- 
+
             <% end %>
-            
+
 
             <% if current_user.role == "Técnico-Encargado" %>
                 <br>
@@ -76,18 +76,15 @@
                 <li><%= nav_link raw("Ver reportes emergencia"), carga_emergencia_path %></li>
                 <li><%= nav_link raw("Ver reportes fisioterapia"), carga_fisioterapia_path %></li>
                 <li><%= nav_link raw("Ver reportes laboratorio"), carga_laboratorios_path %></li>
-                
-                
+
+
                 </br>
 
             <% end %>
-            
+
         <% end %>
       </ul>
 
     </div>
   </div>
 </nav>
-
-
-

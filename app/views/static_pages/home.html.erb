@@ -1,14 +1,17 @@
 <% provide(:title, 'Inicio') %>
 <br>
-<div class="row">
-  <h2>BIENVENIDOS</h2>
-  <% if user_signed_in? %>
-      <p>Hola <%= current_user.name %></p>
-      <p><%= link_to "Cerrar sesion", destroy_user_session_path, :method => 'delete' %></p>
-  <% else %>
+<div class="row jumbotron imagen">
+  <div class="container well opacity" style="background-color:gray;">
+    <h2 class="text-center">BIENVENIDOS</h2>
+    <div class="col-md-offset-5 col-md-3">
+      <% if user_signed_in? %>
+          <p>Hola <%= current_user.name %></p>
+          <p><%= link_to "Cerrar sesion", destroy_user_session_path, :method => 'delete' %></p>
+      <% else %>
 
-      <p><%= link_to "Iniciar sesión", new_user_session_path %></p>
-      <!--p><!--%= link_to "Crear cuenta", new_user_registration_path %></p-->
-  <% end %>
+          <p><%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-primary" %></p>
+          <!--p><!--%= link_to "Crear cuenta", new_user_registration_path %></p-->
+      <% end %>
+    </div>
+  </div>
 </div>
-
