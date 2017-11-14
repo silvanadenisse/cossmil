@@ -1,5 +1,81 @@
 es:
   mongoid:
+<<<<<<< HEAD
+=======
+    attributes:
+      user: 
+        name: "Nombre"
+        speciality: "Especialidad"
+        last_name: "Apellido"
+        email: "Correo electrónico"
+        encrypted_password: "Contraseña"
+        password: "Contraseña"
+
+
+  devise:
+    confirmations:
+      confirmed: "Tu dirección de correo electrónico ha sido confirmada con éxito."
+      send_instructions: "Recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos pocos minutos."
+      send_paranoid_instructions: "Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos pocos minutos."
+    failure:
+      already_authenticated: "Ya has iniciado sesión."
+      inactive: "Tu cuenta aún no está activada."
+      invalid: "Invalid %{authentication_keys} or password."
+      locked: "Tu cuenta está bloqueada."
+      last_attempt: "Tienes un intento más antes de que tu cuenta sea bloqueada."
+      not_found_in_database: "Invalid %{authentication_keys} or password."
+      timeout: "Su sesión caducó. Inicie sesión nuevamente para continuar."
+      unauthenticated: "Debe iniciar sesión o registrarse antes de continuar."
+      unconfirmed: "Tienes que confirmar tu dirección de correo electrónico antes de continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      reset_password_instructions:
+        subject: "Restablecer las instrucciones de contraseña"
+      unlock_instructions:
+        subject: "Desbloquear las instrucciones"
+      email_changed:
+        subject: "Correo electrónico cambiado"
+      password_change:
+        subject: "Contraseña cambiada"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      no_token: "No puede acceder a esta página sin recibir un correo electrónico de restablecimiento de contraseña. Si proviene de un correo electrónico de restablecimiento de contraseña, asegúrese de usar la URL completa proporcionada."
+      send_instructions: "Recibirá un correo electrónico con instrucciones sobre cómo restablecer su contraseña en unos minutos."
+      send_paranoid_instructions: "Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un enlace de recuperación de contraseña en su dirección de correo electrónico en unos pocos minutos."
+      updated: "Tu contraseña ha sido cambiada exitosamente. Ya has iniciado sesión."
+      updated_not_active: "tu contraseña ha sido cambiada exitosamente."
+    registrations:
+      destroyed: "¡Adiós! Su cuenta ha sido cancelada con éxito. Esperamos volver a verte pronto."
+      signed_up: "¡Bienvenido! Te has registrado exitosamente."
+      signed_up_but_inactive: "Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque su cuenta todavía no está activada."
+      signed_up_but_locked: "Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque su cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Por favor, siga el enlace para activar su cuenta."
+      update_needs_confirmation: "Actualizó su cuenta con éxito, pero debemos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace de confirmación para confirmar su nueva dirección de correo electrónico."
+      updated: "Tu cuenta se ha actualizado con éxito."
+    sessions:
+      signed_in: "Sesión iniciada correctamente."
+      signed_out: "Sesión cerrada correctamente."
+      already_signed_out: "Firmado exitosamente."
+    unlocks:
+      send_instructions: "Recibirá un correo electrónico con instrucciones sobre cómo desbloquear su cuenta en unos minutos."
+      send_paranoid_instructions: "Si su cuenta existe, recibirá un correo electrónico con instrucciones sobre cómo desbloquearlo en unos minutos."
+      unlocked: "Tu cuenta se ha desbloqueado con éxito. Por favor inicie sesión para continuar."
+  errors:
+    messages:
+      already_confirmed: "Ya se confirmó, intente iniciar sesión."
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "Ha caducado, solicite uno nuevo"
+      not_found: "Extraviado"
+      not_locked: "No estaba bloqueado"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  activerecord:
+>>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
     errors:
       messages:
         taken:

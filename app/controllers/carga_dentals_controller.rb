@@ -1,6 +1,19 @@
 class CargaDentalsController < ApplicationController
-  before_action :set_carga_dental, only: [:show, :edit, :update, :destroy]
+  before_action :set_carga_dental, only: [:show, :edit, :update, :destroy, :mostrar_dental]
 
+  def mostrar_dental
+    @area = Area.find_by(nombre: 'Dental')
+
+    if params[:name] == nil
+      @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
+    else
+      @medicos = User.where(area: @area)
+                     .and(
+                         User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                     ).paginate(:page => params[:page], :per_page => 5)
+    end
+    @carga_dentals = CargaDental.all
+  end
   # GET /carga_dentals
   # GET /carga_dentals.json
   def index

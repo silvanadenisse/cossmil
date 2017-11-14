@@ -2,6 +2,7 @@
 
 <h1>Carga Fisioterapia</h1>
 
+<%= link_to 'Nuevo Reporte', new_carga_fisioterapium_path %>
 <table>
   <thead>
     <tr>
@@ -18,9 +19,8 @@
         <td><%= carga_fisioterapium.dias_habiles %></td>
         <td><%= carga_fisioterapium.mes %></td>
         <td><%= carga_fisioterapium.anho %></td>
-        <td><%= link_to 'Show', carga_fisioterapium %></td>
-        <td><%= link_to 'Edit', edit_carga_fisioterapium_path(carga_fisioterapium) %></td>
-        <td><%= link_to 'Destroy', carga_fisioterapium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', carga_fisioterapium %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Carga Fisioterapium', new_carga_fisioterapium_path %>
+

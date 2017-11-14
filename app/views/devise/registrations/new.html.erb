@@ -7,6 +7,7 @@
       <%= form_for(resource, as: resource_name, :html => {class: "form-horizontal", role:"form"}, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
+<<<<<<< HEAD
           <div class="form-group">
             <div class="control-label col-md-3">
                 <%= f.label 'Nombre:' %>
@@ -51,6 +52,89 @@
                 <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true, class: "form-control" %>
             </div>
           </div>
+=======
+    <div class="field">
+      <%= f.label 'Nombre:' %>
+      <%= f.text_field :name, :maxlength => 25, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Apellido:' %>
+      <%= f.text_field :last_name, :maxlength => 25 %>
+    </div>
+    <div class="field">
+      <%= f.label 'Rol:' %>
+      <%= f.select :role, ['Administrador', 'Doctor', 'Técnico-Encargado'] %>
+    </div>
+    <div class="field">
+      <%= f.label 'Departamento' %>
+      <%= f.collection_select :area_id, Area.all, :id, :nombre, include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label 'Especialidad:' %>
+      <%= f.collection_select :speciality_id, Speciality.all, :id, :nombre, include_blank: true %>
+    </div>
+
+    <div class="field">    
+      <%= f.label :area_id, 'Departamento:' %><br>
+      &nbsp;
+      <%= f.label 'Consulta externa'%>
+      <%= f.radio_button :area_id, "Consulta externa", class: "area_id"%>
+      &nbsp;
+      <%= f.label :area_id, 'Dental'%>
+      <%= f.radio_button :area_id, "Dental", checked: true, class: "area_id"%>
+      &nbsp;
+      <%= f.label 'Emergencia'%>  
+      <%= f.radio_button :area_id, "Emergencia",  class: "area_id"%>   
+      &nbsp;
+      <%= f.label 'Fisioterapia'%>
+      <%= f.radio_button :area_id, "Fisioterapia", class: "area_id"%>       
+      &nbsp;
+      <%= f.label 'Laboratorio'%>
+      <%= f.radio_button :area_id, "Laboratorio", class: "area_id"%>
+      &nbsp;
+      <%= f.label 'Rayos x'%>
+      <%= f.radio_button :area_id, "Rayos x", class: "area_id"%>
+      &nbsp;
+      <%= f.label 'Servicios complementarios'%>
+      <%= f.radio_button :area_id, "Servicios complementarios", class: "area_id"%>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Especialidad: ' %>
+      <%= f.select(:speciality_id, options_for_select([['']])) %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Clave:' %>
+      <%= f.text_field :clave %>
+    </div>
+    <div class="field">
+      <%= f.label 'Establecimiento:' %>
+      <%= f.text_field :establecimiento %>
+    </div>
+    <div class="field">
+      <%= f.label 'Localidad:' %>
+      <%= f.text_field :localidad %>
+    </div>
+    <div class="field">
+      <%= f.label 'Correo electrónico:' %>
+      <%= f.email_field :email, autofocus: false %>
+    </div>
+    <div class="field">
+      <%= f.label 'Contraseña:' %>
+      <% if @minimum_password_length %> <em>(<%= @minimum_password_length %> Caracteres mínimo)</em>
+      <% end %><br/>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+    <div class="field">
+      <%= f.label 'Confirmar Contraseña:' %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Registrarse" %>
+    </div>
+<% end %>
+>>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
 
           <div class="form-group">
             <div class="control-label col-md-3">
@@ -70,6 +154,7 @@
             </div>
           </div>
 
+<<<<<<< HEAD
           <div class="form-group">
             <div class="control-label col-md-3">
                 <%= f.label 'Localidad:' %>
@@ -78,6 +163,93 @@
                 <%= f.text_field :localidad, class: "form-control" %>
             </div>
           </div>
+=======
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".area_id").change(function(){
+
+      if ($(this).val() == "Consulta externa") {
+        var options = {
+          'Cardiología': 'cardiología',
+          'Cir. cardio vas.': 'cir. cardio vas.',
+          'Cir. Maxilo facial': 'cir. maxilo facial',
+          'Cir pediatrica': 'cir pediatrica',
+          'Cirugía general': 'cirugia general',
+          'Dermatología': 'dermatologia',
+          'Endocrinología': 'endocrinilogia',
+          'Gastroenterología': 'gastroenterologia',
+          'Geriatría': 'geriatria',
+          'Ginecología': 'ginecologia',
+          'Hematología': 'hematologia',
+          'Medicina general': 'medicina general',
+          'Medicina interna': 'medicina interna',
+          'Nefrología': 'nefrologia',
+          'Neumología': 'neumologia',
+          'Neurocirugía': 'neurocirugia',
+          'Neurología': 'neurologia',
+          'Nutrición y dietética': 'nutricion y dietetica',
+          'Oftalmología': 'oftalmologia',
+          'Oncología': 'oncologia',
+          'Otorrino': 'otorrina',
+          'Pediatría': 'pediatria'
+          'Psicología': 'psicologia'
+          'Psiquiatría': 'psiquiatria'
+          'Reumatología': 'reumatologia'
+          'Traumatología': 'traumatologia'
+          'Urología': 'urologia'
+        }
+      }
+
+      if ($(this).val() == "Dental")  {
+        var options = {
+          'Odontopediatría': 'odontopediatria',
+          'Dental adultos': 'dental adultos',
+        }
+      }
+
+
+      if ($(this).val() == 'Emergencia') {
+        var options = {
+          'Emergencia': 'emergencia',   
+        }
+      }      
+
+      if ($(this).val() == 'Fisioterapia') {
+        var options = {
+          'Fisioterapia': 'fisioterapia',
+        }
+      }
+
+      if ($(this).val() == 'Laboratorio') {
+        var options = {
+          'Laboratorio': 'laboratorio',
+        }
+      }
+
+      if ($(this).val() == 'Rayos x') {
+        var options = {
+          'Rayos x': 'rayos x',
+        }
+      }
+
+      if ($(this).val() == 'Servicios complementarios') {
+        var options = {
+          'Servicios complementarios': 'servicios complementarios',
+        }
+      }
+
+
+      $('#user_speciality_id').empty();
+      $.each(options, function(key, value){
+        $('#user_speciality_id').append('<option value="'+value+'">'+key+'</option>');
+      });
+
+    });
+  });
+</script>
+
+
+>>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
 
           <div class="form-group">
             <div class="control-label col-md-3">

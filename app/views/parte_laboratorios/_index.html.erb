@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>INFORME MÉDICO PARTE DIARIO LABORATORIO</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th><center>NOMBRE</center></th>
+      <th><center>MES</center></th>
+      <th><center>ESPECIALIDAD</center></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parte_laboratorios.reverse!.each do |parte_laboratorio| %>
+      <tr>
+        <td><%= parte_laboratorio.user.name + " " + parte_laboratorio.user.last_name %></td>
+        <td><%= parte_laboratorio.mes %></td>
+        <td><%= parte_laboratorio.user.speciality.nombre %></td>
+        <td><%= link_to 'Agregar Datos', parte_laboratorio %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

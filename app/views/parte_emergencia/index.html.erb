@@ -20,7 +20,7 @@
         <td><%= parte_emergencium.user.name + " " + parte_emergencium.user.last_name %></td>
         <td><%= parte_emergencium.user.speciality.nombre %></td>
         <td><%= parte_emergencium.mes %></td>
-        <td><%= link_to 'Mostrar', parte_emergencium %></td>
+        <td><%= link_to 'Mostrar', {:controller => "parte_emergencia", :action => "mostrar_emergencia", :id => parte_emergencium.id } %></td>  
       </tr>
     <% end %>
   </tbody>

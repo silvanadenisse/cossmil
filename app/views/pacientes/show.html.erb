@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<br><p>
   <strong>Nombre:</strong>
   <%= @paciente.nombre %>
 </p>
@@ -69,10 +69,10 @@
 <p>
   <strong>Letra de asegurado:</strong>
   <%= @paciente.letra_asegurado %>
+  <br><br><%= link_to 'Volver', pacientes_path %></br></br>
 </p>
 
 
+</br>
 
 
-<%= link_to 'Editar', edit_paciente_path(@paciente) %> |
-<%= link_to 'Volver', pacientes_path %>

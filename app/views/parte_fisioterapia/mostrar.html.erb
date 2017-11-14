@@ -1,0 +1,114 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<h2><center>PARTE DIARIO FISIOTERAPIA</center></h2>
+</p>
+
+
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Nombre Lic.:</strong>
+      <%= @parte_fisioterapium.user.name + " " + @parte_fisioterapium.user.last_name %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Turno:</strong>
+      <%= @parte_fisioterapium.turno %>
+    </p>  
+
+  <td class="tres">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_fisioterapium.mes %>
+    </p>
+        
+  </td>
+
+  <td class="cuatro">
+
+    <p>
+      <strong>Año:</strong>
+      <%= @parte_fisioterapium.anho %>
+    </p>
+        
+  </td>
+  </td>
+    </tr>
+  </td>
+</table></center>
+
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE FISIOTERAPIA</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>MATRÍCULA ASEGURADO</th>
+    <th>MATRÍCULA BENEFICIARIO</th>
+    <th>SEXO</th>
+    <th>EDAD</th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>FUERZA</th>
+    <th>NÚMERO DE SESIONES</th>
+    <th>MÉDICO</th>
+    <th>DIAGNÓSTICO</th>
+    <th>PROCEDENCIA</th>
+    <th>TIPO DE CONSULTA</th>
+    <th>RESPONSABLE</th>
+    <th>CONSULTA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_fisioterapium.paciente_reporte_fisioterapia.reverse!each do |paciente_reporte_fisioterapia| %>
+      <tr>
+        <td>
+          <%= paciente_reporte_fisioterapia.paciente.matricula_titular %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.paciente.matricula_paciente %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.paciente.sexo %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.edad %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.paciente.tipo_asegurado %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.paciente.fuerza %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.num_sesion %>
+        </td>
+        
+        <td>
+          <%= paciente_reporte_fisioterapia.diagnostico %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.procedencia %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.tipo_consulta %>
+        </td>
+        <td>
+          <%= paciente_reporte_fisioterapia.fecha_consulta.strftime("%d/%m/%Y") %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+
+<%= link_to 'Volver', parte_fisioterapia_path %>
+<br><br><br>
+  

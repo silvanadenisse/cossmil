@@ -147,25 +147,25 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Carnet</th>
+      <th><center>NOMBRE</center></th>
+      <th><center>CARNET</center></th>
     </tr>
     </thead>
     <tbody>
     <% @pacientes.each do |paciente| %>
         <tr>
-          <td>
+          <td><center>
             <%= paciente.nombre + " " + paciente.apellido %>
-          </td>
-          <td>
+          </center></td>
+          <td><center>
             <%= paciente.carnet %>
-          </td>
+          </center></td>
           <td>
 
             <div align="right">
-              <button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar al
+              <center><button class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= paciente.id %>">Agregar al
                 parte
-              </button>
+              </button></button>
             </div>
             <div class="modal fade" id="myModal-<%= paciente.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">

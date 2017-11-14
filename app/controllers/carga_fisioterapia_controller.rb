@@ -1,6 +1,18 @@
 class CargaFisioterapiaController < ApplicationController
-  before_action :set_carga_fisioterapium, only: [:show, :edit, :update, :destroy]
+  before_action :set_carga_fisioterapium, only: [:show, :edit, :update, :destroy, :mostrar_fisioterapia]
 
+  def mostrar_fisioterapia
+    @area = Area.find_by(nombre: 'Fisioterapia')
+    if params[:name] == nil
+      @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
+    else
+      @medicos = User.where(area: @area)
+                     .and(
+                         User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                     ).paginate(:page => params[:page], :per_page => 5)
+    end
+    @carga_fisioterapia = CargaFisioterapium.all
+  end
   # GET /carga_fisioterapia
   # GET /carga_fisioterapia.json
   def index

@@ -1,6 +1,33 @@
 class ParteEmergenciaController < ApplicationController
-  before_action :set_parte_emergencium, only: [:show, :edit, :update, :destroy]
+  before_action :set_parte_emergencium, only: [:show, :edit, :update, :destroy, :mostrar_emergencia]
 
+
+  def mostrar_emergencia
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i)
+                           .or(apellido: /.*#{params[:name].downcase}.*/i)
+                           .or(carnet: /.*#{params[:name]}.*/i)
+                           .paginate(:page => params[:page], :per_page => 5)
+    end
+    @pacientes.each do |paciente|
+      @parte_emergencium.paciente_reporte_emergencia.each do |paciente_reporte|
+        if((paciente.id == paciente_reporte.paciente_id) && (paciente_reporte.fecha_consulta.to_date == Time.now.to_date))
+          @pacientes.delete paciente
+        end
+      end
+    end
+    @parte_emergencium
+    if current_user.role == "Técnico-Encargado"
+      @parte_emergencia = ParteEmergencium.all
+    else
+      @parte_emergencia = ParteEmergencium.where(user_id: current_user.id)
+    end
+  end
+
+    
+  end
   # GET /parte_emergencia
   # GET /parte_emergencia.json
   def index
@@ -35,6 +62,11 @@ end
   # GET /parte_emergencia/new
   def new
     @parte_emergencium = ParteEmergencium.new
+    if current_user.role == "Técnico-Encargado"
+      @parte_emergencia = ParteEmergencium.all
+    else
+    @parte_emergencia = ParteEmergencium.where(user_id: current_user.id)
+  end
   end
 
   # GET /parte_emergencia/1/edit
@@ -91,4 +123,4 @@ end
     def parte_emergencium_params
       params.require(:parte_emergencium).permit(:mes, :user_id, :anho)
     end
-  end
+  

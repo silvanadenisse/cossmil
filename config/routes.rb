@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  get 'welcome/index'
+
+  resources :parte_serviciocomplementarios
+  resources :paciente_serviciocomplementarios
+  resources :specialities
+  resources :carga_reporte_laboratorios
+  resources :carga_laboratorios
+>>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
 
   scope '/(:locale)', defaults: { locale: 'es' }, constraints: { locale: /en|es/ } do
     resources :parte_serviciocomplementarios
@@ -109,6 +119,33 @@ Rails.application.routes.draw do
     resources :pacientes
   end
 
+<<<<<<< HEAD
+=======
+
+  get '/carga_parte_diarios/:id/grafica_reporte' => 'carga_parte_diarios#grafica_reporte'
+  get '/carga_parte_diarios/:id/grafica_fuerzas' => 'carga_parte_diarios#grafica_fuerzas'
+  get '/carga_laboratorios/:id/grafica_examen' => 'carga_laboratorios#grafica_examen'
+  get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
+  get '/carga_dentals/:id/print' => 'carga_dentals#print'
+
+  get '/carga_emergencia/:id/print' => 'carga_emergencia#print'
+  get '/carga_fisioterapia/:id/print' => 'carga_fisioterapia#print'
+  get '/carga_laboratorios/:id/print' => 'carga_laboratorios#print'
+
+
+  get '/mostrar_informe_diario/:id' => 'parte_diarios#mostrar'
+  get '/mostrar_informe_dental/:id' => 'parte_dentals#mostrar_informe'
+  get '/mostrar_informe_emergencia/:id' => 'parte_emergencia#mostrar_emergencia'
+  get '/mostrar_informe/:id' => 'parte_fisioterapia#mostrar'
+  get '/mostrar_informe_rayos_x/:id' => 'parte_rayos_xes#mostrar_rayos_x'
+  get '/mostrar_informe_laboratorio/:id' => 'parte_laboratorios#mostrar_laboratorio'
+ 
+
+  get '/mostrar_reporte_diario/:id' => 'carga_parte_diarios#mostrar'
+  get '/mostrar_reporte_dental/:id' => 'carga_dentals#mostrar_dental'
+  get '/mostrar_reporte_emergencia/:id' => 'carga_emergencia#mostrar_emergencia'
+  get '/mostrar_reporte_fisioterapia/:id' => 'carga_fisioterapia#mostrar_fisioterapia'
+>>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

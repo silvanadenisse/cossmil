@@ -1,0 +1,158 @@
+<p id="notice"><%= notice %></p>
+
+<h2><center>RESUMEN DE ATENCIÓN DENTAL CLASIFICADOS POR MÉDICOS, SEXO, TIPO DE CONSULTA Y CLASE DE ASEGURADO</center></h2>
+
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_dental.localidad %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_dental.dias_habiles %> 
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_dental.mes %>
+    </p>
+
+  </div>
+  <div class="col-md-3">
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_dental.anho %>
+    </p>
+  </div>
+</div>
+
+
+
+<div align="right">
+   <br><%=link_to "Imprimir Reporte", controller: "carga_dentals", action: "print", id: @carga_dental.id%></br>
+  </div>
+  <br>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Nombre del médico</th>
+    <th>Observaciones</th>
+    <th>Horas trabajadas</th>
+    <th>Consulta por hora</th>
+    <th>Horas trabajadas</th>
+    <th>Pacientes por día</th>
+    <th>Días trabajados</th>
+    <th>Consulta programadas</th>
+    <th>Total</th>
+    <th>Masculino Nuevos</th>
+    <th>Masculino Repetidos</th>
+    <th>Femenino Nuevo</th>
+    <th>Femenino Repetido</th>
+    <th>Activo A</th>
+    <th>Activo B</th>
+    <th>Activo C</th>
+    <th>Pasivo Z</th>
+    <th>Pasivo Y</th>
+    <th>Pasivo V</th>
+    <th>Pasivo X</th>
+    <th>Pasivo H</th>
+    <th>Sanidad operativa CAD</th>
+    <th>Sanidad operativa E</th>
+    <th>Sanidad operativa F</th>
+    <th>Sanidad operativa PM</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @carga_dental.carga_reporte_dentals.each do |carga_repo_dentals| %>
+      <tr>
+        <td>
+          <%= carga_repo_dentals.medico %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.observaciones %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.horas_trabajadas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.consulta_hora %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.hrs_trabajadas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.pacientes_dias %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.dias_trabajados %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.consultas_programadas %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.total %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.masculinoN %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.masculinoR %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.femeninoN %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.femeninoR %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraA %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraB %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraC %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraZ %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraY %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraV %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraH %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraCAD %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraE %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraF %>
+        </td>
+        <td>
+          <%= carga_repo_dentals.letraPM %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+<%= link_to 'Volver', carga_dentals_path %>
+<br><br><br>

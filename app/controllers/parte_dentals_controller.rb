@@ -1,9 +1,25 @@
 class ParteDentalsController < ApplicationController
-  before_action :set_parte_dental, only: [:show, :edit, :update, :destroy]
+  before_action :set_parte_dental, only: [:show, :edit, :update, :destroy, :mostrar_informe]
+
+  def mostrar_informe
+    if params[:name] == nil
+      @pacientes = Paciente.paginate(:page => params[:page], :per_page => 5)
+    else
+      @pacientes = Paciente.or(nombre: /.*#{params[:name].downcase}.*/i).or(apellido: /.*#{params[:name].downcase}.*/i).paginate(:page => params[:page], :per_page => 5)
+    end
+
+    if current_user.role == "Técnico-Encargado"
+      @parte_dentals = ParteDental.all
+    else
+      @parte_dentals = ParteDental.where(user_id: current_user.id)
+    end
+  end
+
 
   # GET /parte_dentals
   # GET /parte_dentals.json
-  def index
+  def index    
+
     if current_user.role == "Técnico-Encargado"
       @parte_dentals = ParteDental.all
     else
@@ -35,6 +51,11 @@ class ParteDentalsController < ApplicationController
   # GET /parte_dentals/new
   def new
     @parte_dental = ParteDental.new
+    if current_user.role == "Técnico-Encargado"
+      @parte_dentals = ParteDental.all
+    else
+      @parte_dentals = ParteDental.where(user_id: current_user.id)
+    end
   end
 
 

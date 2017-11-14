@@ -1,6 +1,19 @@
 class CargaParteDiariosController < ApplicationController
-  before_action :set_carga_parte_diario, only: [:show, :edit, :update, :destroy]
+  before_action :set_carga_parte_diario, only: [:show, :edit, :update, :destroy, :mostrar]
 
+  def mostrar
+    @area = Area.find_by(nombre: 'Consulta Externa')
+    if params[:name] == nil
+      @medicos = User.where(area: @area).paginate(:page => params[:page], :per_page => 5)
+    else
+      @medicos = User.where(area: @area)
+                     .and(
+                         User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
+                     ).paginate(:page => params[:page], :per_page => 5)
+    end
+    @carga_parte_diarios = CargaParteDiario.all
+
+  end
   # GET /carga_parte_diarios
   # GET /carga_parte_diarios.json
   def index

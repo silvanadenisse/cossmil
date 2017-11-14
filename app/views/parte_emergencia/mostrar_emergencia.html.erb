@@ -1,0 +1,119 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<h2><center>PARTE DIARIO EMERGENCIA</center></h2>
+</p>
+
+<center><table>
+ <tr>
+  <td class="uno">
+
+    <p>
+      <strong>Nombre médico:</strong>
+      <%= @parte_emergencium.user.name + " " + @parte_emergencium.user.last_name %>
+    </p>
+
+  </td>
+  <td class="dos">
+
+    <p>
+      <strong>Mes:</strong>
+      <%= @parte_emergencium.mes %>
+    </p>
+
+  <td class="tres">
+
+    <p>
+      <strong>Año:</strong>
+      <%= @parte_emergencium.anho %>
+    </p>
+        
+      </td>
+    </tr>
+  </td>
+</table></center>
+
+
+
+<p>
+<h2>INFORME MÉDICO PARTE DIARIO DE EMERGENCIA</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>CARNET DL ASEGURADO</th>
+    <th>CARNET DEL BENEFICIARIO</th>
+    <th>NOMBRE Y APELLIDOS</th>
+    <th><center>FUERZA</center></th>
+    <th><cneter>GRADO</cneter></th>
+    <th>TIPO DE ASEGURADO</th>
+    <th>EDAD</th>
+    <th><center>SEXO</center></th>
+    <th><center>T</center></th>
+    <th><center>P</center></th>
+    <th><center>PA</center></th>
+    <th><center>DIAGNÓSTICO</center></th>
+    <th><center>TRATAMIENTO</center></th>
+    <th><center>OBSERVACIONES</center></th>
+    <th><center>ENFERMERA</center></th>
+    <th><center>CONSULTA</center></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parte_emergencium.paciente_reporte_emergencia.reverse!.each do |paciente_reporte_emergencia| %>
+      <tr>
+      	<td><center>
+          <%= paciente_reporte_emergencia.paciente.matricula_titular %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.paciente.matricula_paciente %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.paciente.nombre + " " + paciente_reporte_emergencia.paciente.apellido %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.paciente.fuerza %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.paciente.grado %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.paciente.tipo_asegurado %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.edad %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.paciente.sexo %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.t %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.p %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.pa %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.diagnostico %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.tratamiento %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.observaciones %>        
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.enfermera %>
+        </td></center>
+        <td><center>
+          <%= paciente_reporte_emergencia.fecha_consulta.strftime("%d/%m/%Y - %H:%M") %>
+        </td></center>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+
+<%= link_to 'Volver', parte_emergencia_path %>
+<br><br><br>
