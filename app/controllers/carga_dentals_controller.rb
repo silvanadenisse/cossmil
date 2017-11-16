@@ -36,8 +36,12 @@ class CargaDentalsController < ApplicationController
   end
 
   def print
-    @carga_dental = CargaDental.find(params[:id])
-    render layout: false
+    @carga_emergencium = CargaDental.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'carga_dentals/reporte', pdf: 'Reporte', layout: 'pdf.html'}
+    end
   end
 
   # GET /carga_dentals/new

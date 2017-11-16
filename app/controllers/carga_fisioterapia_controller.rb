@@ -33,6 +33,15 @@ class CargaFisioterapiaController < ApplicationController
     end
   end
 
+  def print
+    @carga_fisioterapium = CargaDental.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'carga_fisioterapia/reporte', pdf: 'Reporte', layout: 'pdf.html'}
+    end
+  end
+
   # GET /carga_fisioterapia/new
   def new
     @carga_fisioterapium = CargaFisioterapium.new

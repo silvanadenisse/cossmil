@@ -13,7 +13,7 @@
   <div class="col-md-3">
     <p>
       <strong>DÍAS HÁBILES:</strong>
-      <%= @carga_dental.dias_habiles %> 
+      <%= @carga_dental.dias_habiles %>
     </p>
   </div>
 
@@ -35,7 +35,7 @@
 
 
 <div align="right">
-   <br><%=link_to "Imprimir Reporte", controller: "carga_dentals", action: "print", id: @carga_dental.id%></br>
+   <br><%=link_to "Imprimir Reporte", controller: "carga_dentals", action: "print", id: @carga_dental.id, format: 'pdf' %></br>
   </div>
   <br>
 

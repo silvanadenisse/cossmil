@@ -10,7 +10,7 @@ class CargaEmergenciaController < ApplicationController
                      .and(
                          User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
                      ).paginate(:page => params[:page], :per_page => 5)
-      end
+    end
     @carga_emergencium = CargaEmergencium.new
   end
   # GET /carga_emergencia
@@ -31,8 +31,8 @@ class CargaEmergenciaController < ApplicationController
                      .and(
                          User.or(name: /.*#{params[:name].downcase}.*/i).or(last_name: /.*#{params[:name].downcase}.*/i).selector
                      ).paginate(:page => params[:page], :per_page => 5)
-      end
     end
+  end
 
     # GET /carga_emergencia/new
     def new
@@ -56,6 +56,15 @@ class CargaEmergenciaController < ApplicationController
           format.html {render :new}
           format.json {render json: @carga_emergencium.errors, status: :unprocessable_entity}
         end
+      end
+    end
+
+    def print
+      @carga_dental = CargaDental.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.json
+        format.pdf {render template: 'carga_emergencia/reporte', pdf: 'Reporte', layout: 'pdf.html'}
       end
     end
 

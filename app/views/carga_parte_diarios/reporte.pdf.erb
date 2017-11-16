@@ -1,0 +1,165 @@
+
+
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="print.css" type="text/css" media="print" />
+</HEAD>
+<BODY onLoad="window.print();">
+<h2>RESUMEN MENSUAL DE CONSULTA EXTERNA CLASIFICADOS POR MÉDICOS, TIPO DE CONSULTA Y CLASE DE ASEGURADO</h2>
+
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_parte_diario.localidad %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_parte_diario.dias_habiles %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_parte_diario.mes %>
+    </p>
+
+  </div>
+  <div class="col-md-3">
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_parte_diario.anho %>
+    </p>
+  </div>
+</div>
+
+<br>
+<table class="table table-striped" border=1>
+  <thead>
+  <tr>
+  <th>Medico</th>
+    <th>Carga horaria contrato</th>
+    <th>Carga horaria consulta externa</th>
+    <th>Consultas ofertadas</th>
+    <th>Consulta programadas</th>
+    <th>Rendimiento medico (paciente por hora)</th>
+    <th>Horas trabajadas</th>
+    <th>Rendimiento medico (paciente por dias)</th>
+    <th>Dias trabajados</th>
+    <th>Rendimiento porcentual</th>
+    <th>Productividad porcentual</th>
+    <th>Total</th>
+    <th>Masculino</th>
+    <th>Femenino</th>
+    <th>Nuevo</th>
+    <th>Repetida</th>
+    <th>Activo A</th>
+    <th>Actvivo B</th>
+    <th>Activo C</th>
+    <th>Pasivo Z</th>
+    <th>Pasivo Y</th>
+    <th>Pasivo V</th>
+    <th>Pasivo X</th>
+    <th>Pasivo H</th>
+    <th>Sanidad operativa CAD</th>
+    <th>Sanidad operativa E</th>
+    <th>Sanidad operativa F</th>
+    <th>PM</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @carga_parte_diario.carga_reportes.each do |carga_repo| %>
+      <tr>
+           <td>
+          <%= carga_repo.medico %>
+        </td>
+        <td><center>
+          <%= carga_repo.carga_horaria_contrato %></center>
+        </td>
+        <td>
+          <%= carga_repo.carga_horaria_cons_ext %>
+        </td>
+        <td>
+          <%= carga_repo.consultas_ofertadas %>
+        </td>
+        <td>
+          <%= carga_repo.consultas_programadas %>
+        </td>
+        <td>
+          <%= carga_repo.rendimiento_medico_hora %>
+        </td>
+        <td>
+          <%= carga_repo.horas_trabajadas %>
+        </td>
+        <td>
+          <%= carga_repo.rendimiento_medico_dia %>
+        </td>
+        <td>
+          <%= carga_repo.dias_trabajados %>
+        </td>
+        <td>
+          <%= carga_repo.rendimiento_porcentual %>
+        </td>
+        <td>
+          <%= carga_repo.productividad %>
+        </td>
+        <td>
+          <%= carga_repo.total %>
+        </td>
+        <td>
+          <%= carga_repo.masculino %>
+        </td>
+        <td>
+          <%= carga_repo.femenino %>
+        </td>
+        <td>
+          <%= carga_repo.nuevos %>
+        </td>
+        <td>
+          <%= carga_repo.repetidos %>
+        </td>
+        <td>
+          <%= carga_repo.letraA %>
+        </td>
+        <td>
+          <%= carga_repo.letraB %>
+        </td>
+        <td>
+          <%= carga_repo.letraC %>
+        </td>
+        <td>
+          <%= carga_repo.letraZ %>
+        </td>
+        <td>
+          <%= carga_repo.letraY %>
+        </td>
+        <td>
+          <%= carga_repo.letraV %>
+        </td>
+        <td>
+          <%= carga_repo.letraX %>
+        </td>
+        <td>
+          <%= carga_repo.letraH %>
+        </td>
+        <td>
+          <%= carga_repo.letraCAD %>
+        </td>
+        <td>
+          <%= carga_repo.letraE %>
+        </td>
+        <td>
+          <%= carga_repo.letraF %>
+        </td>
+        <td>
+          <%= carga_repo.letraPM %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</BODY>

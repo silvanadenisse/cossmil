@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="print.css" type="text/css" media="print" />
+</HEAD>
+<BODY onLoad="window.print();">
+<h2><center>RESUMEN DEL NÚMERO DE PACIENTES POR TIPO DE ASEGURADO Y CLASE DE EXÁMENES DE LABORATORIO CLASIFICADOS POR TIPO DE ATENCIÓN, ESPECIALIDAD</center></h2>
+
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>REGIONAL:</strong>
+      <%= @carga_laboratorio.user.localidad %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>DÍAS HÁBILES:</strong>
+      <%= @carga_laboratorio.dias_habiles %>
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <p>
+      <strong>MES:</strong>
+      <%= @carga_laboratorio.mes %>
+    </p>
+
+  </div>
+  <div class="col-md-3">
+    <p>
+      <strong>AÑO:</strong>
+      <%= @carga_laboratorio.anho %>
+    </p>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Tipo de atención y especialidad</th>
+    <th>Total</th>
+    <th>Activo A</th>
+    <th>Activo B</th>
+    <th>Activo C</th>
+    <th>Pasivo Z</th>
+    <th>Pasivo Y</th>
+    <th>Pasivo V</th>
+    <th>Pasivo X</th>
+    <th>Sanidad operativa CAD</th>
+    <th>Sanidad operativa E</th>
+    <th>Sanidad operativa F</th>
+    <th>Sanidad operativa PM</th>
+    <th>Total examenes</th>
+    <th>Hematología</th>
+    <th>Bioquímica</th>
+    <th>Serología</th>
+    <th>Orinas</th>
+    <th>Heces</th>
+    <th>Grupo de sangre</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <% @carga_laboratorio.carga_reporte_laboratorios.each do |carga_repo_labo| %>
+      <tr>
+        <td>
+          <%= carga_repo_labo.speciality %>
+        </td>
+        <td>
+          <%= carga_repo_labo.total %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraA %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraB %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraC %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraZ %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraY %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraV %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraX %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraCAD %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraE %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraF %>
+        </td>
+        <td>
+          <%= carga_repo_labo.letraPM %>
+        </td>
+        <td>
+          <%= carga_repo_labo.hematologia %>
+        </td>
+        <td>
+          <%= carga_repo_labo.bioquimica %>
+        </td>
+        <td>
+          <%= carga_repo_labo.serologia %>
+        </td>
+        <td>
+          <%= carga_repo_labo.orinas %>
+        </td>
+        <td>
+          <%= carga_repo_labo.heces %>
+        </td>
+        <td>
+          <%= carga_repo_labo.gsanguineo %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</BODY>

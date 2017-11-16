@@ -14,18 +14,18 @@
 <%= render 'layouts/header' %>
 <div id="wrapper">
   <div class="container">
-<<<<<<< HEAD
-    <br>    
+
+    <br>
     <% flash.each do |name, msg| %>
         <div class='alert alert-<%= "#{name}" %>'>
           <a href='#' class='close' data-dismiss='alert'>&#215;</a>
           <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
         </div>
       <% end %>
-=======
+
     <br>
-    
->>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
+
+
     <%= yield %>
     <br>
   </div>

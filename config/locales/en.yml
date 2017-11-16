@@ -22,7 +22,7 @@
 
 en:
   mongoid:
-    errors:
+    errors:      
       messages:
         blank:
           can't be blank

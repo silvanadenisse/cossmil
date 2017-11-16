@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
-  get 'welcome/index'
-
-  resources :parte_serviciocomplementarios
-  resources :paciente_serviciocomplementarios
-  resources :specialities
-  resources :carga_reporte_laboratorios
-  resources :carga_laboratorios
->>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
 
   scope '/(:locale)', defaults: { locale: 'es' }, constraints: { locale: /en|es/ } do
+    get 'welcome/index'
+
+    resources :parte_serviciocomplementarios
+    resources :paciente_serviciocomplementarios
+    resources :specialities
+    resources :carga_reporte_laboratorios
+    resources :carga_laboratorios
     resources :parte_serviciocomplementarios
     resources :paciente_serviciocomplementarios
     resources :specialities
@@ -117,12 +114,7 @@ Rails.application.routes.draw do
 
     resources :areas
     resources :pacientes
-  end
-
-<<<<<<< HEAD
-=======
-
-  get '/carga_parte_diarios/:id/grafica_reporte' => 'carga_parte_diarios#grafica_reporte'
+    get '/carga_parte_diarios/:id/grafica_reporte' => 'carga_parte_diarios#grafica_reporte'
   get '/carga_parte_diarios/:id/grafica_fuerzas' => 'carga_parte_diarios#grafica_fuerzas'
   get '/carga_laboratorios/:id/grafica_examen' => 'carga_laboratorios#grafica_examen'
   get '/carga_parte_diarios/:id/print' => 'carga_parte_diarios#print'
@@ -139,13 +131,18 @@ Rails.application.routes.draw do
   get '/mostrar_informe/:id' => 'parte_fisioterapia#mostrar'
   get '/mostrar_informe_rayos_x/:id' => 'parte_rayos_xes#mostrar_rayos_x'
   get '/mostrar_informe_laboratorio/:id' => 'parte_laboratorios#mostrar_laboratorio'
- 
+
 
   get '/mostrar_reporte_diario/:id' => 'carga_parte_diarios#mostrar'
   get '/mostrar_reporte_dental/:id' => 'carga_dentals#mostrar_dental'
   get '/mostrar_reporte_emergencia/:id' => 'carga_emergencia#mostrar_emergencia'
   get '/mostrar_reporte_fisioterapia/:id' => 'carga_fisioterapia#mostrar_fisioterapia'
->>>>>>> cd53116cc2c59d6a42751a1b3880d19c1f57c6ac
+  end
+
+
+
+  
+
   #get "reportes_dentales" => "parte_dentals#reporte"
 
   # resources :parte_laboratorios do

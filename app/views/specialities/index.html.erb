@@ -17,7 +17,7 @@
     <% @specialities.each do |speciality| %>
       <tr>
         <td><%= speciality.nombre %></td>
-        <td><%= speciality.area %></td>
+        <td><%= speciality.area.nombre %></td>
         <td><%= link_to 'Show', speciality %></td>
         <td><%= link_to 'Edit', edit_speciality_path(speciality) %></td>
         <td><%= link_to 'Destroy', speciality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,5 +27,3 @@
 </table>
 
 <br>
-
-

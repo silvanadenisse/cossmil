@@ -4,7 +4,6 @@ class User
   field :name, type: String
   field :last_name, type: String
   field :role, type: String
-  belongs_to :speciality
   field :subesp, type: String
   field :clave, type: String
   field :establecimiento, type: String
@@ -14,7 +13,7 @@ class User
   validates :clave, :localidad, :email, presence: true
   validates :encrypted_password, presence: true, uniqueness: true, length: { minimum: 6}
 
-
+  belongs_to :speciality
   belongs_to :area
   has_many :pacientes
 

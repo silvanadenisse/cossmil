@@ -26,6 +26,7 @@
         <th><%= user.localidad %></th>
         <th><%= user.email %></th>
         <th><%= link_to "Editar", edit_user_path(user) %></th>
+        <th><%= link_to "Mostrar", user %></th>
         <th><%= link_to "Eliminar", user, :method => :delete, :confirm => "Seguro?" %></th>
       </tr>
   <% end %>
