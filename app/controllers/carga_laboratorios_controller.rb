@@ -16,11 +16,7 @@ class CargaLaboratoriosController < ApplicationController
 
   def print
     @carga_laboratorio = CargaLaboratorio.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json
-      format.pdf {render template: 'carga_laboratorios/reporte', pdf: 'Reporte', layout: 'pdf.html'}
-    end
+    render layout: false
   end
 
   def grafica_examen

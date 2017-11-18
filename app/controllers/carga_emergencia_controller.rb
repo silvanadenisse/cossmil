@@ -60,12 +60,8 @@ class CargaEmergenciaController < ApplicationController
     end
 
     def print
-      @carga_dental = CargaDental.find(params[:id])
-      respond_to do |format|
-        format.html
-        format.json
-        format.pdf {render template: 'carga_emergencia/reporte', pdf: 'Reporte', layout: 'pdf.html'}
-      end
+      @carga_emergencium = CargaEmergencium.find(params[:id])
+      render layout: false
     end
 
     # PATCH/PUT /carga_emergencia/1

@@ -36,12 +36,7 @@ class CargaParteDiariosController < ApplicationController
 
   def print
     @carga_parte_diario = CargaParteDiario.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json
-      format.pdf {render template: 'carga_parte_diarios/reporte', pdf: 'Reporte', layout: 'pdf.html'}
-    end
+    render layout: false
   end
 
 
